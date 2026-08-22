@@ -1,37 +1,53 @@
 const projects = [
   {
     number: "01",
-    title: "Northstar dashboard",
+    title: "National education platforms",
     description:
-      "A calmer command centre for teams that need to understand complex work at a glance.",
-    stack: ["Next.js", "TypeScript", "Product design"],
+      "Four digital platforms supporting school data verification, tree planting, emergency response, and staff reporting for national education programmes.",
+    stack: ["React", "Laravel", "MySQL"],
   },
   {
     number: "02",
-    title: "Atlas commerce",
+    title: "Cloud security reviews",
     description:
-      "A flexible storefront system that makes the route from discovery to checkout feel effortless.",
-    stack: ["React", "Node.js", "PostgreSQL"],
+      "Azure environment reviews and security reporting using Defender for Cloud, Entra ID, RBAC, MFA, Conditional Access, and Log Analytics.",
+    stack: ["Azure", "PowerShell", "Security"],
   },
   {
     number: "03",
-    title: "Signal / 24",
+    title: "ICT infrastructure support",
     description:
-      "An ongoing collection of small experiments in motion, interaction, and the useful edges of the web.",
-    stack: ["JavaScript", "UI design", "Creative code"],
+      "Hands-on technical support across education and airport environments, from 100+ devices to secure network and CCTV infrastructure.",
+    stack: ["Networking", "Linux", "Troubleshooting"],
   },
 ];
 
 const skills = [
-  ["Frontend", "Next.js", "React", "TypeScript", "Tailwind CSS"],
-  ["Backend", "Node.js", "APIs", "Databases", "Authentication"],
-  ["Tools", "Git", "GitHub", "Figma", "Vercel"],
+  ["Development", "PHP", "Laravel", "Python", "JavaScript", "React", "HTML / CSS", "Tailwind CSS"],
+  ["Cloud & data", "AWS", "Microsoft Azure", "MySQL", "PostgreSQL", "RESTful APIs", "Linux"],
+  ["Infrastructure", "TCP/IP", "VPN", "Network troubleshooting", "Hardware support", "Cybersecurity", "PowerShell"],
 ];
 
 const services = [
-  ["01", "Web development", "Fast, responsive websites and products built around how people actually use them."],
-  ["02", "Interface design", "Clear, expressive interfaces that give complex ideas an easy way in."],
-  ["03", "Creative direction", "A practical point of view from the first sketch through the final detail."],
+  ["01", "Full-stack development", "Responsive applications, RESTful APIs, authentication, and database-driven systems."],
+  ["02", "Cloud & security", "Azure and AWS fundamentals, secure configuration, monitoring, identity, and access controls."],
+  ["03", "Technical support", "Practical troubleshooting for devices, networks, systems, users, and ICT infrastructure."],
+];
+
+const experience = [
+  ["Dec 2025 — Aug 2026", "Full-Stack Software Developer Intern", "Ministry of Education Headquarters", "Built and maintained four national education platforms. Developed React interfaces, PHP/Laravel and Python APIs, and MySQL/PostgreSQL data systems while collaborating with stakeholders on testing and deployment."],
+  ["Oct 2025 — Dec 2025", "IT Intern", "Ministry of Education, Kadibo Sub-County", "Supported digital learning across 15 schools, provided first-line support for 100+ devices, trained 200+ teachers and learners in cybersecurity awareness, and assisted 40+ teachers with ICT integration."],
+  ["Apr 2025 — Aug 2025", "Cloud Security Specialist Trainee", "Serianu Limited", "Reviewed Azure environments, supported RBAC and MFA controls, investigated Defender and Log Analytics alerts, and created Azure CLI and PowerShell security reporting scripts."],
+  ["May 2025 — Jun 2025", "Cybersecurity Intern", "Hack Secure, India (Remote)", "Supported vulnerability assessments, red-team exercises, incident analysis, threat documentation, and client-facing technical reports."],
+  ["May 2023 — Aug 2023", "ICT Attaché", "Eldoret International Airport", "Maintained secure network connectivity for 50+ devices, supported CCTV systems, resolved daily hardware and software issues, and improved response time by 25%."],
+];
+
+const certifications = [
+  "Kubernetes and Cloud Native Associate (KCNA)",
+  "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+  "AWS Certified Cloud Practitioner",
+  "AWS re/Start Graduate",
+  "Certificate in Computer Applications — KCA University",
 ];
 
 export default function Home() {
@@ -59,8 +75,8 @@ export default function Home() {
             <p className="hero-greeting">Hi, I&apos;m</p>
             <h1>John <span>Orengo</span></h1>
             <p className="hero-description">
-              I build scalable full-stack applications using React, Node.js,
-              Express and MongoDB. I love clean code and fast UIs.
+              ICT professional and full-stack developer building reliable systems,
+              secure infrastructure, and useful digital experiences.
             </p>
             <div className="hero-actions">
               <a className="primary-button" href="#work">View projects <span aria-hidden="true">↗</span></a>
@@ -82,29 +98,45 @@ export default function Home() {
       <section className="section about" id="about">
         <p className="eyebrow">02 / About</p>
         <div className="section-grid">
-          <h2>Designing with<br />a point of view.</h2>
+          <h2>Technology that<br />does useful work.</h2>
           <div className="body-copy">
             <p>
-              I&apos;m John Orengo, a developer drawn to the space between a sharp
-              idea and a great experience. I care about clear systems, expressive
-              interfaces, and the details that make products feel inevitable.
+              I&apos;m John Orengo, a Computer Science graduate and ICT professional
+              working across software development, networking, technical support,
+              systems administration, and cloud security.
             </p>
             <p>
-              This is where I share selected work, experiments, and the questions
-              I&apos;m still curious enough to chase.
+              I bring a practical, hands-on approach to troubleshooting and a
+              product mindset to the systems I build. Good technology should be
+              secure, understandable, and dependable for the people using it.
             </p>
           </div>
         </div>
         <div className="stats" aria-label="Portfolio highlights">
-          <div><strong>01</strong><span>Portfolio<br />in progress</span></div>
-          <div><strong>∞</strong><span>Curiosity to<br />keep learning</span></div>
-          <div><strong>100%</strong><span>Focused on<br />craft and growth</span></div>
+          <div><strong>04</strong><span>National platforms<br />built</span></div>
+          <div><strong>15</strong><span>Schools<br />supported</span></div>
+          <div><strong>200+</strong><span>People reached<br />with training</span></div>
+        </div>
+      </section>
+
+      <section className="section experience-section" id="experience">
+        <div className="work-heading">
+          <p className="eyebrow">03 / Experience</p>
+          <p className="work-intro">A growing career across public-sector technology, security, and support.</p>
+        </div>
+        <div className="experience-list">
+          {experience.map(([date, role, company, description]) => (
+            <article className="experience-item" key={`${date}-${role}`}>
+              <span className="experience-date">{date}</span>
+              <div><h3>{role}</h3><p className="experience-company">{company}</p><p>{description}</p></div>
+            </article>
+          ))}
         </div>
       </section>
 
       <section className="section services-section" id="services">
         <div className="work-heading">
-          <p className="eyebrow">03 / What I do</p>
+          <p className="eyebrow">04 / What I do</p>
           <p className="work-intro">A small, focused set of ways I can help move an idea forward.</p>
         </div>
         <div className="service-grid">
@@ -121,7 +153,7 @@ export default function Home() {
 
       <section className="section work" id="work">
         <div className="work-heading">
-          <p className="eyebrow">04 / Selected work</p>
+          <p className="eyebrow">05 / Selected work</p>
           <p className="work-intro">Selected work, experiments, and a few things in the making.</p>
         </div>
         <div className="projects">
@@ -142,7 +174,7 @@ export default function Home() {
       </section>
 
       <section className="section skills-section">
-        <p className="eyebrow">05 / Toolkit</p>
+        <p className="eyebrow">06 / Toolkit</p>
         <div className="skills-heading">
           <h2>My current<br />toolkit.</h2>
           <p>The tools change. The aim stays the same: make something people enjoy using.</p>
@@ -157,14 +189,29 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section credentials-section" id="credentials">
+        <div className="credentials-grid">
+          <div>
+            <p className="eyebrow">07 / Education</p>
+            <h2>Grounded in<br />computer science.</h2>
+            <p className="credential-copy">Bachelor of Science in Computer Science, Second Class Upper<br /><span>The Catholic University of Eastern Africa · 2020 — 2024</span></p>
+            <p className="credential-copy">Kenya Certificate of Secondary Education<br /><span>Kisumu Boys&apos; High School · 2016 — 2019</span></p>
+          </div>
+          <div className="certification-list">
+            <p className="eyebrow">Certifications</p>
+            {certifications.map((certification, index) => <p key={certification}><span>0{index + 1}</span>{certification}</p>)}
+          </div>
+        </div>
+      </section>
+
       <section className="section testimonial-section">
-        <p className="eyebrow">06 / Kind words</p>
-        <blockquote>&ldquo;John brings a rare mix of taste, clarity, and follow-through. The work feels considered from the first click to the last.&rdquo;</blockquote>
-        <p className="quote-credit">A future collaborator <span>●</span> Somewhere on the internet</p>
+        <p className="eyebrow">08 / Approach</p>
+        <blockquote>Build it clearly. Secure it properly. Leave it better than you found it.</blockquote>
+        <p className="quote-credit">Software development <span>●</span> ICT infrastructure <span>●</span> Continuous learning</p>
       </section>
 
       <section className="contact" id="contact">
-        <p className="eyebrow">07 / Get in touch</p>
+        <p className="eyebrow">09 / Get in touch</p>
         <h2>Have an idea?<br /><em>Let&apos;s talk.</em></h2>
         <p>Open to conversations, collaborations, and opportunities.</p>
         <div className="contact-actions">
