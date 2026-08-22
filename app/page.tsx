@@ -55,7 +55,7 @@ export default function Home() {
     <main>
       <nav className="site-nav" aria-label="Main navigation">
         <a className="wordmark" href="#top" aria-label="John Orengo home">
-          MERN Stack <span>Developer</span>
+          Full-Stack <span>Developer</span>
         </a>
         <div className="nav-links">
           <a href="#top">Home</a>
