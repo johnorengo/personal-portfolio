@@ -62,6 +62,7 @@ export default function Home() {
           <a href="#work">Work</a>
           <a href="#about">About</a>
           <a href="#services">Services</a>
+          <a href="#cv">CV</a>
           <a href="#contact">Contact</a>
           <a className="coffee-link" href="https://www.buymeacoffee.com/orengo" target="_blank" rel="noreferrer">
             <span aria-hidden="true">♥</span> Buy me a coffee
@@ -204,14 +205,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section cv-section" id="cv">
+        <div className="cv-copy">
+          <p className="eyebrow">08 / Curriculum vitae</p>
+          <h2>Get the full<br />picture.</h2>
+        </div>
+        <div className="cv-download">
+          <p>
+            Download my CV for a detailed overview of my experience, skills,
+            education, and certifications.
+          </p>
+          <a className="cv-download-button" href="/john-orengo-cv.pdf" download>
+            Download CV <span aria-hidden="true">↓</span>
+          </a>
+          <span className="cv-file-detail">PDF · 189 KB</span>
+        </div>
+      </section>
+
       <section className="section testimonial-section">
-        <p className="eyebrow">08 / Approach</p>
+        <p className="eyebrow">09 / Approach</p>
         <blockquote>Build it clearly. Secure it properly. Leave it better than you found it.</blockquote>
         <p className="quote-credit">Software development <span>●</span> ICT infrastructure <span>●</span> Continuous learning</p>
       </section>
 
       <section className="contact" id="contact">
-        <p className="eyebrow">09 / Get in touch</p>
+        <p className="eyebrow">10 / Get in touch</p>
         <h2>Have an idea?<br /><em>Let&apos;s talk.</em></h2>
         <p>Open to conversations, collaborations, and opportunities.</p>
         <div className="contact-actions">
