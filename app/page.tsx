@@ -218,7 +218,7 @@ export default function Home() {
           <a className="cv-download-button" href="/john-orengo-cv.pdf" download>
             Download CV <span aria-hidden="true">↓</span>
           </a>
-          <span className="cv-file-detail">PDF · 189 KB</span>
+          <span className="cv-file-detail">PDF · 181 KB</span>
         </div>
       </section>
 
