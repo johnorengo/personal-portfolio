@@ -1,46 +1,40 @@
-const projects: [string, string, string, string[]][] = [
-  ["01", "National education platforms", "Four digital platforms for school data verification, tree planting, emergency response, and staff reporting.", ["React", "Laravel", "MySQL"]],
-  ["02", "Cloud security reviews", "Azure security reviews and reporting across identity, access, monitoring, and incident response.", ["Azure", "PowerShell", "Security"]],
-  ["03", "ICT infrastructure support", "Reliable hands-on support for people, devices, networks, and secure infrastructure.", ["Networking", "Linux", "Support"]],
+const capabilities: [string, string, string, string[]][] = [
+  ["01", "Full-stack engineering", "Responsive interfaces, backend services, and secure database-driven applications.", ["React", "Laravel", "REST APIs"]],
+  ["02", "Cloud & security", "Practical cloud configuration, identity controls, monitoring, and security reporting.", ["Azure", "AWS", "Defender"]],
+  ["03", "Technical delivery", "Reliable support across systems, devices, networks, and people.", ["Networking", "Linux", "Support"]],
 ];
 
-const experience: [string, string, string][] = [
-  ["2025 — 2026", "Full-Stack Software Developer Intern", "Ministry of Education Headquarters"],
-  ["2025", "IT Intern", "Ministry of Education, Kadibo Sub-County"],
-  ["2025", "Cloud Security Specialist Trainee", "Serianu Limited"],
-  ["2023", "ICT Attaché", "Eldoret International Airport"],
+const projects: [string, string, string][] = [
+  ["Education platforms", "National digital platforms supporting school verification, tree planting, emergency response, and staff reporting.", "React · Laravel · MySQL"],
+  ["Cloud security reviews", "Azure environment reviews covering identity, access controls, monitoring, and security reporting.", "Azure · PowerShell · Security"],
+  ["ICT infrastructure", "Technical support for secure networks, devices, CCTV, and education technology environments.", "Networking · Linux · Support"],
 ];
 
-const tools: string[][] = [
-  ["Development", "PHP", "Laravel", "Python", "JavaScript", "React"],
-  ["Cloud & data", "AWS", "Microsoft Azure", "MySQL", "PostgreSQL", "Linux"],
-  ["Infrastructure", "TCP/IP", "VPN", "Cybersecurity", "PowerShell", "Support"],
+const experience: [string, string, string, string][] = [
+  ["2025 — 2026", "Full-Stack Software Developer Intern", "Ministry of Education Headquarters", "Built and maintained national education platforms with React, Laravel, Python, and data systems."],
+  ["2025", "IT Intern", "Ministry of Education", "Supported digital learning, device troubleshooting, and ICT adoption across 15 schools."],
+  ["2025", "Cloud Security Specialist Trainee", "Serianu Limited", "Reviewed Azure environments and supported reporting, RBAC, MFA, and security monitoring."],
 ];
 
 export default function Home() {
-  return (
-    <main id="top">
-      <nav className="site-nav" aria-label="Main navigation">
-        <a className="wordmark" href="#top">JO<span>_</span></a>
-        <div className="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
-        <a className="nav-cta" href="mailto:orengokennedy93@gmail.com">Let&apos;s talk <span>↗</span></a>
-      </nav>
-      <section className="hero" aria-labelledby="hero-title">
-        <p className="eyebrow"><i /> Available for opportunities</p>
-        <div className="hero-title-wrap"><p className="intro">Hello, I&apos;m John Orengo —</p><h1 id="hero-title">Full-stack<br /><em>developer.</em></h1></div>
-        <div className="hero-footer"><p>Building dependable digital products, secure systems, and useful technology for the people who rely on it.</p><a className="underlined-link" href="#work">Explore selected work <span>↓</span></a></div>
-        <span className="hero-index">01 / 05</span>
-      </section>
-      <section className="section about" id="about">
-        <p className="eyebrow">02 / About me</p>
-        <div className="two-column"><h2>Technology that<br />does useful work.</h2><div className="prose"><p>I&apos;m John, a Computer Science graduate and ICT professional working across full-stack development, cloud security, networking, and systems support.</p><p>I combine a practical troubleshooting mindset with care for clear, secure, and dependable user experiences.</p></div></div>
-        <div className="stats"><div><strong>04</strong><span>National platforms<br />built</span></div><div><strong>15</strong><span>Schools<br />supported</span></div><div><strong>200+</strong><span>People reached<br />with training</span></div></div>
-      </section>
-      <section className="section work" id="work"><div className="section-heading"><p className="eyebrow">03 / Selected work</p><p>Selected systems and practical work across software, security, and infrastructure.</p></div><div className="projects">{projects.map(([number, title, description, stack]) => <article className="project" key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p><ul>{stack.map((item) => <li key={item}>{item}</li>)}</ul></div><b aria-hidden="true">↗</b></article>)}</div></section>
-      <section className="section experience" id="experience"><div className="section-heading"><p className="eyebrow">04 / Experience</p><p>A growing career across public-sector technology, cloud security, and technical support.</p></div><div className="timeline">{experience.map(([date, role, company]) => <article key={role}><span>{date}</span><h3>{role}</h3><p>{company}</p><b>↗</b></article>)}</div></section>
-      <section className="section toolkit"><p className="eyebrow">05 / Toolkit</p><div className="two-column"><h2>Tools for<br />getting things done.</h2><p className="prose">The tools change. The aim stays the same: make thoughtful technology that works well for people.</p></div><div className="tool-grid">{tools.map(([group, ...items]) => <div key={group}><h3>{group}</h3><ul>{items.map((item) => <li key={item}>{item}</li>)}</ul></div>)}</div></section>
-      <section className="contact" id="contact"><p className="eyebrow">Let&apos;s work together</p><h2>Have an idea?<br /><em>Let&apos;s talk.</em></h2><div><p>Open to conversations, collaborations, and opportunities.</p><a className="contact-button" href="mailto:orengokennedy93@gmail.com">Send an email <span>↗</span></a></div></section>
-      <footer><span>© {new Date().getFullYear()} John Orengo</span><a href="/john-orengo-cv.pdf" download>Download CV ↓</a><a href="#top">Back to top ↑</a></footer>
-    </main>
-  );
+  return <main>
+    <header className="site-header"><div className="container header-inner"><a className="brand" href="#top"><strong>John Orengo</strong><small>Full-stack developer</small></a><nav><a href="#about">About</a><a href="#expertise">Expertise</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav><a className="header-action" href="mailto:orengokennedy93@gmail.com" aria-label="Email John Orengo">↗</a></div></header>
+
+    <section className="hero" id="top"><div className="container hero-layout"><div><p className="eyebrow">Full-stack developer · ICT professional</p><h1>Building dependable digital systems for real-world work.</h1><p className="hero-lead">I design and build reliable applications, cloud-aware systems, and practical technical solutions—from initial requirements to deployment and support.</p><div className="actions"><a className="button primary" href="#work">View selected work <span>→</span></a><a className="button secondary" href="#contact">Start a conversation</a></div></div><div className="architecture-card" aria-label="Delivery lifecycle"><div className="card-bar"><span>System delivery</span><i>● Live</i></div><div className="architecture-body"><div className="node"><b>01</b><span>Requirements</span></div><em>→</em><div className="node active"><b>02</b><span>Build & integrate</span></div><em>→</em><div className="node"><b>03</b><span>Deploy & support</span></div></div><div className="card-footer"><span>Clear systems. Useful outcomes.</span><span>JO / 01</span></div></div></div></section>
+
+    <section className="domain-strip"><div className="container"><span>Areas of focus</span><p>Software systems <b>·</b> Cloud security <b>·</b> Education technology <b>·</b> ICT infrastructure</p></div></section>
+
+    <section className="section" id="about"><div className="container"><div className="section-heading"><p className="eyebrow">About</p><h2>Engineering across the complete delivery lifecycle.</h2><p>I work beyond individual features: understanding the problem, structuring data, building interfaces and services, and supporting the technology after it goes live.</p></div><ol className="lifecycle">{["Understand", "Design", "Build", "Integrate", "Deploy", "Support"].map((item, index) => <li key={item}><span>0{index + 1}</span>{item}<b>↗</b></li>)}</ol></div></section>
+
+    <section className="section subtle" id="expertise"><div className="container"><div className="section-heading"><p className="eyebrow">Practical expertise</p><h2>Focused across the application stack.</h2><p>Capabilities shaped by hands-on work with operational systems, secure environments, and the people who use them.</p></div><div className="capability-grid">{capabilities.map(([number, title, description, stack]) => <article className="capability-card" key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p><ul>{stack.map(item => <li key={item}>{item}</li>)}</ul></article>)}</div></div></section>
+
+    <section className="section" id="work"><div className="container"><div className="section-heading"><p className="eyebrow">Selected work</p><h2>Systems designed around real operations.</h2><p>Work spanning national education platforms, cloud security, and practical ICT support.</p></div><div className="project-grid">{projects.map(([title, description, stack], index) => <article className={`project-card ${index === 0 ? "featured" : ""}`} key={title}><div className="project-visual"><span>JO</span><i>{String(index + 1).padStart(2, "0")}</i><div><b>●</b><b>●</b><b>●</b></div></div><div className="project-copy"><small>Case study / {String(index + 1).padStart(2, "0")}</small><h3>{title}</h3><p>{description}</p><span className="tag">{stack}</span><a href="#contact">Discuss a similar project <b>→</b></a></div></article>)}</div></div></section>
+
+    <section className="section subtle" id="experience"><div className="container experience-layout"><div><div className="section-heading"><p className="eyebrow">Experience</p><h2>Technical delivery grounded in applied computing.</h2></div><div className="experience-list">{experience.map(([date, role, place, detail]) => <article key={role}><i>↗</i><div><small>{date} · {place}</small><h3>{role}</h3><p>{detail}</p></div></article>)}</div></div><aside className="credentials"><p className="eyebrow">Credentials</p><div><small>Education</small><h3>BSc Computer Science</h3><p>The Catholic University of Eastern Africa</p></div><div><small>Certification</small><h3>AWS Certified Cloud Practitioner</h3><p>Plus KCNA and Microsoft Security fundamentals</p></div></aside></div></section>
+
+    <section className="section approach"><div className="container"><div className="section-heading"><p className="eyebrow">Approach</p><h2>Disciplined from discovery to operation.</h2><p>Technical decisions should remain connected to the people, workflow, and outcome they serve.</p></div><div className="approach-grid">{[["01", "Understand the problem"], ["02", "Design the system"], ["03", "Build and integrate"], ["04", "Deploy and improve"]].map(([number, title]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>Make the next decision clear, proportionate, and practical.</p></article>)}</div></div></section>
+
+    <section className="contact-section" id="contact"><div className="container"><div className="contact-panel"><div><p>Let&apos;s work together</p><h2>Discuss a system, integration, or delivery challenge.</h2><span>For professional enquiries, collaboration, or an opportunity to build something useful.</span></div><div className="contact-links"><a href="mailto:orengokennedy93@gmail.com"><b>↗</b><span>Email John<small>orengokennedy93@gmail.com</small></span><i>→</i></a><a href="/john-orengo-cv.pdf" download><b>↓</b><span>Download CV<small>Experience and qualifications</small></span><i>→</i></a></div></div></div></section>
+    <footer><div className="container"><div><strong>John Orengo</strong><p>Full-stack engineering, secure systems, and practical technical delivery.</p></div><nav><a href="#about">About</a><a href="#work">Selected work</a><a href="#experience">Experience</a></nav><small>© {new Date().getFullYear()} John Orengo. All rights reserved.</small></div></footer>
+  </main>;
 }
