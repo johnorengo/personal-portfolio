@@ -1,14 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Download, Briefcase, GraduationCap, Award, CheckCircle, ExternalLink, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { experienceData, educationData, certificationsData, personalInfo } from "../data/portfolio-data";
 
 type TimelineFilter = "all" | "experience" | "certifications" | "education";
 
+function alignCareerTabs(element: HTMLDivElement | null) {
+  if (!element) return;
+  const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 72;
+  window.scrollTo({
+    top: Math.max(0, window.scrollY + element.getBoundingClientRect().top - headerHeight - 8),
+    behavior: "instant",
+  });
+}
+
 export default function ExperienceCV() {
   const [activeTab, setActiveTab] = useState<TimelineFilter>("experience");
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const alignAfterSelection = useRef(false);
+
+  const selectTab = (tab: TimelineFilter) => {
+    if (tab === activeTab) {
+      alignCareerTabs(tabsRef.current);
+      return;
+    }
+    alignAfterSelection.current = true;
+    setActiveTab(tab);
+  };
+
+  useLayoutEffect(() => {
+    if (!alignAfterSelection.current) return;
+    alignAfterSelection.current = false;
+    alignCareerTabs(tabsRef.current);
+  }, [activeTab]);
+
 
   return (
     <section id="experience" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
@@ -48,7 +75,7 @@ export default function ExperienceCV() {
         </motion.div>
 
         {/* Tab switchers */}
-        <div role="group" aria-label="Choose career history or credentials" className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
+        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
           {[
             { id: "all", label: "Overview", icon: Briefcase },
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
@@ -63,7 +90,7 @@ export default function ExperienceCV() {
                 type="button"
                 aria-pressed={isSelected}
                 aria-controls="career-content"
-                onClick={() => setActiveTab(tab.id as TimelineFilter)}
+                onClick={() => selectTab(tab.id as TimelineFilter)}
                 className={`relative flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl border transition-colors whitespace-nowrap cursor-pointer ${
                   isSelected
                     ? "text-[#35D7FF] bg-white/[0.06] border-[#35D7FF]/40 shadow-sm"
@@ -104,7 +131,7 @@ export default function ExperienceCV() {
                       </div>
                       <h4 className="text-lg font-bold text-[#F4F7FC]">{item.title}</h4>
                       <p className="text-sm text-[#96A3B7] leading-relaxed flex-1">{item.description}</p>
-                      <button type="button" onClick={() => setActiveTab(item.id as TimelineFilter)} className="inline-flex items-center gap-2 text-xs font-bold text-[#35D7FF] hover:text-white self-start cursor-pointer">
+                      <button type="button" onClick={() => selectTab(item.id as TimelineFilter)} className="inline-flex items-center gap-2 text-xs font-bold text-[#35D7FF] hover:text-white self-start cursor-pointer">
                         {item.action}<ChevronRight className="w-4 h-4" />
                       </button>
                     </motion.div>
