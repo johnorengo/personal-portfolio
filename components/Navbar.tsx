@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
 import { motion, useScroll, useSpring } from "motion/react";
 import BrandMark from "./BrandMark";
+import ThemeToggle from "./ThemeToggle";
 import { personalInfo } from "../data/portfolio-data";
 
 interface NavbarProps {
@@ -61,7 +62,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           scrolled
-            ? "bg-[#080D18]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl py-3.5"
+            ? "bg-[rgb(var(--page-rgb))]/90 backdrop-blur-xl border-b border-[rgb(var(--border-rgb))]/[0.08] shadow-2xl py-3.5"
             : "bg-transparent border-b border-transparent py-5"
         }`}
       >
@@ -73,7 +74,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
               className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
               <BrandMark className="h-8 w-auto" />
-              <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[#F4F7FC] group-hover:text-[#35D7FF] transition-colors">
+              <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
                 {personalInfo.name}
               </span>
             </a>
@@ -88,8 +89,8 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
                     href={item.href}
                     className={`relative py-1 whitespace-nowrap shrink-0 transition-colors ${
                       isActive
-                        ? "text-[#35D7FF] font-semibold"
-                        : "text-[#96A3B7] hover:text-[#F4F7FC]"
+                        ? "text-[var(--accent-text)] font-semibold"
+                        : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
                     }`}
                   >
                     {item.label}
@@ -107,11 +108,12 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
             {/* Primary Action Zone */}
             <div className="hidden sm:flex items-center gap-3 shrink-0">
+              <ThemeToggle />
               {onOpenCoffeeModal && (
                 <button
                   type="button"
                   onClick={onOpenCoffeeModal}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#96A3B7] hover:text-[#35D7FF] bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-[#35D7FF]/40 rounded-xl transition-all whitespace-nowrap shrink-0 cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--accent-text)] bg-[rgb(var(--wash-rgb))]/[0.03] hover:bg-[rgb(var(--wash-rgb))]/[0.06] border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#35D7FF]/40 rounded-xl transition-all whitespace-nowrap shrink-0 cursor-pointer"
                   title="Support with M-Pesa / Buy Me a Coffee"
                 >
                   <span className="text-sm">☕</span>
@@ -129,11 +131,12 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
             {/* Mobile Menu Button */}
             <div className="flex sm:hidden items-center gap-2">
+              <ThemeToggle />
               {onOpenCoffeeModal && (
                 <button
                   type="button"
                   onClick={onOpenCoffeeModal}
-                  className="p-2 text-[#35D7FF] border border-white/[0.1] bg-white/[0.04] rounded-lg text-sm"
+                  className="p-2 text-[var(--accent-text)] border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--wash-rgb))]/[0.04] rounded-lg text-sm"
                   aria-label="Buy me a coffee"
                 >
                   ☕
@@ -142,7 +145,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-[#96A3B7] hover:text-white focus:outline-none"
+                className="p-2 text-[var(--text-muted)] hover:text-[var(--text-main)] focus:outline-none"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? (
@@ -157,21 +160,21 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="sm:hidden border-b border-white/[0.08] bg-[#080D18]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+          <div className="sm:hidden border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--page-rgb))]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
             <nav className="flex flex-col space-y-1 text-base font-medium">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2.5 rounded-lg text-[#96A3B7] hover:bg-white/[0.05] hover:text-[#35D7FF] transition-colors"
+                  className="px-3 py-2.5 rounded-lg text-[var(--text-muted)] hover:bg-[rgb(var(--wash-rgb))]/[0.05] hover:text-[var(--accent-text)] transition-colors"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
 
-            <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2">
+            <div className="pt-3 border-t border-[rgb(var(--border-rgb))]/[0.08] flex flex-col gap-2">
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -183,9 +186,9 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
               <a
                 href={personalInfo.cvPath}
                 download
-                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-medium rounded-xl border border-white/[0.1] text-[#96A3B7] hover:bg-white/[0.05]"
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-medium rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] text-[var(--text-muted)] hover:bg-[rgb(var(--wash-rgb))]/[0.05]"
               >
-                <Download className="w-4 h-4 text-[#35D7FF]" />
+                <Download className="w-4 h-4 text-[var(--accent-text)]" />
                 <span>Download Résumé (PDF)</span>
               </a>
             </div>

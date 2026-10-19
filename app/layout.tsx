@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -57,7 +58,18 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#080D18] text-[#F4F7FC] antialiased selection:bg-[#35D7FF]/30 selection:text-white">
+      <Script id="portfolio-theme" strategy="beforeInteractive">{`
+        (() => {
+          const root = document.documentElement;
+          const media = window.matchMedia('(prefers-color-scheme: dark)');
+          const stored = () => { try { return localStorage.getItem('portfolio-theme'); } catch { return null; } };
+          const apply = () => { const choice = stored(); root.dataset.theme = choice === 'light' || choice === 'dark' ? choice : media.matches ? 'dark' : 'light'; };
+          apply();
+          media.addEventListener('change', apply);
+          window.addEventListener('storage', apply);
+        })();
+      `}</Script>
+      <body className="min-h-full flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)] antialiased selection:bg-[#35D7FF]/30 selection:text-white">
         {children}
       </body>
     </html>

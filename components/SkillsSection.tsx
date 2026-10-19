@@ -9,7 +9,7 @@ const categoryIcons = [Code2, ShieldCheck, Brain, Smartphone, Briefcase, Cloud];
 
 export default function SkillsSection() {
   return (
-    <section id="expertise" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
+    <section id="expertise" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[rgb(var(--page-rgb))]">
       {/* Dynamic ambient backdrop */}
       <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-[#35D7FF]/[0.05] rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-[#8667FF]/[0.05] rounded-full blur-[160px] pointer-events-none" />
@@ -23,13 +23,13 @@ export default function SkillsSection() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-2xl space-y-3"
         >
-          <span className="text-xs font-mono font-bold tracking-widest text-[#35D7FF] uppercase">
+          <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
             Technical Proficiency & Domains
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#F4F7FC] leading-tight font-display [text-wrap:balance]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
             Structured expertise across engineering disciplines.
           </h2>
-          <p className="text-base text-slate-300 leading-relaxed">
+          <p className="text-base text-[var(--slate-300)] leading-relaxed">
             Practical technical capabilities organized across software engineering, cybersecurity, machine learning, mobile apps, business systems, and cloud operations.
           </p>
         </motion.div>
@@ -46,7 +46,7 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="h-full min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl border border-white/[0.12] bg-[#0E1524] flex flex-col justify-start gap-4 relative isolate group hover:border-[#35D7FF]/40 hover:shadow-[0_18px_48px_-20px_rgba(53,215,255,0.25)] transition-[border-color,box-shadow]"
+                className="h-full min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))] flex flex-col justify-start gap-4 relative isolate group hover:border-[#35D7FF]/40 hover:shadow-[0_18px_48px_-20px_rgba(53,215,255,0.25)] transition-[border-color,box-shadow]"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-64 sm:h-72 -z-10" aria-hidden="true">
                   <Image
@@ -57,35 +57,35 @@ export default function SkillsSection() {
                     quality={90}
                     className="object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#080D18]/20 via-[#0E1524]/60 to-[#0E1524]" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[rgb(var(--page-rgb))]/20 via-[rgb(var(--card-rgb))]/60 to-[rgb(var(--card-rgb))]" />
                 </div>
                 {/* Header */}
                 <div className="space-y-3">
                   <div className="flex min-h-28 items-start justify-between">
-                    <div className="p-3 rounded-2xl bg-[#080D18]/75 backdrop-blur-md border border-white/[0.15] text-[#35D7FF] group-hover:bg-[#35D7FF]/10 group-hover:border-[#35D7FF]/40 transition-colors">
+                    <div className="p-3 rounded-2xl bg-[rgb(var(--page-rgb))]/75 backdrop-blur-md border border-[rgb(var(--border-rgb))]/[0.15] text-[var(--accent-text)] group-hover:bg-[#35D7FF]/10 group-hover:border-[#35D7FF]/40 transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="rounded-full border border-white/[0.12] bg-[#080D18]/75 px-2.5 py-1.5 text-[10px] font-mono tracking-wider text-slate-200 backdrop-blur-md">DOMAIN 0{idx + 1}</span>
+                    <span className="rounded-full border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--page-rgb))]/75 px-2.5 py-1.5 text-[10px] font-mono tracking-wider text-[var(--slate-200)] backdrop-blur-md">DOMAIN 0{idx + 1}</span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors">
+                  <h3 className="text-2xl font-bold text-[var(--text-main)] font-display group-hover:text-[var(--accent-text)] transition-colors">
                     {category.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[var(--slate-300)] leading-relaxed">
                     {category.description}
                   </p>
                 </div>
 
                 {/* Skills tags list */}
-                <div className="pt-3 border-t border-white/[0.1] grid grid-cols-2 content-start gap-2">
+                <div className="pt-3 border-t border-[rgb(var(--border-rgb))]/[0.1] grid grid-cols-2 content-start gap-2">
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="px-2.5 py-2 rounded-xl bg-[#080D18]/75 border border-white/[0.1] hover:border-[#35D7FF]/40 hover:bg-[#35D7FF]/5 transition-colors flex flex-col items-start justify-center gap-1 min-w-0"
+                      className="px-2.5 py-2 rounded-xl bg-[rgb(var(--page-rgb))]/75 border border-[rgb(var(--border-rgb))]/[0.1] hover:border-[#35D7FF]/40 hover:bg-[#35D7FF]/5 transition-colors flex flex-col items-start justify-center gap-1 min-w-0"
                     >
-                      <span className="text-[11px] sm:text-xs leading-snug font-medium text-slate-200 break-words">{skill.name}</span>
-                      <span className="text-[10px] font-mono text-[#96A3B7]">{skill.tag}</span>
+                      <span className="text-[11px] sm:text-xs leading-snug font-medium text-[var(--slate-200)] break-words">{skill.name}</span>
+                      <span className="text-[10px] font-mono text-[var(--text-muted)]">{skill.tag}</span>
                     </div>
                   ))}
                 </div>

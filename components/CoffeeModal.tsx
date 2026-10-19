@@ -53,23 +53,23 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg glass-panel border border-white/[0.15] rounded-3xl shadow-2xl overflow-hidden bg-[#070e1c]"
+            className="relative w-full max-w-lg glass-panel border border-[rgb(var(--border-rgb))]/[0.15] rounded-3xl shadow-2xl overflow-hidden bg-[rgb(var(--card-rgb))]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-[#050a14]">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--footer-rgb))]">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-300">
                   <Coffee className="w-4 h-4 text-teal-400" />
                 </div>
-                <h2 id="coffee-title" className="text-sm font-bold text-white">
+                <h2 id="coffee-title" className="text-sm font-bold text-[var(--text-main)]">
                   Support John&apos;s Engineering Work
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={onClose}
-                className="p-1.5 text-slate-400 hover:text-white rounded-xl hover:bg-white/[0.08] transition-colors cursor-pointer"
+                className="p-1.5 text-[var(--slate-400)] hover:text-[var(--text-main)] rounded-xl hover:bg-[rgb(var(--wash-rgb))]/[0.08] transition-colors cursor-pointer"
                 aria-label="Close dialog"
               >
                 <X className="w-5 h-5" />
@@ -78,13 +78,13 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
 
             {/* Modal content */}
             <div className="p-6 sm:p-7 space-y-6">
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-[var(--slate-300)] leading-relaxed">
                 Your support directly fuels cloud security research, open source development, and technical community mentorship across Kenya.
               </p>
 
               {/* Amount Presets */}
               <div>
-                <label className="block text-xs font-bold text-slate-300 mb-2">
+                <label className="block text-xs font-bold text-[var(--slate-300)] mb-2">
                   Select Contribution (KES)
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -96,7 +96,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
                       className={`py-2.5 px-1 text-xs font-bold rounded-xl border transition-all text-center cursor-pointer ${
                         amount === val
                           ? "bg-teal-400 text-slate-950 border-teal-300 shadow-md shadow-teal-500/30"
-                          : "bg-white/[0.03] border-white/[0.08] text-slate-200 hover:border-teal-400/40"
+                          : "bg-[rgb(var(--wash-rgb))]/[0.03] border-[rgb(var(--border-rgb))]/[0.08] text-[var(--slate-200)] hover:border-teal-400/40"
                       }`}
                     >
                       KES {val.toLocaleString()}
@@ -107,7 +107,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
 
               {/* M-Pesa Phone Number Form */}
               <form onSubmit={handleSimulateMpesa} className="space-y-3">
-                <label htmlFor="mpesa-number" className="block text-xs font-bold text-slate-300">
+                <label htmlFor="mpesa-number" className="block text-xs font-bold text-[var(--slate-300)]">
                   M-Pesa Mobile Number (Safaricom)
                 </label>
                 <input
@@ -116,9 +116,9 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
                   placeholder="e.g. 0712 345 678"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/[0.1] text-slate-200 text-xs sm:text-sm focus:border-teal-400 focus:outline-none transition-colors placeholder:text-slate-600 font-mono"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[rgb(var(--page-rgb))]/80 border border-[rgb(var(--border-rgb))]/[0.1] text-[var(--slate-200)] text-xs sm:text-sm focus:border-teal-400 focus:outline-none transition-colors placeholder:text-[var(--slate-600)] font-mono"
                 />
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-[var(--slate-400)]">
                   Enter your M-Pesa phone number to generate an instant STK push authorization prompt.
                 </p>
 
@@ -140,8 +140,8 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
 
               {/* Divider */}
               <div className="relative flex items-center justify-center">
-                <div className="border-t border-white/[0.08] w-full" />
-                <span className="bg-[#070e1c] px-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                <div className="border-t border-[rgb(var(--border-rgb))]/[0.08] w-full" />
+                <span className="bg-[rgb(var(--card-rgb))] px-3 text-[11px] font-bold text-[var(--slate-400)] uppercase tracking-wider">
                   Or International Card
                 </span>
               </div>
@@ -151,11 +151,11 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
                 href="https://www.buymeacoffee.com/orengo"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] text-slate-200 hover:text-white transition-all text-xs font-bold"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.03] hover:bg-[rgb(var(--wash-rgb))]/[0.08] border border-[rgb(var(--border-rgb))]/[0.1] text-[var(--slate-200)] hover:text-[var(--text-main)] transition-all text-xs font-bold"
               >
                 <Heart className="w-4 h-4 text-rose-400" />
                 <span>Continue via BuyMeACoffee.com/orengo</span>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
+                <ExternalLink className="w-3.5 h-3.5 text-[var(--slate-500)]" />
               </a>
             </div>
           </motion.div>

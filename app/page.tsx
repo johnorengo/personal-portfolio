@@ -15,7 +15,7 @@ export default function Home() {
   const [coffeeModalOpen, setCoffeeModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#080D18] text-[#F4F7FC]">
+    <div className="min-h-screen flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)]">
       <Navbar onOpenCoffeeModal={() => setCoffeeModalOpen(true)} />
 
       <main className="flex-1">
