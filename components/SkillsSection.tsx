@@ -8,7 +8,7 @@ const categoryIcons = [Code2, ShieldCheck, Brain, Smartphone, Briefcase];
 
 export default function SkillsSection() {
   return (
-    <section id="expertise" className="py-24 lg:py-32 relative overflow-hidden bg-[#080D18]">
+    <section id="expertise" className="pt-8 pb-24 lg:pt-10 lg:pb-32 relative overflow-hidden bg-[#080D18]">
       {/* Dynamic ambient backdrop */}
       <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-[#35D7FF]/[0.05] rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[500px] h-[500px] bg-[#8667FF]/[0.05] rounded-full blur-[160px] pointer-events-none" />

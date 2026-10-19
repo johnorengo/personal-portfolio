@@ -62,7 +62,7 @@ export default function ContactSection({
   };
 
   return (
-    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden bg-[#080D18]">
+    <section id="contact" className="pt-8 pb-24 lg:pt-10 lg:pb-32 relative overflow-hidden bg-[#080D18]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#35D7FF]/[0.05] rounded-full blur-[200px] pointer-events-none" />
 

@@ -21,7 +21,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 lg:py-32 relative overflow-hidden bg-[#080D18]">
+    <section id="about" className="pt-8 pb-24 lg:pt-10 lg:pb-32 relative overflow-hidden bg-[#080D18]">
       {/* Background ambient light */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#35D7FF]/[0.04] rounded-full blur-[140px] pointer-events-none" />
 
