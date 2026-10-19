@@ -121,7 +121,7 @@ export const servicesData: ServiceItem[] = [
 
 /**
  * ============================================================================
- * 5 SKILLS & EXPERTISE CATEGORIES (Master Prompt Section 7)
+ * 6 SKILLS & EXPERTISE DOMAINS
  * ============================================================================
  */
 export const skillsCategories: SkillCategory[] = [
@@ -130,21 +130,20 @@ export const skillsCategories: SkillCategory[] = [
     description: "Frontend architecture, backend development, APIs, databases, testing, and scalable applications.",
     skills: [
       { name: "React / Next.js", tag: "Frontend" },
+      { name: "Vite", tag: "Build Tool" },
       { name: "Laravel / PHP", tag: "Backend" },
       { name: "TypeScript / JavaScript", tag: "Language" },
       { name: "Python", tag: "Backend & Data" },
       { name: "RESTful API Architecture", tag: "Integration" },
       { name: "MySQL & PostgreSQL", tag: "Databases" },
       { name: "Tailwind CSS", tag: "Styling" },
-      { name: "Git & Version Control", tag: "DevOps" },
     ],
   },
   {
-    title: "Cybersecurity & Cloud",
+    title: "Cybersecurity & Network Security",
     description: "Secure application development, identity and access management, vulnerability assessment, threat detection, and security fundamentals.",
     skills: [
       { name: "Microsoft Azure & Entra ID", tag: "Cloud IAM" },
-      { name: "Amazon Web Services (AWS)", tag: "Cloud Infrastructure" },
       { name: "RBAC & Privileged Identity (PIM)", tag: "Access Control" },
       { name: "Multifactor Authentication (MFA)", tag: "Identity Protection" },
       { name: "Microsoft Defender for Cloud", tag: "Threat Detection" },
@@ -168,7 +167,8 @@ export const skillsCategories: SkillCategory[] = [
     title: "Mobile Development",
     description: "Cross platform mobile applications, responsive user experience, touch interactions, and API integration.",
     skills: [
-      { name: "Cross Platform Frameworks", tag: "Mobile" },
+      { name: "Flutter", tag: "Mobile Framework" },
+      { name: "Firebase", tag: "App Backend" },
       { name: "Progressive Web Apps (PWA)", tag: "Web Mobile" },
       { name: "Responsive Touch UI/UX", tag: "Design" },
       { name: "Offline First Syncing", tag: "Data Architecture" },
@@ -179,12 +179,24 @@ export const skillsCategories: SkillCategory[] = [
     title: "Business Systems",
     description: "ERP, POS systems, workflow automation, business process digitization, and system integration.",
     skills: [
-      { name: "Enterprise Resource Planning (ERP)", tag: "Core Business" },
+      { name: "ERPNext", tag: "ERP Platform" },
+      { name: "TallyPrime", tag: "Accounting" },
       { name: "Point of Sale (POS) Integration", tag: "Retail Systems" },
       { name: "Inventory & Supply Tracking", tag: "Logistics" },
       { name: "Receipt & Invoice Generation", tag: "Billing" },
       { name: "Workforce & Payroll Tracking", tag: "Operations" },
       { name: "Relational Reporting Engines", tag: "Analytics" },
+    ],
+  },
+  {
+    title: "Cloud & DevOps",
+    description: "Cloud infrastructure, containers, deployment tools, and version control for building and running applications.",
+    skills: [
+      { name: "Amazon Web Services (AWS)", tag: "Cloud" },
+      { name: "Docker", tag: "Containers" },
+      { name: "Kubernetes", tag: "Orchestration" },
+      { name: "GitHub", tag: "Collaboration" },
+      { name: "Git", tag: "Version Control" },
     ],
   },
 ];

@@ -1,10 +1,10 @@
 "use client";
 
-import { Code2, ShieldCheck, Brain, Smartphone, Briefcase } from "lucide-react";
+import { Code2, ShieldCheck, Brain, Smartphone, Briefcase, Cloud } from "lucide-react";
 import { motion } from "motion/react";
 import { skillsCategories } from "../data/portfolio-data";
 
-const categoryIcons = [Code2, ShieldCheck, Brain, Smartphone, Briefcase];
+const categoryIcons = [Code2, ShieldCheck, Brain, Smartphone, Briefcase, Cloud];
 
 export default function SkillsSection() {
   return (
@@ -29,11 +29,11 @@ export default function SkillsSection() {
             Structured expertise across engineering disciplines.
           </h2>
           <p className="text-base text-[#96A3B7] leading-relaxed">
-            Practical technical capabilities organized across software engineering, cloud cybersecurity, machine learning workflows, mobile apps, and business systems.
+            Practical technical capabilities organized across software engineering, cybersecurity, machine learning, mobile apps, business systems, and cloud operations.
           </p>
         </motion.div>
 
-        {/* 5 Distinct Skills Bento Grid */}
+        {/* 6 Expertise Domains */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-7">
           {skillsCategories.map((category, idx) => {
             const Icon = categoryIcons[idx] || Code2;
