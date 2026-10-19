@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, GitBranch, Globe, Award, Copy, Check, Send, ArrowUpRight, MapPin, Clock } from "lucide-react";
+import { Phone, GitBranch, Globe, Award, Check, Send, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -12,7 +12,6 @@ interface ContactSectionProps {
 export default function ContactSection({
   onOpenCoffeeModal,
 }: ContactSectionProps) {
-  const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,12 +19,6 @@ export default function ContactSection({
   });
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
 
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -102,7 +95,7 @@ export default function ContactSection({
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Direct Channels & Social Profiles */}
+          {/* Left Column: Verified Social Profiles */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,54 +103,6 @@ export default function ContactSection({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 space-y-6"
           >
-            {/* Direct Email Card with One-Click Copy */}
-            <div className="p-7 rounded-3xl glass-card border border-white/[0.1] space-y-4 shadow-xl">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-[#35D7FF] uppercase tracking-wider">
-                  Direct Email
-                </span>
-                <span className="text-xs text-[#96A3B7] font-mono">Response within 24h</span>
-              </div>
-
-              <div className="flex items-center justify-between p-3.5 bg-black/40 border border-white/[0.08] rounded-xl">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <Mail className="w-4 h-4 text-[#35D7FF] shrink-0" />
-                  <span className="text-xs sm:text-sm font-mono text-[#F4F7FC] truncate">
-                    {personalInfo.email}
-                  </span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleCopyEmail}
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-200 hover:text-white bg-white/[0.08] hover:bg-[#35D7FF]/20 hover:border-[#35D7FF]/40 border border-white/[0.1] rounded-lg transition-all shrink-0 ml-2 cursor-pointer active:scale-95"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-[#35D7FF]" />
-                      <span className="text-[#35D7FF]">Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-slate-400" />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              <div className="flex items-center justify-between text-xs text-[#96A3B7] pt-1">
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-1 text-[#35D7FF] hover:underline font-bold"
-                >
-                  <span>Open in Mail Client</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
-                <span className="font-mono text-[11px] text-slate-500">Primary Channel</span>
-              </div>
-            </div>
-
             {/* Direct Profiles List */}
             <div className="p-7 rounded-3xl glass-card border border-white/[0.1] space-y-4 shadow-xl">
               <span className="text-xs font-mono font-bold text-[#8667FF] uppercase tracking-wider block">
@@ -267,17 +212,6 @@ export default function ContactSection({
               )}
             </div>
 
-            {/* Location & Timezone Details */}
-            <div className="p-4 rounded-2xl glass-card border border-white/[0.08] flex items-center justify-between text-xs text-[#96A3B7]">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#35D7FF]" />
-                <span>{personalInfo.location} ({personalInfo.timezone})</span>
-              </div>
-              <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#35D7FF]">
-                <Clock className="w-3.5 h-3.5" />
-                <span>Available Globally</span>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column: Contact Form */}
