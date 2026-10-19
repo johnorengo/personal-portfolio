@@ -31,7 +31,7 @@ export default function RotatingHeadline() {
 
   return (
     <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-      <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
+      <h1 className="text-[clamp(1.75rem,7.5vw,2.25rem)] sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
         <span className="sr-only">Building intelligent solutions. Securing digital futures. Secure software, connected business systems, and scalable platforms.</span>
         {/* All phrases share a grid cell, reserving space for the longest wrap. */}
         <span className="grid" aria-hidden="true">

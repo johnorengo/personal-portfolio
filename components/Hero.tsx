@@ -24,27 +24,27 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         {/* Split Screen Hero Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col justify-center space-y-5"
+            className="lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
             {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
             <RotatingHeadline />
 
             {/* Master Supporting Text */}
-            <p className="text-base sm:text-lg text-[#96A3B7] leading-relaxed max-w-2xl font-normal">
+            <p className="text-sm sm:text-lg text-[#96A3B7] leading-relaxed max-w-2xl font-normal">
               {personalInfo.supportingText}
             </p>
 
             {/* Two Prominent CTAs: "Explore My Work" and "Let's Connect" */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
               <a
                 href="#projects"
-                className="group relative inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
+                className="group relative inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>Explore My Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -52,18 +52,18 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] hover:text-white glass-card hover:bg-white/[0.08] border border-white/[0.12] hover:border-[#35D7FF]/40 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
+                className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-[#F4F7FC] hover:text-white glass-card hover:bg-white/[0.08] border border-white/[0.12] hover:border-[#35D7FF]/40 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>Let&apos;s Connect</span>
               </a>
             </div>
 
             {/* Social channels row */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
+            <div className="pt-3 sm:pt-4 border-t border-white/[0.08]">
+              <span className="block text-[10px] sm:text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-2 sm:mb-3">
                 Verified Social & Technical Profiles
               </span>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
@@ -115,33 +115,36 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
           >
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full sm:max-w-md grid grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)] items-stretch gap-2.5 sm:block">
               {/* Luminous aura behind card */}
               <div className="absolute -inset-1.5 bg-gradient-to-r from-[#35D7FF]/25 via-[#8667FF]/20 to-[#35D7FF]/25 rounded-3xl blur-2xl opacity-60" />
 
               {/* Card Container */}
               <div className="relative rounded-3xl glass-card border border-white/[0.12] shadow-2xl overflow-hidden bg-[#121A29]/95">
                 <div>
-                  <div className="relative h-96 lg:h-[clamp(16rem,42svh,24rem)] w-full bg-[#080D18] overflow-hidden">
+                  <div className="relative w-full bg-[#080D18] overflow-hidden">
+                    <div className="relative h-40 min-[390px]:h-44 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
                     <Image
                       src={personalInfo.profileImage}
                       alt="John Orengo | Software Engineer & Cybersecurity"
                       fill
-                      className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                      sizes="(min-width: 1024px) 448px, (min-width: 640px) 448px, 60vw"
+                      className="object-contain sm:object-cover object-top"
                       priority
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
+                    <div className="absolute inset-0 hidden sm:block bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
+                    </div>
 
-                    <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
+                    <div className="relative p-2.5 sm:p-0 sm:absolute sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
                       <div>
-                        <span className="font-display font-bold text-white text-base block drop-shadow-md">
+                        <span className="font-display font-bold text-white text-xs sm:text-base block drop-shadow-md">
                           {personalInfo.name}
                         </span>
-                        <span className="text-[#35D7FF] text-xs font-medium block">
+                        <span className="text-[#35D7FF] text-[10px] sm:text-xs font-medium block">
                           {personalInfo.title}
                         </span>
-                        <span className="mt-1 text-[11px] leading-relaxed text-slate-300 block">
+                        <span className="mt-1 text-[9px] sm:text-[11px] leading-relaxed text-slate-300 block">
                           {personalInfo.specialism}
                         </span>
                       </div>
@@ -149,29 +152,29 @@ export default function Hero() {
                   </div>
 
                   {/* Quick matrix below photo */}
-                  <div className="p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-2">
-                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                  <div className="p-2 sm:p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-1 sm:gap-2">
+                    <div className="p-1 sm:p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
                       <Terminal className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
-                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Full Stack</span>
-                      <span className="text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
+                      <span className="text-[9px] sm:text-[11px] font-bold text-[#F4F7FC] block">Full Stack</span>
+                      <span className="text-[9px] sm:text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                    <div className="p-1 sm:p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
                       <ShieldCheck className="w-4 h-4 mx-auto text-[#8667FF] mb-1" />
-                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Security</span>
-                      <span className="text-[10px] text-[#96A3B7] block font-mono">Azure · RBAC</span>
+                      <span className="text-[9px] sm:text-[11px] font-bold text-[#F4F7FC] block">Security</span>
+                      <span className="text-[9px] sm:text-[10px] text-[#96A3B7] block font-mono">Azure · RBAC</span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                    <div className="p-1 sm:p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
                       <Server className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
-                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Systems</span>
-                      <span className="text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
+                      <span className="text-[9px] sm:text-[11px] font-bold text-[#F4F7FC] block">Systems</span>
+                      <span className="text-[9px] sm:text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Quantitative Proof Strip with Motion */}
-              <div className="relative mt-4">
-                <div className="grid grid-cols-3 gap-2">
+              <div className="relative sm:mt-4">
+                <div className="grid h-full grid-cols-1 gap-2 sm:h-auto sm:grid-cols-3">
                   {impactMetrics.map((metric, idx) => (
                     <motion.div
                       key={metric.label}
@@ -179,12 +182,12 @@ export default function Hero() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.08 }}
-                      className="px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
+                      className="px-2.5 sm:px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
                     >
                       <span className="text-2xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
                         {metric.value}
                       </span>
-                      <span className="text-[11px] sm:text-xs font-bold text-[#F4F7FC]">
+                      <span className="text-[10px] sm:text-xs font-bold text-[#F4F7FC]">
                         {metric.label}
                       </span>
                     </motion.div>
@@ -198,7 +201,7 @@ export default function Hero() {
       </div>
 
       {/* Elegant Scroll Indicator */}
-      <div className="flex justify-center mt-4">
+      <div className="hidden sm:flex justify-center mt-4">
         <a
           href="#about"
           className="flex flex-col items-center gap-1.5 text-xs text-[#96A3B7] hover:text-[#35D7FF] transition-colors cursor-pointer"
