@@ -53,7 +53,7 @@ export const specializations = [
 export const skillsCategories: SkillCategory[] = [
   {
     title: "Software Engineering",
-    backgroundImage: "/expertise/software-engineering.webp",
+    backgroundImage: "/expertise/software-engineering-hd.webp",
     description: "Frontend architecture, backend development, APIs, databases, testing, and scalable applications.",
     skills: [
       { name: "React / Next.js", tag: "Frontend" },
@@ -68,7 +68,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Cybersecurity & Network Security",
-    backgroundImage: "/expertise/cybersecurity-network.webp",
+    backgroundImage: "/expertise/cybersecurity-network-hd.webp",
     description: "Secure application development, identity and access management, vulnerability assessment, threat detection, and security fundamentals.",
     skills: [
       { name: "Microsoft Azure & Entra ID", tag: "Cloud IAM" },
@@ -82,7 +82,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "AI & Machine Learning",
-    backgroundImage: "/expertise/ai-machine-learning.webp",
+    backgroundImage: "/expertise/ai-machine-learning-hd.webp",
     description: "Machine learning concepts, intelligent automation, data driven solutions, and AI assisted development.",
     skills: [
       { name: "Data Processing & ETL", tag: "Pipelines" },
@@ -94,7 +94,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Mobile Development",
-    backgroundImage: "/expertise/mobile-development.webp",
+    backgroundImage: "/expertise/mobile-development-hd.webp",
     description: "Cross platform mobile applications, responsive user experience, touch interactions, and API integration.",
     skills: [
       { name: "Flutter", tag: "Mobile Framework" },
@@ -107,7 +107,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Business Systems",
-    backgroundImage: "/expertise/business-systems.webp",
+    backgroundImage: "/expertise/business-systems-hd.webp",
     description: "ERP, POS systems, workflow automation, business process digitization, and system integration.",
     skills: [
       { name: "ERPNext", tag: "ERP Platform" },
@@ -121,7 +121,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Cloud & DevOps",
-    backgroundImage: "/expertise/cloud-devops.webp",
+    backgroundImage: "/expertise/cloud-devops-hd.webp",
     description: "Cloud infrastructure, containers, deployment tools, and version control for building and running applications.",
     skills: [
       { name: "Amazon Web Services (AWS)", tag: "Cloud" },
