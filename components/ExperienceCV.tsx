@@ -40,7 +40,7 @@ export default function ExperienceCV() {
           <a
             href={personalInfo.cvPath}
             download
-            className="self-start shrink-0 inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-md shadow-[#35D7FF]/20 whitespace-nowrap"
+            className="self-start lg:self-end shrink-0 inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-md shadow-[#35D7FF]/20 whitespace-nowrap"
           >
             <Download className="w-4 h-4 stroke-[2.5]" />
             <span>Download CV</span>
