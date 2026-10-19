@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUp, GitBranch, Globe, Award, Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import { ArrowUp, Mail, Phone } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 
 export default function Footer() {
@@ -55,8 +56,8 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-5">
+        <div className="pt-6 border-t border-white/[0.08] grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+          <div className="flex items-center justify-self-center md:justify-self-start gap-5">
             <a
               href="https://github.com/johnorengo"
               target="_blank"
@@ -64,7 +65,7 @@ export default function Footer() {
               className="text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
               aria-label="GitHub Profile"
             >
-              <GitBranch className="w-4 h-4" />
+              <Image src="/icons/github.svg" alt="" aria-hidden="true" width={16} height={16} />
             </a>
             <a
               href="https://www.linkedin.com/in/johnorengo"
@@ -73,7 +74,7 @@ export default function Footer() {
               className="text-[#96A3B7] hover:text-[#8667FF] transition-colors"
               aria-label="LinkedIn Profile"
             >
-              <Globe className="w-4 h-4" />
+              <Image src="/icons/linkedin.svg" alt="" aria-hidden="true" width={16} height={16} />
             </a>
             <a
               href="https://www.credly.com/users/john-orengo"
@@ -82,7 +83,7 @@ export default function Footer() {
               className="text-[#96A3B7] hover:text-amber-400 transition-colors"
               aria-label="Credly Certifications"
             >
-              <Award className="w-4 h-4" />
+              <Image src="/icons/credly.svg" alt="" aria-hidden="true" width={16} height={16} />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
@@ -100,18 +101,16 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-[#96A3B7]">© {new Date().getFullYear()} John Orengo. All rights reserved.</span>
+          <span className="text-[#96A3B7] text-center">© {new Date().getFullYear()} John Orengo. All rights reserved.</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#35D7FF]/40 text-[#96A3B7] hover:text-white transition-all flex items-center gap-1.5 cursor-pointer shadow-sm active:scale-95"
+              className="justify-self-center md:justify-self-end p-2 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#35D7FF]/40 text-[#96A3B7] hover:text-white transition-all flex items-center gap-1.5 cursor-pointer shadow-sm active:scale-95"
               aria-label="Back to top"
             >
               <ArrowUp className="w-3.5 h-3.5 text-[#35D7FF]" />
               <span className="text-[11px] font-bold">Top</span>
             </button>
-          </div>
         </div>
       </div>
     </footer>
