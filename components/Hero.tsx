@@ -8,7 +8,7 @@ import { personalInfo } from "../data/portfolio-data";
 export default function Hero() {
   const impactMetrics = [
     { value: "20+", label: "Projects Worked On", detail: "Projects worked on" },
-    { value: "3+", label: "Years of Experience", detail: "Software engineering & security" },
+    { value: "4+", label: "Years of Experience", detail: "Software engineering & security" },
     { value: "3+", label: "Cloud Certifications", detail: "AWS, CNCF & Microsoft SC-900" },
   ];
 
