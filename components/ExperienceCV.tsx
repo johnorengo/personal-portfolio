@@ -77,7 +77,7 @@ export default function ExperienceCV() {
         </motion.div>
 
         {/* Tab switchers */}
-        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-20 z-30 flex items-center gap-2 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 p-1.5 pb-4 backdrop-blur-xl shadow-xl overflow-x-auto">
+        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-20 z-30 grid grid-cols-1 items-stretch gap-1.5 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 p-1.5 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
           {[
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
             { id: "certifications", label: `Professional Development & Certifications (${certificationsData.length})`, icon: CheckCircle },
@@ -92,18 +92,18 @@ export default function ExperienceCV() {
                 aria-pressed={isSelected}
                 aria-controls="career-content"
                 onClick={() => selectTab(tab.id as TimelineFilter)}
-                className={`relative flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl border transition-colors whitespace-nowrap cursor-pointer ${
+                className={`relative flex min-h-11 min-w-0 items-center gap-2 px-3 py-2.5 text-left text-xs font-semibold leading-relaxed rounded-xl border transition-colors cursor-pointer sm:px-4 ${
                   isSelected
                     ? "text-[#35D7FF] bg-white/[0.06] border-[#35D7FF]/40 shadow-sm"
                     : "text-[#96A3B7] hover:text-white border-transparent"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isSelected ? "text-[#35D7FF]" : "text-[#96A3B7]"}`} />
+                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? "text-[#35D7FF]" : "text-[#96A3B7]"}`} />
                 <span>{tab.label}</span>
                 {isSelected && (
                   <motion.div
                     layoutId="cvTabIndicatorMaster"
-                    className="absolute -bottom-4 left-0 right-0 h-[2px] bg-gradient-to-r from-[#35D7FF] to-[#8667FF]"
+                    className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-gradient-to-r from-[#35D7FF] to-[#8667FF]"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}

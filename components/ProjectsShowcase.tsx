@@ -47,7 +47,7 @@ export default function ProjectsShowcase() {
         </div>
 
         {/* Interactive Filter Tabs */}
-        <div role="group" aria-label="Filter projects" className="sticky top-20 z-30 flex items-center gap-1.5 p-1.5 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 backdrop-blur-xl shadow-xl overflow-x-auto">
+        <div role="group" aria-label="Filter projects" className="sticky top-20 z-30 grid grid-cols-2 items-stretch gap-1.5 p-1.5 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
           {filterOptions.map((opt) => {
             const isSelected = activeFilter === opt.id;
             return (
@@ -56,7 +56,7 @@ export default function ProjectsShowcase() {
                 type="button"
                 aria-pressed={isSelected}
                 onClick={() => setActiveFilter(opt.id)}
-                className={`relative px-4 py-2 text-xs font-semibold rounded-xl transition-colors whitespace-nowrap cursor-pointer ${
+                className={`relative min-h-11 min-w-0 px-3 py-2 text-xs font-semibold leading-relaxed rounded-xl transition-colors cursor-pointer sm:px-4 ${
                   isSelected ? "text-[#080D18] font-bold" : "text-[#96A3B7] hover:text-[#F4F7FC]"
                 }`}
               >
