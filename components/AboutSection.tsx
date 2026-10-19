@@ -46,10 +46,10 @@ export default function AboutSection() {
           <div className="lg:col-span-7 space-y-5 text-[#96A3B7] text-base sm:text-lg leading-relaxed">
             <p>{personalInfo.bio}</p>
             <p>
-              I hold a Computer Science degree from The Catholic University of Eastern Africa. My work has taken me from building education platforms at Kenya&apos;s Ministry of Education to reviewing Azure cloud security at Serianu. I&apos;ve also worked on business websites, product catalogs, and systems that help teams manage their daily operations. Those experiences have taught me to look beyond the code and understand who a system needs to serve.
+              A Computer Science graduate of The Catholic University of Eastern Africa, I&apos;ve built education platforms at Kenya&apos;s Ministry of Education, reviewed Azure security at Serianu, and developed websites and operational tools for businesses.
             </p>
             <p>
-              If we work together, I want you to feel comfortable asking questions and confident about what we&apos;re building. I bring a practical approach, clear communication, and care for the details that make a product useful long after launch. Whether you&apos;re starting with an idea or improving an existing system, I&apos;d like to help you take the next step.
+              I focus on the people behind each project. Expect clear communication, room for questions, and practical solutions built with care. Whether you&apos;re starting fresh or improving a system, I&apos;d like to help.
             </p>
 
             <div className="pt-2">
