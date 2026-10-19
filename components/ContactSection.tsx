@@ -7,21 +7,18 @@ import { personalInfo } from "../data/portfolio-data";
 
 interface ContactSectionProps {
   onOpenCoffeeModal?: () => void;
-  prefilledTopic?: string;
 }
 
 export default function ContactSection({
   onOpenCoffeeModal,
-  prefilledTopic,
 }: ContactSectionProps) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: prefilledTopic || "Software Engineering Project",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "ready" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleCopyEmail = () => {
@@ -30,35 +27,22 @@ export default function ContactSection({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  /**
-   * Form Submission Handler:
-   * Ready for email delivery integration (e.g., Resend, Formspree, or custom /api/contact route).
-   * Validates input fields and provides instant feedback with direct mailto fallback.
-   */
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const emailDraftUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+    "Project enquiry from " + formData.name.trim()
+  )}&body=${encodeURIComponent(
+    "Name: " + formData.name.trim() + "\nReply email: " + formData.email.trim() + "\n\n" + formData.message.trim()
+  )}`;
+
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setErrorMessage("Please fill in all required fields.");
+      setErrorMessage("Please add your name, reply email, and a short message.");
       setFormStatus("error");
       return;
     }
-
-    setFormStatus("submitting");
-
-    // Integration Point: Connect your preferred email service API here
-    // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-    setTimeout(() => {
-      setFormStatus("success");
-      setTimeout(() => {
-        setFormStatus("idle");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "Software Engineering Project",
-          message: "",
-        });
-      }, 6000);
-    }, 800);
+    setErrorMessage("");
+    window.location.href = emailDraftUrl;
+    setFormStatus("ready");
   };
 
   return (
@@ -273,131 +257,45 @@ export default function ContactSection({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-7 sm:p-9 rounded-3xl glass-card border border-white/[0.1] shadow-2xl space-y-6">
-              <div>
-                <span className="text-xs font-mono font-bold text-[#35D7FF] uppercase tracking-wider block mb-1">
-                  Direct Inquiries
-                </span>
-                <h3 className="text-2xl font-bold text-[#F4F7FC] font-display">
-                  Start a Project Conversation
-                </h3>
-                <p className="text-xs sm:text-sm text-[#96A3B7] mt-1">
-                  Fill in the details below or email directly to{" "}
-                  <a href={`mailto:${personalInfo.email}`} className="text-[#35D7FF] underline font-semibold">
-                    {personalInfo.email}
-                  </a>.
-                </p>
-              </div>
-
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                {/* Subject selection */}
-                <div>
-                  <label htmlFor="subject" className="block text-xs font-bold text-slate-300 mb-1.5">
-                    Subject / Discussion Area
-                  </label>
-                  <select
-                    id="subject"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-[#F4F7FC] text-xs sm:text-sm focus:border-[#35D7FF] focus:outline-none transition-colors"
-                  >
-                    <option value="Software Engineering Project">Full Stack Web or Mobile Development</option>
-                    <option value="ERP / POS System Integration">ERP, POS, or Inventory System Implementation</option>
-                    <option value="Cybersecurity Audit">Azure Cloud Security or Posture Audit</option>
-                    <option value="Business Process Automation">Process Automation & Workflow Digitization</option>
-                    <option value="Full Time Engineering Role">Full Time Software Engineering Position</option>
-                    <option value="General Consultation">General Technical Inquiry</option>
-                  </select>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-xs font-bold text-slate-300 mb-1.5">
-                      Your Name *
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      placeholder="Jane Doe"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-[#F4F7FC] text-xs sm:text-sm focus:border-[#35D7FF] focus:outline-none transition-colors placeholder:text-slate-600"
-                    />
+            <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] bg-[#0E1524] shadow-2xl">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF]" />
+              <div className="p-6 sm:p-8 space-y-7">
+                <div className="flex items-start justify-between gap-5">
+                  <div className="space-y-3">
+                    <span className="text-[11px] font-mono font-bold tracking-[0.18em] text-[#35D7FF] uppercase">Your Next Idea</span>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F7FC] font-display leading-tight">Let&apos;s make it happen.</h3>
+                    <p className="max-w-md text-sm text-[#96A3B7] leading-relaxed">Tell me what you&apos;re working on, what needs improving, or where you could use a hand.</p>
                   </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-xs font-bold text-slate-300 mb-1.5">
-                      Your Email *
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      placeholder="jane@organization.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-[#F4F7FC] text-xs sm:text-sm focus:border-[#35D7FF] focus:outline-none transition-colors placeholder:text-slate-600"
-                    />
+                  <div className="hidden sm:flex shrink-0 h-12 w-12 items-center justify-center rounded-2xl border border-[#35D7FF]/20 bg-[#35D7FF]/10 text-[#35D7FF]">
+                    <Send className="w-5 h-5" aria-hidden="true" />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-xs font-bold text-slate-300 mb-1.5">
-                    Project or Challenge Details *
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={4}
-                    placeholder="Describe the system requirements, timeline, stack preferences, or specific business challenge..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-[#F4F7FC] text-xs sm:text-sm focus:border-[#35D7FF] focus:outline-none transition-colors placeholder:text-slate-600 resize-y"
-                  />
-                </div>
-
-                {formStatus === "error" && (
-                  <div className="p-3.5 rounded-xl bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs">
-                    {errorMessage}
-                  </div>
-                )}
-
-                {formStatus === "success" ? (
-                  <div className="p-4 rounded-xl bg-[#35D7FF]/10 border border-[#35D7FF]/40 text-[#35D7FF] text-xs sm:text-sm flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[#35D7FF] shrink-0 mt-0.5" />
-                    <div>
-                      <span className="font-bold block">Inquiry received successfully!</span>
-                      <span className="text-slate-300 text-xs mt-0.5 block">
-                        Thank you for reaching out. A confirmation has been drafted. You can also send directly via{" "}
-                        <a
-                          href={`mailto:${personalInfo.email}?subject=${encodeURIComponent(
-                            formData.subject + " - " + formData.name
-                          )}&body=${encodeURIComponent(formData.message)}`}
-                          className="underline font-bold text-[#35D7FF]"
-                        >
-                          mail client
-                        </a>.
-                      </span>
+                <form onSubmit={handleFormSubmit} className="space-y-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">01</span>Your name <span className="text-[#35D7FF]">*</span></label>
+                      <input id="name" name="name" type="text" autoComplete="name" required placeholder="What should I call you?" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">02</span>Reply email <span className="text-[#35D7FF]">*</span></label>
+                      <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                   </div>
-                ) : (
-                  <button
-                    type="submit"
-                    disabled={formStatus === "submitting"}
-                    className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 text-[#080D18] font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#35D7FF]/20 disabled:opacity-50 cursor-pointer"
-                  >
-                    {formStatus === "submitting" ? (
-                      <span>Sending inquiry...</span>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 stroke-[2.5]" />
-                        <span>Send Message to John</span>
-                      </>
-                    )}
-                  </button>
-                )}
-              </form>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">03</span>What do you have in mind? <span className="text-[#35D7FF]">*</span></label>
+                    <textarea id="message" name="message" required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm leading-relaxed text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                  </div>
+                  {formStatus === "error" && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">{errorMessage}</p>}
+                  {formStatus === "ready" && (
+                    <p role="status" className="rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-xs leading-relaxed text-slate-300">Complete and send your message in your email app. If it didn&apos;t open, <a href={emailDraftUrl} className="font-semibold text-[#35D7FF] underline underline-offset-2">open your draft again</a>.</p>
+                  )}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
+                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Opens your email app with a draft ready for you to review and send.</p>
+                    <button type="submit" className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer">Prepare Message<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
+                  </div>
+                </form>
+              </div>
             </div>
           </motion.div>
         </div>
