@@ -139,7 +139,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                     </div>
 
                     {/* Technologies & Trigger */}
-                    <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between gap-3">
+                    <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-4">
                       <div className="flex flex-wrap items-center gap-1.5 text-xs text-[#96A3B7]">
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span key={tech} className="px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06] font-mono text-[10px]">
@@ -153,10 +153,32 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                         )}
                       </div>
 
-                      <span className="inline-flex items-center gap-1 text-xs font-bold text-[#35D7FF] group-hover:text-white whitespace-nowrap">
-                        <span>More Details</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </span>
+                      <div className="flex flex-wrap items-center justify-between gap-3">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(event) => event.stopPropagation()}
+                            aria-label={`Live preview of ${project.title}`}
+                            className="inline-flex items-center gap-2 rounded-xl border border-[#35D7FF]/30 bg-[#35D7FF]/10 px-4 py-2 text-xs font-bold text-[#35D7FF] hover:bg-[#35D7FF]/20 hover:text-white transition-colors"
+                          >
+                            Live Preview
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                        <button
+                          type="button"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            setSelectedProject(project);
+                          }}
+                          className="inline-flex items-center gap-1 py-2 text-xs font-bold text-[#35D7FF] hover:text-white whitespace-nowrap cursor-pointer"
+                        >
+                          More Details
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </motion.article>

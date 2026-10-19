@@ -218,17 +218,6 @@ export default function ProjectModal({
                       <span>GitHub Code</span>
                     </a>
                   )}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold text-[#35D7FF] hover:text-white bg-[#35D7FF]/10 hover:bg-[#35D7FF]/20 border border-[#35D7FF]/30 rounded-xl transition-colors"
-                    >
-                      <span>Live Preview</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  )}
                 </div>
 
                 <button
