@@ -1,4 +1,4 @@
-import { Project, ServiceItem, ExperienceItem, Certification, SkillCategory, SocialLink } from "../types/portfolio";
+import { Project, ExperienceItem, Certification, SkillCategory, SocialLink } from "../types/portfolio";
 
 /**
  * ============================================================================
@@ -43,80 +43,6 @@ export const specializations = [
   "Web & Mobile Application Development",
   "Enterprise & Business Management Systems",
   "Technology Consulting & Digital Transformation",
-];
-
-/**
- * ============================================================================
- * 6 SERVICES & COLLABORATION OFFERINGS
- * ============================================================================
- */
-export const servicesData: ServiceItem[] = [
-  {
-    id: "custom-software",
-    title: "Custom Software Development",
-    shortDescription: "Architecting reliable, high performance web applications and backend microservices tailored to specific operational requirements.",
-    deliverables: [
-      "Robust RESTful API design & third party integrations",
-      "Scalable database architecture (MySQL, PostgreSQL)",
-      "Maintainable, clean frontend code with React & TypeScript",
-    ],
-    technologies: ["React", "Laravel", "PHP", "Python", "TypeScript", "REST APIs"],
-  },
-  {
-    id: "web-mobile",
-    title: "Web & Mobile Application Development",
-    shortDescription: "Building responsive cross platform mobile apps and modern web platforms with clean user experiences and offline capabilities.",
-    deliverables: [
-      "Cross platform client applications with responsive design",
-      "Progressive Web App (PWA) offline synchronization",
-      "Intuitive UI/UX design with smooth microinteractions",
-    ],
-    technologies: ["React", "Next.js", "Flutter", "Tailwind CSS", "Mobile UX"],
-  },
-  {
-    id: "process-automation",
-    title: "Business Process Automation",
-    shortDescription: "Digitizing manual workflows, approval pipelines, and data reporting to eliminate paper bottlenecks and reduce operational costs.",
-    deliverables: [
-      "Automated document validation and digital audit trails",
-      "Real time operational alerts and status tracking",
-      "Scheduled data pipelines and automated reporting",
-    ],
-    technologies: ["Python", "Bash", "RESTful Pipelines", "Webhooks", "ETL"],
-  },
-  {
-    id: "erp-pos-systems",
-    title: "ERP & POS System Development",
-    shortDescription: "Custom business management software, inventory tracking, POS terminals, receipt generation, and transaction accounting.",
-    deliverables: [
-      "Multi location inventory and supply chain tracking",
-      "Point of sale receipt printing and checkout flows",
-      "Financial ledger reconciliations and analytics",
-    ],
-    technologies: ["Laravel", "React", "PostgreSQL", "Thermal Printing", "REST APIs"],
-  },
-  {
-    id: "secure-architecture",
-    title: "Secure Application Architecture",
-    shortDescription: "Embedding security from day zero through Role Based Access Control (RBAC), multifactor authentication, and cloud posture audits.",
-    deliverables: [
-      "Azure & AWS cloud identity governance assessments",
-      "Principle of Least Privilege (PoLP) and MFA enforcement",
-      "CIS benchmark compliance reviews and vulnerability mitigation",
-    ],
-    technologies: ["Microsoft Azure", "Entra ID", "RBAC", "Defender for Cloud", "AWS"],
-  },
-  {
-    id: "tech-consulting",
-    title: "Technology Consulting & Transformation",
-    shortDescription: "Advising leadership and engineering teams on infrastructure modernization, system diagnostics, and digital adoption strategies.",
-    deliverables: [
-      "Systems architecture evaluation and technology selection",
-      "Network infrastructure review and hardware diagnostic support",
-      "Engineering documentation, onboarding, and staff mentoring",
-    ],
-    technologies: ["Linux Sysadmin", "Cisco Networks", "Cloud Strategy", "DevOps"],
-  },
 ];
 
 /**

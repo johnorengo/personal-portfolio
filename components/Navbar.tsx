@@ -13,7 +13,6 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Expertise", href: "#expertise" },
   { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
@@ -34,7 +33,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = ["contact", "experience", "services", "projects", "expertise", "about", "top"];
+      const sections = ["contact", "experience", "projects", "expertise", "about", "top"];
       const scrollPos = window.scrollY + 200;
 
       for (const section of sections) {

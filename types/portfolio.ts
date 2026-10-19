@@ -20,14 +20,6 @@ export interface Project {
   isVerifiedWork?: boolean;
 }
 
-export interface ServiceItem {
-  id: string;
-  title: string;
-  shortDescription: string;
-  deliverables: string[];
-  technologies: string[];
-}
-
 export interface ExperienceItem {
   period: string;
   role: string;
