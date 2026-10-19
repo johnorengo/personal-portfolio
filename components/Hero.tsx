@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
+import { ArrowRight, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -65,63 +65,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social channels row */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
-                Verified Social & Technical Profiles
-              </span>
-              <div className="flex flex-wrap items-center gap-5">
-                <a
-                  href="https://github.com/johnorengo"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                >
-                  <GitBranch className="w-4 h-4 text-[#35D7FF]" />
-                  <span>GitHub</span>
-                </a>
-                <span className="text-slate-700">·</span>
-
-                <a
-                  href="https://www.linkedin.com/in/john-orengo"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
-                >
-                  <Globe className="w-4 h-4 text-[#8667FF]" />
-                  <span>LinkedIn</span>
-                </a>
-                <span className="text-slate-700">·</span>
-
-                <a
-                  href="https://www.credly.com/users/john-orengo"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                >
-                  <Award className="w-4 h-4 text-amber-400" />
-                  <span>Credly Badges</span>
-                </a>
-                <span className="text-slate-700">·</span>
-
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                >
-                  <Mail className="w-4 h-4 text-[#35D7FF]" />
-                  <span>Email</span>
-                </a>
-                <span className="text-slate-700">·</span>
-
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-[#8667FF]" />
-                  <span>WhatsApp</span>
-                </a>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column: Professionally Framed Portrait */}
