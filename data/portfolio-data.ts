@@ -212,7 +212,7 @@ export const projectsData: Project[] = [
     "title": "Sebby Logistics Ltd",
     "category": "business",
     "categoryLabel": "Flower Logistics",
-    "summary": "Connecting Kenyan flower growers with international buyers.",
+    "summary": "A responsive website connecting international flower buyers with Kenyan growers and airfreight services through JKIA. It presents sourcing, quality assurance, and export logistics, with detailed quotation requests and direct contact channels to support enquiries from discovery through shipment planning.",
     "description": "Sebby Logistics Ltd connects overseas flower buyers with growers in Kenya and a dispatch operation at Jomo Kenyatta International Airport. The website explains how flowers move from farm selection and purchasing through quality checks, documentation and temperature controlled international airfreight. It serves wholesalers, distributors, florists, supermarket buyers and importers who need to understand the sourcing process before requesting a shipment. Buyers can explore the growing regions, review the services and provide shipment requirements through a detailed enquiry journey, with direct contact options for the appropriate business team.",
     "image": "/projects/sebby-logistics.webp",
     "technologies": [
@@ -237,7 +237,7 @@ export const projectsData: Project[] = [
     "title": "Citymart Electricals",
     "category": "business",
     "categoryLabel": "Electrical Commerce",
-    "summary": "An online showroom for a Kisumu electrical supplier.",
+    "summary": "A digital showroom for a Kisumu supplier of lighting, electrical products, and hardware. Searchable product listings, installation galleries, and service information help customers explore suitable solutions, while product enquiries and WhatsApp connect them with the team for quotations and project advice.",
     "description": "Citymart Electricals provides a digital showroom for City Mart Electricals & General Hardware in Kisumu. The website helps homeowners, electrical contractors, architects, interior designers and institutional buyers explore lighting and power products before discussing a purchase. Visitors can compare product information, browse examples of installed lighting and review services for different kinds of projects. Instead of treating every enquiry as a generic message, the experience connects individual products and project inspiration with quotation requests and WhatsApp conversations, helping customers explain the fittings, quantities and requirements they have in mind.",
     "image": "/projects/citymart-electricals.webp",
     "technologies": [
@@ -262,7 +262,7 @@ export const projectsData: Project[] = [
     "title": "School Data Verification System",
     "category": "education",
     "categoryLabel": "Learner Verification",
-    "summary": "Checking school enrolment records against actual learners.",
+    "summary": "A Ministry of Education platform for verifying school enrolment records and identifying inaccurate learner entries. Separate access for institution heads and education directors supports school verification and oversight, helping improve the data used for planning, funding, and resource allocation.",
     "description": "The School Data Verification System is a Ministry of Education platform for checking learners already recorded by schools against actual enrolment. It supports the identification of records that are unverified or do not correspond to real learners, helping improve the information used for education planning and funding. The public entry point distinguishes school leadership from sub county and county oversight. Heads of Institution access their school through a UIC based login, while directors use official email credentials through separate sign in journeys. This structure makes the access route and responsibilities of each user group clear.",
     "image": "/projects/school-data-verification.webp",
     "technologies": [
@@ -286,7 +286,7 @@ export const projectsData: Project[] = [
     "title": "Education Emergency Management System",
     "category": "education",
     "categoryLabel": "School Safety",
-    "summary": "Coordinating school preparedness and emergency response across Kenya.",
+    "summary": "A school safety platform supporting preparedness and coordinated emergency response across Kenya's 47 counties. Hazard monitoring, school risk profiles, incident reporting, and safeguarding workflows help education teams assess exposure, prioritize action, and protect student welfare and learning continuity.",
     "description": "The Education Emergency Management System supports school safety planning and coordinated emergency response throughout Kenya. It brings school leaders, sub county and county directors, and Ministry headquarters administrators into a shared process for understanding hazards, reviewing incidents and following up on school needs. The platform covers all 47 counties and combines school profiles, exposure information and preparedness assessments with reporting and safeguarding workflows. Its purpose is to help education teams identify vulnerable schools, prioritize action and maintain student welfare and learning continuity when floods, drought, storms, fire or other disruptions affect education.",
     "image": "/projects/education-emergency.webp",
     "technologies": [
@@ -310,7 +310,7 @@ export const projectsData: Project[] = [
     "title": "Fox Tech Solutions",
     "category": "fullstack",
     "categoryLabel": "Agency Website",
-    "summary": "The Fox Tech Solutions business website.",
+    "summary": "A business website presenting Fox Tech Solutions' software development, design, marketing, and IT support services. It combines service information, delivery process guidance, and interactive case studies to help prospective clients assess the agency's work and start a project enquiry.",
     "description": "Fox Tech Solutions is the public business website for a Nairobi technology agency. It introduces the agency's work in website development, custom software, interface design, digital marketing and managed IT support, helping prospective clients understand the services available before starting an engagement. The site combines service information with an explanation of the delivery process and interactive case studies covering commercial and government platforms. Visitors can review examples of completed work, follow links to live projects and explore engagement options before sending an enquiry about their business or technology needs.",
     "image": "/projects/fox-tech-logo.png",
     "imageFit": "contain",

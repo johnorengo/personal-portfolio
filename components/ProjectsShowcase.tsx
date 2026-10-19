@@ -134,7 +134,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                       </h3>
 
                       <p className="mt-3 text-sm text-[#96A3B7] leading-relaxed">
-                        {project.description}
+                        {project.summary}
                       </p>
                     </div>
 
