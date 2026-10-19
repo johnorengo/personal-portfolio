@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import { personalInfo, projectsData } from "../data/portfolio-data";
+import { personalInfo } from "../data/portfolio-data";
 
 export default function Hero() {
   const impactMetrics = [
-    { value: String(projectsData.length), label: "Projects Worked On", detail: "Featured portfolio projects" },
+    { value: "20+", label: "Projects Worked On", detail: "Projects worked on" },
     { value: "3+", label: "Years of Experience", detail: "Software engineering & security" },
     { value: "3+", label: "Cloud Certifications", detail: "AWS, CNCF & Microsoft SC-900" },
   ];
@@ -157,9 +157,6 @@ export default function Hero() {
                           Full-Stack & Cloud Security
                         </span>
                       </div>
-                      <span className="text-[11px] font-mono text-[#35D7FF] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#35D7FF]/30">
-                        BSc CUEA
-                      </span>
                     </div>
                   </div>
 
