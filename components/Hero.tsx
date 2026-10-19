@@ -3,18 +3,19 @@
 import Image from "next/image";
 import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
-import { personalInfo } from "../data/portfolio-data";
+import { personalInfo, projectsData } from "../data/portfolio-data";
 
 export default function Hero() {
   const impactMetrics = [
     { value: "1.2M+", label: "Records Managed", detail: "National institutional systems" },
     { value: "15+", label: "Facilities Supported", detail: "Enterprise ICT & networks" },
-    { value: "99.9%", label: "Architecture SLA", detail: "Zero single-point failures" },
+    { value: String(projectsData.length), label: "Projects Worked On", detail: "Featured portfolio projects" },
+    { value: "3+", label: "Years of Experience", detail: "Software engineering & security" },
     { value: "3+", label: "Cloud Certifications", detail: "AWS, CNCF & Microsoft SC-900" },
   ];
 
   return (
-    <section id="top" className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between pt-6 pb-12 lg:pt-6 lg:pb-12 overflow-hidden bg-[#080D18]">
+    <section id="top" className="relative min-h-[calc(100svh-5rem)] flex flex-col justify-between pt-4 pb-4 overflow-hidden bg-[#080D18]">
       {/* Restrained Atmospheric Particle / Glow Field */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[15%] w-[480px] h-[480px] rounded-full bg-[#35D7FF]/[0.08] blur-[140px]" />
@@ -22,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 tech-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         {/* Split Screen Hero Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
@@ -30,10 +31,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col justify-center space-y-7"
+            className="lg:col-span-7 flex flex-col justify-center space-y-5"
           >
             {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
               Building{" "}
               <span className="bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] bg-clip-text text-transparent">
                 Intelligent Solutions.
@@ -65,6 +66,28 @@ export default function Hero() {
               </a>
             </div>
 
+            {/* Quantitative Proof Strip with Motion */}
+            <div className="pt-4 border-t border-white/[0.08]">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {impactMetrics.map((metric, idx) => (
+                  <motion.div
+                    key={metric.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                    className="px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
+                  >
+                    <span className="text-2xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
+                      {metric.value}
+                    </span>
+                    <span className="text-[11px] sm:text-xs font-bold text-[#F4F7FC]">
+                      {metric.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
           {/* Right Column: Professionally Framed Portrait */}
@@ -189,35 +212,10 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Quantitative Proof Strip with Motion */}
-        <div className="pt-10 border-t border-white/[0.08]">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {impactMetrics.map((metric, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="p-5 rounded-2xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
-              >
-                <span className="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
-                  {metric.value}
-                </span>
-                <span className="text-sm font-bold text-[#F4F7FC]">
-                  {metric.label}
-                </span>
-                <span className="text-xs text-[#96A3B7] leading-snug">
-                  {metric.detail}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Elegant Scroll Indicator */}
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-4">
         <a
           href="#about"
           className="flex flex-col items-center gap-1.5 text-xs text-[#96A3B7] hover:text-[#35D7FF] transition-colors cursor-pointer"
