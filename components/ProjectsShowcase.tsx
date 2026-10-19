@@ -30,9 +30,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
     return project.category === activeFilter;
   });
 
-  const featuredProject = filteredProjects[0];
-  const secondaryProjects = filteredProjects.slice(1);
-
   return (
     <section id="projects" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
       {/* Dynamic ambient glow field */}
@@ -82,105 +79,9 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
           </div>
         </div>
 
-        {/* Asymmetrical Editorial Projects Layout */}
-        <div className="space-y-10">
-          {/* 1. Flagship Featured Case Study (Oversized Hero Card) */}
-          {featuredProject && (
-            <motion.article
-              layout
-              key={featuredProject.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              onClick={() => setSelectedProject(featuredProject)}
-              className="group relative rounded-3xl glass-card border border-white/[0.1] hover:border-[#35D7FF]/40 transition-all duration-300 overflow-hidden cursor-pointer shadow-2xl"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-                {/* Visual Media Pane */}
-                <div className="lg:col-span-7 relative min-h-[340px] sm:min-h-[420px] bg-[#0A101C] overflow-hidden">
-                  <Image
-                    src={featuredProject.image}
-                    alt={featuredProject.title}
-                    fill
-                    className={`${featuredProject.imageFit === "contain" ? "object-contain bg-[#280d00]" : "object-cover object-top"} transition-transform duration-700 group-hover:scale-105`}
-                    priority
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080D18] via-transparent to-transparent opacity-80 lg:hidden" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#121A29]/90 hidden lg:block" />
-
-                  {/* Top Floating Badge */}
-                  <div className="absolute top-5 left-5">
-                    <span className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#080D18]/85 backdrop-blur-md text-[#35D7FF] border border-[#35D7FF]/30 shadow-lg">
-                      {featuredProject.categoryLabel}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-5 right-5">
-                    <span className="p-3 rounded-xl bg-[#080D18]/85 backdrop-blur-md text-[#F4F7FC] group-hover:text-[#35D7FF] border border-white/[0.1] group-hover:border-[#35D7FF]/50 transition-all inline-block shadow-lg">
-                      <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content Pane */}
-                <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6 bg-[#121A29]/95">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-xs font-mono text-[#96A3B7]">
-                      <span className="text-[#35D7FF] font-bold">Featured Case Study</span>
-                      {featuredProject.year && <span>{featuredProject.year}</span>}
-                    </div>
-
-                    <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-tight">
-                      {featuredProject.title}
-                    </h3>
-
-                    <p className="text-sm text-[#96A3B7] leading-relaxed">
-                      {featuredProject.description}
-                    </p>
-
-                    {/* Key Metrics Highlight */}
-                    {featuredProject.metrics && featuredProject.metrics.length > 0 && (
-                      <div className="grid grid-cols-2 gap-3 pt-3">
-                        {featuredProject.metrics.slice(0, 2).map((m, idx) => (
-                          <div key={idx} className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                            <span className="text-lg font-bold font-mono text-[#35D7FF] block tabular-nums">
-                              {m.value}
-                            </span>
-                            <span className="text-[11px] text-[#96A3B7] block mt-0.5">
-                              {m.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Technologies & Trigger */}
-                  <div className="pt-5 border-t border-white/[0.08] flex items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5 text-xs">
-                      {featuredProject.technologies.slice(0, 4).map((tech) => (
-                        <span key={tech} className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] font-mono text-[10px] text-slate-300">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#35D7FF] group-hover:text-white whitespace-nowrap">
-                      <span>Full Case Study</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </motion.article>
-          )}
-
-          {/* 2. Secondary Bento Grid (Remaining Projects with Varied Layouts) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-8">
             <AnimatePresence>
-              {secondaryProjects.map((project, idx) => (
+              {filteredProjects.map((project, idx) => (
                 <motion.article
                   layout
                   key={project.id}
@@ -190,10 +91,10 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   onClick={() => setSelectedProject(project)}
-                  className="group flex flex-col rounded-3xl glass-card glass-card-hover border border-white/[0.09] overflow-hidden cursor-pointer relative"
+                  className="group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-white/[0.09] overflow-hidden cursor-pointer relative"
                 >
                   {/* Media container */}
-                  <div className="relative w-full h-56 sm:h-64 bg-[#0A101C] overflow-hidden">
+                  <div className="relative w-full h-56 sm:h-64 shrink-0 bg-[#0A101C] overflow-hidden">
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -224,11 +125,11 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                         <span className="text-[#35D7FF]">{project.categoryLabel}</span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-snug">
+                      <h3 className="min-h-14 line-clamp-2 text-xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-snug">
                         {project.title}
                       </h3>
 
-                      <p className="mt-2.5 text-xs sm:text-sm text-[#96A3B7] leading-relaxed line-clamp-3">
+                      <p className="mt-2.5 text-xs sm:text-sm text-[#96A3B7] leading-relaxed line-clamp-3 min-h-[4.5em]">
                         {project.summary}
                       </p>
                     </div>
@@ -257,7 +158,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                 </motion.article>
               ))}
             </AnimatePresence>
-          </div>
         </div>
       </div>
 
