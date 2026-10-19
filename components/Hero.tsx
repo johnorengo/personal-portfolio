@@ -7,8 +7,6 @@ import { personalInfo, projectsData } from "../data/portfolio-data";
 
 export default function Hero() {
   const impactMetrics = [
-    { value: "1.2M+", label: "Records Managed", detail: "National institutional systems" },
-    { value: "15+", label: "Facilities Supported", detail: "Enterprise ICT & networks" },
     { value: String(projectsData.length), label: "Projects Worked On", detail: "Featured portfolio projects" },
     { value: "3+", label: "Years of Experience", detail: "Software engineering & security" },
     { value: "3+", label: "Cloud Certifications", detail: "AWS, CNCF & Microsoft SC-900" },
@@ -68,7 +66,7 @@ export default function Hero() {
 
             {/* Quantitative Proof Strip with Motion */}
             <div className="pt-4 border-t border-white/[0.08]">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 {impactMetrics.map((metric, idx) => (
                   <motion.div
                     key={metric.label}
