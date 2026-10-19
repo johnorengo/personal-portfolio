@@ -79,7 +79,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
             <AnimatePresence>
               {filteredProjects.map((project, idx) => (
                 <motion.article
@@ -99,6 +99,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(min-width: 1280px) 600px, (min-width: 768px) 50vw, 100vw"
                       className={`${project.imageFit === "contain" ? "object-contain bg-[#280d00]" : "object-cover object-top"} transition-transform duration-700 group-hover:scale-105`}
                       referrerPolicy="no-referrer"
                     />
@@ -125,12 +126,12 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                         <span className="text-[#35D7FF]">{project.categoryLabel}</span>
                       </div>
 
-                      <h3 className="min-h-14 line-clamp-2 text-xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-snug">
+                      <h3 className="min-h-14 text-xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-snug">
                         {project.title}
                       </h3>
 
-                      <p className="mt-2.5 text-xs sm:text-sm text-[#96A3B7] leading-relaxed line-clamp-3 min-h-[4.5em]">
-                        {project.summary}
+                      <p className="mt-3 text-sm text-[#96A3B7] leading-relaxed">
+                        {project.description}
                       </p>
                     </div>
 
@@ -150,7 +151,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                       </div>
 
                       <span className="inline-flex items-center gap-1 text-xs font-bold text-[#35D7FF] group-hover:text-white whitespace-nowrap">
-                        <span>Case Study</span>
+                        <span>More Details</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
