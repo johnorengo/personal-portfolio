@@ -125,7 +125,7 @@ export default function ContactSection({
                       <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required placeholder="Your first and last name" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="block text-xs font-semibold text-slate-200">Where can I reach you? <span className="text-[#35D7FF]">*</span></label>
+                      <label htmlFor="email" className="block text-xs font-semibold text-slate-200">Where should the conversation continue? <span className="text-[#35D7FF]">*</span></label>
                       <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required placeholder="Your preferred email address" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                   </div>
