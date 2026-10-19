@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ArrowUp, Mail, Phone } from "lucide-react";
+import BrandMark from "./BrandMark";
 import { personalInfo } from "../data/portfolio-data";
 
 export default function Footer() {
@@ -18,9 +19,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-2.5 max-w-md">
             <div className="flex items-center gap-2">
-              <span className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#121A29] to-[#182338] border border-white/[0.1] flex items-center justify-center font-display font-bold text-xs text-[#35D7FF]">
-                JO
-              </span>
+              <BrandMark className="h-7 w-auto" />
               <span className="font-display font-bold text-base text-[#F4F7FC]">
                 {personalInfo.name}
               </span>

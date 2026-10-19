@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
 import { motion, useScroll, useSpring } from "motion/react";
+import BrandMark from "./BrandMark";
 import { personalInfo } from "../data/portfolio-data";
 
 interface NavbarProps {
@@ -71,9 +72,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
               href="#top"
               className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
-              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#121A29] to-[#182338] border border-white/[0.1] flex items-center justify-center font-display font-bold text-sm text-[#35D7FF] group-hover:border-[#35D7FF]/50 transition-colors shadow-sm">
-                JO
-              </span>
+              <BrandMark className="h-8 w-auto" />
               <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[#F4F7FC] group-hover:text-[#35D7FF] transition-colors">
                 {personalInfo.name}
               </span>
