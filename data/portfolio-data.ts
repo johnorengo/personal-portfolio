@@ -369,7 +369,8 @@ export const certificationsData: Certification[] = [
     "title": "Cybersecurity Intern",
     "issuer": "Hack Secure",
     "date": "2025",
-    "badgeType": "Professional Development"
+    "badgeType": "Professional Development",
+    "verifyUrl": "https://certificate.givemycertificate.com/c/810b6cbe-3f06-48da-9253-a93a10df0bc7"
   },
   {
     "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",

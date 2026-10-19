@@ -235,7 +235,7 @@ export default function ExperienceCV() {
                         rel="noreferrer"
                         className="inline-flex items-center justify-between w-full pt-3.5 border-t border-white/[0.06] text-xs font-bold text-[#35D7FF] hover:text-white"
                       >
-                        <span>View Credentials on Credly</span>
+                        <span>{new URL(cert.verifyUrl).hostname.endsWith("credly.com") ? "View Credentials on Credly" : "Verify Credential"}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     )}
