@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download, Briefcase, GraduationCap, Award, CheckCircle, ExternalLink, FileText, ChevronRight } from "lucide-react";
+import { Download, Briefcase, GraduationCap, Award, CheckCircle, ExternalLink, ChevronRight } from "lucide-react";
 import { motion } from "motion/react";
 import { experienceData, educationData, certificationsData, personalInfo } from "../data/portfolio-data";
 
@@ -36,27 +36,15 @@ export default function ExperienceCV() {
             </p>
           </div>
 
-          {/* Quick CV Download Banner */}
-          <div className="p-5 rounded-2xl glass-card border border-white/[0.1] shadow-2xl shrink-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 relative group overflow-hidden">
-            <div className="relative z-10 flex items-center gap-3.5">
-              <div className="p-3 rounded-xl bg-[#35D7FF]/10 border border-[#35D7FF]/30 text-[#35D7FF] shadow-inner">
-                <FileText className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-sm font-bold text-[#F4F7FC] block font-display">{personalInfo.name} — CV</span>
-                <span className="text-xs text-[#96A3B7]">Verified Curriculum Vitae</span>
-              </div>
-            </div>
-
-            <a
-              href={personalInfo.cvPath}
-              download
-              className="relative z-10 inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-md shadow-[#35D7FF]/20 whitespace-nowrap"
-            >
-              <Download className="w-4 h-4 stroke-[2.5]" />
-              <span>Download Official Résumé</span>
-            </a>
-          </div>
+          {/* CV download */}
+          <a
+            href={personalInfo.cvPath}
+            download
+            className="self-start shrink-0 inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-md shadow-[#35D7FF]/20 whitespace-nowrap"
+          >
+            <Download className="w-4 h-4 stroke-[2.5]" />
+            <span>Download CV</span>
+          </a>
         </motion.div>
 
         {/* Tab switchers */}
