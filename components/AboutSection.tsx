@@ -73,7 +73,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6 flex flex-col justify-between"
+            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6 flex flex-col justify-start lg:self-start"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">
