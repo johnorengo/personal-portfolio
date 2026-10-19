@@ -154,7 +154,10 @@ export default function Hero() {
                           {personalInfo.name}
                         </span>
                         <span className="text-[#35D7FF] text-xs font-medium block">
-                          Full-Stack & Cloud Security
+                          {personalInfo.title}
+                        </span>
+                        <span className="mt-1 text-[11px] leading-relaxed text-slate-300 block">
+                          {personalInfo.specialism}
                         </span>
                       </div>
                     </div>
