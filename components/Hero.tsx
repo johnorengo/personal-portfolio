@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
 export default function Hero() {
-  const [activeHeroView, setActiveHeroView] = useState<"portrait" | "terminal">("portrait");
-
   const impactMetrics = [
     { value: "1.2M+", label: "Records Managed", detail: "National institutional systems" },
     { value: "15+", label: "Facilities Supported", detail: "Enterprise ICT & networks" },
@@ -127,7 +124,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Professionally Framed Portrait & Live Interactive Terminal */}
+          {/* Right Column: Professionally Framed Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -140,134 +137,52 @@ export default function Hero() {
 
               {/* Card Container */}
               <div className="relative rounded-3xl glass-card border border-white/[0.12] shadow-2xl overflow-hidden bg-[#121A29]/95">
-                {/* View Switcher Header */}
-                <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-[#0A101C]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  </div>
+                <div>
+                  <div className="relative h-96 lg:h-[clamp(16rem,42svh,24rem)] w-full bg-[#080D18] overflow-hidden">
+                    <Image
+                      src={personalInfo.profileImage}
+                      alt="John Orengo — Software Engineer & Cybersecurity"
+                      fill
+                      className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                      priority
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
 
-                  <div className="flex items-center p-0.5 rounded-lg bg-white/[0.06] border border-white/[0.08]">
-                    <button
-                      type="button"
-                      onClick={() => setActiveHeroView("portrait")}
-                      className={`px-3 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer ${
-                        activeHeroView === "portrait"
-                          ? "bg-[#35D7FF] text-[#080D18] shadow-sm font-bold"
-                          : "text-[#96A3B7] hover:text-white"
-                      }`}
-                    >
-                      Portrait
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setActiveHeroView("terminal")}
-                      className={`px-3 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer ${
-                        activeHeroView === "terminal"
-                          ? "bg-[#35D7FF] text-[#080D18] shadow-sm font-bold"
-                          : "text-[#96A3B7] hover:text-white"
-                      }`}
-                    >
-                      Live Terminal
-                    </button>
-                  </div>
-                </div>
-
-                {activeHeroView === "portrait" ? (
-                  /* Portrait View */
-                  <div>
-                    <div className="relative h-96 lg:h-[clamp(16rem,42svh,24rem)] w-full bg-[#080D18] overflow-hidden">
-                      <Image
-                        src={personalInfo.profileImage}
-                        alt="John Orengo — Software Engineer & Cybersecurity"
-                        fill
-                        className="object-cover object-top hover:scale-105 transition-transform duration-700"
-                        priority
-                        referrerPolicy="no-referrer"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
-
-                      <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
-                        <div>
-                          <span className="font-display font-bold text-white text-base block drop-shadow-md">
-                            {personalInfo.name}
-                          </span>
-                          <span className="text-[#35D7FF] text-xs font-medium block">
-                            Full-Stack & Cloud Security
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono text-[#35D7FF] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#35D7FF]/30">
-                          BSc CUEA
+                    <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
+                      <div>
+                        <span className="font-display font-bold text-white text-base block drop-shadow-md">
+                          {personalInfo.name}
+                        </span>
+                        <span className="text-[#35D7FF] text-xs font-medium block">
+                          Full-Stack & Cloud Security
                         </span>
                       </div>
-                    </div>
-
-                    {/* Quick matrix below photo */}
-                    <div className="p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-2">
-                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                        <Terminal className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
-                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Full-Stack</span>
-                        <span className="text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                        <ShieldCheck className="w-4 h-4 mx-auto text-[#8667FF] mb-1" />
-                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Security</span>
-                        <span className="text-[10px] text-[#96A3B7] block font-mono">Azure · RBAC</span>
-                      </div>
-                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
-                        <Server className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
-                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Systems</span>
-                        <span className="text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
-                      </div>
+                      <span className="text-[11px] font-mono text-[#35D7FF] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#35D7FF]/30">
+                        BSc CUEA
+                      </span>
                     </div>
                   </div>
-                ) : (
-                  /* Live Terminal View */
-                  <div className="p-5 font-mono text-xs space-y-3 bg-[#080D18] min-h-[460px] flex flex-col justify-between">
-                    <div className="space-y-3">
-                      <div className="text-[#96A3B7]">
-                        <span className="text-[#35D7FF]">orengo@nairobi</span>:
-                        <span className="text-[#8667FF]">~/systems</span>$ ./status.sh
-                      </div>
 
-                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
-                        <div className="text-[#35D7FF] font-bold flex items-center gap-1.5">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#35D7FF]" />
-                          <span>[CORE PLATFORM] Kenya MoE Verification</span>
-                        </div>
-                        <p className="text-[11px] text-[#96A3B7]">
-                          Status: Active · Database: MySQL (Optimized) · Latency: 180ms
-                        </p>
-                      </div>
-
-                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
-                        <div className="text-[#8667FF] font-bold flex items-center gap-1.5">
-                          <ShieldCheck className="w-3.5 h-3.5 text-[#8667FF]" />
-                          <span>[SECURITY AUDIT] Azure Cloud Governance</span>
-                        </div>
-                        <p className="text-[11px] text-[#96A3B7]">
-                          Tenant: Hybrid Multi-Tenant · RBAC Coverage: 100% · MFA Enforced
-                        </p>
-                      </div>
-
-                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
-                        <div className="text-amber-400 font-bold flex items-center gap-1.5">
-                          <Award className="w-3.5 h-3.5 text-amber-400" />
-                          <span>[CREDENTIALS] Verified Industry Badges</span>
-                        </div>
-                        <p className="text-[11px] text-[#96A3B7]">
-                          AWS Certified Cloud Practitioner · CNCF KCNA · Microsoft SC-900
-                        </p>
-                      </div>
+                  {/* Quick matrix below photo */}
+                  <div className="p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-2">
+                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                      <Terminal className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
+                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Full-Stack</span>
+                      <span className="text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
                     </div>
-
-                    <div className="pt-3 border-t border-white/[0.08] text-[11px] text-[#96A3B7] flex items-center justify-between">
-                      <span>Stack: TypeScript · Laravel · Linux</span>
-                      <span className="text-[#35D7FF] animate-pulse">● Systems Verified</span>
+                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                      <ShieldCheck className="w-4 h-4 mx-auto text-[#8667FF] mb-1" />
+                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Security</span>
+                      <span className="text-[10px] text-[#96A3B7] block font-mono">Azure · RBAC</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                      <Server className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
+                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Systems</span>
+                      <span className="text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </motion.div>
