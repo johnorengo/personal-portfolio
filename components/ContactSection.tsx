@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, GitBranch, Globe, Award, Check, Send, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Phone, Check, Send, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -168,10 +169,10 @@ export default function ContactSection({
                 >
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-[rgb(var(--wash-rgb))]/[0.04] text-[var(--accent-text)]">
-                      <GitBranch className="w-4 h-4" />
+                      <Image src="/icons/github.svg" alt="" aria-hidden="true" width={20} height={20} className="shrink-0" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-white block">GitHub Profile</span>
+                      <span className="text-xs font-bold text-[var(--text-main)] block">GitHub Profile</span>
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">@johnorengo · Code & Architecture</span>
                     </div>
                   </div>
@@ -186,10 +187,10 @@ export default function ContactSection({
                 >
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-[rgb(var(--wash-rgb))]/[0.04] text-[var(--violet-text)]">
-                      <Globe className="w-4 h-4" />
+                      <Image src="/icons/linkedin.svg" alt="" aria-hidden="true" width={20} height={20} className="shrink-0" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-white block">LinkedIn Profile</span>
+                      <span className="text-xs font-bold text-[var(--text-main)] block">LinkedIn Profile</span>
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">Professional Network & Endorsements</span>
                     </div>
                   </div>
@@ -204,10 +205,10 @@ export default function ContactSection({
                 >
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-[rgb(var(--wash-rgb))]/[0.04] text-amber-400">
-                      <Award className="w-4 h-4" />
+                      <Image src="/icons/credly.svg" alt="" aria-hidden="true" width={20} height={20} className="shrink-0" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-white block">Credly Certifications</span>
+                      <span className="text-xs font-bold text-[var(--text-main)] block">Credly Certifications</span>
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">AWS, CNCF & Microsoft Badges</span>
                     </div>
                   </div>
@@ -223,7 +224,7 @@ export default function ContactSection({
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-white block">Direct Call</span>
+                      <span className="text-xs font-bold text-[var(--text-main)] block">Direct Call</span>
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">{personalInfo.phoneDisplay}</span>
                     </div>
                   </div>
