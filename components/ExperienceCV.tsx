@@ -94,10 +94,10 @@ export default function ExperienceCV() {
                   { id: "experience", title: "Roles & Internships", count: experienceData.length, description: "Experience in software engineering, cybersecurity, and IT infrastructure across government, security, and education.", icon: Briefcase, action: "View Experience" },
                   { id: "certifications", title: "Industry Certifications", count: certificationsData.length, description: "Credentials from AWS, the Cloud Native Computing Foundation, and Microsoft, with links to verify them.", icon: CheckCircle, action: "View Certifications" },
                   { id: "education", title: "Education & Degree", count: educationData.length, description: "Computer Science at The Catholic University of Eastern Africa, including an Employee Task Management System capstone.", icon: GraduationCap, action: "View Education" },
-                ].map((item) => {
+                ].map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.id} className="p-6 rounded-3xl glass-card border border-white/[0.08] flex flex-col gap-4">
+                    <motion.div key={item.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: idx * 0.08 }} className="p-6 rounded-3xl glass-card border border-white/[0.08] flex flex-col gap-4">
                       <div className="flex items-center justify-between text-[#35D7FF]">
                         <Icon className="w-5 h-5" />
                         <span className="text-2xl font-bold font-mono">{item.count}</span>
@@ -107,7 +107,7 @@ export default function ExperienceCV() {
                       <button type="button" onClick={() => setActiveTab(item.id as TimelineFilter)} className="inline-flex items-center gap-2 text-xs font-bold text-[#35D7FF] hover:text-white self-start cursor-pointer">
                         {item.action}<ChevronRight className="w-4 h-4" />
                       </button>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -188,7 +188,7 @@ export default function ExperienceCV() {
 
           {/* Certifications Section */}
           {(activeTab === "certifications") && (
-            <div id="credentials" className="space-y-6 pt-6">
+            <div id="credentials" className="space-y-6">
               <h3 className="text-xl font-bold text-[#F4F7FC] font-display flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#8667FF]" />
                 <span>Industry Certifications & Verified Credentials</span>
@@ -248,7 +248,7 @@ export default function ExperienceCV() {
                 <span>Academic Background</span>
               </h3>
 
-              <div className="p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6">
+              <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6">
                 {educationData.map((edu, idx) => (
                   <div key={idx} className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-4">
@@ -284,7 +284,7 @@ export default function ExperienceCV() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           )}
         </div>
