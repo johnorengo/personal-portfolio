@@ -7,16 +7,16 @@ import { personalInfo, specializations } from "../data/portfolio-data";
 export default function AboutSection() {
   const approaches = [
     {
-      title: "Context-First Engineering",
-      desc: "Software is only as valuable as the real world problem it eliminates. I inspect actual workflows, field network constraints, and end user behavior before architecting code.",
+      title: "Understand what matters",
+      desc: "I start with your goals, the people using the system, and the frustrations you want to leave behind. That helps me solve the right problem.",
     },
     {
-      title: "Zero Trust & Defense in Depth",
-      desc: "Security cannot be an afterthought bolted on at deployment. I enforce principle of least privilege RBAC, data partition isolation, and CIS benchmark alignment from day zero.",
+      title: "Build with care",
+      desc: "I pay attention to how a product feels to use, how it handles information, and how it will be maintained after launch. Security belongs in those decisions from the beginning.",
     },
     {
-      title: "Resilient & Scalable Delivery",
-      desc: "Architecting normalized relational data structures, optimized query indexing, and clear API boundaries that gracefully sustain high burst traffic without service degradation.",
+      title: "Keep you involved",
+      desc: "I explain technical choices in plain language, welcome feedback, and work with you to turn an initial idea into something useful.",
     },
   ];
 
@@ -36,19 +36,20 @@ export default function AboutSection() {
         >
           <div className="lg:col-span-5 space-y-3">
             <span className="text-xs font-mono font-bold tracking-widest text-[#35D7FF] uppercase">
-              About & Philosophy
+              About
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#F4F7FC] leading-tight font-display [text-wrap:balance]">
-              Engineering secure, intelligent, and scalable digital solutions.
+              I&apos;m John. I build software people can rely on.
             </h2>
           </div>
 
           <div className="lg:col-span-7 space-y-5 text-[#96A3B7] text-base sm:text-lg leading-relaxed">
+            <p>{personalInfo.bio}</p>
             <p>
-              Holding a Bachelor of Science in Computer Science from The Catholic University of Eastern Africa, my focus is bridging robust software engineering with enterprise cybersecurity discipline.
+              I hold a Computer Science degree from The Catholic University of Eastern Africa. My work has taken me from building education platforms at Kenya&apos;s Ministry of Education to reviewing Azure cloud security at Serianu. I&apos;ve also worked on business websites, product catalogs, and systems that help teams manage their daily operations. Those experiences have taught me to look beyond the code and understand who a system needs to serve.
             </p>
             <p>
-              At the Kenya Ministry of Education Headquarters, I developed core modules of national platforms used across 47 counties for school accreditation, emergency incident reporting, and environmental monitoring. At Serianu Limited, East Africa&apos;s leading cybersecurity firm, I conducted Azure cloud security reviews, identifying privileged access vulnerabilities and hardening identity controls.
+              If we work together, I want you to feel comfortable asking questions and confident about what we&apos;re building. I bring a practical approach, clear communication, and care for the details that make a product useful long after launch. Whether you&apos;re starting with an idea or improving an existing system, I&apos;d like to help you take the next step.
             </p>
 
             <div className="pt-2">
@@ -66,7 +67,7 @@ export default function AboutSection() {
 
         {/* Bento Grid: Specializations & Problem Solving Approach */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Areas of Specialization Card */}
+          {/* Where I Can Help Card */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,15 +78,15 @@ export default function AboutSection() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono font-bold text-[#35D7FF] uppercase tracking-wider">
-                  Core Disciplines
+                  What I Bring
                 </span>
                 <Layers className="w-5 h-5 text-[#35D7FF]" />
               </div>
               <h3 className="text-2xl font-bold text-[#F4F7FC] font-display">
-                Areas of Specialization
+                Where I Can Help
               </h3>
               <p className="text-sm text-[#96A3B7]">
-                Cross functional technical competence spanning frontend, backend, security posture, and cloud operations.
+                I work across software development and security, connecting the pieces needed to turn your idea into a dependable product.
               </p>
             </div>
 
@@ -102,7 +103,7 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Approach to Problem Solving Card */}
+          {/* How I Work Card */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,15 +114,15 @@ export default function AboutSection() {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono font-bold text-[#8667FF] uppercase tracking-wider">
-                  Methodology
+                  Working Together
                 </span>
                 <Brain className="w-5 h-5 text-[#8667FF]" />
               </div>
               <h3 className="text-2xl font-bold text-[#F4F7FC] font-display">
-                Approach to Problem Solving
+                How I Work
               </h3>
               <p className="text-sm text-[#96A3B7]">
-                Principled engineering discipline that balances technical rigor with practical usability.
+                Good work starts with understanding each other. Here is what you can expect from me.
               </p>
             </div>
 
