@@ -94,22 +94,73 @@ export default function ContactSection({
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Verified Social Profiles */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-fr gap-8 items-stretch">
+          {/* Your Next Idea Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-6"
+            className="h-full min-w-0"
+          >
+            <div className="relative h-full overflow-hidden rounded-3xl border border-white/[0.1] bg-[#0E1524] shadow-2xl">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF]" />
+              <div className="p-6 sm:p-8 space-y-7">
+                <div className="flex items-start justify-between gap-5">
+                  <div className="space-y-3">
+                    <span className="text-[11px] font-mono font-bold tracking-[0.18em] text-[#35D7FF] uppercase">Your Next Idea</span>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F7FC] font-display leading-tight">Let&apos;s make it happen.</h3>
+                    <p className="max-w-md text-sm text-[#96A3B7] leading-relaxed">Tell me what you&apos;re working on, what needs improving, or where you could use a hand.</p>
+                  </div>
+                  <div className="hidden sm:flex shrink-0 h-12 w-12 items-center justify-center rounded-2xl border border-[#35D7FF]/20 bg-[#35D7FF]/10 text-[#35D7FF]">
+                    <Send className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                </div>
+
+                <form onSubmit={handleFormSubmit} aria-busy={formStatus === "submitting"} className="space-y-5">
+                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">01</span>Your name <span className="text-[#35D7FF]">*</span></label>
+                      <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required placeholder="What should I call you?" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                    </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">02</span>Reply email <span className="text-[#35D7FF]">*</span></label>
+                      <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required placeholder="you@company.com" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">03</span>What do you have in mind? <span className="text-[#35D7FF]">*</span></label>
+                    <textarea id="message" name="message" disabled={formStatus === "submitting"} required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm leading-relaxed text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                  </div>
+                  {formStatus === "error" && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">{errorMessage}</p>}
+                  {formStatus === "success" && (
+                    <p role="status" className="flex items-start gap-2 rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-sm leading-relaxed text-slate-200"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#35D7FF]" />Message sent. Thank you for reaching out. I&apos;ll reply to the email you provided.</p>
+                  )}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
+                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Your message comes straight to my inbox. I&apos;ll get back to you personally.</p>
+                    <button type="submit" disabled={formStatus === "submitting"} className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Verified Social Profiles */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="h-full min-w-0"
           >
             {/* Direct Profiles List */}
-            <div className="p-7 rounded-3xl glass-card border border-white/[0.1] space-y-4 shadow-xl">
+            <div className="h-full p-6 sm:p-8 rounded-3xl glass-card border border-white/[0.1] flex flex-col gap-5 shadow-xl">
               <span className="text-xs font-mono font-bold text-[#8667FF] uppercase tracking-wider block">
                 Verified Social Profiles
               </span>
 
-              <div className="space-y-3">
+              <div className="grid auto-rows-fr gap-3 flex-1">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
@@ -180,21 +231,7 @@ export default function ContactSection({
                   <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#35D7FF] transition-colors" />
                 </a>
 
-                <a
-                  href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#35D7FF]/40 transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-white/[0.04] text-[#35D7FF]">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-white block">WhatsApp</span>
-                      <span className="text-[11px] text-[#96A3B7] font-mono">{personalInfo.phoneDisplay}</span>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#35D7FF] transition-colors" />
-                </a>
+
               </div>
 
               {/* Buy Me a Coffee Support Modal Trigger */}
@@ -212,57 +249,6 @@ export default function ContactSection({
               )}
             </div>
 
-          </motion.div>
-
-          {/* Right Column: Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7"
-          >
-            <div className="relative overflow-hidden rounded-3xl border border-white/[0.1] bg-[#0E1524] shadow-2xl">
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF]" />
-              <div className="p-6 sm:p-8 space-y-7">
-                <div className="flex items-start justify-between gap-5">
-                  <div className="space-y-3">
-                    <span className="text-[11px] font-mono font-bold tracking-[0.18em] text-[#35D7FF] uppercase">Your Next Idea</span>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F7FC] font-display leading-tight">Let&apos;s make it happen.</h3>
-                    <p className="max-w-md text-sm text-[#96A3B7] leading-relaxed">Tell me what you&apos;re working on, what needs improving, or where you could use a hand.</p>
-                  </div>
-                  <div className="hidden sm:flex shrink-0 h-12 w-12 items-center justify-center rounded-2xl border border-[#35D7FF]/20 bg-[#35D7FF]/10 text-[#35D7FF]">
-                    <Send className="w-5 h-5" aria-hidden="true" />
-                  </div>
-                </div>
-
-                <form onSubmit={handleFormSubmit} aria-busy={formStatus === "submitting"} className="space-y-5">
-                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">01</span>Your name <span className="text-[#35D7FF]">*</span></label>
-                      <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required placeholder="What should I call you?" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">02</span>Reply email <span className="text-[#35D7FF]">*</span></label>
-                      <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required placeholder="you@company.com" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">03</span>What do you have in mind? <span className="text-[#35D7FF]">*</span></label>
-                    <textarea id="message" name="message" disabled={formStatus === "submitting"} required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm leading-relaxed text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
-                  </div>
-                  {formStatus === "error" && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">{errorMessage}</p>}
-                  {formStatus === "success" && (
-                    <p role="status" className="flex items-start gap-2 rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-sm leading-relaxed text-slate-200"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#35D7FF]" />Message sent. Thank you for reaching out. I&apos;ll reply to the email you provided.</p>
-                  )}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
-                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Your message comes straight to my inbox. I&apos;ll get back to you personally.</p>
-                    <button type="submit" disabled={formStatus === "submitting"} className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
-                  </div>
-                </form>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
