@@ -109,23 +109,23 @@
 /* Shared colour tokens keep every section and interactive state in sync. */
 html[data-theme="light"] {
   color-scheme: light;
-  --page-rgb: 248 250 253;
+  --page-rgb: 251 250 247;
   --surface-rgb: 255 255 255;
   --card-rgb: 255 255 255;
-  --elevated-rgb: 238 243 250;
-  --footer-rgb: 237 242 249;
-  --border-rgb: 15 23 42;
-  --wash-rgb: 15 23 42;
-  --text-main: #14213a;
-  --text-muted: #526078;
-  --accent-text: #00718c;
-  --violet-text: #6340c6;
-  --slate-200: #24334c;
-  --slate-300: #37465e;
-  --slate-400: #526078;
-  --slate-500: #59677e;
-  --slate-600: #64748b;
-  --slate-700: #76849a;
+  --elevated-rgb: 240 239 255;
+  --footer-rgb: 236 236 250;
+  --border-rgb: 67 56 107;
+  --wash-rgb: 79 70 229;
+  --text-main: #211b44;
+  --text-muted: #54506b;
+  --accent-text: #2456ce;
+  --violet-text: #7433c9;
+  --slate-200: #30294f;
+  --slate-300: #49415e;
+  --slate-400: #5c5572;
+  --slate-500: #655d79;
+  --slate-600: #6e6681;
+  --slate-700: #7a718b;
 }
 
 .theme-to-dark { display: none; }
@@ -137,11 +137,47 @@ html[data-theme="light"] .text-rose-400 { color: #be123c; }
 html[data-theme="light"] .text-teal-300,
 html[data-theme="light"] .text-teal-400 { color: #0f766e; }
 html[data-theme="light"] .text-amber-400 { color: #a65a06; }
-html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #aab7cc; }
-html[data-theme="light"] .glass-card { box-shadow: 0 8px 32px -20px rgb(15 23 42 / 0.2); }
-html[data-theme="light"] .theme-gradient {
-  --tw-gradient-from: #00718c;
-  --tw-gradient-via: #6340c6;
-  --tw-gradient-to: #00718c;
-  background-image: linear-gradient(to right, #00718c, #6340c6, #00718c);
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #b6a8db; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+html[data-theme="light"] .glass-card {
+  background: rgb(255 255 255 / 0.94);
+  border-color: rgb(105 85 162 / 0.15);
+  box-shadow: 0 4px 8px -6px rgb(49 32 89 / 0.12), 0 16px 40px -24px rgb(75 47 137 / 0.2);
 }
+html[data-theme="light"] .glass-card-hover:hover {
+  background: #ffffff;
+  border-color: rgb(124 58 237 / 0.3);
+  box-shadow: 0 18px 44px -22px rgb(91 54 173 / 0.28);
+}
+html[data-theme="light"] .theme-gradient {
+  background-image: linear-gradient(110deg, #2456ce 5%, #7433c9 55%, #a32683 100%);
+}
+
+/* A warm editorial canvas with distinct, softly coloured section surfaces. */
+html[data-theme="light"] #top {
+  background: radial-gradient(ellipse at 95% 15%, #e9e2ff 0, transparent 48%),
+              radial-gradient(ellipse at 0 80%, #e3f0ff 0, transparent 52%), #fbfaf7;
+}
+html[data-theme="light"] :is(#about, #experience) { background-color: #fbfaf7; }
+html[data-theme="light"] :is(#expertise, #contact) { background-color: #f4f1fb; }
+html[data-theme="light"] #projects { background-color: #f0f5fc; }
+html[data-theme="light"] header {
+  background: rgb(251 250 255 / 0.94);
+  border-bottom-color: rgb(105 85 162 / 0.14);
+  box-shadow: 0 4px 24px -16px rgb(59 35 116 / 0.2);
+}
+html[data-theme="light"] :is(a, button).bg-gradient-to-r:not(.from-teal-400) {
+  background-image: linear-gradient(110deg, #2456ce, #7433c9);
+  color: #ffffff;
+  box-shadow: 0 6px 18px -8px rgb(96 52 191 / 0.5);
+}
+html[data-theme="light"] :is(input, textarea) {
+  background-color: #fcfbff;
+  border-color: #d8d0eb;
+}
+html[data-theme="light"] :is(input, textarea):focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgb(124 58 237 / 0.12);
+}
+html[data-theme="light"] :is(input, textarea)::placeholder { color: #716983; }
+html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
