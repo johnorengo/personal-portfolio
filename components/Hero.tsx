@@ -35,26 +35,6 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7 flex flex-col justify-center space-y-7"
           >
-            {/* Editorial Kicker & Configurable Availability */}
-            <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-              <span className="font-bold tracking-widest text-[#35D7FF] uppercase">
-                [01°17&apos;S 36°49&apos;E · Nairobi, KE]
-              </span>
-              <span className="text-slate-600">·</span>
-
-              {personalInfo.availability.isAvailable && (
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border border-[#35D7FF]/30">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#35D7FF] opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#35D7FF]" />
-                  </span>
-                  <span className="text-[11px] font-medium text-[#F4F7FC]">
-                    {personalInfo.availability.shortLabel}
-                  </span>
-                </div>
-              )}
-            </div>
-
             {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
             <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
               Building{" "}
