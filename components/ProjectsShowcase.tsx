@@ -31,12 +31,12 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
   });
 
   return (
-    <section id="projects" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
+    <section id="projects" className="pt-4 pb-12 lg:pb-16 relative overflow-clip bg-[#080D18]">
       {/* Dynamic ambient glow field */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#35D7FF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[550px] h-[550px] bg-[#8667FF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         {/* Section Header with Asymmetric Editorial Composition */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-4 border-b border-white/[0.08]">
           <div className="max-w-2xl space-y-3">
@@ -50,33 +50,36 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
             </h2>
           </div>
 
-          {/* Interactive Filter Tabs */}
-          <div className="flex items-center gap-1.5 p-1.5 glass-card rounded-2xl shrink-0 border border-white/[0.08] overflow-x-auto self-start md:self-auto">
-            {filterOptions.map((opt) => {
-              const isSelected = activeFilter === opt.id;
-              return (
-                <button
-                  key={opt.id}
-                  type="button"
-                  onClick={() => setActiveFilter(opt.id)}
-                  className={`relative px-4 py-2 text-xs font-semibold rounded-xl transition-colors whitespace-nowrap cursor-pointer ${
-                    isSelected ? "text-[#080D18] font-bold" : "text-[#96A3B7] hover:text-[#F4F7FC]"
-                  }`}
-                >
-                  {isSelected && (
-                    <motion.div
-                      layoutId="activeFilterPillEditorial"
-                      className="absolute inset-0 bg-gradient-to-r from-[#35D7FF] to-[#8667FF] rounded-xl shadow-md shadow-[#35D7FF]/30"
-                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                    />
-                  )}
-                  <span className="relative z-10">
-                    {opt.label} {opt.id === "all" ? `(${projectsData.length})` : ""}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+
+        </div>
+
+        {/* Interactive Filter Tabs */}
+        <div role="group" aria-label="Filter projects" className="sticky top-20 z-30 flex items-center gap-1.5 p-1.5 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 backdrop-blur-xl shadow-xl overflow-x-auto">
+          {filterOptions.map((opt) => {
+            const isSelected = activeFilter === opt.id;
+            return (
+              <button
+                key={opt.id}
+                type="button"
+                aria-pressed={isSelected}
+                onClick={() => setActiveFilter(opt.id)}
+                className={`relative px-4 py-2 text-xs font-semibold rounded-xl transition-colors whitespace-nowrap cursor-pointer ${
+                  isSelected ? "text-[#080D18] font-bold" : "text-[#96A3B7] hover:text-[#F4F7FC]"
+                }`}
+              >
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeFilterPillEditorial"
+                    className="absolute inset-0 bg-gradient-to-r from-[#35D7FF] to-[#8667FF] rounded-xl shadow-md shadow-[#35D7FF]/30"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10">
+                  {opt.label} {opt.id === "all" ? `(${projectsData.length})` : ""}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
