@@ -363,7 +363,7 @@ export const certificationsData: Certification[] = [
     "issuer": "The Linux Foundation / CNCF",
     "date": "2025",
     "badgeType": "Cloud Native",
-    "verifyUrl": "https://www.credly.com/users/john-orengo"
+    "verifyUrl": "https://www.credly.com/badges/6feba8c3-d47e-4b33-9246-8739861fb260/public_url"
   },
   {
     "title": "Cybersecurity Intern",
@@ -376,20 +376,22 @@ export const certificationsData: Certification[] = [
     "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
     "issuer": "Microsoft",
     "date": "2025",
-    "badgeType": "Cybersecurity"
+    "badgeType": "Cybersecurity",
+    "verifyUrl": "https://learn.microsoft.com/en-us/users/johnorengo-1315/credentials/d75c4f9b991b29a7"
   },
   {
     "title": "AWS re/Start Graduate",
     "issuer": "Amazon Web Services (AWS)",
     "date": "2025",
-    "badgeType": "Cloud Training"
+    "badgeType": "Cloud Training",
+    "verifyUrl": "https://www.credly.com/badges/59df2b0b-d66c-4bf9-bed2-8f221209e726/public_url"
   },
   {
     "title": "AWS Certified Cloud Practitioner",
     "issuer": "Amazon Web Services (AWS)",
     "date": "2025",
     "badgeType": "Cloud Certification",
-    "verifyUrl": "https://www.credly.com/users/john-orengo"
+    "verifyUrl": "https://www.credly.com/badges/2fd2ded7-5a0b-4b6f-b783-26bf3970181c/public_url"
   },
   {
     "title": "Certificate in Computer Applications",
