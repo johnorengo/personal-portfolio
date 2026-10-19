@@ -40,3 +40,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Contact form delivery
+
+The contact form sends messages directly from the page through Web3Forms. Generate an access key for the receiving inbox at https://web3forms.com/. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`. This is a public form key, not a private API secret.
+
+Set the same variable in the hosting environment and rebuild or redeploy, since Next.js embeds public environment variables at build time. Restart the development server after changing `.env.local`.
+
+Submission shows success only after the provider confirms acceptance. Without a key, the form displays an availability error instead of claiming delivery.

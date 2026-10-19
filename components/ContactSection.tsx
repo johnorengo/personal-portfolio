@@ -18,7 +18,7 @@ export default function ContactSection({
     email: "",
     message: "",
   });
-  const [formStatus, setFormStatus] = useState<"idle" | "ready" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleCopyEmail = () => {
@@ -27,22 +27,53 @@ export default function ContactSection({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const emailDraftUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
-    "Project enquiry from " + formData.name.trim()
-  )}&body=${encodeURIComponent(
-    "Name: " + formData.name.trim() + "\nReply email: " + formData.email.trim() + "\n\n" + formData.message.trim()
-  )}`;
-
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (formStatus === "submitting") return;
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setErrorMessage("Please add your name, reply email, and a short message.");
       setFormStatus("error");
       return;
     }
+    const submission = new FormData(event.currentTarget);
+    if (submission.get("botcheck")) return;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
+    if (!accessKey) {
+      setErrorMessage("Messaging is temporarily unavailable. Please use the contact links to reach me.");
+      setFormStatus("error");
+      return;
+    }
     setErrorMessage("");
-    window.location.href = emailDraftUrl;
-    setFormStatus("ready");
+    setFormStatus("submitting");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          subject: "Portfolio enquiry from " + formData.name.trim(),
+          from_name: "John Orengo Portfolio",
+          botcheck: false,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== true) {
+        throw new Error(response.status === 429 ? "Please wait a moment before sending another message." : "Your message could not be sent. Please try again.");
+      }
+      setFormStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setErrorMessage(error instanceof Error && error.name !== "AbortError" && error.name !== "TypeError" ? error.message : "The connection was interrupted. Please try again; your message is still here.");
+      setFormStatus("error");
+    } finally {
+      window.clearTimeout(timeout);
+    }
   };
 
   return (
@@ -271,28 +302,29 @@ export default function ContactSection({
                   </div>
                 </div>
 
-                <form onSubmit={handleFormSubmit} className="space-y-5">
+                <form onSubmit={handleFormSubmit} aria-busy={formStatus === "submitting"} className="space-y-5">
+                  <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">01</span>Your name <span className="text-[#35D7FF]">*</span></label>
-                      <input id="name" name="name" type="text" autoComplete="name" required placeholder="What should I call you?" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                      <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required placeholder="What should I call you?" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">02</span>Reply email <span className="text-[#35D7FF]">*</span></label>
-                      <input id="email" name="email" type="email" autoComplete="email" required placeholder="you@company.com" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                      <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required placeholder="you@company.com" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="block text-xs font-semibold text-slate-200"><span className="mr-2 font-mono text-[#35D7FF]" aria-hidden="true">03</span>What do you have in mind? <span className="text-[#35D7FF]">*</span></label>
-                    <textarea id="message" name="message" required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm leading-relaxed text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                    <textarea id="message" name="message" disabled={formStatus === "submitting"} required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-white/[0.1] bg-[#080D18]/80 px-4 py-3.5 text-sm leading-relaxed text-[#F4F7FC] placeholder:text-slate-500 outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                   </div>
                   {formStatus === "error" && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">{errorMessage}</p>}
-                  {formStatus === "ready" && (
-                    <p role="status" className="rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-xs leading-relaxed text-slate-300">Complete and send your message in your email app. If it didn&apos;t open, <a href={emailDraftUrl} className="font-semibold text-[#35D7FF] underline underline-offset-2">open your draft again</a>.</p>
+                  {formStatus === "success" && (
+                    <p role="status" className="flex items-start gap-2 rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-sm leading-relaxed text-slate-200"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#35D7FF]" />Message sent. Thank you for reaching out. I&apos;ll reply to the email you provided.</p>
                   )}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
-                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Opens your email app with a draft ready for you to review and send.</p>
-                    <button type="submit" className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer">Prepare Message<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
+                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Your message comes straight to my inbox. I&apos;ll get back to you personally.</p>
+                    <button type="submit" disabled={formStatus === "submitting"} className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
                   </div>
                 </form>
               </div>
