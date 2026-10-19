@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
+import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -125,6 +125,64 @@ export default function Hero() {
                       <span className="text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
                     </div>
                   </div>
+                </div>
+              </div>
+
+              {/* Social channels row */}
+              <div className="relative mt-4 text-center">
+                <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
+                  Verified Social & Technical Profiles
+                </span>
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
+                  <a
+                    href="https://github.com/johnorengo"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                  >
+                    <GitBranch className="w-4 h-4 text-[#35D7FF]" />
+                    <span>GitHub</span>
+                  </a>
+                  <span className="text-slate-700">·</span>
+
+                  <a
+                    href="https://www.linkedin.com/in/john-orengo"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
+                  >
+                    <Globe className="w-4 h-4 text-[#8667FF]" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <span className="text-slate-700">·</span>
+
+                  <a
+                    href="https://www.credly.com/users/john-orengo"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                  >
+                    <Award className="w-4 h-4 text-amber-400" />
+                    <span>Credly Badges</span>
+                  </a>
+                  <span className="text-slate-700">·</span>
+
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-[#35D7FF]" />
+                    <span>Email</span>
+                  </a>
+                  <span className="text-slate-700">·</span>
+
+                  <a
+                    href={`tel:${personalInfo.phone}`}
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
+                  >
+                    <Phone className="w-4 h-4 text-[#8667FF]" />
+                    <span>WhatsApp</span>
+                  </a>
                 </div>
               </div>
             </div>
