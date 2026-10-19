@@ -146,7 +146,7 @@ export default function Hero() {
                   <span className="text-slate-700">·</span>
 
                   <a
-                    href="https://www.linkedin.com/in/john-orengo"
+                    href="https://www.linkedin.com/in/johnorengo"
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
@@ -177,7 +177,7 @@ export default function Hero() {
                   <span className="text-slate-700">·</span>
 
                   <a
-                    href={`tel:${personalInfo.phone}`}
+                    href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
                     className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
                   >
                     <Phone className="w-4 h-4 text-[#8667FF]" />

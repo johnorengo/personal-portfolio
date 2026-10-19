@@ -169,7 +169,7 @@ export default function ContactSection({
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/john-orengo"
+                  href="https://www.linkedin.com/in/johnorengo"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#8667FF]/40 transition-all group"
@@ -213,7 +213,23 @@ export default function ContactSection({
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold text-white block">Direct Call / WhatsApp</span>
+                      <span className="text-xs font-bold text-white block">Direct Call</span>
+                      <span className="text-[11px] text-[#96A3B7] font-mono">{personalInfo.phoneDisplay}</span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-[#35D7FF] transition-colors" />
+                </a>
+
+                <a
+                  href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-[#35D7FF]/40 transition-all group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-white/[0.04] text-[#35D7FF]">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold text-white block">WhatsApp</span>
                       <span className="text-[11px] text-[#96A3B7] font-mono">{personalInfo.phoneDisplay}</span>
                     </div>
                   </div>

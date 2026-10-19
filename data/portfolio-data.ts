@@ -16,8 +16,9 @@ export const personalInfo = {
   location: "Nairobi, Kenya",
   timezone: "EAT (UTC+3)",
   email: "orengokennedy93@gmail.com",
-  phone: "+254 706 838 732",
-  phoneDisplay: "+254 706 838 732",
+  phone: "+254706830730",
+  whatsappUrl: "https://wa.me/254706830730",
+  phoneDisplay: "+254 706 830 730",
   profileImage: "/profile.jpg",
   cvPath: "/john-orengo-cv.pdf",
 
@@ -484,8 +485,8 @@ export const socialLinks: SocialLink[] = [
   {
     platform: "LinkedIn",
     label: "Professional profile & recommendations",
-    url: "https://www.linkedin.com/in/john-orengo",
-    username: "in/john-orengo",
+    url: "https://www.linkedin.com/in/johnorengo",
+    username: "in/johnorengo",
   },
   {
     platform: "Credly",
@@ -501,8 +502,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: "Phone",
-    label: "Direct call & WhatsApp",
-    url: "tel:+254706838732",
-    username: "+254 706 838 732",
+    label: "Direct call",
+    url: "tel:+254706830730",
+    username: "+254 706 830 730",
   },
 ];

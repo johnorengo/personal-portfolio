@@ -70,7 +70,7 @@ export default function Footer() {
               <GitBranch className="w-4 h-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/john-orengo"
+              href="https://www.linkedin.com/in/johnorengo"
               target="_blank"
               rel="noreferrer"
               className="text-[#96A3B7] hover:text-[#8667FF] transition-colors"
