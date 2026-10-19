@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
+import RotatingHeadline from "./RotatingHeadline";
 
 export default function Hero() {
   const impactMetrics = [
@@ -32,14 +33,7 @@ export default function Hero() {
             className="lg:col-span-7 flex flex-col justify-center space-y-5"
           >
             {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
-            <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
-              Building{" "}
-              <span className="bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] bg-clip-text text-transparent">
-                Intelligent Solutions.
-              </span>
-              <br />
-              Securing Digital Futures.
-            </h1>
+            <RotatingHeadline />
 
             {/* Master Supporting Text */}
             <p className="text-base sm:text-lg text-[#96A3B7] leading-relaxed max-w-2xl font-normal">
