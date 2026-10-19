@@ -243,7 +243,7 @@ export default function ContactSection({
                     className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-[#35D7FF]/30 text-[#96A3B7] hover:text-[#35D7FF] transition-all text-xs font-bold cursor-pointer"
                   >
                     <span>☕</span>
-                    <span>Support with M-Pesa or Buy Me a Coffee</span>
+                    <span>Fuel My Next Build</span>
                   </button>
                 </div>
               )}
