@@ -50,7 +50,7 @@ export default function ExperienceCV() {
         {/* Tab switchers */}
         <div role="group" aria-label="Choose career history or credentials" className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
           {[
-            { id: "all", label: "Overview & All", icon: Briefcase },
+            { id: "all", label: "Overview", icon: Briefcase },
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
             { id: "certifications", label: `Certifications (${certificationsData.length})`, icon: CheckCircle },
             { id: "education", label: "Education & Degree", icon: GraduationCap },
@@ -64,10 +64,10 @@ export default function ExperienceCV() {
                 aria-pressed={isSelected}
                 aria-controls="career-content"
                 onClick={() => setActiveTab(tab.id as TimelineFilter)}
-                className={`relative flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap cursor-pointer ${
+                className={`relative flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl border transition-colors whitespace-nowrap cursor-pointer ${
                   isSelected
-                    ? "text-[#35D7FF] bg-white/[0.06] border border-[#35D7FF]/40 shadow-sm"
-                    : "text-[#96A3B7] hover:text-white"
+                    ? "text-[#35D7FF] bg-white/[0.06] border-[#35D7FF]/40 shadow-sm"
+                    : "text-[#96A3B7] hover:text-white border-transparent"
                 }`}
               >
                 <Icon className={`w-4 h-4 ${isSelected ? "text-[#35D7FF]" : "text-[#96A3B7]"}`} />
@@ -85,9 +85,37 @@ export default function ExperienceCV() {
         </div>
 
         {/* Content Area */}
-        <div id="career-content" aria-live="polite" className="space-y-12">
+        <div key={activeTab} id="career-content" aria-live="polite" className="space-y-12">
+          {activeTab === "all" && (
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-[#F4F7FC] font-display">Experience & Credentials at a Glance</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-fr gap-6">
+                {[
+                  { id: "experience", title: "Roles & Internships", count: experienceData.length, description: "Experience in software engineering, cybersecurity, and IT infrastructure across government, security, and education.", icon: Briefcase, action: "View Experience" },
+                  { id: "certifications", title: "Industry Certifications", count: certificationsData.length, description: "Credentials from AWS, the Cloud Native Computing Foundation, and Microsoft, with links to verify them.", icon: CheckCircle, action: "View Certifications" },
+                  { id: "education", title: "Education & Degree", count: educationData.length, description: "Computer Science at The Catholic University of Eastern Africa, including an Employee Task Management System capstone.", icon: GraduationCap, action: "View Education" },
+                ].map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={item.id} className="p-6 rounded-3xl glass-card border border-white/[0.08] flex flex-col gap-4">
+                      <div className="flex items-center justify-between text-[#35D7FF]">
+                        <Icon className="w-5 h-5" />
+                        <span className="text-2xl font-bold font-mono">{item.count}</span>
+                      </div>
+                      <h4 className="text-lg font-bold text-[#F4F7FC]">{item.title}</h4>
+                      <p className="text-sm text-[#96A3B7] leading-relaxed flex-1">{item.description}</p>
+                      <button type="button" onClick={() => setActiveTab(item.id as TimelineFilter)} className="inline-flex items-center gap-2 text-xs font-bold text-[#35D7FF] hover:text-white self-start cursor-pointer">
+                        {item.action}<ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           {/* Work Experience Section */}
-          {(activeTab === "all" || activeTab === "experience") && (
+          {(activeTab === "experience") && (
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-[#F4F7FC] font-display flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-[#35D7FF]" />
@@ -159,7 +187,7 @@ export default function ExperienceCV() {
           )}
 
           {/* Certifications Section */}
-          {(activeTab === "all" || activeTab === "certifications") && (
+          {(activeTab === "certifications") && (
             <div id="credentials" className="space-y-6 pt-6">
               <h3 className="text-xl font-bold text-[#F4F7FC] font-display flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#8667FF]" />
@@ -213,7 +241,7 @@ export default function ExperienceCV() {
           )}
 
           {/* Education Section */}
-          {(activeTab === "all" || activeTab === "education") && (
+          {(activeTab === "education") && (
             <div className="space-y-6 pt-6">
               <h3 className="text-xl font-bold text-[#F4F7FC] font-display flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-[#35D7FF]" />
