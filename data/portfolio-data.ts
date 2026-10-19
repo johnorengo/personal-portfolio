@@ -359,29 +359,43 @@ export const educationData = [
 
 export const certificationsData: Certification[] = [
   {
-    title: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services (AWS)",
-    date: "Certified",
-    badgeType: "Cloud Architecture",
-    credentialId: "AWS-CCP",
-    verifyUrl: "https://www.credly.com/users/john-orengo",
+    "title": "Kubernetes and Cloud Native Associate (KCNA)",
+    "issuer": "The Linux Foundation / CNCF",
+    "date": "2025",
+    "badgeType": "Cloud Native",
+    "verifyUrl": "https://www.credly.com/users/john-orengo"
   },
   {
-    title: "Kubernetes and Cloud Native Associate (KCNA)",
-    issuer: "Cloud Native Computing Foundation (CNCF)",
-    date: "Certified",
-    badgeType: "Cloud Native",
-    credentialId: "CNCF-KCNA",
-    verifyUrl: "https://www.credly.com/users/john-orengo",
+    "title": "Cybersecurity Intern",
+    "issuer": "Hack Secure",
+    "date": "2025",
+    "badgeType": "Professional Development"
   },
   {
-    title: "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
-    issuer: "Microsoft",
-    date: "Certified",
-    badgeType: "Cybersecurity",
-    credentialId: "SC-900",
-    verifyUrl: "https://learn.microsoft.com",
+    "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+    "issuer": "Microsoft",
+    "date": "2025",
+    "badgeType": "Cybersecurity"
   },
+  {
+    "title": "AWS re/Start Graduate",
+    "issuer": "Amazon Web Services (AWS)",
+    "date": "2025",
+    "badgeType": "Cloud Training"
+  },
+  {
+    "title": "AWS Certified Cloud Practitioner",
+    "issuer": "Amazon Web Services (AWS)",
+    "date": "2025",
+    "badgeType": "Cloud Certification",
+    "verifyUrl": "https://www.credly.com/users/john-orengo"
+  },
+  {
+    "title": "Certificate in Computer Applications",
+    "issuer": "KCA University",
+    "date": "2020",
+    "badgeType": "Computer Applications"
+  }
 ];
 
 /**

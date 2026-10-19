@@ -80,7 +80,7 @@ export default function ExperienceCV() {
         <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-20 z-30 flex items-center gap-2 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 p-1.5 pb-4 backdrop-blur-xl shadow-xl overflow-x-auto">
           {[
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
-            { id: "certifications", label: `Certifications (${certificationsData.length})`, icon: CheckCircle },
+            { id: "certifications", label: `Professional Development & Certifications (${certificationsData.length})`, icon: CheckCircle },
             { id: "education", label: "Education & Degree", icon: GraduationCap },
           ].map((tab) => {
             const Icon = tab.icon;
@@ -195,10 +195,10 @@ export default function ExperienceCV() {
             <div id="credentials" className="space-y-6">
               <h3 className="text-xl font-bold text-[#F4F7FC] font-display flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-[#8667FF]" />
-                <span>Industry Certifications & Verified Credentials</span>
+                <span>Professional Development & Certifications</span>
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6">
                 {certificationsData.map((cert, idx) => (
                   <motion.div
                     key={idx}
@@ -220,7 +220,8 @@ export default function ExperienceCV() {
                       </h4>
 
                       <div className="text-xs text-[#96A3B7] space-y-1">
-                        <p className="text-slate-300 font-medium">Issuer: {cert.issuer}</p>
+                        <p className="text-slate-300 font-medium">{cert.issuer}</p>
+                        <p className="font-mono text-[#96A3B7]">{cert.date}</p>
                         {cert.credentialId && (
                           <p className="font-mono text-[#96A3B7]">ID: {cert.credentialId}</p>
                         )}
@@ -234,7 +235,7 @@ export default function ExperienceCV() {
                         rel="noreferrer"
                         className="inline-flex items-center justify-between w-full pt-3.5 border-t border-white/[0.06] text-xs font-bold text-[#35D7FF] hover:text-white"
                       >
-                        <span>Verify Credential on Credly</span>
+                        <span>View Credentials on Credly</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     )}
