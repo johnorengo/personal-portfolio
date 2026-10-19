@@ -266,6 +266,21 @@ export const projectsData: Project[] = [
  */
 export const experienceData: ExperienceItem[] = [
   {
+    period: "Current",
+    role: "Information Technology Specialist",
+    organization: "Growmore Technology Africa",
+    location: "",
+    type: "Software Development, Networking & Business Solutions",
+    summary: "Develop software, support business systems, and work on networking solutions to help organizations manage their operations. My work spans ERPNext, TallyPrime, retail POS, and custom software development.",
+    achievements: [
+      "Develop custom software tailored to business requirements and operational workflows.",
+      "Work with ERPNext and TallyPrime to support enterprise operations and accounting needs.",
+      "Support retail point of sale solutions for day to day business operations.",
+      "Work on networking requirements alongside software and business system needs.",
+    ],
+    technologies: ["Custom Software Development", "Networking", "ERPNext", "TallyPrime", "Retail POS"],
+  },
+  {
     period: "2025 to 2026",
     role: "Full Stack Software Developer Intern",
     organization: "Ministry of Education Headquarters",

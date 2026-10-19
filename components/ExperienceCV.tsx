@@ -61,7 +61,7 @@ export default function ExperienceCV() {
               Grounded in applied computing and verified certifications.
             </h2>
             <p className="text-base text-[#96A3B7] leading-relaxed">
-              Professional engineering roles across the public sector and cybersecurity firms, complemented by formal computer science studies and cloud credentials.
+              Experience in software development, business systems, networking, and cybersecurity across technology companies and the public sector, supported by a Computer Science degree and cloud credentials.
             </p>
           </div>
 
@@ -141,8 +141,12 @@ export default function ExperienceCV() {
                         </h4>
                         <div className="flex items-center gap-2 text-sm text-[#96A3B7] mt-1">
                           <span className="font-semibold text-slate-200">{exp.organization}</span>
-                          <span aria-hidden="true" className="text-slate-600">·</span>
-                          <span>{exp.location}</span>
+                          {exp.location && (
+                            <>
+                              <span aria-hidden="true" className="text-slate-600">&middot;</span>
+                              <span>{exp.location}</span>
+                            </>
+                          )}
                         </div>
                       </div>
 
