@@ -325,6 +325,22 @@ export const experienceData: ExperienceItem[] = [
     ],
     technologies: ["Linux", "Windows Server", "LAN/WAN", "TCP/IP", "Cisco Routers", "Hardware Diagnostics", "Support"],
   },
+  {
+    period: "May 2023 to August 2023",
+    role: "ICT Attaché",
+    organization: "Eldoret International Airport",
+    location: "Eldoret, Kenya",
+    type: "ICT Attachment & Airport Infrastructure",
+    summary: "Supported secure and reliable airport IT operations through network maintenance, CCTV troubleshooting, and daily hardware and software support.",
+    achievements: [
+      "Monitored and maintained network security infrastructure, helping reduce downtime and improve system reliability.",
+      "Assisted with CCTV configuration and troubleshooting to strengthen airport surveillance and security.",
+      "Supported more than 50 network devices with troubleshooting focused on secure, consistent connectivity.",
+      "Resolved daily hardware and software issues while maintaining secure operations, improving response time by 25%.",
+      "Documented IT procedures and incident reports to support security awareness, traceability, and operational continuity.",
+    ],
+    technologies: ["Network Security", "CCTV Systems", "Network Troubleshooting", "Hardware & Software Support", "Incident Documentation"],
+  },
 ];
 
 export const educationData = [
