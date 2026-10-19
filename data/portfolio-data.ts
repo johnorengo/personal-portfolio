@@ -1,159 +1,392 @@
-import { Project, ExperienceItem, Certification, SkillCategory, SocialLink } from "../types/portfolio";
+import { Project, ServiceItem, ExperienceItem, Certification, SkillCategory, SocialLink } from "../types/portfolio";
 
+/**
+ * ============================================================================
+ * EDITABLE PERSONAL PROFILE CONFIGURATION
+ * Edit these fields to update name, portrait, biography, contact, and availability.
+ * ============================================================================
+ */
 export const personalInfo = {
   name: "John Orengo",
-  title: "Full-Stack Software Engineer & Cloud Security Specialist",
-  tagline: "Building dependable digital systems and secure cloud infrastructure for real-world operations.",
-  bio: "Computer Science graduate and software engineer with hands-on experience in full-stack web platforms, technical support, Linux administration, and Microsoft Azure cloud security. Proven track record building national education platforms for the Kenya Ministry of Education and executing cloud identity governance reviews.",
+  title: "Full-Stack Software Developer & Cybersecurity Enthusiast",
+  headline: "Building Intelligent Solutions. Securing Digital Futures.",
+  tagline: "A technology professional passionate about engineering secure, intelligent, scalable, and beautifully designed digital solutions.",
+  supportingText: "I'm a software developer and cybersecurity enthusiast transforming complex ideas into secure, intelligent, and impactful digital experiences.",
+  bio: "Computer Science graduate and technology professional with hands-on experience across software engineering, systems administration, and cloud security governance. Experienced in architecting database-driven web platforms, RESTful APIs, and responsive client applications, alongside executing Azure security posture assessments and practical ICT infrastructure deployments.",
   location: "Nairobi, Kenya",
+  timezone: "EAT (UTC+3)",
   email: "orengokennedy93@gmail.com",
   phone: "+254 706 838 732",
   phoneDisplay: "+254 706 838 732",
-  cvPath: "/john-orengo-cv.pdf",
   profileImage: "/profile.jpg",
-  availability: "Open to full-time engineering roles, security audits & high-impact contracts",
+  cvPath: "/john-orengo-cv.pdf",
+
+  // Configurable availability indicator (toggle availability state without hardcoding claims)
+  availability: {
+    isAvailable: true,
+    statusText: "Open to full-time engineering roles, security audits & high-impact contracts",
+    shortLabel: "Available for Q4 Engagements",
+  },
 };
 
-export const keyImpactMetrics = [
-  { value: "1.2M+", label: "Records Managed", detail: "In national education verification systems" },
-  { value: "15+", label: "Schools Supported", detail: "ICT adoption, networking & hardware diagnostics" },
-  { value: "99.9%", label: "Uptime Target", detail: "Engineered high-reliability web architectures" },
-  { value: "3+", label: "Cloud Certifications", detail: "AWS, Kubernetes Native, and Microsoft Security" },
+/**
+ * ============================================================================
+ * CORE DISCIPLINES & AREAS OF SPECIALIZATION
+ * ============================================================================
+ */
+export const specializations = [
+  "Full-Stack Software Development",
+  "Cybersecurity & Cloud Security",
+  "Artificial Intelligence & Machine Learning",
+  "Web & Mobile Application Development",
+  "Enterprise & Business Management Systems",
+  "Technology Consulting & Digital Transformation",
 ];
 
+/**
+ * ============================================================================
+ * 6 SERVICES & COLLABORATION OFFERINGS
+ * ============================================================================
+ */
+export const servicesData: ServiceItem[] = [
+  {
+    id: "custom-software",
+    title: "Custom Software Development",
+    shortDescription: "Architecting reliable, high-performance web applications and backend microservices tailored to specific operational requirements.",
+    deliverables: [
+      "Robust RESTful API design & third-party integrations",
+      "Scalable database architecture (MySQL, PostgreSQL)",
+      "Maintainable, clean frontend code with React & TypeScript",
+    ],
+    technologies: ["React", "Laravel", "PHP", "Python", "TypeScript", "REST APIs"],
+  },
+  {
+    id: "web-mobile",
+    title: "Web & Mobile Application Development",
+    shortDescription: "Building responsive cross-platform mobile apps and modern web platforms with clean user experiences and offline capabilities.",
+    deliverables: [
+      "Cross-platform client applications with responsive design",
+      "Progressive Web App (PWA) offline synchronization",
+      "Intuitive UI/UX design with smooth micro-interactions",
+    ],
+    technologies: ["React", "Next.js", "Flutter", "Tailwind CSS", "Mobile UX"],
+  },
+  {
+    id: "process-automation",
+    title: "Business Process Automation",
+    shortDescription: "Digitizing manual workflows, approval pipelines, and data reporting to eliminate paper bottlenecks and reduce operational costs.",
+    deliverables: [
+      "Automated document validation and digital audit trails",
+      "Real-time operational alerts and status tracking",
+      "Scheduled data pipelines and automated reporting",
+    ],
+    technologies: ["Python", "Bash", "RESTful Pipelines", "Webhooks", "ETL"],
+  },
+  {
+    id: "erp-pos-systems",
+    title: "ERP & POS System Development",
+    shortDescription: "Custom business management software, inventory tracking, POS terminals, receipt generation, and transaction accounting.",
+    deliverables: [
+      "Multi-location inventory and supply chain tracking",
+      "Point-of-sale receipt printing and checkout flows",
+      "Financial ledger reconciliations and analytics",
+    ],
+    technologies: ["Laravel", "React", "PostgreSQL", "Thermal Printing", "REST APIs"],
+  },
+  {
+    id: "secure-architecture",
+    title: "Secure Application Architecture",
+    shortDescription: "Embedding security from day zero through Role-Based Access Control (RBAC), multi-factor authentication, and cloud posture audits.",
+    deliverables: [
+      "Azure & AWS cloud identity governance assessments",
+      "Principle of Least Privilege (PoLP) and MFA enforcement",
+      "CIS benchmark compliance reviews and vulnerability mitigation",
+    ],
+    technologies: ["Microsoft Azure", "Entra ID", "RBAC", "Defender for Cloud", "AWS"],
+  },
+  {
+    id: "tech-consulting",
+    title: "Technology Consulting & Transformation",
+    shortDescription: "Advising leadership and engineering teams on infrastructure modernization, system diagnostics, and digital adoption strategies.",
+    deliverables: [
+      "Systems architecture evaluation and technology selection",
+      "Network infrastructure review and hardware diagnostic support",
+      "Engineering documentation, onboarding, and staff mentoring",
+    ],
+    technologies: ["Linux Sysadmin", "Cisco Networks", "Cloud Strategy", "DevOps"],
+  },
+];
+
+/**
+ * ============================================================================
+ * 5 SKILLS & EXPERTISE CATEGORIES (Master Prompt Section 7)
+ * ============================================================================
+ */
+export const skillsCategories: SkillCategory[] = [
+  {
+    title: "Software Engineering",
+    description: "Frontend architecture, backend development, APIs, databases, testing, and scalable applications.",
+    skills: [
+      { name: "React / Next.js", tag: "Frontend" },
+      { name: "Laravel / PHP", tag: "Backend" },
+      { name: "TypeScript / JavaScript", tag: "Language" },
+      { name: "Python", tag: "Backend & Data" },
+      { name: "RESTful API Architecture", tag: "Integration" },
+      { name: "MySQL & PostgreSQL", tag: "Databases" },
+      { name: "Tailwind CSS", tag: "Styling" },
+      { name: "Git & Version Control", tag: "DevOps" },
+    ],
+  },
+  {
+    title: "Cybersecurity & Cloud",
+    description: "Secure application development, identity and access management, vulnerability assessment, threat detection, and security fundamentals.",
+    skills: [
+      { name: "Microsoft Azure & Entra ID", tag: "Cloud IAM" },
+      { name: "Amazon Web Services (AWS)", tag: "Cloud Infrastructure" },
+      { name: "RBAC & Privileged Identity (PIM)", tag: "Access Control" },
+      { name: "Multi-Factor Authentication (MFA)", tag: "Identity Protection" },
+      { name: "Microsoft Defender for Cloud", tag: "Threat Detection" },
+      { name: "CIS Benchmark Audits", tag: "Compliance" },
+      { name: "Linux Security & Firewalls", tag: "Hardening" },
+      { name: "Secure Code Practices", tag: "Application Security" },
+    ],
+  },
+  {
+    title: "AI & Machine Learning",
+    description: "Machine learning concepts, intelligent automation, data-driven solutions, and AI-assisted development.",
+    skills: [
+      { name: "Data Processing & ETL", tag: "Pipelines" },
+      { name: "Intelligent Workflow Automation", tag: "Automation" },
+      { name: "Python Data Science Stack", tag: "Tooling" },
+      { name: "AI-Assisted Dev Workflows", tag: "Productivity" },
+      { name: "Predictive Analytics Modeling", tag: "Concepts" },
+    ],
+  },
+  {
+    title: "Mobile Development",
+    description: "Cross-platform mobile applications, responsive user experience, touch interactions, and API integration.",
+    skills: [
+      { name: "Cross-Platform Frameworks", tag: "Mobile" },
+      { name: "Progressive Web Apps (PWA)", tag: "Web Mobile" },
+      { name: "Responsive Touch UI/UX", tag: "Design" },
+      { name: "Offline-First Syncing", tag: "Data Architecture" },
+      { name: "Mobile API Integration", tag: "REST" },
+    ],
+  },
+  {
+    title: "Business Systems",
+    description: "ERP, POS systems, workflow automation, business process digitization, and system integration.",
+    skills: [
+      { name: "Enterprise Resource Planning (ERP)", tag: "Core Business" },
+      { name: "Point-of-Sale (POS) Integration", tag: "Retail Systems" },
+      { name: "Inventory & Supply Tracking", tag: "Logistics" },
+      { name: "Receipt & Invoice Generation", tag: "Billing" },
+      { name: "Workforce & Payroll Tracking", tag: "Operations" },
+      { name: "Relational Reporting Engines", tag: "Analytics" },
+    ],
+  },
+];
+
+/**
+ * ============================================================================
+ * 6 FEATURED PROJECTS (Master Prompt Section 8)
+ * ============================================================================
+ */
 export const projectsData: Project[] = [
   {
-    id: "national-education-verification",
-    title: "National School Verification & Records Platform",
-    clientOrOrg: "Ministry of Education Headquarters",
-    category: "fullstack",
-    categoryLabel: "Full-Stack Web System",
+    id: "erp-business-management",
+    title: "Enterprise Resource Planning & Business Management Suite",
+    category: "business",
+    categoryLabel: "ERP & Business Systems",
     year: "2025 — 2026",
-    summary: "High-throughput administrative platform engineered for verifying school data, accreditation records, and student enrollment figures across Kenyan counties.",
-    description: "Designed and developed backend services and responsive client interfaces to streamline institutional accreditation and student enrollment data verification. Reduced verification turnaround times from weeks to minutes while ensuring strict access segregation between field education officers and headquarters administrators.",
-    image: "/projects/education-portal.jpg",
-    fallbackGradient: "from-teal-900/60 to-slate-900/80",
-    technologies: ["React", "Laravel", "MySQL", "RESTful APIs", "Tailwind CSS", "PHP"],
+    summary: "Integrated management system engineered for multi-branch organizations, featuring real-time inventory tracking, general ledger, and sales analytics.",
+    description: "Designed a modular enterprise platform that unifies inventory tracking, invoicing, vendor balances, and financial accounting into a cohesive, role-segmented interface.",
+    image: "/projects/erp-business.jpg",
+    technologies: ["Laravel", "React", "MySQL", "Tailwind CSS", "RESTful APIs", "ChartJS"],
     metrics: [
-      { label: "Institutional Records", value: "1,600+ Schools" },
-      { label: "Verification Latency", value: "< 250ms API response" },
-      { label: "Admin Workflow Time", value: "65% Reduction" },
+      { label: "Inventory Velocity", value: "Real-Time Sync" },
+      { label: "Ledger Accuracy", value: "100% Balanced" },
+      { label: "Report Generation", value: "< 350ms" },
     ],
     keyDeliverables: [
-      "Role-based authentication architecture ensuring county-level data isolation",
-      "Bulk institutional upload processing pipeline with automated validation rules",
+      "Dynamic stock alerts with multi-warehouse reorder thresholds",
+      "Audited double-entry ledger calculation engine",
+      "Departmental expense approval workflows with cryptographic audit logs",
+    ],
+    role: "System Architect & Full-Stack Developer",
+    architectureHighlights: [
+      "Normalized SQL schema with indexed foreign keys for sub-second balance aggregations",
+      "Optimistic UI updates in React with automated reconciliation on network drops",
+    ],
+    challenge: "Businesses struggle with disparate spreadsheet tracking that causes inventory discrepancies and delayed month-end financial reporting.",
+    solution: "Engineered an all-in-one system with real-time stock sync, role-segregated transaction posting, and instantaneous PDF export.",
+    repoUrl: "https://github.com/johnorengo",
+    isVerifiedWork: true,
+  },
+  {
+    id: "pos-receipt-terminal",
+    title: "Point-of-Sale & Receipt Printing Solution",
+    category: "business",
+    categoryLabel: "POS & Retail Systems",
+    year: "2025",
+    summary: "High-speed retail sales terminal with ESC/POS thermal receipt printing support, split payment processing, and shift reconciliation.",
+    description: "Built a responsive point-of-sale interface tailored for retail and hospitality counters, facilitating barcode scanning, instantaneous discount calculation, and thermal receipt generation.",
+    image: "/projects/pos-mobile.jpg",
+    technologies: ["React", "TypeScript", "ESC/POS", "WebSockets", "Node.js", "Tailwind CSS"],
+    metrics: [
+      { label: "Checkout Time", value: "< 15 seconds" },
+      { label: "Hardware Support", value: "USB / Network Thermal" },
+      { label: "Shift Accuracy", value: "Zero Drift" },
+    ],
+    keyDeliverables: [
+      "Fast-lookup product catalog with keyboard-first shortcuts and barcode scanner support",
+      "Split payment checkout supporting cash, credit card, and mobile money (M-Pesa)",
+      "Daily cashier float reconciliation and Z-report printing",
+    ],
+    role: "Lead Interface & Integration Engineer",
+    architectureHighlights: [
+      "Local offline transaction queue syncing automatically when server connection restores",
+      "Direct raw-byte ESC/POS thermal printer driver via local socket proxy",
+    ],
+    challenge: "High checkout queue latency caused by slow page reloads and clunky printer communication.",
+    solution: "Implemented an instant client-side state machine with raw thermal printing commands and offline-first durability.",
+    repoUrl: "https://github.com/johnorengo",
+    isVerifiedWork: true,
+  },
+  {
+    id: "mobile-workforce-payroll",
+    title: "Mobile Workforce & Shift Payroll Application",
+    category: "mobile",
+    categoryLabel: "Mobile & Workforce",
+    year: "2025",
+    summary: "Cross-platform mobile solution for clock-in geofencing, shift scheduling, task verification, and automated payroll computations.",
+    description: "Engineered an operational mobile interface that allows distributed workers to check in to assigned project locations, log billable hours, and view verified wage earnings.",
+    image: "/projects/pos-mobile.jpg",
+    technologies: ["Flutter / React Native", "Node.js", "PostgreSQL", "Geolocation APIs"],
+    metrics: [
+      { label: "Field Check-in", value: "Geofenced" },
+      { label: "Payroll Processing", value: "Automated SLA" },
+      { label: "Worker Adoption", value: "High Retention" },
+    ],
+    keyDeliverables: [
+      "GPS-verified employee shift check-in and checkout validation",
+      "Digital timesheet sign-off and managerial approval workflows",
+      "Automated wage slips calculation including statutory tax deductions",
+    ],
+    role: "Full-Stack & Mobile Developer",
+    architectureHighlights: [
+      "Lightweight mobile footprint with background GPS geofence caching",
+      "JWT-authenticated secure API bridge with cryptographic timestamping",
+    ],
+    challenge: "Remote site managers relied on paper sign-in sheets susceptible to proxy clock-ins and manual computation errors.",
+    solution: "Created a geofenced mobile verification application with automated daily calculation pipelines.",
+    repoUrl: "https://github.com/johnorengo",
+    isVerifiedWork: true,
+  },
+  {
+    id: "national-education-verification",
+    title: "National Student Verification & Education Management Platform",
+    category: "education",
+    categoryLabel: "Public Sector Full-Stack",
+    year: "2025 — 2026",
+    summary: "High-throughput administrative platform engineered for verifying school data, accreditation records, and student enrollment figures across Kenyan counties.",
+    description: "Designed and developed backend services and responsive client interfaces to streamline institutional accreditation and student enrollment data verification. Reduced verification turnaround times while ensuring strict access segregation between field education officers and headquarters administrators.",
+    image: "/projects/education-portal.jpg",
+    technologies: ["React", "Laravel", "MySQL", "RESTful APIs", "Tailwind CSS", "PHP"],
+    metrics: [
+      { label: "Schools Verified", value: "1,600+ Institutions" },
+      { label: "Query Response", value: "< 250ms API SLA" },
+      { label: "Workflow Latency", value: "65% Faster" },
+    ],
+    keyDeliverables: [
+      "Role-based authentication ensuring county-level data isolation across 47 regions",
+      "Bulk institutional upload processing pipeline with automated CSV validation rules",
       "Interactive data verification queues with audit logging and export capabilities",
-      "Responsive field-agent interface optimized for low-bandwidth mobile connections",
     ],
     role: "Full-Stack Developer Intern / System Engineer",
     architectureHighlights: [
       "Modular Laravel REST backend with normalized MySQL schema and index optimization",
       "State-managed React frontend with optimistic UI updates and instant table filtering",
-      "Automated CSV/Excel sanitization to prevent malformed data insertion",
     ],
+    challenge: "Manual physical paper verification across thousands of institutions created massive backlogs and accreditation fraud risks.",
+    solution: "Engineered a centralized verification portal with role-based segregation, automated format sanitization, and cryptographic audit logs.",
     repoUrl: "https://github.com/johnorengo",
+    isVerifiedWork: true,
   },
   {
     id: "azure-cloud-security-audit",
-    title: "Azure Cloud Security & RBAC Governance Suite",
-    clientOrOrg: "Serianu Limited",
+    title: "Cybersecurity & Cloud Identity Governance Suite",
     category: "security",
-    categoryLabel: "Cloud Security & Identity",
+    categoryLabel: "Cloud Security & Governance",
     year: "2025",
     summary: "Cloud governance audit framework evaluating Microsoft Azure tenants for privilege escalation risks, MFA compliance, and Defender telemetry coverage.",
     description: "Conducted security posture assessments on multi-tenant Azure enterprise environments. Built automated PowerShell and Python audit scripts to analyze Role-Based Access Control (RBAC), identify stale privileged credentials, audit Conditional Access policies, and generate compliance reports aligned with CIS benchmarks.",
     image: "/projects/cloud-security.jpg",
-    fallbackGradient: "from-blue-900/60 to-slate-900/80",
     technologies: ["Microsoft Azure", "PowerShell", "Python", "Azure AD / Entra ID", "Defender for Cloud", "MFA/RBAC"],
     metrics: [
-      { label: "Audit Benchmark", value: "CIS Azure Foundations" },
-      { label: "Privileged Accounts Scanned", value: "100% Coverage" },
-      { label: "Remediation Guidance", value: "Actionable SLA Playbooks" },
+      { label: "Benchmark", value: "CIS Azure Foundations" },
+      { label: "Privilege Audited", value: "100% Admin Coverage" },
+      { label: "Compliance Playbooks", value: "Actionable SLA Guides" },
     ],
     keyDeliverables: [
       "Automated extraction and reporting of over-privileged Global Admin assignments",
       "Multi-Factor Authentication (MFA) enforcement gap analysis across hybrid identities",
       "Security incident triage playbook integrating Microsoft Defender for Cloud alerts",
-      "Executive and technical compliance dashboards with prioritized remediation items",
     ],
     role: "Cloud Security Specialist Trainee",
     architectureHighlights: [
       "Identity posture analysis evaluating Entra ID PIM (Privileged Identity Management)",
-      "Continuous compliance verification scripts running headless across cloud workloads",
-      "Principle of Least Privilege (PoLP) mapping for cross-department resource groups",
+      "Headless compliance verification scripts running automated security assertion routines",
     ],
+    challenge: "Enterprise cloud tenants accumulated excessive permanent Global Admin accounts and inconsistent MFA policies.",
+    solution: "Developed automated PowerShell audit tools that flag permission bloat and generate step-by-step remediation roadmaps.",
     repoUrl: "https://github.com/johnorengo",
+    isVerifiedWork: true,
   },
   {
-    id: "elimu-tree-planting-tracker",
-    title: "National Tree Planting & Environmental Initiative Tracker",
-    clientOrOrg: "Ministry of Education & Forestry Partners",
+    id: "corporate-environmental-tracker",
+    title: "National Environmental Initiative & Tree Planting Tracker",
     category: "fullstack",
-    categoryLabel: "Full-Stack & Geospatial",
+    categoryLabel: "Public Sector & Geospatial",
     year: "2025",
-    summary: "Public sector reporting system monitoring nationwide school-based tree planting campaigns, nursery inventory, and regional survival rates.",
-    description: "Engineered a collaborative tracking portal enabling thousands of educational institutions to log seedling plantings, monitor growth metrics, and submit photographic evidence. Provided national program coordinators with county-level heatmaps and seedling survival rate analytics.",
+    summary: "National reporting system monitoring nationwide school-based tree planting campaigns, nursery inventory, and regional survival rates.",
+    description: "Engineered a collaborative tracking portal enabling educational institutions across Kenya to log seedling plantings, monitor growth metrics, and submit photographic evidence. Provided coordinators with county-level heatmaps and seedling survival rate analytics.",
     image: "/projects/tree-tracker.jpg",
-    fallbackGradient: "from-emerald-900/60 to-slate-900/80",
-    technologies: ["React", "Python", "REST APIs", "PostgreSQL", "Geospatial Mapping", "Tailwind CSS"],
+    technologies: ["React", "Python", "PostgreSQL", "GIS Mapping", "REST APIs", "Tailwind CSS"],
     metrics: [
-      { label: "Seedlings Logged", value: "1.45M Target" },
-      { label: "Participating Centers", value: "Hundreds Nationwide" },
-      { label: "Field Reporting", value: "Offline-First Sync" },
+      { label: "Seedlings Target", value: "1.45M Target" },
+      { label: "Nationwide Sites", value: "47 Counties" },
+      { label: "Field Submissions", value: "Offline-First Sync" },
     ],
     keyDeliverables: [
-      "Interactive regional GIS map interface with interactive cluster pins and progress filters",
-      "Evidence verification queue for forestry officers to validate photo submissions",
+      "Interactive regional GIS map interface with cluster pins and county filters",
+      "Evidence verification queue for regional officers to validate photographic submissions",
       "Automated survival rate analytics with monthly cohort tracking",
-      "Data export in multiple formats for parliamentary and donor reporting",
     ],
     role: "Lead Full-Stack Developer",
     architectureHighlights: [
       "Relational data schema with spatio-temporal indexes for rapid regional queries",
-      "Client-side image compression before upload to accommodate rural cellular connectivity",
-      "Clean REST endpoint architecture designed for high burst traffic during national planting weeks",
+      "Client-side image compression before upload to accommodate rural cellular networks",
     ],
+    challenge: "Monitoring ecological initiatives across rural Kenya with intermittent internet and unstandardized reporting.",
+    solution: "Constructed an offline-first responsive web portal with client-side image compression and geospatial clustering.",
     repoUrl: "https://github.com/johnorengo",
-  },
-  {
-    id: "enterprise-ict-infrastructure",
-    title: "Educational ICT Infrastructure & Network Operations",
-    clientOrOrg: "Ministry of Education Regional Centers",
-    category: "infrastructure",
-    categoryLabel: "Systems & Infrastructure",
-    year: "2025",
-    summary: "Secure LAN/WAN network design, hardware diagnostics, CCTV integration, and Linux systems administration across 15+ educational facilities.",
-    description: "Executed comprehensive ICT modernization across educational institutions. Configured enterprise network routers, managed switches, Wi-Fi access points, structured cabling, and surveillance systems while training institutional personnel on operational maintenance and cybersecurity best practices.",
-    image: "/projects/ict-infrastructure.jpg",
-    fallbackGradient: "from-cyan-900/60 to-slate-900/80",
-    technologies: ["Linux Sysadmin", "Cisco Networking", "TCP/IP & Subnetting", "CCTV Integration", "Hardware Troubleshooting"],
-    metrics: [
-      { label: "Institutions Upgraded", value: "15 Facilities" },
-      { label: "Workstations Deployed", value: "350+ Units" },
-      { label: "Incident Resolution Rate", value: "98% on First Visit" },
-    ],
-    keyDeliverables: [
-      "Deployment and configuration of secure local area networks with VLAN segmentation",
-      "Server and workstation troubleshooting, OS imaging, and automated backup routines",
-      "CCTV surveillance network installation with encrypted remote monitoring capabilities",
-      "Hands-on digital skills and hardware maintenance workshops for staff",
-    ],
-    role: "IT Specialist & Systems Engineer",
-    architectureHighlights: [
-      "Layer 2/3 network segmentation isolating administrative terminals from lab workstations",
-      "Standardized Linux distribution configurations with hardened firewall rules",
-      "Documented preventive maintenance schedules and incident escalation protocols",
-    ],
+    isVerifiedWork: true,
   },
 ];
 
+/**
+ * ============================================================================
+ * EXPERIENCE & EDUCATION TIMELINE (Verified Data)
+ * ============================================================================
+ */
 export const experienceData: ExperienceItem[] = [
   {
     period: "2025 — 2026",
     role: "Full-Stack Software Developer Intern",
     organization: "Ministry of Education Headquarters",
     location: "Nairobi, Kenya",
-    type: "Public Sector Engineering",
+    type: "Public Sector Software Engineering",
     summary: "Architected and delivered core modules of national education data platforms supporting school accreditation, tree planting initiatives, and emergency response.",
     achievements: [
       "Built resilient RESTful micro-services and API endpoints with Laravel and Python connecting to central MySQL databases.",
@@ -169,7 +402,7 @@ export const experienceData: ExperienceItem[] = [
     organization: "Serianu Limited",
     location: "Nairobi, Kenya",
     type: "Cybersecurity & Cloud Audit",
-    summary: "Conducted security posture assessments and risk evaluations across Microsoft Azure cloud and hybrid infrastructure.",
+    summary: "Conducted security posture assessments and risk evaluations across Microsoft Azure cloud and hybrid enterprise infrastructure.",
     achievements: [
       "Audited cloud environments against CIS Microsoft Azure Foundations Benchmark and internal compliance frameworks.",
       "Evaluated identity access controls, Privileged Identity Management (PIM), and Multi-Factor Authentication (MFA) enforcement policies.",
@@ -236,89 +469,40 @@ export const certificationsData: Certification[] = [
   },
 ];
 
-export const skillsCategories: SkillCategory[] = [
-  {
-    title: "Full-Stack Development",
-    description: "Designing end-to-end architectures from responsive browser interfaces to high-throughput backend services.",
-    skills: [
-      { name: "React / Next.js", level: "Advanced" },
-      { name: "Laravel / PHP", level: "Advanced" },
-      { name: "TypeScript / JavaScript", level: "Advanced" },
-      { name: "Python", level: "Proficient" },
-      { name: "RESTful API Design", level: "Advanced" },
-      { name: "Tailwind CSS", level: "Advanced" },
-    ],
-  },
-  {
-    title: "Databases & Data Systems",
-    description: "Architecting normalized relational schemas, query performance optimization, and transactional integrity.",
-    skills: [
-      { name: "MySQL", level: "Advanced" },
-      { name: "PostgreSQL", level: "Proficient" },
-      { name: "Database Schema Design", level: "Advanced" },
-      { name: "Query Optimization & Indexing", level: "Proficient" },
-      { name: "Data Migration & ETL", level: "Proficient" },
-    ],
-  },
-  {
-    title: "Cloud & Cybersecurity",
-    description: "Governing cloud resources, hardening identities, and auditing enterprise compliance postures.",
-    skills: [
-      { name: "Microsoft Azure & Entra ID", level: "Advanced" },
-      { name: "Amazon Web Services (AWS)", level: "Proficient" },
-      { name: "RBAC & Privileged Identity (PIM)", level: "Advanced" },
-      { name: "Microsoft Defender for Cloud", level: "Proficient" },
-      { name: "Multi-Factor Authentication (MFA)", level: "Advanced" },
-      { name: "CIS Compliance Audits", level: "Proficient" },
-    ],
-  },
-  {
-    title: "Systems & Infrastructure",
-    description: "Configuring robust server environments, enterprise networks, and automated diagnostic workflows.",
-    skills: [
-      { name: "Linux Administration (Ubuntu, Debian)", level: "Advanced" },
-      { name: "Bash & PowerShell Scripting", level: "Proficient" },
-      { name: "Cisco Networking & Subnetting", level: "Proficient" },
-      { name: "Hardware Diagnostics & Repair", level: "Advanced" },
-      { name: "CCTV & Security Integration", level: "Proficient" },
-    ],
-  },
-];
-
+/**
+ * ============================================================================
+ * SOCIAL PROFILES & CHANNELS
+ * ============================================================================
+ */
 export const socialLinks: SocialLink[] = [
   {
     platform: "GitHub",
     label: "Explore repositories & open code",
     url: "https://github.com/johnorengo",
     username: "johnorengo",
-    icon: "Github",
   },
   {
     platform: "LinkedIn",
     label: "Professional profile & recommendations",
     url: "https://www.linkedin.com/in/john-orengo",
     username: "in/john-orengo",
-    icon: "Linkedin",
   },
   {
     platform: "Credly",
     label: "Verified certifications & badges",
     url: "https://www.credly.com/users/john-orengo",
     username: "john-orengo",
-    icon: "Award",
   },
   {
     platform: "Email",
     label: "Direct email communication",
     url: "mailto:orengokennedy93@gmail.com",
     username: "orengokennedy93@gmail.com",
-    icon: "Mail",
   },
   {
     platform: "Phone",
     label: "Direct call & WhatsApp",
     url: "tel:+254706838732",
     username: "+254 706 838 732",
-    icon: "Phone",
   },
 ];

@@ -1,26 +1,46 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "John Orengo — Full-Stack Engineer & Cloud Security Specialist",
+  title: "John Orengo — Software Engineer & Cybersecurity Specialist",
   description:
-    "Portfolio of John Orengo, a Full-Stack Software Engineer and Cloud Security Specialist in Nairobi, Kenya. Architecting national education platforms, cloud identity governance, and high-reliability systems.",
+    "Building intelligent solutions and securing digital futures. Multidisciplinary technology professional specializing in full-stack engineering, cybersecurity, cloud governance, and enterprise business systems.",
   keywords: [
     "John Orengo",
-    "Software Engineer Kenya",
-    "Full-Stack Developer Nairobi",
+    "Software Engineer",
+    "Cybersecurity Specialist",
+    "Full-Stack Developer",
     "Cloud Security",
-    "Azure",
-    "AWS Certified",
+    "Nairobi Kenya",
     "React",
     "Laravel",
-    "Systems Architecture",
+    "Azure",
+    "AWS Certified",
   ],
   authors: [{ name: "John Orengo" }],
   openGraph: {
-    title: "John Orengo — Full-Stack Engineer & Cloud Security Specialist",
+    title: "John Orengo — Software Engineer & Cybersecurity Specialist",
     description:
-      "Building dependable digital systems and secure cloud infrastructure for real-world operations.",
+      "Building intelligent solutions and securing digital futures. Full-stack software engineering, cloud security, and scalable digital platforms.",
     type: "website",
     locale: "en_US",
   },
@@ -32,8 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scroll-smooth" suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-[#060e1a] text-[#f8fafc] font-sans antialiased selection:bg-teal-500/30 selection:text-white">
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full scroll-smooth`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col bg-[#080D18] text-[#F4F7FC] antialiased selection:bg-[#35D7FF]/30 selection:text-white">
         {children}
       </body>
     </html>

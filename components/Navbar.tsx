@@ -1,190 +1,199 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Menu, X, ArrowUpRight } from "lucide-react";
+import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
+import { motion, useScroll, useSpring } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
 interface NavbarProps {
   onOpenCoffeeModal?: () => void;
 }
 
+const navItems = [
+  { label: "About", href: "#about" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("top");
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      const sections = ["contact", "experience", "services", "projects", "expertise", "about", "top"];
+      const scrollPos = window.scrollY + 200;
+
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el && scrollPos >= el.offsetTop) {
+          setActiveSection(section);
+          break;
+        }
+      }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-40 w-full transition-all duration-200 ${
-        scrolled
-          ? "bg-[#060e1a]/90 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20"
-          : "bg-transparent border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-8 h-20">
-          {/* Zone 1: Single text element wordmark */}
-          <a
-            href="#top"
-            className="group flex items-center gap-2 whitespace-nowrap shrink-0 text-slate-100 hover:text-teal-400 transition-colors"
-          >
-            <span className="font-semibold text-lg sm:text-xl tracking-tight text-white group-hover:text-teal-300 transition-colors">
-              {personalInfo.name}
-            </span>
-          </a>
+    <>
+      {/* Top scroll progress indicator with Electric Cyan and Violet gradient */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] z-50 origin-left shadow-[0_0_12px_rgba(53,215,255,0.6)]"
+        style={{ scaleX }}
+      />
 
-          {/* Zone 2: 4–5 clean single-line nav links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-[#080D18]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl py-3.5"
+            : "bg-transparent border-b border-transparent py-5"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-8">
+            {/* Wordmark / Monogram */}
             <a
-              href="#about"
-              className="hover:text-teal-400 transition-colors whitespace-nowrap shrink-0"
+              href="#top"
+              className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
-              About
+              <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#121A29] to-[#182338] border border-white/[0.1] flex items-center justify-center font-display font-bold text-sm text-[#35D7FF] group-hover:border-[#35D7FF]/50 transition-colors shadow-sm">
+                JO
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[#F4F7FC] group-hover:text-[#35D7FF] transition-colors">
+                {personalInfo.name}
+              </span>
             </a>
-            <a
-              href="#projects"
-              className="hover:text-teal-400 transition-colors whitespace-nowrap shrink-0"
-            >
-              Projects
-            </a>
-            <a
-              href="#experience"
-              className="hover:text-teal-400 transition-colors whitespace-nowrap shrink-0"
-            >
-              Experience
-            </a>
-            <a
-              href="#credentials"
-              className="hover:text-teal-400 transition-colors whitespace-nowrap shrink-0"
-            >
-              Credentials
-            </a>
-            <a
-              href="#contact"
-              className="hover:text-teal-400 transition-colors whitespace-nowrap shrink-0"
-            >
-              Contact
-            </a>
-          </nav>
 
-          {/* Zone 3: 1 primary action */}
-          <div className="hidden sm:flex items-center gap-3 shrink-0">
-            {onOpenCoffeeModal && (
-              <button
-                type="button"
-                onClick={onOpenCoffeeModal}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-teal-300 hover:text-white bg-teal-950/40 hover:bg-teal-900/60 border border-teal-800/40 rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-                title="Support with M-Pesa / Buy Me a Coffee"
-              >
-                <span>☕</span>
-                <span>Buy Coffee</span>
-              </button>
-            )}
-            <a
-              href={personalInfo.cvPath}
-              download
-              className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg transition-all shadow-sm hover:shadow-teal-500/20 whitespace-nowrap shrink-0 font-semibold"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download CV</span>
-            </a>
-          </div>
+            {/* Navigation links */}
+            <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.replace("#", "");
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={`relative py-1 whitespace-nowrap shrink-0 transition-colors ${
+                      isActive
+                        ? "text-[#35D7FF] font-semibold"
+                        : "text-[#96A3B7] hover:text-[#F4F7FC]"
+                    }`}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="navIndicator"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] rounded-full shadow-[0_0_8px_#35D7FF]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </a>
+                );
+              })}
+            </nav>
 
-          {/* Mobile hamburger button */}
-          <div className="flex sm:hidden items-center gap-2">
-            {onOpenCoffeeModal && (
-              <button
-                type="button"
-                onClick={onOpenCoffeeModal}
-                className="p-2 text-teal-400 hover:text-teal-300 border border-teal-900/40 bg-teal-950/30 rounded-lg text-sm"
-                aria-label="Buy me a coffee"
-              >
-                ☕
-              </button>
-            )}
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-400 hover:text-white focus:outline-none"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
+            {/* Primary Action Zone */}
+            <div className="hidden sm:flex items-center gap-3 shrink-0">
+              {onOpenCoffeeModal && (
+                <button
+                  type="button"
+                  onClick={onOpenCoffeeModal}
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#96A3B7] hover:text-[#35D7FF] bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-[#35D7FF]/40 rounded-xl transition-all whitespace-nowrap shrink-0 cursor-pointer"
+                  title="Support with M-Pesa / Buy Me a Coffee"
+                >
+                  <span className="text-sm">☕</span>
+                  <span>Coffee</span>
+                </button>
               )}
-            </button>
+              <a
+                href="#contact"
+                className="relative inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-md shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 whitespace-nowrap shrink-0"
+              >
+                <MessageSquare className="w-3.5 h-3.5 fill-current" />
+                <span>Let&apos;s Talk</span>
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex sm:hidden items-center gap-2">
+              {onOpenCoffeeModal && (
+                <button
+                  type="button"
+                  onClick={onOpenCoffeeModal}
+                  className="p-2 text-[#35D7FF] border border-white/[0.1] bg-white/[0.04] rounded-lg text-sm"
+                  aria-label="Buy me a coffee"
+                >
+                  ☕
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-[#96A3B7] hover:text-white focus:outline-none"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="sm:hidden border-b border-slate-800 bg-[#071322] px-4 pt-3 pb-6 space-y-3">
-          <nav className="flex flex-col space-y-2 text-base font-medium text-slate-300">
-            <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-teal-300"
-            >
-              About
-            </a>
-            <a
-              href="#projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-teal-300"
-            >
-              Projects
-            </a>
-            <a
-              href="#experience"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-teal-300"
-            >
-              Experience
-            </a>
-            <a
-              href="#credentials"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-teal-300"
-            >
-              Credentials
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-teal-300"
-            >
-              Contact
-            </a>
-          </nav>
+        {/* Mobile menu dropdown */}
+        {mobileMenuOpen && (
+          <div className="sm:hidden border-b border-white/[0.08] bg-[#080D18]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+            <nav className="flex flex-col space-y-1 text-base font-medium">
+              {navItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2.5 rounded-lg text-[#96A3B7] hover:bg-white/[0.05] hover:text-[#35D7FF] transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
 
-          <div className="pt-3 border-t border-slate-800/80 flex flex-col gap-2">
-            <a
-              href={personalInfo.cvPath}
-              download
-              className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-semibold rounded-lg bg-teal-400 text-slate-950 hover:bg-teal-300"
-            >
-              <Download className="w-4 h-4" />
-              <span>Download CV (PDF)</span>
-            </a>
-            <a
-              href={`mailto:${personalInfo.email}`}
-              className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-medium rounded-lg border border-slate-700 text-slate-300 hover:bg-slate-800"
-            >
-              <span>Email John</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
+            <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-bold rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] text-[#080D18]"
+              >
+                <span>Let&apos;s Talk</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+              <a
+                href={personalInfo.cvPath}
+                download
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-medium rounded-xl border border-white/[0.1] text-[#96A3B7] hover:bg-white/[0.05]"
+              >
+                <Download className="w-4 h-4 text-[#35D7FF]" />
+                <span>Download Résumé (PDF)</span>
+              </a>
+            </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </>
   );
 }

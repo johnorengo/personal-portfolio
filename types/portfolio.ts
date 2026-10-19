@@ -1,21 +1,30 @@
 export interface Project {
   id: string;
   title: string;
-  clientOrOrg: string;
-  category: "fullstack" | "security" | "infrastructure";
+  category: "business" | "mobile" | "education" | "security" | "fullstack" | "all";
   categoryLabel: string;
   year: string;
   summary: string;
   description: string;
   image: string;
-  fallbackGradient: string;
   technologies: string[];
   metrics: { label: string; value: string }[];
   keyDeliverables: string[];
   role: string;
   architectureHighlights: string[];
+  challenge?: string;
+  solution?: string;
   liveUrl?: string;
   repoUrl?: string;
+  isVerifiedWork?: boolean;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  shortDescription: string;
+  deliverables: string[];
+  technologies: string[];
 }
 
 export interface ExperienceItem {
@@ -41,7 +50,7 @@ export interface Certification {
 export interface SkillCategory {
   title: string;
   description: string;
-  skills: { name: string; level: "Advanced" | "Proficient" | "Working Knowledge" }[];
+  skills: { name: string; tag: string }[];
 }
 
 export interface SocialLink {
@@ -49,5 +58,4 @@ export interface SocialLink {
   label: string;
   url: string;
   username: string;
-  icon: string;
 }

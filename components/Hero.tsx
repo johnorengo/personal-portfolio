@@ -1,84 +1,106 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { Download, ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server } from "lucide-react";
-import { personalInfo, keyImpactMetrics } from "../data/portfolio-data";
+import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, CheckCircle2, ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
+import { personalInfo } from "../data/portfolio-data";
 
 export default function Hero() {
-  return (
-    <section id="top" className="relative pt-6 pb-16 lg:pt-12 lg:pb-24 overflow-hidden">
-      {/* Subtle structural grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-20"
-        style={{
-          backgroundImage: `radial-gradient(circle at 50% 0%, rgba(20, 184, 166, 0.15), transparent 70%),
-            linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px)`,
-          backgroundSize: "100% 100%, 48px 48px, 48px 48px",
-        }}
-      />
+  const [activeHeroView, setActiveHeroView] = useState<"portrait" | "terminal">("portrait");
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Split Screen Hero */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Typographic Hierarchy & Actions */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-teal-400 uppercase">
-              <span>Full-Stack Engineer</span>
-              <span aria-hidden="true" className="text-slate-600">·</span>
-              <span>Cloud Security Specialist</span>
-              <span aria-hidden="true" className="text-slate-600">·</span>
-              <span>Nairobi, Kenya</span>
+  const impactMetrics = [
+    { value: "1.2M+", label: "Records Managed", detail: "National institutional systems" },
+    { value: "15+", label: "Facilities Supported", detail: "Enterprise ICT & networks" },
+    { value: "99.9%", label: "Architecture SLA", detail: "Zero single-point failures" },
+    { value: "3+", label: "Cloud Certifications", detail: "AWS, CNCF & Microsoft SC-900" },
+  ];
+
+  return (
+    <section id="top" className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between pt-8 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-[#080D18]">
+      {/* Restrained Atmospheric Particle / Glow Field */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] pointer-events-none -z-10 overflow-hidden">
+        <div className="absolute top-[-10%] left-[15%] w-[480px] h-[480px] rounded-full bg-[#35D7FF]/[0.08] blur-[140px]" />
+        <div className="absolute top-[10%] right-[12%] w-[420px] h-[420px] rounded-full bg-[#8667FF]/[0.07] blur-[150px]" />
+        <div className="absolute inset-0 tech-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-16">
+        {/* Split Screen Hero Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          {/* Left Column: Typographic Hierarchy & Actions with Motion */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col justify-center space-y-7"
+          >
+            {/* Editorial Kicker & Configurable Availability */}
+            <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
+              <span className="font-bold tracking-widest text-[#35D7FF] uppercase">
+                [01°17&apos;S 36°49&apos;E · Nairobi, KE]
+              </span>
+              <span className="text-slate-600">·</span>
+
+              {personalInfo.availability.isAvailable && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-card border border-[#35D7FF]/30">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#35D7FF] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#35D7FF]" />
+                  </span>
+                  <span className="text-[11px] font-medium text-[#F4F7FC]">
+                    {personalInfo.availability.shortLabel}
+                  </span>
+                </div>
+              )}
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.08] [text-wrap:balance]">
-              Building dependable digital systems for mission-critical operations.
+            {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
+              Building{" "}
+              <span className="bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] bg-clip-text text-transparent">
+                Intelligent Solutions.
+              </span>
+              <br />
+              Securing Digital Futures.
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
-              I design and deploy resilient full-stack applications, cloud identity governance controls, and hands-on ICT infrastructure. From national education verification portals to Azure security audits, I bridge rigorous software engineering with operational reliability.
+            {/* Master Supporting Text */}
+            <p className="text-base sm:text-lg text-[#96A3B7] leading-relaxed max-w-2xl font-normal">
+              {personalInfo.supportingText}
             </p>
 
-            {/* Availability Notice */}
-            <div className="flex items-center gap-2 text-xs text-slate-400">
-              <span className="w-2 h-2 rounded-full bg-teal-400" />
-              <span>Available for engineering roles, cloud audits & collaboration</span>
-            </div>
-
-            {/* Primary Action Buttons */}
+            {/* Two Prominent CTAs: "Explore My Work" and "Let's Connect" */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg transition-all shadow-sm hover:shadow-teal-500/25 whitespace-nowrap"
+                className="group relative inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>Explore Selected Projects</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Explore My Work</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
-                href={personalInfo.cvPath}
-                download
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-100 hover:text-white bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 rounded-lg transition-all whitespace-nowrap"
+                href="#contact"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-semibold text-[#F4F7FC] hover:text-white glass-card hover:bg-white/[0.08] border border-white/[0.12] hover:border-[#35D7FF]/40 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <Download className="w-4 h-4 text-teal-400" />
-                <span>Download CV</span>
+                <span>Let&apos;s Connect</span>
               </a>
             </div>
 
-            {/* Social & Professional Links Row */}
-            <div className="pt-4 border-t border-slate-800/80">
-              <span className="block text-xs font-medium text-slate-400 mb-3">
-                Connect & Verify Credentials
+            {/* Social channels row */}
+            <div className="pt-4 border-t border-white/[0.08]">
+              <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
+                Verified Social & Technical Profiles
               </span>
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-5">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-teal-300 transition-colors"
-                  aria-label="GitHub Profile"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
                 >
-                  <GitBranch className="w-4 h-4 text-slate-400" />
+                  <GitBranch className="w-4 h-4 text-[#35D7FF]" />
                   <span>GitHub</span>
                 </a>
                 <span className="text-slate-700">·</span>
@@ -87,10 +109,9 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/john-orengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-teal-300 transition-colors"
-                  aria-label="LinkedIn Profile"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
                 >
-                  <Globe className="w-4 h-4 text-slate-400" />
+                  <Globe className="w-4 h-4 text-[#8667FF]" />
                   <span>LinkedIn</span>
                 </a>
                 <span className="text-slate-700">·</span>
@@ -99,116 +120,216 @@ export default function Hero() {
                   href="https://www.credly.com/users/john-orengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-teal-300 transition-colors"
-                  aria-label="Credly Certifications"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
                 >
-                  <Award className="w-4 h-4 text-slate-400" />
-                  <span>Credly</span>
+                  <Award className="w-4 h-4 text-amber-400" />
+                  <span>Credly Badges</span>
                 </a>
                 <span className="text-slate-700">·</span>
 
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-teal-300 transition-colors"
-                  aria-label="Email"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-slate-400" />
+                  <Mail className="w-4 h-4 text-[#35D7FF]" />
                   <span>Email</span>
                 </a>
                 <span className="text-slate-700">·</span>
 
                 <a
                   href={`tel:${personalInfo.phone}`}
-                  className="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-teal-300 transition-colors"
-                  aria-label="Phone"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-slate-400" />
-                  <span>WhatsApp / Call</span>
+                  <Phone className="w-4 h-4 text-[#8667FF]" />
+                  <span>WhatsApp</span>
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Visual Persona & Architecture Anchor */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right Column: Professionally Framed Portrait & Live Interactive Terminal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
             <div className="relative w-full max-w-md">
-              {/* Outer decorative glow */}
-              <div className="absolute -inset-1.5 bg-gradient-to-tr from-teal-500/20 via-sky-500/10 to-teal-500/5 rounded-2xl blur-lg opacity-70" />
+              {/* Luminous aura behind card */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#35D7FF]/25 via-[#8667FF]/20 to-[#35D7FF]/25 rounded-3xl blur-2xl opacity-60" />
 
-              {/* Main Card */}
-              <div className="relative rounded-2xl bg-[#0c182b] border border-slate-800 shadow-2xl overflow-hidden">
-                {/* Visual Header / Portrait Frame */}
-                <div className="relative h-96 w-full bg-[#060e1a] overflow-hidden">
-                  <Image
-                    src={personalInfo.profileImage}
-                    alt="John Orengo — Full-Stack Engineer"
-                    fill
-                    className="object-cover object-top transition-transform duration-500 hover:scale-105"
-                    priority
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c182b] via-[#0c182b]/30 to-transparent" />
-                  
-                  {/* Subtle badge overlay on image */}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-slate-200">
-                    <div>
-                      <span className="font-semibold text-white block text-sm">John Orengo</span>
-                      <span className="text-teal-300 text-xs">Software Engineer & Security Trainee</span>
-                    </div>
-                    <span className="text-xs text-slate-400 font-mono">BSc Computer Science</span>
+              {/* Card Container */}
+              <div className="relative rounded-3xl glass-card border border-white/[0.12] shadow-2xl overflow-hidden bg-[#121A29]/95">
+                {/* View Switcher Header */}
+                <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-[#0A101C]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+
+                  <div className="flex items-center p-0.5 rounded-lg bg-white/[0.06] border border-white/[0.08]">
+                    <button
+                      type="button"
+                      onClick={() => setActiveHeroView("portrait")}
+                      className={`px-3 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer ${
+                        activeHeroView === "portrait"
+                          ? "bg-[#35D7FF] text-[#080D18] shadow-sm font-bold"
+                          : "text-[#96A3B7] hover:text-white"
+                      }`}
+                    >
+                      Portrait
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setActiveHeroView("terminal")}
+                      className={`px-3 py-1 text-[11px] font-semibold rounded-md transition-all cursor-pointer ${
+                        activeHeroView === "terminal"
+                          ? "bg-[#35D7FF] text-[#080D18] shadow-sm font-bold"
+                          : "text-[#96A3B7] hover:text-white"
+                      }`}
+                    >
+                      Live Terminal
+                    </button>
                   </div>
                 </div>
 
-                {/* Engineering Highlights Strip */}
-                <div className="p-5 space-y-3.5 bg-[#0a1526] border-t border-slate-800/80">
-                  <div className="flex items-center justify-between text-xs text-slate-400 pb-2 border-b border-slate-800">
-                    <span>Engineering Focus</span>
-                    <span className="text-teal-400 font-mono text-[11px]">PROD-READY</span>
+                {activeHeroView === "portrait" ? (
+                  /* Portrait View */
+                  <div>
+                    <div className="relative h-96 w-full bg-[#080D18] overflow-hidden">
+                      <Image
+                        src={personalInfo.profileImage}
+                        alt="John Orengo — Software Engineer & Cybersecurity"
+                        fill
+                        className="object-cover object-top hover:scale-105 transition-transform duration-700"
+                        priority
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
+
+                      <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between">
+                        <div>
+                          <span className="font-display font-bold text-white text-base block drop-shadow-md">
+                            {personalInfo.name}
+                          </span>
+                          <span className="text-[#35D7FF] text-xs font-medium block">
+                            Full-Stack & Cloud Security
+                          </span>
+                        </div>
+                        <span className="text-[11px] font-mono text-[#35D7FF] bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-[#35D7FF]/30">
+                          BSc CUEA
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Quick matrix below photo */}
+                    <div className="p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-2">
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                        <Terminal className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
+                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Full-Stack</span>
+                        <span className="text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                        <ShieldCheck className="w-4 h-4 mx-auto text-[#8667FF] mb-1" />
+                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Security</span>
+                        <span className="text-[10px] text-[#96A3B7] block font-mono">Azure · RBAC</span>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
+                        <Server className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
+                        <span className="text-[11px] font-bold text-[#F4F7FC] block">Systems</span>
+                        <span className="text-[10px] text-[#96A3B7] block font-mono">Linux · Cisco</span>
+                      </div>
+                    </div>
                   </div>
+                ) : (
+                  /* Live Terminal View */
+                  <div className="p-5 font-mono text-xs space-y-3 bg-[#080D18] min-h-[460px] flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <div className="text-[#96A3B7]">
+                        <span className="text-[#35D7FF]">orengo@nairobi</span>:
+                        <span className="text-[#8667FF]">~/systems</span>$ ./status.sh
+                      </div>
 
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="p-2.5 rounded-lg bg-[#0f213a] border border-slate-800/90 text-center">
-                      <Terminal className="w-4 h-4 mx-auto text-teal-400 mb-1" />
-                      <span className="text-[11px] font-semibold text-slate-200 block">Full-Stack</span>
-                      <span className="text-[10px] text-slate-400 block">React · Laravel</span>
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
+                        <div className="text-[#35D7FF] font-bold flex items-center gap-1.5">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#35D7FF]" />
+                          <span>[CORE PLATFORM] Kenya MoE Verification</span>
+                        </div>
+                        <p className="text-[11px] text-[#96A3B7]">
+                          Status: Active · Database: MySQL (Optimized) · Latency: 180ms
+                        </p>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
+                        <div className="text-[#8667FF] font-bold flex items-center gap-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-[#8667FF]" />
+                          <span>[SECURITY AUDIT] Azure Cloud Governance</span>
+                        </div>
+                        <p className="text-[11px] text-[#96A3B7]">
+                          Tenant: Hybrid Multi-Tenant · RBAC Coverage: 100% · MFA Enforced
+                        </p>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1.5 text-slate-300">
+                        <div className="text-amber-400 font-bold flex items-center gap-1.5">
+                          <Award className="w-3.5 h-3.5 text-amber-400" />
+                          <span>[CREDENTIALS] Verified Industry Badges</span>
+                        </div>
+                        <p className="text-[11px] text-[#96A3B7]">
+                          AWS Certified Cloud Practitioner · CNCF KCNA · Microsoft SC-900
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="p-2.5 rounded-lg bg-[#0f213a] border border-slate-800/90 text-center">
-                      <ShieldCheck className="w-4 h-4 mx-auto text-sky-400 mb-1" />
-                      <span className="text-[11px] font-semibold text-slate-200 block">Cloud Sec</span>
-                      <span className="text-[10px] text-slate-400 block">Azure · RBAC</span>
-                    </div>
-
-                    <div className="p-2.5 rounded-lg bg-[#0f213a] border border-slate-800/90 text-center">
-                      <Server className="w-4 h-4 mx-auto text-emerald-400 mb-1" />
-                      <span className="text-[11px] font-semibold text-slate-200 block">Systems</span>
-                      <span className="text-[10px] text-slate-400 block">Linux · Cisco</span>
+                    <div className="pt-3 border-t border-white/[0.08] text-[11px] text-[#96A3B7] flex items-center justify-between">
+                      <span>Stack: TypeScript · Laravel · Linux</span>
+                      <span className="text-[#35D7FF] animate-pulse">● Systems Verified</span>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Quantitative Rigor Strip below Split Hero */}
-        <div className="mt-16 lg:mt-20 pt-8 border-t border-slate-800/90">
+        {/* Quantitative Proof Strip with Motion */}
+        <div className="pt-10 border-t border-white/[0.08]">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {keyImpactMetrics.map((metric, idx) => (
-              <div key={idx} className="flex flex-col space-y-1">
-                <span className="text-3xl sm:text-4xl font-bold text-white font-mono tracking-tight tabular-nums">
+            {impactMetrics.map((metric, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="p-5 rounded-2xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
+              >
+                <span className="text-3xl sm:text-4xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
                   {metric.value}
                 </span>
-                <span className="text-sm font-semibold text-teal-300">
+                <span className="text-sm font-bold text-[#F4F7FC]">
                   {metric.label}
                 </span>
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-[#96A3B7] leading-snug">
                   {metric.detail}
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Elegant Scroll Indicator */}
+      <div className="flex justify-center mt-6">
+        <a
+          href="#about"
+          className="flex flex-col items-center gap-1.5 text-xs text-[#96A3B7] hover:text-[#35D7FF] transition-colors cursor-pointer"
+          aria-label="Scroll to About section"
+        >
+          <span className="font-mono text-[10px] tracking-widest uppercase">Scroll</span>
+          <ChevronDown className="w-4 h-4 animate-bounce text-[#35D7FF]" />
+        </a>
       </div>
     </section>
   );
