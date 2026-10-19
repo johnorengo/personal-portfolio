@@ -320,7 +320,7 @@ export const educationData = [
     period: "Graduated with Honors",
     highlights: [
       "Core coursework: Software Engineering, Data Structures & Algorithms, Computer Networks, Database Systems, Operating Systems, Information Security",
-      "Capstone Project: Employee Task Management System",
+      "Capstone Project: Employee Task Management System, designed to help teams assign tasks, track progress, and manage employee workloads in one place.",
       "Active participant in computing hackathons and student developer circles",
     ],
   },
