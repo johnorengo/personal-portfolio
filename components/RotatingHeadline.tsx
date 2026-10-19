@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
-const phrases = ["Intelligent Solutions.", "Secure Applications.", "Scalable Platforms."];
+const phrases = [
+  { opening: "Building", highlight: "Intelligent Solutions.", closing: "Securing Digital Futures." },
+  { opening: "Engineering", highlight: "Secure Software.", closing: "Built for Real World Demands." },
+  { opening: "Connecting", highlight: "Business Systems.", closing: "Simplifying Everyday Work." },
+  { opening: "Creating", highlight: "Scalable Platforms.", closing: "Ready for What Comes Next." },
+];
 
 export default function RotatingHeadline() {
   const [active, setActive] = useState(0);
@@ -27,23 +32,23 @@ export default function RotatingHeadline() {
   return (
     <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[#F4F7FC] leading-[1.05] font-display [text-wrap:balance]">
-        <span className="sr-only">Building intelligent solutions, secure applications, and scalable platforms. Securing Digital Futures.</span>
+        <span className="sr-only">Building intelligent solutions. Securing digital futures. Secure software, connected business systems, and scalable platforms.</span>
         {/* All phrases share a grid cell, reserving space for the longest wrap. */}
         <span className="grid" aria-hidden="true">
           {phrases.map((phrase, index) => (
             <motion.span
-              key={phrase}
+              key={phrase.highlight}
               className="block [grid-area:1/1]"
               initial={false}
               animate={{ opacity: active === index ? 1 : 0, y: reduceMotion || active === index ? 0 : 10 }}
               transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              Building{" "}
-              <span className="bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] bg-clip-text text-transparent">{phrase}</span>
+              {phrase.opening}{" "}
+              <span className="bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] bg-clip-text text-transparent">{phrase.highlight}</span>
+              <span className="block">{phrase.closing}</span>
             </motion.span>
           ))}
         </span>
-        <span className="block" aria-hidden="true">Securing Digital Futures.</span>
       </h1>
 
     </div>
