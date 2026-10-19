@@ -314,7 +314,7 @@ export const experienceData: ExperienceItem[] = [
     period: "2025",
     role: "IT Intern & Technical Support Specialist",
     organization: "Ministry of Education",
-    location: "Nairobi, Kenya",
+    location: "Kisumu, Kenya",
     type: "ICT Infrastructure & Field Engineering",
     summary: "Provided practical technical support, network engineering, and hardware troubleshooting across 15+ educational institutions.",
     achievements: [
