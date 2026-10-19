@@ -16,14 +16,6 @@ export default function Home() {
   const [coffeeModalOpen, setCoffeeModalOpen] = useState(false);
   const [prefilledContactTopic, setPrefilledContactTopic] = useState<string | undefined>(undefined);
 
-  const handleSelectContactForProject = (projectTitle: string) => {
-    setPrefilledContactTopic(`Discussion on ${projectTitle}`);
-    const contactElement = document.getElementById("contact");
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const handleSelectService = (serviceTitle: string) => {
     setPrefilledContactTopic(`Inquiry regarding ${serviceTitle}`);
     const contactElement = document.getElementById("contact");
@@ -40,7 +32,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <SkillsSection />
-        <ProjectsShowcase onSelectContact={handleSelectContactForProject} />
+        <ProjectsShowcase />
         <ServicesSection onSelectService={handleSelectService} />
         <ExperienceCV />
         <ContactSection

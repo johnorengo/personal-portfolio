@@ -4,13 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { Project } from "../types/portfolio";
 import { projectsData } from "../data/portfolio-data";
-import ProjectModal from "./ProjectModal";
-
-interface ProjectsShowcaseProps {
-  onSelectContact?: (projectTitle: string) => void;
-}
 
 type FilterCategory = "all" | "business" | "education" | "fullstack";
 
@@ -21,9 +15,8 @@ const filterOptions: { id: FilterCategory; label: string }[] = [
   { id: "education", label: "Public Sector" },
 ];
 
-export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcaseProps) {
+export default function ProjectsShowcase() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === "all") return true;
@@ -93,8 +86,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  onClick={() => setSelectedProject(project)}
-                  className="group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-white/[0.09] overflow-hidden cursor-pointer relative"
+                  className="group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-white/[0.09] overflow-hidden relative"
                 >
                   {/* Media container */}
                   <div className="relative w-full h-56 sm:h-64 shrink-0 bg-[#0A101C] overflow-hidden">
@@ -115,11 +107,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                       </span>
                     </div>
 
-                    <div className="absolute top-4 right-4">
-                      <span className="p-2.5 rounded-xl bg-black/75 backdrop-blur-md text-slate-300 group-hover:text-[#35D7FF] border border-white/[0.1] group-hover:border-[#35D7FF]/50 transition-all inline-block shadow-md">
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </span>
-                    </div>
                   </div>
 
                   {/* Card Content Area */}
@@ -159,7 +146,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            onClick={(event) => event.stopPropagation()}
                             aria-label={`Live preview of ${project.title}`}
                             className="inline-flex items-center gap-2 rounded-xl border border-[#35D7FF]/30 bg-[#35D7FF]/10 px-4 py-2 text-xs font-bold text-[#35D7FF] hover:bg-[#35D7FF]/20 hover:text-white transition-colors"
                           >
@@ -167,17 +153,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                             <ArrowUpRight className="w-3.5 h-3.5" />
                           </a>
                         )}
-                        <button
-                          type="button"
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            setSelectedProject(project);
-                          }}
-                          className="inline-flex items-center gap-1 py-2 text-xs font-bold text-[#35D7FF] hover:text-white whitespace-nowrap cursor-pointer"
-                        >
-                          More Details
-                          <ArrowUpRight className="w-3.5 h-3.5" />
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -187,12 +162,6 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
         </div>
       </div>
 
-      {/* Case Study Modal */}
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onSelectContact={onSelectContact}
-      />
     </section>
   );
 }
