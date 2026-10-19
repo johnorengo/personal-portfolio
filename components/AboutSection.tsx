@@ -8,15 +8,15 @@ export default function AboutSection() {
   const approaches = [
     {
       title: "Understand what matters",
-      desc: "I start with your goals, the people using the system, and the frustrations you want to leave behind. That helps me solve the right problem.",
+      desc: "I listen to your goals and focus on the problem that matters.",
     },
     {
       title: "Build with care",
-      desc: "I pay attention to how a product feels to use, how it handles information, and how it will be maintained after launch. Security belongs in those decisions from the beginning.",
+      desc: "I build for ease of use, security, and lasting reliability.",
     },
     {
       title: "Keep you involved",
-      desc: "I explain technical choices in plain language, welcome feedback, and work with you to turn an initial idea into something useful.",
+      desc: "I explain decisions clearly and welcome your feedback.",
     },
   ];
 
@@ -90,7 +90,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-3 pt-2">
               {specializations.map((spec, i) => (
                 <div
                   key={i}
@@ -109,7 +109,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6 flex flex-col justify-between"
+            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-white/[0.08] space-y-6 flex flex-col justify-start"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -126,16 +126,16 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="space-y-3.5 pt-2">
+            <div className="grid auto-rows-fr gap-3 pt-2">
               {approaches.map((app, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1"
+                  className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-1"
                 >
                   <span className="text-xs font-bold text-[#F4F7FC] block">
                     0{idx + 1}. {app.title}
                   </span>
-                  <p className="text-xs text-[#96A3B7] leading-relaxed">
+                  <p className="text-xs text-[#96A3B7] leading-4">
                     {app.desc}
                   </p>
                 </div>
