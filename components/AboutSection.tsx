@@ -8,11 +8,11 @@ export default function AboutSection() {
   const approaches = [
     {
       title: "Context-First Engineering",
-      desc: "Software is only as valuable as the real-world problem it eliminates. I inspect actual workflows, field network constraints, and end-user behavior before architecting code.",
+      desc: "Software is only as valuable as the real world problem it eliminates. I inspect actual workflows, field network constraints, and end user behavior before architecting code.",
     },
     {
-      title: "Zero-Trust & Defense in Depth",
-      desc: "Security cannot be an afterthought bolted on at deployment. I enforce principle-of-least-privilege RBAC, data partition isolation, and CIS benchmark alignment from day zero.",
+      title: "Zero Trust & Defense in Depth",
+      desc: "Security cannot be an afterthought bolted on at deployment. I enforce principle of least privilege RBAC, data partition isolation, and CIS benchmark alignment from day zero.",
     },
     {
       title: "Resilient & Scalable Delivery",
@@ -85,7 +85,7 @@ export default function AboutSection() {
                 Areas of Specialization
               </h3>
               <p className="text-sm text-[#96A3B7]">
-                Cross-functional technical competence spanning frontend, backend, security posture, and cloud operations.
+                Cross functional technical competence spanning frontend, backend, security posture, and cloud operations.
               </p>
             </div>
 

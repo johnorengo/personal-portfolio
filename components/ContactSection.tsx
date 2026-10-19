@@ -82,7 +82,7 @@ export default function ContactSection({
             Have an Idea? Let&apos;s Build Something Exceptional.
           </h2>
           <p className="text-base sm:text-lg text-[#96A3B7] leading-relaxed">
-            Whether you need a scalable full-stack application, an enterprise ERP/POS integration, a cloud security review, or technical consultation—I look forward to discussing your goals.
+            Whether you need a scalable full stack application, an enterprise ERP/POS integration, a cloud security review, or technical consultation, I look forward to discussing your goals.
           </p>
         </motion.div>
 
@@ -301,11 +301,11 @@ export default function ContactSection({
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.1] text-[#F4F7FC] text-xs sm:text-sm focus:border-[#35D7FF] focus:outline-none transition-colors"
                   >
-                    <option value="Software Engineering Project">Full-Stack Web or Mobile Development</option>
+                    <option value="Software Engineering Project">Full Stack Web or Mobile Development</option>
                     <option value="ERP / POS System Integration">ERP, POS, or Inventory System Implementation</option>
                     <option value="Cybersecurity Audit">Azure Cloud Security or Posture Audit</option>
                     <option value="Business Process Automation">Process Automation & Workflow Digitization</option>
-                    <option value="Full-Time Engineering Role">Full-Time Software Engineering Position</option>
+                    <option value="Full Time Engineering Role">Full Time Software Engineering Position</option>
                     <option value="General Consultation">General Technical Inquiry</option>
                   </select>
                 </div>

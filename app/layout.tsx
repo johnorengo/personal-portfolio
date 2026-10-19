@@ -21,14 +21,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "John Orengo — Software Engineer & Cybersecurity Specialist",
+  title: "John Orengo | Software Engineer & Cybersecurity Specialist",
   description:
-    "Building intelligent solutions and securing digital futures. Multidisciplinary technology professional specializing in full-stack engineering, cybersecurity, cloud governance, and enterprise business systems.",
+    "Building intelligent solutions and securing digital futures. Multidisciplinary technology professional specializing in full stack engineering, cybersecurity, cloud governance, and enterprise business systems.",
   keywords: [
     "John Orengo",
     "Software Engineer",
     "Cybersecurity Specialist",
-    "Full-Stack Developer",
+    "Full Stack Developer",
     "Cloud Security",
     "Nairobi Kenya",
     "React",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "John Orengo" }],
   openGraph: {
-    title: "John Orengo — Software Engineer & Cybersecurity Specialist",
+    title: "John Orengo | Software Engineer & Cybersecurity Specialist",
     description:
-      "Building intelligent solutions and securing digital futures. Full-stack software engineering, cloud security, and scalable digital platforms.",
+      "Building intelligent solutions and securing digital futures. Full stack software engineering, cloud security, and scalable digital platforms.",
     type: "website",
     locale: "en_US",
   },

@@ -79,7 +79,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
             {/* Modal content */}
             <div className="p-6 sm:p-7 space-y-6">
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Your support directly fuels cloud security research, open-source development, and technical community mentorship across Kenya.
+                Your support directly fuels cloud security research, open source development, and technical community mentorship across Kenya.
               </p>
 
               {/* Amount Presets */}

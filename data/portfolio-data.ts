@@ -8,12 +8,12 @@ import { Project, ServiceItem, ExperienceItem, Certification, SkillCategory, Soc
  */
 export const personalInfo = {
   name: "John Orengo",
-  title: "Full-Stack Software Engineer",
+  title: "Full Stack Software Engineer",
   specialism: "Cybersecurity · Cloud & Network Security",
   headline: "Building Intelligent Solutions. Securing Digital Futures.",
   tagline: "A technology professional passionate about engineering secure, intelligent, scalable, and beautifully designed digital solutions.",
   supportingText: "I'm a software developer and cybersecurity enthusiast transforming complex ideas into secure, intelligent, and impactful digital experiences.",
-  bio: "Computer Science graduate and technology professional with hands-on experience across software engineering, systems administration, and cloud security governance. Experienced in architecting database-driven web platforms, RESTful APIs, and responsive client applications, alongside executing Azure security posture assessments and practical ICT infrastructure deployments.",
+  bio: "Computer Science graduate and technology professional with practical experience across software engineering, systems administration, and cloud security governance. Experienced in architecting database driven web platforms, RESTful APIs, and responsive client applications, alongside executing Azure security posture assessments and practical ICT infrastructure deployments.",
   location: "Nairobi, Kenya",
   timezone: "EAT (UTC+3)",
   email: "orengokennedy93@gmail.com",
@@ -26,7 +26,7 @@ export const personalInfo = {
   // Configurable availability indicator (toggle availability state without hardcoding claims)
   availability: {
     isAvailable: true,
-    statusText: "Open to full-time engineering roles, security audits & high-impact contracts",
+    statusText: "Open to full time engineering roles, security audits & high impact contracts",
     shortLabel: "Available for Q4 Engagements",
   },
 };
@@ -37,7 +37,7 @@ export const personalInfo = {
  * ============================================================================
  */
 export const specializations = [
-  "Full-Stack Software Development",
+  "Full Stack Software Development",
   "Cybersecurity & Cloud Security",
   "Artificial Intelligence & Machine Learning",
   "Web & Mobile Application Development",
@@ -54,9 +54,9 @@ export const servicesData: ServiceItem[] = [
   {
     id: "custom-software",
     title: "Custom Software Development",
-    shortDescription: "Architecting reliable, high-performance web applications and backend microservices tailored to specific operational requirements.",
+    shortDescription: "Architecting reliable, high performance web applications and backend microservices tailored to specific operational requirements.",
     deliverables: [
-      "Robust RESTful API design & third-party integrations",
+      "Robust RESTful API design & third party integrations",
       "Scalable database architecture (MySQL, PostgreSQL)",
       "Maintainable, clean frontend code with React & TypeScript",
     ],
@@ -65,11 +65,11 @@ export const servicesData: ServiceItem[] = [
   {
     id: "web-mobile",
     title: "Web & Mobile Application Development",
-    shortDescription: "Building responsive cross-platform mobile apps and modern web platforms with clean user experiences and offline capabilities.",
+    shortDescription: "Building responsive cross platform mobile apps and modern web platforms with clean user experiences and offline capabilities.",
     deliverables: [
-      "Cross-platform client applications with responsive design",
+      "Cross platform client applications with responsive design",
       "Progressive Web App (PWA) offline synchronization",
-      "Intuitive UI/UX design with smooth micro-interactions",
+      "Intuitive UI/UX design with smooth microinteractions",
     ],
     technologies: ["React", "Next.js", "Flutter", "Tailwind CSS", "Mobile UX"],
   },
@@ -79,7 +79,7 @@ export const servicesData: ServiceItem[] = [
     shortDescription: "Digitizing manual workflows, approval pipelines, and data reporting to eliminate paper bottlenecks and reduce operational costs.",
     deliverables: [
       "Automated document validation and digital audit trails",
-      "Real-time operational alerts and status tracking",
+      "Real time operational alerts and status tracking",
       "Scheduled data pipelines and automated reporting",
     ],
     technologies: ["Python", "Bash", "RESTful Pipelines", "Webhooks", "ETL"],
@@ -89,8 +89,8 @@ export const servicesData: ServiceItem[] = [
     title: "ERP & POS System Development",
     shortDescription: "Custom business management software, inventory tracking, POS terminals, receipt generation, and transaction accounting.",
     deliverables: [
-      "Multi-location inventory and supply chain tracking",
-      "Point-of-sale receipt printing and checkout flows",
+      "Multi location inventory and supply chain tracking",
+      "Point of sale receipt printing and checkout flows",
       "Financial ledger reconciliations and analytics",
     ],
     technologies: ["Laravel", "React", "PostgreSQL", "Thermal Printing", "REST APIs"],
@@ -98,7 +98,7 @@ export const servicesData: ServiceItem[] = [
   {
     id: "secure-architecture",
     title: "Secure Application Architecture",
-    shortDescription: "Embedding security from day zero through Role-Based Access Control (RBAC), multi-factor authentication, and cloud posture audits.",
+    shortDescription: "Embedding security from day zero through Role Based Access Control (RBAC), multifactor authentication, and cloud posture audits.",
     deliverables: [
       "Azure & AWS cloud identity governance assessments",
       "Principle of Least Privilege (PoLP) and MFA enforcement",
@@ -146,7 +146,7 @@ export const skillsCategories: SkillCategory[] = [
       { name: "Microsoft Azure & Entra ID", tag: "Cloud IAM" },
       { name: "Amazon Web Services (AWS)", tag: "Cloud Infrastructure" },
       { name: "RBAC & Privileged Identity (PIM)", tag: "Access Control" },
-      { name: "Multi-Factor Authentication (MFA)", tag: "Identity Protection" },
+      { name: "Multifactor Authentication (MFA)", tag: "Identity Protection" },
       { name: "Microsoft Defender for Cloud", tag: "Threat Detection" },
       { name: "CIS Benchmark Audits", tag: "Compliance" },
       { name: "Linux Security & Firewalls", tag: "Hardening" },
@@ -155,23 +155,23 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "AI & Machine Learning",
-    description: "Machine learning concepts, intelligent automation, data-driven solutions, and AI-assisted development.",
+    description: "Machine learning concepts, intelligent automation, data driven solutions, and AI assisted development.",
     skills: [
       { name: "Data Processing & ETL", tag: "Pipelines" },
       { name: "Intelligent Workflow Automation", tag: "Automation" },
       { name: "Python Data Science Stack", tag: "Tooling" },
-      { name: "AI-Assisted Dev Workflows", tag: "Productivity" },
+      { name: "AI Assisted Dev Workflows", tag: "Productivity" },
       { name: "Predictive Analytics Modeling", tag: "Concepts" },
     ],
   },
   {
     title: "Mobile Development",
-    description: "Cross-platform mobile applications, responsive user experience, touch interactions, and API integration.",
+    description: "Cross platform mobile applications, responsive user experience, touch interactions, and API integration.",
     skills: [
-      { name: "Cross-Platform Frameworks", tag: "Mobile" },
+      { name: "Cross Platform Frameworks", tag: "Mobile" },
       { name: "Progressive Web Apps (PWA)", tag: "Web Mobile" },
       { name: "Responsive Touch UI/UX", tag: "Design" },
-      { name: "Offline-First Syncing", tag: "Data Architecture" },
+      { name: "Offline First Syncing", tag: "Data Architecture" },
       { name: "Mobile API Integration", tag: "REST" },
     ],
   },
@@ -180,7 +180,7 @@ export const skillsCategories: SkillCategory[] = [
     description: "ERP, POS systems, workflow automation, business process digitization, and system integration.",
     skills: [
       { name: "Enterprise Resource Planning (ERP)", tag: "Core Business" },
-      { name: "Point-of-Sale (POS) Integration", tag: "Retail Systems" },
+      { name: "Point of Sale (POS) Integration", tag: "Retail Systems" },
       { name: "Inventory & Supply Tracking", tag: "Logistics" },
       { name: "Receipt & Invoice Generation", tag: "Billing" },
       { name: "Workforce & Payroll Tracking", tag: "Operations" },
@@ -201,7 +201,7 @@ export const projectsData: Project[] = [
     "category": "business",
     "categoryLabel": "Flower Logistics",
     "summary": "Connecting Kenyan flower growers with international buyers.",
-    "description": "Sebby Logistics Ltd connects overseas flower buyers with growers in Kenya and a dispatch operation at Jomo Kenyatta International Airport. The website explains how flowers move from farm selection and purchasing through quality checks, documentation and temperature-controlled international airfreight. It serves wholesalers, distributors, florists, supermarket buyers and importers who need to understand the sourcing process before requesting a shipment. Buyers can explore the growing regions, review the services and provide shipment requirements through a detailed enquiry journey, with direct contact options for the appropriate business team.",
+    "description": "Sebby Logistics Ltd connects overseas flower buyers with growers in Kenya and a dispatch operation at Jomo Kenyatta International Airport. The website explains how flowers move from farm selection and purchasing through quality checks, documentation and temperature controlled international airfreight. It serves wholesalers, distributors, florists, supermarket buyers and importers who need to understand the sourcing process before requesting a shipment. Buyers can explore the growing regions, review the services and provide shipment requirements through a detailed enquiry journey, with direct contact options for the appropriate business team.",
     "image": "/projects/sebby-logistics.webp",
     "technologies": [
       "Quotation enquiries",
@@ -251,18 +251,18 @@ export const projectsData: Project[] = [
     "category": "education",
     "categoryLabel": "Learner Verification",
     "summary": "Checking school enrolment records against actual learners.",
-    "description": "The School Data Verification System is a Ministry of Education platform for checking learners already recorded by schools against actual enrolment. It supports the identification of records that are unverified or do not correspond to real learners, helping improve the information used for education planning and funding. The public entry point distinguishes school leadership from sub-county and county oversight. Heads of Institution access their school through a UIC-based login, while directors use official email credentials through separate sign-in journeys. This structure makes the access route and responsibilities of each user group clear.",
+    "description": "The School Data Verification System is a Ministry of Education platform for checking learners already recorded by schools against actual enrolment. It supports the identification of records that are unverified or do not correspond to real learners, helping improve the information used for education planning and funding. The public entry point distinguishes school leadership from sub county and county oversight. Heads of Institution access their school through a UIC based login, while directors use official email credentials through separate sign in journeys. This structure makes the access route and responsibilities of each user group clear.",
     "image": "/projects/school-data-verification.webp",
     "technologies": [
       "Record verification",
-      "Role-based access"
+      "Role based access"
     ],
     "metrics": [],
     "keyDeliverables": [
       "Verification focuses on existing learner entries and their correspondence with actual school enrolment.",
       "Three entry pathways distinguish Heads of Institution, Sub County Directors and County Directors.",
       "Institution users sign in using the school's UIC identifier and a password.",
-      "Director accounts use separate official-email login pages for the relevant education oversight level.",
+      "Director accounts use separate official email login pages for the relevant education oversight level.",
       "Checking enrolment records helps identify ghost entries and strengthen the information available for resource allocation.",
       "Ministry identity, validated role selection and responsive layouts provide a clear public gateway across screen sizes."
     ],
@@ -275,7 +275,7 @@ export const projectsData: Project[] = [
     "category": "education",
     "categoryLabel": "School Safety",
     "summary": "Coordinating school preparedness and emergency response across Kenya.",
-    "description": "The Education Emergency Management System supports school safety planning and coordinated emergency response throughout Kenya. It brings school leaders, sub-county and county directors, and Ministry headquarters administrators into a shared process for understanding hazards, reviewing incidents and following up on school needs. The platform covers all 47 counties and combines school profiles, exposure information and preparedness assessments with reporting and safeguarding workflows. Its purpose is to help education teams identify vulnerable schools, prioritize action and maintain student welfare and learning continuity when floods, drought, storms, fire or other disruptions affect education.",
+    "description": "The Education Emergency Management System supports school safety planning and coordinated emergency response throughout Kenya. It brings school leaders, sub county and county directors, and Ministry headquarters administrators into a shared process for understanding hazards, reviewing incidents and following up on school needs. The platform covers all 47 counties and combines school profiles, exposure information and preparedness assessments with reporting and safeguarding workflows. Its purpose is to help education teams identify vulnerable schools, prioritize action and maintain student welfare and learning continuity when floods, drought, storms, fire or other disruptions affect education.",
     "image": "/projects/education-emergency.webp",
     "technologies": [
       "Risk monitoring",
@@ -284,10 +284,10 @@ export const projectsData: Project[] = [
     "metrics": [],
     "keyDeliverables": [
       "Hazard monitoring brings together flood, drought, storm and fire information with alerts and school exposure details.",
-      "Color-coded risk profiles and preparedness surveys help education teams assess school vulnerability and readiness.",
-      "Incident reports enter oversight workflows that include sub-county verification, rejection and follow-up views.",
-      "Dedicated workspaces serve institution heads, sub-county directors, county directors and Ministry headquarters users.",
-      "Child safeguarding processes and Education in Emergency checklists support welfare and learning-continuity reporting.",
+      "Color coded risk profiles and preparedness surveys help education teams assess school vulnerability and readiness.",
+      "Incident reports enter oversight workflows that include sub county verification, rejection and follow up views.",
+      "Dedicated workspaces serve institution heads, sub county directors, county directors and Ministry headquarters users.",
+      "Child safeguarding processes and Education in Emergency checklists support welfare and learning continuity reporting.",
       "Policy downloads, preparedness guidance and response resources complement analytics on school risk and incident progress."
     ],
     "architectureHighlights": [],
@@ -311,7 +311,7 @@ export const projectsData: Project[] = [
     "keyDeliverables": [
       "Service sections introduce website and software development, design, marketing and ongoing IT support.",
       "A process section explains the agency's approach to taking a project from planning through delivery and continued support.",
-      "Interactive case-study tabs present the logistics, electrical commerce, learner-verification and school-emergency platforms.",
+      "Interactive case study tabs present the logistics, electrical commerce, learner verification and school emergency platforms.",
       "Project previews, feature explanations and external links help prospective clients review the published work.",
       "Agency information and engagement options connect the service offering with a route for starting a client enquiry.",
       "Responsive navigation and layouts organize the service, process, project and contact sections for different devices."
@@ -328,15 +328,15 @@ export const projectsData: Project[] = [
  */
 export const experienceData: ExperienceItem[] = [
   {
-    period: "2025 — 2026",
-    role: "Full-Stack Software Developer Intern",
+    period: "2025 to 2026",
+    role: "Full Stack Software Developer Intern",
     organization: "Ministry of Education Headquarters",
     location: "Nairobi, Kenya",
     type: "Public Sector Software Engineering",
     summary: "Architected and delivered core modules of national education data platforms supporting school accreditation, tree planting initiatives, and emergency response.",
     achievements: [
-      "Built resilient RESTful micro-services and API endpoints with Laravel and Python connecting to central MySQL databases.",
-      "Developed high-performance React frontends with intuitive table pagination, live filtering, and zero-latency form validation.",
+      "Built resilient RESTful microservices and API endpoints with Laravel and Python connecting to central MySQL databases.",
+      "Developed high performance React frontends with intuitive table pagination, live filtering, and zero latency form validation.",
       "Collaborated with senior government ICT directors to translate complex regulatory requirements into structured software architecture.",
       "Authored technical user manuals and delivered onboarding sessions for county education directors.",
     ],
@@ -351,7 +351,7 @@ export const experienceData: ExperienceItem[] = [
     summary: "Conducted security posture assessments and risk evaluations across Microsoft Azure cloud and hybrid enterprise infrastructure.",
     achievements: [
       "Audited cloud environments against CIS Microsoft Azure Foundations Benchmark and internal compliance frameworks.",
-      "Evaluated identity access controls, Privileged Identity Management (PIM), and Multi-Factor Authentication (MFA) enforcement policies.",
+      "Evaluated identity access controls, Privileged Identity Management (PIM), and Multifactor Authentication (MFA) enforcement policies.",
       "Monitored and investigated alert telemetry within Microsoft Defender for Cloud and Microsoft Sentinel.",
       "Drafted comprehensive vulnerability remediation reports detailing specific mitigation steps for enterprise clients.",
     ],
@@ -363,7 +363,7 @@ export const experienceData: ExperienceItem[] = [
     organization: "Ministry of Education",
     location: "Nairobi, Kenya",
     type: "ICT Infrastructure & Field Engineering",
-    summary: "Provided hands-on technical support, network engineering, and hardware troubleshooting across 15+ educational institutions.",
+    summary: "Provided practical technical support, network engineering, and hardware troubleshooting across 15+ educational institutions.",
     achievements: [
       "Troubleshot hardware, operating system, and network connectivity faults across 350+ computers, printers, and peripheral devices.",
       "Configured secure local Wi-Fi and Ethernet networks with optimized bandwidth management for educational software delivery.",
@@ -382,7 +382,7 @@ export const educationData = [
     period: "Graduated with Honors",
     highlights: [
       "Core coursework: Software Engineering, Data Structures & Algorithms, Computer Networks, Database Systems, Operating Systems, Information Security",
-      "Capstone Project: Full-stack institutional records and student services management portal",
+      "Capstone Project: Full stack institutional records and student services management portal",
       "Active participant in computing hackathons and student developer circles",
     ],
   },

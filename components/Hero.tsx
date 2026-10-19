@@ -140,7 +140,7 @@ export default function Hero() {
                   <div className="relative h-96 lg:h-[clamp(16rem,42svh,24rem)] w-full bg-[#080D18] overflow-hidden">
                     <Image
                       src={personalInfo.profileImage}
-                      alt="John Orengo — Software Engineer & Cybersecurity"
+                      alt="John Orengo | Software Engineer & Cybersecurity"
                       fill
                       className="object-cover object-top hover:scale-105 transition-transform duration-700"
                       priority
@@ -167,7 +167,7 @@ export default function Hero() {
                   <div className="p-4 bg-[#0E1524] border-t border-white/[0.08] grid grid-cols-3 gap-2">
                     <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">
                       <Terminal className="w-4 h-4 mx-auto text-[#35D7FF] mb-1" />
-                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Full-Stack</span>
+                      <span className="text-[11px] font-bold text-[#F4F7FC] block">Full Stack</span>
                       <span className="text-[10px] text-[#96A3B7] block font-mono">React · Laravel</span>
                     </div>
                     <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.06] text-center">

@@ -29,7 +29,7 @@ export default function SkillsSection() {
             Structured expertise across engineering disciplines.
           </h2>
           <p className="text-base text-[#96A3B7] leading-relaxed">
-            Hands-on technical capabilities organized across software engineering, cloud cybersecurity, machine learning workflows, mobile apps, and business systems.
+            Practical technical capabilities organized across software engineering, cloud cybersecurity, machine learning workflows, mobile apps, and business systems.
           </p>
         </motion.div>
 
