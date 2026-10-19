@@ -19,7 +19,7 @@ const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> 
 
 export default function ServicesSection({ onSelectService }: ServicesSectionProps) {
   return (
-    <section id="services" className="py-24 lg:py-32 relative overflow-hidden bg-[#080D18]">
+    <section id="services" className="pt-8 pb-24 lg:pt-10 lg:pb-32 relative overflow-hidden bg-[#080D18]">
       {/* Ambient background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#35D7FF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
 
