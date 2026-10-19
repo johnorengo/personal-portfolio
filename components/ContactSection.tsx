@@ -138,7 +138,6 @@ export default function ContactSection({
                     <p role="status" className="flex items-start gap-2 rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-sm leading-relaxed text-slate-200"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#35D7FF]" />Message sent. Thank you for reaching out. I&apos;ll reply to the email you provided.</p>
                   )}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
-                    <p className="max-w-[16rem] text-xs leading-relaxed text-[#96A3B7]">Your message comes straight to my inbox. I&apos;ll get back to you personally.</p>
                     <button type="submit" disabled={formStatus === "submitting"} className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
                   </div>
                 </form>
