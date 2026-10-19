@@ -137,8 +137,8 @@ export default function ContactSection({
                   {formStatus === "success" && (
                     <p role="status" className="flex items-start gap-2 rounded-xl border border-[#35D7FF]/20 bg-[#35D7FF]/5 p-3 text-sm leading-relaxed text-slate-200"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[#35D7FF]" />Message sent. Thank you for reaching out. I&apos;ll reply to the email you provided.</p>
                   )}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/[0.08] pt-5">
-                    <button type="submit" disabled={formStatus === "submitting"} className="inline-flex shrink-0 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] px-6 py-3.5 text-sm font-bold text-[#080D18] shadow-lg shadow-[#35D7FF]/10 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}<ArrowUpRight className="w-4 h-4" aria-hidden="true" /></button>
+                  <div className="flex justify-center border-t border-white/[0.08] pt-5">
+                    <button type="submit" disabled={formStatus === "submitting"} className="inline-flex min-h-12 min-w-48 items-center justify-center rounded-full border border-white/15 bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-[length:150%_100%] bg-left px-9 py-3.5 text-sm font-bold tracking-wide text-[#080D18] shadow-[0_6px_24px_-8px_rgba(53,215,255,0.45)] transition-[background-position,box-shadow,transform] duration-300 enabled:hover:bg-right enabled:hover:shadow-[0_8px_30px_-6px_rgba(134,103,255,0.5)] motion-safe:enabled:hover:-translate-y-0.5 motion-safe:enabled:active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#35D7FF] cursor-pointer disabled:opacity-60 disabled:cursor-wait">{formStatus === "submitting" ? "Sending..." : "Send Message"}</button>
                   </div>
                 </form>
               </div>
