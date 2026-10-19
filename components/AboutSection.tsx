@@ -39,17 +39,17 @@ export default function AboutSection() {
               About
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#F4F7FC] leading-tight font-display [text-wrap:balance]">
-              I&apos;m John. I build software people can rely on.
+              I&apos;m John. I turn complex challenges into dependable software.
             </h2>
           </div>
 
           <div className="lg:col-span-7 space-y-5 text-[#96A3B7] text-base sm:text-lg leading-relaxed">
             <p>{personalInfo.bio}</p>
             <p>
-              A Computer Science graduate of The Catholic University of Eastern Africa, I&apos;ve built education platforms at Kenya&apos;s Ministry of Education, reviewed Azure security at Serianu, and developed websites and operational tools for businesses.
+              With a Computer Science degree from The Catholic University of Eastern Africa, I bring experience building education platforms at Kenya&apos;s Ministry of Education, reviewing Azure security at Serianu, and delivering software and business solutions at Growmore Technology Africa Ltd.
             </p>
             <p>
-              I focus on the people behind each project. Expect clear communication, room for questions, and practical solutions built with care. Whether you&apos;re starting fresh or improving a system, I&apos;d like to help.
+              I take time to understand your goals, explain decisions clearly, and build with the people using your system in mind. Let&apos;s create something that makes their work easier and your business stronger.
             </p>
 
             <div className="pt-2">

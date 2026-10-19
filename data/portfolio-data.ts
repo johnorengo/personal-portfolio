@@ -13,7 +13,7 @@ export const personalInfo = {
   headline: "Building Intelligent Solutions. Securing Digital Futures.",
   tagline: "A technology professional passionate about engineering secure, intelligent, scalable, and beautifully designed digital solutions.",
   supportingText: "I'm a full stack software engineer and cybersecurity enthusiast transforming complex ideas into secure, intelligent, and impactful digital experiences.",
-  bio: "I'm John Orengo, a software engineer in Nairobi with 4+ years of experience in development, cybersecurity, and IT infrastructure. I build useful websites, simplify business workflows, and help protect systems and data.",
+  bio: "I'm John Orengo, a full stack software engineer based in Nairobi with 4+ years across software development, cybersecurity, and IT infrastructure. I turn complex requirements into intuitive applications, connected business systems, and secure digital experiences.",
   location: "Nairobi, Kenya",
   timezone: "EAT (UTC+3)",
   email: "orengokennedy93@gmail.com",
