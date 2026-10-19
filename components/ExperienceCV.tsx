@@ -11,7 +11,7 @@ export default function ExperienceCV() {
   const [activeTab, setActiveTab] = useState<TimelineFilter>("all");
 
   return (
-    <section id="experience" className="pt-8 pb-24 lg:pt-10 lg:pb-32 relative overflow-hidden bg-[#080D18]">
+    <section id="experience" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/4 w-[450px] h-[450px] bg-[#35D7FF]/[0.04] rounded-full blur-[150px] pointer-events-none" />
 

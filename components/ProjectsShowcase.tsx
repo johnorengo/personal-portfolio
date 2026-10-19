@@ -35,7 +35,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
   const secondaryProjects = filteredProjects.slice(1);
 
   return (
-    <section id="projects" className="pt-8 pb-28 lg:pt-10 lg:pb-36 relative overflow-hidden bg-[#080D18]">
+    <section id="projects" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
       {/* Dynamic ambient glow field */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[#35D7FF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-[550px] h-[550px] bg-[#8667FF]/[0.04] rounded-full blur-[180px] pointer-events-none" />
