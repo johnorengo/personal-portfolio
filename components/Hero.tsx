@@ -64,26 +64,61 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Quantitative Proof Strip with Motion */}
+            {/* Social channels row */}
             <div className="pt-4 border-t border-white/[0.08]">
-              <div className="grid grid-cols-3 gap-2">
-                {impactMetrics.map((metric, idx) => (
-                  <motion.div
-                    key={metric.label}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
-                  >
-                    <span className="text-2xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
-                      {metric.value}
-                    </span>
-                    <span className="text-[11px] sm:text-xs font-bold text-[#F4F7FC]">
-                      {metric.label}
-                    </span>
-                  </motion.div>
-                ))}
+              <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
+                Verified Social & Technical Profiles
+              </span>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-3">
+                <a
+                  href="https://github.com/johnorengo"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                >
+                  <GitBranch className="w-4 h-4 text-[#35D7FF]" />
+                  <span>GitHub</span>
+                </a>
+                <span className="text-slate-700">·</span>
+
+                <a
+                  href="https://www.linkedin.com/in/johnorengo"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
+                >
+                  <Globe className="w-4 h-4 text-[#8667FF]" />
+                  <span>LinkedIn</span>
+                </a>
+                <span className="text-slate-700">·</span>
+
+                <a
+                  href="https://www.credly.com/users/john-orengo"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                >
+                  <Award className="w-4 h-4 text-amber-400" />
+                  <span>Credly Badges</span>
+                </a>
+                <span className="text-slate-700">·</span>
+
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-[#35D7FF]" />
+                  <span>Email</span>
+                </a>
+                <span className="text-slate-700">·</span>
+
+                <a
+                  href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-[#8667FF]" />
+                  <span>WhatsApp</span>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -149,61 +184,26 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Social channels row */}
-              <div className="relative mt-4 text-center">
-                <span className="block text-xs font-mono text-[#96A3B7] uppercase tracking-wider mb-3">
-                  Verified Social & Technical Profiles
-                </span>
-                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
-                  <a
-                    href="https://github.com/johnorengo"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                  >
-                    <GitBranch className="w-4 h-4 text-[#35D7FF]" />
-                    <span>GitHub</span>
-                  </a>
-                  <span className="text-slate-700">·</span>
-
-                  <a
-                    href="https://www.linkedin.com/in/johnorengo"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
-                  >
-                    <Globe className="w-4 h-4 text-[#8667FF]" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <span className="text-slate-700">·</span>
-
-                  <a
-                    href="https://www.credly.com/users/john-orengo"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                  >
-                    <Award className="w-4 h-4 text-amber-400" />
-                    <span>Credly Badges</span>
-                  </a>
-                  <span className="text-slate-700">·</span>
-
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
-                  >
-                    <Mail className="w-4 h-4 text-[#35D7FF]" />
-                    <span>Email</span>
-                  </a>
-                  <span className="text-slate-700">·</span>
-
-                  <a
-                    href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
-                  >
-                    <Phone className="w-4 h-4 text-[#8667FF]" />
-                    <span>WhatsApp</span>
-                  </a>
+              {/* Quantitative Proof Strip with Motion */}
+              <div className="relative mt-4">
+                <div className="grid grid-cols-3 gap-2">
+                  {impactMetrics.map((metric, idx) => (
+                    <motion.div
+                      key={metric.label}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: idx * 0.08 }}
+                      className="px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-white/[0.07] flex flex-col space-y-1"
+                    >
+                      <span className="text-2xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
+                        {metric.value}
+                      </span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#F4F7FC]">
+                        {metric.label}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>
