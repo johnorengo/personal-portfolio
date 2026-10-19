@@ -24,24 +24,25 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
         {/* Split Screen Hero Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
+        <div className="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
+            className="hero-copy lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
             {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
             <RotatingHeadline />
 
             {/* Master Supporting Text */}
-            <p className="text-sm sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl font-normal">
-              {personalInfo.supportingText}
+            <p className="hero-summary text-sm sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl font-normal">
+              <span className="hero-summary-full">{personalInfo.supportingText}</span>
+              <span className="hero-summary-compact hidden">Full stack software engineering and cybersecurity, turning complex ideas into secure, intuitive digital experiences.</span>
             </p>
 
             {/* Two Prominent CTAs: "Explore My Work" and "Let's Connect" */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+            <div className="hero-actions flex flex-wrap items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
               <a
                 href="#projects"
                 className="group relative inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
@@ -59,11 +60,11 @@ export default function Hero() {
             </div>
 
             {/* Social channels row */}
-            <div className="pt-3 sm:pt-4 border-t border-[rgb(var(--border-rgb))]/[0.08]">
+            <div className="hero-social pt-3 sm:pt-4 border-t border-[rgb(var(--border-rgb))]/[0.08]">
               <span className="block text-[10px] sm:text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider mb-2 sm:mb-3">
                 Verified Social & Technical Profiles
               </span>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <div className="hero-social-links flex flex-wrap items-center gap-x-3 gap-y-2">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
@@ -110,7 +111,7 @@ export default function Hero() {
 
           {/* Right Column: Professionally Framed Portrait */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
@@ -123,7 +124,7 @@ export default function Hero() {
               <div className="relative rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.12] shadow-2xl overflow-hidden bg-[rgb(var(--surface-rgb))]/95">
                 <div>
                   <div className="relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
-                    <div className="relative h-40 min-[390px]:h-44 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
+                    <div className="hero-photo relative h-40 min-[390px]:h-44 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
                     <Image
                       src={personalInfo.profileImage}
                       alt="John Orengo | Software Engineer & Cybersecurity"
@@ -136,7 +137,7 @@ export default function Hero() {
                     <div className="absolute inset-0 hidden sm:block bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
                     </div>
 
-                    <div className="relative p-2.5 sm:p-0 sm:absolute sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
+                    <div className="hero-identity relative p-2.5 sm:p-0 sm:absolute sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
                       <div>
                         <span className="font-display font-bold text-[var(--text-main)] sm:text-white text-xs sm:text-base block drop-shadow-md">
                           {personalInfo.name}
@@ -152,7 +153,7 @@ export default function Hero() {
                   </div>
 
                   {/* Quick matrix below photo */}
-                  <div className="p-2 sm:p-4 bg-[rgb(var(--card-rgb))] border-t border-[rgb(var(--border-rgb))]/[0.08] grid grid-cols-3 gap-1 sm:gap-2">
+                  <div className="hero-domains p-2 sm:p-4 bg-[rgb(var(--card-rgb))] border-t border-[rgb(var(--border-rgb))]/[0.08] grid grid-cols-3 gap-1 sm:gap-2">
                     <div className="p-1 sm:p-2.5 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.02] border border-[rgb(var(--border-rgb))]/[0.06] text-center">
                       <Terminal className="w-4 h-4 mx-auto text-[var(--accent-text)] mb-1" />
                       <span className="text-[9px] sm:text-[11px] font-bold text-[var(--text-main)] block">Full Stack</span>
@@ -178,7 +179,7 @@ export default function Hero() {
                   {impactMetrics.map((metric, idx) => (
                     <motion.div
                       key={metric.label}
-                      initial={{ opacity: 0, y: 16 }}
+                      initial={false}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: idx * 0.08 }}

@@ -21,13 +21,34 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+const profileSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "John Orengo",
+  url: siteUrl,
+  image: siteUrl ? `${siteUrl}/profile.jpg` : undefined,
+  jobTitle: "Full Stack Software Engineer",
+  description: "Full stack software engineer specializing in secure software, cloud and network security, and business systems.",
+  address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
+  sameAs: [
+    "https://github.com/johnorengo",
+    "https://www.linkedin.com/in/johnorengo",
+    "https://www.credly.com/users/john-orengo",
+  ],
+};
+
 export const metadata: Metadata = {
-  title: "John Orengo | Software Engineer & Cybersecurity Specialist",
+  metadataBase: siteUrl ? new URL(siteUrl) : undefined,
+  title: {
+    default: "John Orengo | Full Stack Software Engineer & Cybersecurity Specialist",
+    template: "%s | John Orengo",
+  },
   description:
-    "Building intelligent solutions and securing digital futures. Multidisciplinary technology professional specializing in full stack engineering, cybersecurity, cloud governance, and enterprise business systems.",
+    "John Orengo is a Nairobi-based full stack software engineer specializing in secure web applications, cloud and network security, ERP and business systems, and digital transformation.",
   keywords: [
     "John Orengo",
-    "Software Engineer",
+    "Full Stack Software Engineer",
     "Cybersecurity Specialist",
     "Full Stack Developer",
     "Cloud Security",
@@ -37,13 +58,30 @@ export const metadata: Metadata = {
     "Azure",
     "AWS Certified",
   ],
-  authors: [{ name: "John Orengo" }],
+  authors: [{ name: "John Orengo", url: siteUrl }],
+  creator: "John Orengo",
+  publisher: "John Orengo",
+  category: "Technology portfolio",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+  },
+  alternates: siteUrl ? { canonical: "/" } : undefined,
+  formatDetection: { telephone: false, email: false, address: false },
   openGraph: {
-    title: "John Orengo | Software Engineer & Cybersecurity Specialist",
+    title: "John Orengo | Full Stack Software Engineer & Cybersecurity Specialist",
     description:
-      "Building intelligent solutions and securing digital futures. Full stack software engineering, cloud security, and scalable digital platforms.",
+      "Secure software, cloud and network security, business systems, and practical digital transformation.",
     type: "website",
     locale: "en_US",
+    url: siteUrl,
+    siteName: "John Orengo Portfolio",
+  },
+  twitter: {
+    card: "summary",
+    title: "John Orengo | Full Stack Software Engineer",
+    description: "Secure software, cloud and network security, and business systems.",
   },
 };
 
@@ -69,6 +107,12 @@ export default function RootLayout({
           window.addEventListener('storage', apply);
         })();
       `}</Script>
+      <Script
+        id="person-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c") }}
+      />
       <body className="min-h-full flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)] antialiased selection:bg-[#35D7FF]/30 selection:text-white">
         {children}
       </body>

@@ -67,14 +67,14 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-8">
+          <div className="flex items-center justify-between gap-3 sm:gap-8">
             {/* Wordmark / Monogram */}
             <a
               href="#top"
               className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
-              <BrandMark className="h-8 w-auto" />
-              <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
+              <BrandMark className="h-7 sm:h-8 w-auto" />
+              <span className="font-display font-bold text-base min-[375px]:text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
                 {personalInfo.name}
               </span>
             </a>
@@ -130,7 +130,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex sm:hidden items-center gap-2">
+            <div className="flex sm:hidden items-center gap-1">
               <ThemeToggle />
               {onOpenCoffeeModal && (
                 <button

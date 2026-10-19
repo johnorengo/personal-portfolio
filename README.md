@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# John Orengo Portfolio
+
+A production-ready Next.js portfolio for John Orengo, a full stack software engineer specializing in secure software, cloud and network security, and business systems.
 
 ## Getting Started
 
@@ -48,3 +50,12 @@ The contact form sends messages directly from the page through Web3Forms. Genera
 Set the same variable in the hosting environment and rebuild or redeploy, since Next.js embeds public environment variables at build time. Restart the development server after changing `.env.local`.
 
 Submission shows success only after the provider confirms acceptance. Without a key, the form displays an availability error instead of claiming delivery.
+
+## Production deployment
+
+Before deploying, set these environment variables in the hosting platform:
+
+- `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — Web3Forms access key for the contact form.
+- `NEXT_PUBLIC_SITE_URL` — the full public HTTPS address, for example `https://example.com`. This enables canonical metadata, Open Graph URLs, `robots.txt`, and `sitemap.xml`.
+
+Run `npm run build` before upload. The application includes security headers, a restrictive Content Security Policy, a web app manifest, crawler metadata, and a sitemap route when the public site URL is configured.

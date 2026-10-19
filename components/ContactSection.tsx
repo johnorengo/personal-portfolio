@@ -45,6 +45,9 @@ export default function ContactSection({
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
+        credentials: "omit",
+        referrerPolicy: "no-referrer",
+        cache: "no-store",
         signal: controller.signal,
         body: JSON.stringify({
           access_key: accessKey,
