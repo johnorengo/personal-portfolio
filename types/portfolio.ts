@@ -3,14 +3,15 @@ export interface Project {
   title: string;
   category: "business" | "mobile" | "education" | "security" | "fullstack" | "all";
   categoryLabel: string;
-  year: string;
+  year?: string;
   summary: string;
   description: string;
   image: string;
+  imageFit?: "cover" | "contain";
   technologies: string[];
   metrics: { label: string; value: string }[];
   keyDeliverables: string[];
-  role: string;
+  role?: string;
   architectureHighlights: string[];
   challenge?: string;
   solution?: string;

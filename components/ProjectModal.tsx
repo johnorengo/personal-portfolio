@@ -53,8 +53,7 @@ export default function ProjectModal({
             <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-[#0A101C]">
               <div className="flex items-center gap-2 text-xs text-[#96A3B7]">
                 <span className="text-[#35D7FF] font-bold">{project.categoryLabel}</span>
-                <span aria-hidden="true" className="text-slate-600">·</span>
-                <span>{project.year}</span>
+                {project.year && <span>{project.year}</span>}
               </div>
 
               <button
@@ -75,7 +74,7 @@ export default function ProjectModal({
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover object-top"
+                  className={project.imageFit === "contain" ? "object-contain bg-[#280d00]" : "object-cover object-top"}
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1524] via-transparent to-transparent opacity-75" />
@@ -90,8 +89,7 @@ export default function ProjectModal({
                   {project.title}
                 </h2>
                 <div className="mt-2.5 flex flex-wrap items-center gap-3 text-sm text-[#96A3B7]">
-                  <span className="text-[#35D7FF] font-semibold">Role: {project.role}</span>
-                  <span aria-hidden="true" className="text-slate-600">·</span>
+                  {project.role && <span className="text-[#35D7FF] font-semibold">Role: {project.role}</span>}
                   <span>Category: {project.categoryLabel}</span>
                 </div>
               </div>
@@ -187,10 +185,11 @@ export default function ProjectModal({
                 </div>
               )}
 
-              {/* Technologies Used */}
+              {/* Systems & Capabilities */}
+              {project.technologies.length > 0 && (
               <div className="pt-4 border-t border-white/[0.08]">
                 <span className="text-xs font-bold text-[#96A3B7] uppercase tracking-wider block mb-2.5">
-                  Technologies & Frameworks
+                  Systems & Capabilities
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
@@ -203,6 +202,7 @@ export default function ProjectModal({
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Action Row */}
               <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4">

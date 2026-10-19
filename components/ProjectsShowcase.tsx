@@ -12,13 +12,12 @@ interface ProjectsShowcaseProps {
   onSelectContact?: (projectTitle: string) => void;
 }
 
-type FilterCategory = "all" | "business" | "security" | "mobile" | "education";
+type FilterCategory = "all" | "business" | "education" | "fullstack";
 
 const filterOptions: { id: FilterCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
-  { id: "business", label: "ERP & POS Systems" },
-  { id: "security", label: "Cloud & Cybersecurity" },
-  { id: "mobile", label: "Mobile Workforce" },
+  { id: "business", label: "Commercial Websites" },
+  { id: "fullstack", label: "Agency Website" },
   { id: "education", label: "Public Sector" },
 ];
 
@@ -104,7 +103,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                     src={featuredProject.image}
                     alt={featuredProject.title}
                     fill
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    className={`${featuredProject.imageFit === "contain" ? "object-contain bg-[#280d00]" : "object-cover object-top"} transition-transform duration-700 group-hover:scale-105`}
                     priority
                     referrerPolicy="no-referrer"
                   />
@@ -130,8 +129,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-xs font-mono text-[#96A3B7]">
                       <span className="text-[#35D7FF] font-bold">Featured Case Study</span>
-                      <span aria-hidden="true" className="text-slate-600">·</span>
-                      <span>{featuredProject.year}</span>
+                      {featuredProject.year && <span>{featuredProject.year}</span>}
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-tight">
@@ -200,7 +198,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      className={`${project.imageFit === "contain" ? "object-contain bg-[#280d00]" : "object-cover object-top"} transition-transform duration-700 group-hover:scale-105`}
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#121A29] via-[#121A29]/25 to-transparent" />
@@ -223,9 +221,7 @@ export default function ProjectsShowcase({ onSelectContact }: ProjectsShowcasePr
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
                     <div>
                       <div className="flex items-center gap-2 text-xs text-[#96A3B7] mb-2 font-mono">
-                        <span className="text-[#35D7FF]">{project.year}</span>
-                        <span aria-hidden="true" className="text-slate-600">·</span>
-                        <span>{project.role}</span>
+                        <span className="text-[#35D7FF]">{project.categoryLabel}</span>
                       </div>
 
                       <h3 className="text-xl font-bold text-[#F4F7FC] font-display group-hover:text-[#35D7FF] transition-colors leading-snug">
