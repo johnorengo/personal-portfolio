@@ -17,7 +17,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="top" className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between pt-8 pb-16 lg:pt-14 lg:pb-20 overflow-hidden bg-[#080D18]">
+    <section id="top" className="relative min-h-[calc(100vh-5rem)] flex flex-col justify-between pt-6 pb-12 lg:pt-6 lg:pb-12 overflow-hidden bg-[#080D18]">
       {/* Restrained Atmospheric Particle / Glow Field */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[15%] w-[480px] h-[480px] rounded-full bg-[#35D7FF]/[0.08] blur-[140px]" />
@@ -25,7 +25,7 @@ export default function Hero() {
         <div className="absolute inset-0 tech-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto space-y-10">
         {/* Split Screen Hero Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
@@ -132,7 +132,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
           >
             <div className="relative w-full max-w-md">
               {/* Luminous aura behind card */}
@@ -177,7 +177,7 @@ export default function Hero() {
                 {activeHeroView === "portrait" ? (
                   /* Portrait View */
                   <div>
-                    <div className="relative h-96 w-full bg-[#080D18] overflow-hidden">
+                    <div className="relative h-96 lg:h-[clamp(16rem,42svh,24rem)] w-full bg-[#080D18] overflow-hidden">
                       <Image
                         src={personalInfo.profileImage}
                         alt="John Orengo — Software Engineer & Cybersecurity"
