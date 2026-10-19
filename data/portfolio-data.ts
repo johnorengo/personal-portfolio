@@ -200,11 +200,22 @@ export const projectsData: Project[] = [
     "category": "business",
     "categoryLabel": "Flower Logistics",
     "summary": "Connecting Kenyan flower growers with international buyers.",
-    "description": "A responsive website presenting flower sourcing, quality checks and cold-chain airfreight from JKIA, with detailed freight enquiries for international buyers.",
+    "description": "Sebby Logistics Ltd connects overseas flower buyers with growers in Kenya and a dispatch operation at Jomo Kenyatta International Airport. The website explains how flowers move from farm selection and purchasing through quality checks, documentation and temperature-controlled international airfreight. It serves wholesalers, distributors, florists, supermarket buyers and importers who need to understand the sourcing process before requesting a shipment. Buyers can explore the growing regions, review the services and provide shipment requirements through a detailed enquiry journey, with direct contact options for the appropriate business team.",
     "image": "/projects/sebby-logistics.webp",
-    "technologies": ["Quotation enquiries", "WhatsApp", "SEO"],
+    "technologies": [
+      "Quotation enquiries",
+      "WhatsApp",
+      "SEO"
+    ],
     "metrics": [],
-    "keyDeliverables": [],
+    "keyDeliverables": [
+      "Service sections describe sourcing, procurement, quality assurance, export documentation and airfreight coordination.",
+      "A regional overview introduces ten Kenyan sourcing areas, including Naivasha, Nakuru, Nanyuki, Timau, Mount Elgon and Kajiado.",
+      "Quotation enquiries capture the destination airport and country, flower varieties, quantities, purchasing frequency and intended arrival date.",
+      "Dedicated sales, support and invoicing email routes sit alongside telephone and WhatsApp contact options.",
+      "Flower photography and responsive page layouts present the company consistently on phones, tablets and desktop screens.",
+      "Business and service schema, location information and social preview metadata support search visibility and link sharing."
+    ],
     "architectureHighlights": [],
     "liveUrl": "https://sebbylogistics.com/"
   },
@@ -214,11 +225,22 @@ export const projectsData: Project[] = [
     "category": "business",
     "categoryLabel": "Electrical Commerce",
     "summary": "An online showroom for a Kisumu electrical supplier.",
-    "description": "Customers browse lighting and electrical products, explore installations and request quotations through product pages, enquiry forms and WhatsApp.",
+    "description": "Citymart Electricals provides a digital showroom for City Mart Electricals & General Hardware in Kisumu. The website helps homeowners, electrical contractors, architects, interior designers and institutional buyers explore lighting and power products before discussing a purchase. Visitors can compare product information, browse examples of installed lighting and review services for different kinds of projects. Instead of treating every enquiry as a generic message, the experience connects individual products and project inspiration with quotation requests and WhatsApp conversations, helping customers explain the fittings, quantities and requirements they have in mind.",
     "image": "/projects/citymart-electricals.webp",
-    "technologies": ["Product catalog", "Quotations", "Installation gallery"],
+    "technologies": [
+      "Product catalog",
+      "Quotations",
+      "Installation gallery"
+    ],
     "metrics": [],
-    "keyDeliverables": [],
+    "keyDeliverables": [
+      "A searchable catalog covers decorative lighting, ceiling fittings, bulbs, switches, sockets, outdoor fixtures, solar equipment and related supplies.",
+      "Product pages combine item details, related products and a quotation request tailored to the selected item.",
+      "Service information addresses homes, businesses and institutions, including lighting advice and supply for larger projects.",
+      "A categorized installation gallery helps visitors explore lighting ideas for residential, commercial and hospitality settings.",
+      "Product enquiries, a contact form and WhatsApp provide several routes to discuss availability, pricing and project needs.",
+      "Store location, contact details, customer feedback and delivery coverage connect online discovery with the Kisumu business."
+    ],
     "architectureHighlights": [],
     "liveUrl": "https://citymartelectricals.com/"
   },
@@ -228,11 +250,21 @@ export const projectsData: Project[] = [
     "category": "education",
     "categoryLabel": "Learner Verification",
     "summary": "Checking school enrolment records against actual learners.",
-    "description": "A Ministry of Education platform addressing inaccurate learner records, with UIC-based school access and separate sign-in pathways for sub-county and county directors.",
+    "description": "The School Data Verification System is a Ministry of Education platform for checking learners already recorded by schools against actual enrolment. It supports the identification of records that are unverified or do not correspond to real learners, helping improve the information used for education planning and funding. The public entry point distinguishes school leadership from sub-county and county oversight. Heads of Institution access their school through a UIC-based login, while directors use official email credentials through separate sign-in journeys. This structure makes the access route and responsibilities of each user group clear.",
     "image": "/projects/school-data-verification.webp",
-    "technologies": ["Record verification", "Role-based access"],
+    "technologies": [
+      "Record verification",
+      "Role-based access"
+    ],
     "metrics": [],
-    "keyDeliverables": [],
+    "keyDeliverables": [
+      "Verification focuses on existing learner entries and their correspondence with actual school enrolment.",
+      "Three entry pathways distinguish Heads of Institution, Sub County Directors and County Directors.",
+      "Institution users sign in using the school's UIC identifier and a password.",
+      "Director accounts use separate official-email login pages for the relevant education oversight level.",
+      "Checking enrolment records helps identify ghost entries and strengthen the information available for resource allocation.",
+      "Ministry identity, validated role selection and responsive layouts provide a clear public gateway across screen sizes."
+    ],
     "architectureHighlights": [],
     "liveUrl": "https://dataverifications.education.go.ke/"
   },
@@ -242,11 +274,21 @@ export const projectsData: Project[] = [
     "category": "education",
     "categoryLabel": "School Safety",
     "summary": "Coordinating school preparedness and emergency response across Kenya.",
-    "description": "The platform connects schools and education administrators across 47 counties through hazard monitoring, risk profiles, incident review, preparedness assessments and safeguarding workflows.",
+    "description": "The Education Emergency Management System supports school safety planning and coordinated emergency response throughout Kenya. It brings school leaders, sub-county and county directors, and Ministry headquarters administrators into a shared process for understanding hazards, reviewing incidents and following up on school needs. The platform covers all 47 counties and combines school profiles, exposure information and preparedness assessments with reporting and safeguarding workflows. Its purpose is to help education teams identify vulnerable schools, prioritize action and maintain student welfare and learning continuity when floods, drought, storms, fire or other disruptions affect education.",
     "image": "/projects/education-emergency.webp",
-    "technologies": ["Risk monitoring", "Incident reporting"],
+    "technologies": [
+      "Risk monitoring",
+      "Incident reporting"
+    ],
     "metrics": [],
-    "keyDeliverables": [],
+    "keyDeliverables": [
+      "Hazard monitoring brings together flood, drought, storm and fire information with alerts and school exposure details.",
+      "Color-coded risk profiles and preparedness surveys help education teams assess school vulnerability and readiness.",
+      "Incident reports enter oversight workflows that include sub-county verification, rejection and follow-up views.",
+      "Dedicated workspaces serve institution heads, sub-county directors, county directors and Ministry headquarters users.",
+      "Child safeguarding processes and Education in Emergency checklists support welfare and learning-continuity reporting.",
+      "Policy downloads, preparedness guidance and response resources complement analytics on school risk and incident progress."
+    ],
     "architectureHighlights": [],
     "liveUrl": "https://kplp.education.go.ke/"
   },
@@ -256,12 +298,23 @@ export const projectsData: Project[] = [
     "category": "fullstack",
     "categoryLabel": "Agency Website",
     "summary": "The Fox Tech Solutions business website.",
-    "description": "A Nairobi technology agency website presenting website development, custom software, design, marketing and IT support services, with case studies and engagement enquiries.",
+    "description": "Fox Tech Solutions is the public business website for a Nairobi technology agency. It introduces the agency's work in website development, custom software, interface design, digital marketing and managed IT support, helping prospective clients understand the services available before starting an engagement. The site combines service information with an explanation of the delivery process and interactive case studies covering commercial and government platforms. Visitors can review examples of completed work, follow links to live projects and explore engagement options before sending an enquiry about their business or technology needs.",
     "image": "/projects/fox-tech-logo.png",
     "imageFit": "contain",
-    "technologies": [],
+    "technologies": [
+      "Service showcase",
+      "Interactive case studies",
+      "Client enquiries"
+    ],
     "metrics": [],
-    "keyDeliverables": [],
+    "keyDeliverables": [
+      "Service sections introduce website and software development, design, marketing and ongoing IT support.",
+      "A process section explains the agency's approach to taking a project from planning through delivery and continued support.",
+      "Interactive case-study tabs present the logistics, electrical commerce, learner-verification and school-emergency platforms.",
+      "Project previews, feature explanations and external links help prospective clients review the published work.",
+      "Agency information and engagement options connect the service offering with a route for starting a client enquiry.",
+      "Responsive navigation and layouts organize the service, process, project and contact sections for different devices."
+    ],
     "architectureHighlights": [],
     "liveUrl": "https://foxtechsolution.com/"
   }

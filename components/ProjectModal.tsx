@@ -172,7 +172,7 @@ export default function ProjectModal({
               {project.keyDeliverables && project.keyDeliverables.length > 0 && (
                 <div className="space-y-3">
                   <h3 className="text-sm font-bold text-[#F4F7FC]">
-                    Key Deliverables & Systems Built
+                    Project Highlights
                   </h3>
                   <ul className="space-y-2">
                     {project.keyDeliverables.map((item, idx) => (
