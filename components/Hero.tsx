@@ -110,16 +110,7 @@ export default function Hero() {
                   <Mail className="w-4 h-4 text-[#35D7FF]" />
                   <span>Email</span>
                 </a>
-                <span className="text-slate-700">·</span>
-
-                <a
-                  href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
-                >
-                  <Image src="/icons/whatsapp.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
-                  <span>WhatsApp</span>
-                </a>
-              </div>
+</div>
             </div>
           </motion.div>
 
