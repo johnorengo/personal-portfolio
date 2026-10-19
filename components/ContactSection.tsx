@@ -29,6 +29,11 @@ export default function ContactSection({
       setFormStatus("error");
       return;
     }
+    if (formData.name.length > 120 || formData.email.length > 254 || formData.message.length > 5000) {
+      setErrorMessage("Please shorten your details before sending.");
+      setFormStatus("error");
+      return;
+    }
     const submission = new FormData(event.currentTarget);
     if (submission.get("botcheck")) return;
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim();
@@ -126,16 +131,16 @@ export default function ContactSection({
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="block text-xs font-semibold text-[var(--slate-200)]">The name behind the idea <span className="text-[var(--accent-text)]">*</span></label>
-                      <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required placeholder="Your first and last name" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                      <input id="name" name="name" disabled={formStatus === "submitting"} type="text" autoComplete="name" required maxLength={120} placeholder="Your first and last name" value={formData.name} onChange={(event) => { setFormData({ ...formData, name: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="block text-xs font-semibold text-[var(--slate-200)]">Work / Personal Email <span className="text-[var(--accent-text)]">*</span></label>
-                      <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required placeholder="Your preferred email address" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                      <input id="email" name="email" disabled={formStatus === "submitting"} type="email" autoComplete="email" required maxLength={254} placeholder="Your preferred email address" value={formData.email} onChange={(event) => { setFormData({ ...formData, email: event.target.value }); setFormStatus("idle"); }} className="w-full rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="block text-xs font-semibold text-[var(--slate-200)]">What shall we bring to life? <span className="text-[var(--accent-text)]">*</span></label>
-                    <textarea id="message" name="message" disabled={formStatus === "submitting"} required rows={5} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm leading-relaxed text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
+                    <textarea id="message" name="message" disabled={formStatus === "submitting"} required rows={5} maxLength={5000} placeholder="A new product, a system that needs fixing, or a challenge worth solving. Share a little context and your ideal timeline." value={formData.message} onChange={(event) => { setFormData({ ...formData, message: event.target.value }); setFormStatus("idle"); }} className="w-full min-h-36 resize-y rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 px-4 py-3.5 text-sm leading-relaxed text-[var(--text-main)] placeholder:text-[var(--slate-500)] outline-none focus:border-[#35D7FF]/70 focus:ring-2 focus:ring-[#35D7FF]/15 transition-colors" />
                   </div>
                   {formStatus === "error" && <p role="alert" className="rounded-xl border border-rose-500/30 bg-rose-500/10 p-3 text-xs text-rose-300">{errorMessage}</p>}
                   {formStatus === "success" && (

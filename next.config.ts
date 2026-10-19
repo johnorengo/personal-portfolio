@@ -4,6 +4,7 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDevelopment ? " 'unsafe-eval'" : ""}`,
+  "script-src-attr 'none'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
@@ -14,6 +15,7 @@ const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "frame-src 'none'",
   "media-src 'self'",
+  ...(!isDevelopment ? ["upgrade-insecure-requests"] : []),
 ].join("; ");
 
 const nextConfig: NextConfig = {
