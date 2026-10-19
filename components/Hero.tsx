@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, GitBranch, Globe, Award, Mail, Phone, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo, projectsData } from "../data/portfolio-data";
 
@@ -76,7 +76,7 @@ export default function Hero() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
                 >
-                  <GitBranch className="w-4 h-4 text-[#35D7FF]" />
+                  <Image src="/icons/github.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>GitHub</span>
                 </a>
                 <span className="text-slate-700">·</span>
@@ -87,7 +87,7 @@ export default function Hero() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
                 >
-                  <Globe className="w-4 h-4 text-[#8667FF]" />
+                  <Image src="/icons/linkedin.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>LinkedIn</span>
                 </a>
                 <span className="text-slate-700">·</span>
@@ -98,7 +98,7 @@ export default function Hero() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#35D7FF] transition-colors"
                 >
-                  <Award className="w-4 h-4 text-amber-400" />
+                  <Image src="/icons/credly.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>Credly Badges</span>
                 </a>
                 <span className="text-slate-700">·</span>
@@ -116,7 +116,7 @@ export default function Hero() {
                   href={personalInfo.whatsappUrl} target="_blank" rel="noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-medium text-[#96A3B7] hover:text-[#8667FF] transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#8667FF]" />
+                  <Image src="/icons/whatsapp.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>WhatsApp</span>
                 </a>
               </div>
