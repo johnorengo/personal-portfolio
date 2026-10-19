@@ -34,7 +34,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* 5 Distinct Skills Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-7">
           {skillsCategories.map((category, idx) => {
             const Icon = categoryIcons[idx] || Code2;
             return (
@@ -45,9 +45,7 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className={`p-7 rounded-3xl glass-card glass-card-hover flex flex-col justify-between space-y-6 relative group ${
-                  idx === 0 ? "lg:col-span-2" : ""
-                }`}
+                className="h-full min-w-0 p-7 rounded-3xl glass-card glass-card-hover flex flex-col justify-between space-y-6 relative group"
               >
                 {/* Header */}
                 <div className="space-y-3">
