@@ -10,8 +10,10 @@ type TimelineFilter = "experience" | "certifications" | "education";
 function alignCareerTabs(element: HTMLDivElement | null) {
   if (!element) return;
   const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 72;
+  const content = document.getElementById("career-content");
+  if (!content) return;
   window.scrollTo({
-    top: Math.max(0, window.scrollY + element.getBoundingClientRect().top - headerHeight - 8),
+    top: Math.max(0, window.scrollY + content.getBoundingClientRect().top - Math.max(80, headerHeight + 8) - element.offsetHeight - 24),
     behavior: "instant",
   });
 }
@@ -38,7 +40,7 @@ export default function ExperienceCV() {
 
 
   return (
-    <section id="experience" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
+    <section id="experience" className="pt-4 pb-12 lg:pb-16 relative overflow-clip bg-[#080D18]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-1/4 w-[450px] h-[450px] bg-[#35D7FF]/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
@@ -75,7 +77,7 @@ export default function ExperienceCV() {
         </motion.div>
 
         {/* Tab switchers */}
-        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
+        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-20 z-30 flex items-center gap-2 rounded-2xl border border-white/[0.12] bg-[#0E1524]/95 p-1.5 pb-4 backdrop-blur-xl shadow-xl overflow-x-auto">
           {[
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
             { id: "certifications", label: `Certifications (${certificationsData.length})`, icon: CheckCircle },
