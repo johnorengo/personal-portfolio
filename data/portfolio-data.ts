@@ -268,7 +268,7 @@ export const experienceData: ExperienceItem[] = [
   {
     period: "Current",
     role: "Information Technology Specialist",
-    organization: "Growmore Technology Africa",
+    organization: "Growmore Technology Africa Ltd",
     location: "",
     type: "Software Development, Networking & Business Solutions",
     summary: "Develop software, support business systems, and work on networking solutions to help organizations manage their operations. My work spans ERPNext, TallyPrime, retail POS, and custom software development.",
