@@ -8,7 +8,7 @@ import { experienceData, educationData, certificationsData, personalInfo } from 
 type TimelineFilter = "all" | "experience" | "certifications" | "education";
 
 export default function ExperienceCV() {
-  const [activeTab, setActiveTab] = useState<TimelineFilter>("all");
+  const [activeTab, setActiveTab] = useState<TimelineFilter>("experience");
 
   return (
     <section id="experience" className="pt-4 pb-12 lg:pb-16 relative overflow-hidden bg-[#080D18]">
@@ -60,7 +60,7 @@ export default function ExperienceCV() {
         </motion.div>
 
         {/* Tab switchers */}
-        <div className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
+        <div role="group" aria-label="Choose career history or credentials" className="flex items-center gap-2 border-b border-white/[0.08] pb-4 overflow-x-auto">
           {[
             { id: "all", label: "Overview & All", icon: Briefcase },
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
@@ -73,6 +73,8 @@ export default function ExperienceCV() {
               <button
                 key={tab.id}
                 type="button"
+                aria-pressed={isSelected}
+                aria-controls="career-content"
                 onClick={() => setActiveTab(tab.id as TimelineFilter)}
                 className={`relative flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap cursor-pointer ${
                   isSelected
@@ -95,7 +97,7 @@ export default function ExperienceCV() {
         </div>
 
         {/* Content Area */}
-        <div className="space-y-12">
+        <div id="career-content" aria-live="polite" className="space-y-12">
           {/* Work Experience Section */}
           {(activeTab === "all" || activeTab === "experience") && (
             <div className="space-y-6">
@@ -109,8 +111,7 @@ export default function ExperienceCV() {
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
                     className="p-6 sm:p-8 rounded-3xl glass-card glass-card-hover border border-white/[0.08] space-y-4"
                   >
@@ -182,8 +183,7 @@ export default function ExperienceCV() {
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
                     className="p-6 rounded-3xl glass-card glass-card-hover border border-white/[0.08] hover:border-[#8667FF]/40 transition-all flex flex-col justify-between space-y-5"
                   >
