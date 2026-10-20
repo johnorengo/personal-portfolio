@@ -19,24 +19,37 @@ export default function ChapterNavigator() {
   const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
 
   useEffect(() => {
-    const elements = chapters
-      .map((chapter) => document.getElementById(chapter.id))
-      .filter((element): element is HTMLElement => Boolean(element));
+    const updateActiveChapter = () => {
+      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 72;
+      const activationLine = headerHeight + 28;
+      let nextActiveId = chapters[0].id;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActiveId(visible.target.id);
-      },
-      { rootMargin: "-22% 0px -58% 0px", threshold: [0.01, 0.2, 0.5] },
-    );
+      for (const chapter of chapters) {
+        const section = document.getElementById(chapter.id);
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          nextActiveId = chapter.id;
+        }
+      }
 
-    elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
+      setActiveId((current) => (current === nextActiveId ? current : nextActiveId));
+    };
+
+    let frame = 0;
+    const scheduleUpdate = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(updateActiveChapter);
+    };
+
+    updateActiveChapter();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
   }, []);
-
   useEffect(() => {
     document.documentElement.dataset.chapter = activeId;
     return () => { delete document.documentElement.dataset.chapter; };

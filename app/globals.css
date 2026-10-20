@@ -397,15 +397,16 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgb(var(--border-rgb) / 0.13);
+  border: 1px solid rgb(var(--border-rgb) / 0.32);
   border-radius: 999px;
-  background: rgb(var(--page-rgb) / 0.78);
+  background: rgb(var(--elevated-rgb) / 0.96);
   padding: 0.35rem 0.6rem;
-  color: var(--text-muted);
+  color: var(--slate-200);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.3);
   backdrop-filter: blur(14px);
 }
 .chapter-mobile > .font-mono { color: var(--accent-text); }
