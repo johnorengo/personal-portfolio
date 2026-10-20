@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { scrollToSection } from "../lib/section-navigation";
 
 const chapters = [
@@ -16,7 +16,6 @@ const chapters = [
 export default function ChapterNavigator() {
   const [activeId, setActiveId] = useState("top");
   const reduceMotion = useReducedMotion();
-  const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
 
   useEffect(() => {
     const header = document.querySelector("header");
@@ -107,23 +106,6 @@ export default function ChapterNavigator() {
         </nav>
       </aside>
 
-      <div className="chapter-dock min-[1600px]:hidden">
-      <div className="chapter-mobile" aria-live="polite">
-        <span className="font-mono">{activeChapter.number}</span>
-        <span className="chapter-mobile-divider" aria-hidden="true" />
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.span
-            key={activeChapter.id}
-            initial={reduceMotion ? false : { opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
-            transition={{ duration: 0.2 }}
-          >
-            {activeChapter.label}
-          </motion.span>
-        </AnimatePresence>
-      </div>
-      </div>
     </>
   );
 }

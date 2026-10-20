@@ -1,5 +1,7 @@
 "use client";
 
+import SectionBadge from "./SectionBadge";
+
 import { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -36,6 +38,7 @@ export default function ProjectsShowcase() {
             <div className="inline-flex items-center text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
               <span>Featured Engineering Works</span>
             </div>
+            <SectionBadge number="04" label="Selected work" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
               Architected for operational scale, performance, and security.
             </h2>
