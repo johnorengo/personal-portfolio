@@ -417,7 +417,7 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 }
 .chapter-mobile {
   position: fixed;
-  top: 4.85rem;
+  top: calc(var(--header-height, 80px) + 8px);
   right: 0.85rem;
   z-index: 35;
   display: inline-flex;
@@ -443,7 +443,7 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 }
 
 @media (max-width: 639px) {
-  .chapter-mobile { top: 4.3rem; right: 0.55rem; font-size: 0.56rem; padding: 0.3rem 0.5rem; }
+  .chapter-mobile { top: calc(var(--header-height, 64px) + 8px); right: 0.55rem; font-size: 0.56rem; padding: 0.3rem 0.5rem; }
 }
 
 /* Persistent but restrained: a direct route to a conversation from any chapter. */
@@ -522,45 +522,4 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button { transition: none; }
   .floating-call-pulse { animation: none; }
-}
-
-/* Keep every chapter available below the measured sticky header. */
-@media (max-width: 1599px) {
-  html { scroll-padding-top: calc(var(--header-height, 80px) + 64px); }
-  .chapter-mobile {
-    position: sticky;
-    top: var(--header-height, 80px);
-    right: auto;
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 4px;
-    width: 100%;
-    padding: 6px max(12px, calc((100% - 1280px) / 2));
-    border-radius: 0;
-    border-width: 0 0 1px;
-    letter-spacing: normal;
-  }
-  .chapter-mobile-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    min-height: 44px;
-    padding: 6px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    color: var(--text-muted);
-    cursor: pointer;
-  }
-  .chapter-mobile-link[aria-current] {
-    color: var(--accent-text);
-    border-color: rgb(var(--border-rgb) / 0.3);
-    background: rgb(var(--wash-rgb) / 0.1);
-  }
-  .chapter-mobile-link:hover { color: var(--text-main); }
-  .chapter-mobile-link:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
-}
-@media (max-width: 639px) {
-  html { scroll-padding-top: calc(var(--header-height, 64px) + 110px); }
-  .chapter-mobile { grid-template-columns: repeat(3, minmax(0, 1fr)); font-size: 10px; }
 }

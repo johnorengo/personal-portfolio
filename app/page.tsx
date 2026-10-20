@@ -48,9 +48,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)]">
+      <ChapterNavigator />
       <FloatingCallButton />
       <Navbar onOpenCoffeeModal={() => setCoffeeModalOpen(true)} />
-      <ChapterNavigator />
 
       <main className="flex-1">
         <Hero />
