@@ -1,6 +1,5 @@
 "use client";
 
-import SectionBadge from "./SectionBadge";
 
 import { useLayoutEffect, useRef, useState } from "react";
 import { Download, Briefcase, GraduationCap, Award, CheckCircle, ExternalLink, ChevronRight } from "lucide-react";
@@ -59,7 +58,6 @@ export default function ExperienceCV() {
             <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
               Career History & Credentials
             </span>
-            <SectionBadge number="05" label="Experience" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
               Grounded in applied computing and verified certifications.
             </h2>

@@ -44,6 +44,20 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+    const updateHeaderHeight = () => {
+      document.documentElement.style.setProperty("--header-height", `${header.getBoundingClientRect().height}px`);
+    };
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(header);
+    updateHeaderHeight();
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty("--header-height");
+    };
+  }, []);
   return (
     <>
       <header

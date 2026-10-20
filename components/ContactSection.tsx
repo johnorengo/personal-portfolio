@@ -1,6 +1,5 @@
 "use client";
 
-import SectionBadge from "./SectionBadge";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -96,7 +95,6 @@ export default function ContactSection({
           <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
             Let&apos;s Connect & Collaborate
           </span>
-          <SectionBadge number="06" label="Connect" />
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
             Have a challenge worth solving?
           </h2>

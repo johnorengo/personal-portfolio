@@ -1,6 +1,5 @@
 "use client";
 
-import SectionBadge from "./SectionBadge";
 
 import Image, { getImageProps } from "next/image";
 import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
@@ -45,7 +44,6 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="hero-copy lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
-            <SectionBadge number="01" label="Introduction" />
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent-text)]">
               Full-Stack Software Engineering · Cybersecurity & Cloud Security
             </p>

@@ -1,6 +1,5 @@
 "use client";
 
-import SectionBadge from "./SectionBadge";
 
 import Image from "next/image";
 import { Code2, ShieldCheck, Brain, Smartphone, Briefcase, Cloud } from "lucide-react";
@@ -28,7 +27,6 @@ export default function SkillsSection() {
           <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
             Technical Proficiency & Domains
           </span>
-          <SectionBadge number="03" label="Expertise" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
             Structured expertise across engineering disciplines.
           </h2>

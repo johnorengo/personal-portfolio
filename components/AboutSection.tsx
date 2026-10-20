@@ -1,6 +1,5 @@
 "use client";
 
-import SectionBadge from "./SectionBadge";
 
 import { Download, Brain, Layers } from "lucide-react";
 import { motion } from "motion/react";
@@ -40,7 +39,6 @@ export default function AboutSection() {
             <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
               About
             </span>
-            <SectionBadge number="02" label="Perspective" />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
               I&apos;m John. I turn complex challenges into dependable software.
             </h2>

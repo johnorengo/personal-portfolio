@@ -326,95 +326,6 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
   .hero-social-links a :is(img, svg) { width: 0.9rem; height: 0.9rem; }
 }
 
-/* The portfolio moves through named chapters instead of a generic scroll-progress strip. */
-.ambient-focus-field {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.42;
-  background:
-    radial-gradient(42rem circle at var(--ambient-x, 84%) var(--ambient-y, 9%), rgb(89 225 255 / 0.07), transparent 62%),
-    radial-gradient(34rem circle at calc(var(--ambient-x, 84%) - 14%) calc(var(--ambient-y, 9%) + 20%), rgb(177 154 255 / 0.06), transparent 64%);
-  transition: background 900ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms ease;
-}
-html[data-chapter="top"] { --ambient-x: 84%; --ambient-y: 8%; }
-html[data-chapter="about"] { --ambient-x: 8%; --ambient-y: 34%; }
-html[data-chapter="expertise"] { --ambient-x: 88%; --ambient-y: 44%; }
-html[data-chapter="projects"] { --ambient-x: 12%; --ambient-y: 62%; }
-html[data-chapter="experience"] { --ambient-x: 84%; --ambient-y: 72%; }
-html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
-
-.chapter-navigator {
-  position: fixed;
-  right: clamp(1rem, 2.7vw, 3rem);
-  top: 50%;
-  z-index: 45;
-  transform: translateY(-50%);
-  padding: 1rem 0 1rem 1rem;
-}
-.chapter-rail {
-  position: absolute;
-  top: 1.15rem;
-  right: 0.48rem;
-  bottom: 1.15rem;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, rgb(var(--border-rgb) / 0.36) 14%, rgb(var(--border-rgb) / 0.36) 86%, transparent);
-}
-.chapter-link {
-  position: relative;
-  display: inline-flex;
-  min-height: 1.5rem;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.1rem 0.85rem 0.1rem 0.35rem;
-  color: var(--slate-400);
-  font-family: var(--font-jetbrains-mono), monospace;
-  font-size: 0.625rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 180ms ease, transform 180ms ease;
-}
-.chapter-link::after {
-  content: "";
-  position: absolute;
-  right: 0.13rem;
-  width: 0.72rem;
-  height: 0.72rem;
-  border: 1px solid rgb(var(--border-rgb) / 0.52);
-  border-radius: 999px;
-  background: rgb(var(--page-rgb));
-  transition: all 200ms ease;
-}
-.chapter-link:hover { color: var(--text-main); transform: translateX(-2px); }
-.chapter-link.is-active {
-  color: var(--accent-text);
-  text-shadow: 0 0 12px rgb(89 225 255 / 0.2);
-}
-.chapter-link.is-active::after {
-  width: 0.9rem;
-  height: 0.9rem;
-  border-color: var(--accent-text);
-  background: var(--accent-text);
-  box-shadow: 0 0 0 4px rgb(89 225 255 / 0.13), 0 0 15px rgb(89 225 255 / 0.35);
-}
-.chapter-number { min-width: 1.3rem; text-align: right; }
-.chapter-label {
-  min-width: 6.6rem;
-  border: 1px solid rgb(var(--border-rgb) / 0.18);
-  border-radius: 999px;
-  background: rgb(var(--page-rgb) / 0.9);
-  padding: 0.28rem 0.55rem;
-  color: var(--accent-text);
-  text-align: left;
-  font-family: var(--font-inter), sans-serif;
-  font-size: 0.64rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.16);
-  backdrop-filter: blur(12px);
-}
 /* Persistent but restrained: a direct route to a conversation from any chapter. */
 .floating-call-button {
   position: fixed;
@@ -494,36 +405,10 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
   .floating-call-pulse { animation: none; }
 }
 
-/* Leave a reading gutter for the chapter rail on wide desktop screens. */
-@media (min-width: 1600px) {
-  main section > .max-w-7xl {
-    max-width: min(80rem, calc(100vw - 28rem));
-  }
-}
 /* Let each device-specific portrait keep its complete, uncropped composition. */
 .hero-photo { aspect-ratio: 1122 / 1402; }
 @media (min-width: 640px) { .hero-photo { aspect-ratio: 1; } }
 @media (min-width: 1024px) { .hero-photo { aspect-ratio: 4 / 3; } }
-
-/* Chapter markers belong to their headings and scroll with the content. */
-.section-chapter-badge {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  gap: 8px;
-  padding: 6px 10px;
-  margin-bottom: 12px;
-  border: 1px solid rgb(var(--border-rgb) / 0.25);
-  border-radius: 999px;
-  background: rgb(var(--surface-rgb) / 0.8);
-  color: var(--slate-200);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.section-chapter-badge > .font-mono { color: var(--accent-text); }
-.section-chapter-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--violet-text); }
 
 /* An unclipped halo makes the call action visible against either theme. */
 .floating-call-button {
@@ -548,7 +433,6 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button::before { animation: none; }
-  .ambient-focus-field, .chapter-link, .chapter-link::after { transition: none; }
 }
 /* A complete phone introduction: copy, actions, portrait and proof in one view. */
 @media (max-width: 639px) {
@@ -556,7 +440,6 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
   .hero-layout { gap: 10px; }
   .hero-copy { gap: 8px; }
   .hero-copy > * { margin-block: 0; }
-  .hero-copy .section-chapter-badge { padding: 3px 8px; font-size: 8px; }
   .hero-copy > p.font-mono { font-size: 9px; line-height: 1.4; }
   #top h1 { font-size: clamp(22px, 6vw, 30px); line-height: 1.1; }
   .hero-summary { font-size: 13px; line-height: 1.4; }
