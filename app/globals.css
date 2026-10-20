@@ -302,15 +302,21 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
   .hero-domains { display: none; }
 }
 
-/* On phones, profile links stay compact and visual beneath the conversion actions. */
+/* Profile links retain a visible focus indicator in both themes. */
+.hero-profile-link:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+/* On phones, compact icons keep comfortably sized touch targets. */
 @media (max-width: 639px) {
   .hero-social { display: block; padding-top: 6px; }
   .hero-social > span { display: none; }
   .hero-social-links { display: flex; align-items: center; gap: 0.5rem; }
   .hero-social-links a {
     display: inline-flex;
-    width: 2rem;
-    min-height: 2rem;
+    width: 2.75rem;
+    min-height: 2.75rem;
     align-items: center;
     justify-content: center;
     padding: 0;
