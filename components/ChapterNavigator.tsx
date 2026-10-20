@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { scrollToSection } from "../lib/section-navigation";
 
 const chapters = [
@@ -16,12 +16,13 @@ const chapters = [
 export default function ChapterNavigator() {
   const [activeId, setActiveId] = useState("top");
   const reduceMotion = useReducedMotion();
-  const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
+
 
   useEffect(() => {
     const updateActiveChapter = () => {
       const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 72;
-      const activationLine = headerHeight + 28;
+      const navigationHeight = document.querySelector(".chapter-mobile")?.getBoundingClientRect().height ?? 0;
+      const activationLine = headerHeight + navigationHeight + 28;
       let nextActiveId = chapters[0].id;
 
       for (const chapter of chapters) {
@@ -40,11 +41,20 @@ export default function ChapterNavigator() {
       frame = window.requestAnimationFrame(updateActiveChapter);
     };
 
+    const header = document.querySelector("header");
+    const updateHeaderHeight = () => {
+      document.documentElement.style.setProperty("--header-height", `${header?.getBoundingClientRect().height ?? 72}px`);
+      scheduleUpdate();
+    };
+    const headerObserver = new ResizeObserver(updateHeaderHeight);
+    if (header) headerObserver.observe(header);
+    updateHeaderHeight();
     updateActiveChapter();
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
 
     return () => {
+      headerObserver.disconnect();
       window.cancelAnimationFrame(frame);
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", scheduleUpdate);
@@ -90,21 +100,20 @@ export default function ChapterNavigator() {
         </nav>
       </aside>
 
-      <div className="chapter-mobile min-[1600px]:hidden" aria-live="polite">
-        <span className="font-mono">{activeChapter.number}</span>
-        <span className="chapter-mobile-divider" aria-hidden="true" />
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.span
-            key={activeChapter.id}
-            initial={reduceMotion ? false : { opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduceMotion ? undefined : { opacity: 0, y: -4 }}
-            transition={{ duration: 0.2 }}
+      <nav className="chapter-mobile min-[1600px]:hidden" aria-label="Portfolio sections">
+        {chapters.map((chapter) => (
+          <button
+            type="button"
+            key={chapter.id}
+            onClick={() => scrollToSection(chapter.id)}
+            aria-current={chapter.id === activeId ? "location" : undefined}
+            className="chapter-mobile-link"
           >
-            {activeChapter.label}
-          </motion.span>
-        </AnimatePresence>
-      </div>
+            <span className="font-mono">{chapter.number}</span>
+            <span>{chapter.label}</span>
+          </button>
+        ))}
+      </nav>
     </>
   );
 }
