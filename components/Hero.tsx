@@ -63,7 +63,7 @@ export default function Hero() {
                 href="#projects"
                 className="group relative inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>Explore Selected Work</span>
+                <span className="hidden sm:inline">Explore Selected Work</span><span className="sm:hidden">View work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
@@ -71,7 +71,7 @@ export default function Hero() {
                 href="#contact"
                 className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-[var(--text-main)] hover:text-[var(--text-main)] glass-card hover:bg-[rgb(var(--wash-rgb))]/[0.08] border border-[rgb(var(--border-rgb))]/[0.12] hover:border-[#35D7FF]/40 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>Discuss an Opportunity</span>
+                <span className="hidden sm:inline">Discuss an Opportunity</span><span className="sm:hidden">Let&apos;s connect</span>
               </a>
             </div>
 
@@ -140,7 +140,7 @@ export default function Hero() {
               {/* Card Container */}
               <div className="relative rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.12] shadow-2xl overflow-hidden bg-[rgb(var(--surface-rgb))]/95">
                 <div>
-                  <div className="relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
+                  <div className="hero-portrait-panel relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
                     <div className="hero-photo relative mx-auto w-full max-w-[320px] sm:max-w-none bg-black">
                       <picture>
                         <source media="(min-width: 1024px)" srcSet={desktopPortrait.srcSet} sizes={desktopPortrait.sizes} />
@@ -185,7 +185,7 @@ export default function Hero() {
               </div>
 
               {/* Quantitative Proof Strip with Motion */}
-              <div className="relative sm:mt-4">
+              <div className="hero-metrics relative sm:mt-4">
                 <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
                   {impactMetrics.map((metric, idx) => (
                     <motion.div
