@@ -129,7 +129,7 @@ export default function Hero() {
             initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
+            className="hero-visual lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
           >
             <div className="relative w-full sm:max-w-md">
               {/* Luminous aura behind card */}
@@ -211,7 +211,7 @@ export default function Hero() {
       </div>
 
       {/* Elegant Scroll Indicator */}
-      <div className="hidden sm:flex justify-center mt-4">
+      <div className="hero-scroll hidden sm:flex justify-center mt-4">
         <a
           href="#about"
           className="flex flex-col items-center gap-1.5 text-xs text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-colors cursor-pointer"

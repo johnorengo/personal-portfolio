@@ -81,7 +81,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             </a>
 
             {/* Navigation links */}
-            <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
+            <nav className="hidden min-[1100px]:flex items-center gap-7 text-sm font-medium">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 return (
@@ -108,7 +108,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             </nav>
 
             {/* Primary Action Zone */}
-            <div className="hidden sm:flex items-center gap-3 shrink-0">
+            <div className="hidden min-[1100px]:flex items-center gap-3 shrink-0">
               <ThemeToggle />
               {onOpenCoffeeModal && (
                 <button
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="flex sm:hidden items-center gap-1">
+            <div className="flex min-[1100px]:hidden items-center gap-1">
               <ThemeToggle />
               {onOpenCoffeeModal && (
                 <button
@@ -161,7 +161,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="sm:hidden border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--page-rgb))]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+          <div className="min-[1100px]:hidden border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--page-rgb))]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
             <nav className="flex flex-col space-y-1 text-base font-medium">
               {navItems.map((item) => (
                 <a
