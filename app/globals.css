@@ -296,7 +296,7 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
   #top h1 { font-size: 20px; }
   .hero-summary { font-size: 12px; line-height: 1.35; }
   .hero-actions a { min-height: 36px; padding: 7px 11px; }
-  .hero-social > span { display: none; }
+  .hero-social > span { display: block; font-size: 8px; margin-bottom: 4px; }
   .hero-domains { display: none; }
 }
 
