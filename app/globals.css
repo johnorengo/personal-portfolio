@@ -277,7 +277,7 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
   .hero-actions a { min-height: 40px; padding: 9px 14px; }
   .hero-social { padding-top: 7px; }
   .hero-social > span { font-size: 9px; margin-bottom: 5px; }
-  .hero-social-links { gap: 6px 10px; }
+  .hero-social-links { gap: 6px; }
   .hero-social-links > span { display: none; }
   .hero-social-links a { gap: 5px; font-size: 10px; }
   .hero-photo { height: 96px; }

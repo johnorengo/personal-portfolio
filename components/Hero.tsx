@@ -66,43 +66,40 @@ export default function Hero() {
               <span className="block text-[10px] sm:text-xs font-mono text-[var(--text-muted)] uppercase tracking-wider mb-2 sm:mb-3">
                 Verified Social & Technical Profiles
               </span>
-              <div className="hero-social-links flex flex-wrap items-center gap-x-3 gap-y-2">
+              <div className="hero-social-links grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                  className="hero-profile-link inline-flex min-h-9 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Image src="/icons/github.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>GitHub</span>
                 </a>
-                <span className="text-[var(--slate-700)]">·</span>
 
                 <a
                   href="https://www.linkedin.com/in/johnorengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--violet-text)] transition-colors"
+                  className="hero-profile-link inline-flex min-h-9 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#8667FF]/50 hover:text-[var(--violet-text)]"
                 >
                   <Image src="/icons/linkedin.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>LinkedIn</span>
                 </a>
-                <span className="text-[var(--slate-700)]">·</span>
 
                 <a
                   href="https://www.credly.com/users/john-orengo"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                  className="hero-profile-link inline-flex min-h-9 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Image src="/icons/credly.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
                   <span>Credly Badges</span>
                 </a>
-                <span className="text-[var(--slate-700)]">·</span>
 
                 <a
                   href={`mailto:${personalInfo.email}`}
-                  className="inline-flex items-center gap-2 text-xs font-medium text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-colors"
+                  className="hero-profile-link inline-flex min-h-9 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Mail className="w-4 h-4 text-[var(--accent-text)]" />
                   <span>Email</span>
