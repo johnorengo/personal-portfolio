@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { Check, Send, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { personalInfo } from "../data/portfolio-data";
 
 interface ContactSectionProps {
   onOpenCoffeeModal?: () => void;
