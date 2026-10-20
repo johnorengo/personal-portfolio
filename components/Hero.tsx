@@ -34,14 +34,14 @@ export default function Hero() {
             className="hero-copy lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent-text)]">
-              Full-Stack Software Engineering · Cybersecurity & Cloud Security
+              Full Stack Engineer · Cybersecurity & Cloud Security
             </p>
             <RotatingHeadline />
 
             {/* Master Supporting Text */}
             <p className="hero-summary text-sm sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl font-normal">
               <span className="hero-summary-full">{personalInfo.supportingText}</span>
-              <span className="hero-summary-compact hidden">Full stack software engineering and cybersecurity, turning complex ideas into secure, intuitive digital experiences.</span>
+              <span className="hero-summary-compact hidden">Full stack engineer and cybersecurity specialist, turning complex ideas into secure, intuitive digital experiences.</span>
             </p>
 
             {/* Two Prominent CTAs: "Explore My Work" and "Let's Connect" */}
