@@ -11,6 +11,7 @@ import ContactSection from "../components/ContactSection";
 import Footer from "../components/Footer";
 import CoffeeModal from "../components/CoffeeModal";
 import ChapterNavigator from "../components/ChapterNavigator";
+import FloatingCallButton from "../components/FloatingCallButton";
 import { clearSectionHash, scrollToSection } from "../lib/section-navigation";
 
 export default function Home() {
@@ -48,6 +49,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)]">
       <ChapterNavigator />
+      <FloatingCallButton />
       <Navbar onOpenCoffeeModal={() => setCoffeeModalOpen(true)} />
 
       <main className="flex-1">

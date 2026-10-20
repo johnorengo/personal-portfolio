@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Phone, Check, Send, ArrowUpRight } from "lucide-react";
+import { Check, Send, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -222,23 +222,6 @@ export default function ContactSection({
                   </div>
                   <ArrowUpRight className="w-4 h-4 text-[var(--slate-500)] group-hover:text-amber-400 transition-colors" />
                 </a>
-
-                <a
-                  href={`tel:${personalInfo.phone}`}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.02] hover:bg-[rgb(var(--wash-rgb))]/[0.06] border border-[rgb(var(--border-rgb))]/[0.06] hover:border-[#35D7FF]/40 transition-all group"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-[rgb(var(--wash-rgb))]/[0.04] text-[var(--accent-text)]">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold text-[var(--text-main)] block">Direct Call</span>
-                      <span className="text-[11px] text-[var(--text-muted)] font-mono">{personalInfo.phoneDisplay}</span>
-                    </div>
-                  </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--slate-500)] group-hover:text-[var(--accent-text)] transition-colors" />
-                </a>
-
 
               </div>
 
