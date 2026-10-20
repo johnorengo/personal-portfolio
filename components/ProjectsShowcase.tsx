@@ -33,9 +33,7 @@ export default function ProjectsShowcase() {
         {/* Section Header with Asymmetric Editorial Composition */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 pb-4 border-b border-[rgb(var(--border-rgb))]/[0.08]">
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
-              <span>03</span>
-              <span className="text-[var(--slate-600)]">/</span>
+            <div className="inline-flex items-center text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
               <span>Featured Engineering Works</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
