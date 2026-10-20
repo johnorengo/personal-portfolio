@@ -139,6 +139,7 @@ a:focus-visible .brand-mark::before { opacity: 0.85; }
   50% { transform: scale(1.12); opacity: 0.72; }
 }
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .brand-mark::before,
   .brand-mark img { animation: none; }
 }

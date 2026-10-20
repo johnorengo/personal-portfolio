@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
+import { siteUrl } from "../lib/site-url";
 import "./globals.css";
 
 const spaceGrotesk = localFont({
@@ -24,7 +25,6 @@ const jetbrainsMono = localFont({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 const profileSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
