@@ -22,7 +22,7 @@ Set these environment variables in Vercel before the final deployment:
 - `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`: the public Web3Forms access key for the receiving inbox. Until this is set, the form reports that messaging is unavailable and visitors can use the contact links.
 - `NEXT_PUBLIC_SITE_URL`: the full public HTTPS URL, without a trailing slash. This enables canonical metadata, Open Graph URLs, and the sitemap.
 
-The current production address is `https://john-orengo-personal-portfolio.vercel.app`. The site uses it for canonical metadata and the sitemap when `NEXT_PUBLIC_SITE_URL` is unset. `NEXT_PUBLIC_` values are embedded at build time, so redeploy after changing either value. The Web3Forms key is designed to be public; keep any other private credentials out of `NEXT_PUBLIC_` variables. For form abuse protection, enable Web3Forms domain restrictions if your plan supports them, using the final production domain.
+The current production address is `https://johnorengo.vercel.app`. The site uses it for canonical metadata and the sitemap when `NEXT_PUBLIC_SITE_URL` is unset. `NEXT_PUBLIC_` values are embedded at build time, so redeploy after changing either value. The Web3Forms key is designed to be public; keep any other private credentials out of `NEXT_PUBLIC_` variables. For form abuse protection, enable Web3Forms domain restrictions if your plan supports them, using the final production domain.
 
 The app sets a Content Security Policy and other browser security headers in `next.config.ts`. Vercel supplies HTTPS and its default HSTS header. The contact form sends directly to Web3Forms over HTTPS and limits field lengths. Preview deployment access and firewall settings can be managed in Vercel's project Security settings.
 
