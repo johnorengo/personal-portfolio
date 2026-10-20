@@ -24,9 +24,19 @@ export default function RotatingHeadline() {
   }, []);
 
   useEffect(() => {
-    if (hovered || !visible || reduceMotion !== false) return;
-    const timer = window.setInterval(() => setActive((index) => (index + 1) % phrases.length), 4000);
-    return () => window.clearInterval(timer);
+    if (hovered || !visible || reduceMotion === true) return;
+
+    const advance = () => setActive((index) => (index + 1) % phrases.length);
+    let rotation: number | undefined;
+    const firstChange = window.setTimeout(() => {
+      advance();
+      rotation = window.setInterval(advance, 3200);
+    }, 1600);
+
+    return () => {
+      window.clearTimeout(firstChange);
+      if (rotation) window.clearInterval(rotation);
+    };
   }, [hovered, visible, reduceMotion]);
 
   return (
