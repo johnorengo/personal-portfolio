@@ -38,7 +38,7 @@ export default function Hero() {
             {/* Master Supporting Text */}
             <p className="hero-summary text-sm sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl font-normal">
               <span className="hero-summary-full">{personalInfo.supportingText}</span>
-              <span className="hero-summary-compact hidden">Full stack engineer and cybersecurity specialist, turning complex ideas into secure, intuitive digital experiences.</span>
+              <span className="hero-summary-compact hidden">Full stack software engineer and cybersecurity specialist, turning complex ideas into secure, intuitive digital experiences.</span>
             </p>
 
             {/* Two Prominent CTAs: "Explore My Work" and "Let's Connect" */}

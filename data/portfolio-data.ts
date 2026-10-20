@@ -8,7 +8,7 @@ import { Project, ExperienceItem, Certification, SkillCategory, SocialLink } fro
  */
 export const personalInfo = {
   name: "John Orengo",
-  title: "Full Stack Engineer",
+  title: "Full Stack Software Engineer",
   specialism: "Cybersecurity · Cloud & Network Security",
   headline: "Building Intelligent Solutions. Securing Digital Futures.",
   tagline: "Building secure, scalable, and meaningful technology — one commit at a time.",
