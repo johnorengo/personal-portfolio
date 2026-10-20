@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { motion } from "motion/react";
 import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
 import { personalInfo } from "../data/portfolio-data";
@@ -23,13 +23,6 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,12 +46,6 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
   return (
     <>
-      {/* Top scroll progress indicator with Electric Cyan and Violet gradient */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF] z-50 origin-left shadow-[0_0_12px_rgba(53,215,255,0.6)]"
-        style={{ scaleX }}
-      />
-
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           scrolled

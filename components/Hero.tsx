@@ -32,7 +32,9 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="hero-copy lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
-            {/* Master Headline: "Building Intelligent Solutions. Securing Digital Futures." */}
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent-text)]">
+              Full-Stack Software Engineering · Cybersecurity & Cloud Security
+            </p>
             <RotatingHeadline />
 
             {/* Master Supporting Text */}
@@ -47,7 +49,7 @@ export default function Hero() {
                 href="#projects"
                 className="group relative inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-[#080D18] bg-gradient-to-r from-[#35D7FF] to-[#8667FF] hover:brightness-110 rounded-xl transition-all shadow-lg shadow-[#35D7FF]/20 hover:shadow-[#35D7FF]/40 hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>Explore My Work</span>
+                <span>Explore Selected Work</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
@@ -55,7 +57,7 @@ export default function Hero() {
                 href="#contact"
                 className="inline-flex items-center gap-2.5 px-4 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-[var(--text-main)] hover:text-[var(--text-main)] glass-card hover:bg-[rgb(var(--wash-rgb))]/[0.08] border border-[rgb(var(--border-rgb))]/[0.12] hover:border-[#35D7FF]/40 rounded-xl transition-all hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>Let&apos;s Connect</span>
+                <span>Discuss an Opportunity</span>
               </a>
             </div>
 

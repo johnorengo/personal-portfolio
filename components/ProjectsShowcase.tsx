@@ -86,10 +86,10 @@ export default function ProjectsShowcase() {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative"
+                  className={`group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${idx === 0 && activeFilter === "all" ? "md:col-span-2" : ""}`}
                 >
                   {/* Media container */}
-                  <div className="relative w-full h-56 sm:h-64 shrink-0 bg-[rgb(var(--page-rgb))] overflow-hidden">
+                  <div className={`relative w-full ${idx === 0 && activeFilter === "all" ? "h-64 sm:h-80" : "h-56 sm:h-64"} shrink-0 bg-[rgb(var(--page-rgb))] overflow-hidden`}>
                     <Image
                       src={project.image}
                       alt={project.title}

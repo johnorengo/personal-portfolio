@@ -96,7 +96,7 @@ export default function ContactSection({
             Let&apos;s Connect & Collaborate
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
-            Have an Idea? Let&apos;s Build Something Exceptional.
+            Have a challenge worth solving?
           </h2>
           <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed">
             Whether you need a scalable full stack application, an enterprise ERP/POS integration, a cloud security review, or technical consultation, I look forward to discussing your goals.
