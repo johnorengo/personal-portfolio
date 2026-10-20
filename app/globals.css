@@ -627,3 +627,38 @@ main > #top { justify-content: flex-start; }
   #top .hero-layout { align-items: start; }
   #top .hero-copy, #top .hero-visual { align-self: start; }
 }
+/* Balance both columns across the full view, with profiles and proof at the foot. */
+main > #top { --hero-edge: clamp(16px, 3dvh, 30px); padding-block: var(--hero-edge); }
+#top .hero-layout {
+  min-height: calc(100dvh - var(--header-height, 80px) - var(--hero-edge) * 2);
+}
+@media (min-width: 640px) {
+  #top .hero-layout { align-items: stretch; }
+  #top .hero-copy {
+    align-self: stretch;
+    justify-content: space-between;
+    gap: clamp(16px, 3dvh, 32px);
+  }
+  #top .hero-visual {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #top .hero-portrait-panel { flex: 1; }
+  #top .hero-photo { height: clamp(200px, 48dvh, 520px); }
+  #top .hero-domains, #top .hero-metrics { flex-shrink: 0; }
+  #top .hero-social { padding-bottom: 2px; }
+}
+@media (min-width: 1024px) and (min-height: 740px) {
+  #top h1 { font-size: clamp(40px, min(4.3vw, 7.5dvh), 72px); }
+  #top .hero-summary { font-size: clamp(16px, 2.1dvh, 21px); }
+}
+@media (min-width: 640px) and (max-height: 680px) {
+  #top .hero-copy { gap: 12px; }
+  #top .hero-photo { height: clamp(150px, 35dvh, 230px); }
+}
+@media (max-width: 639px) {
+  #top .hero-layout { align-content: space-between; row-gap: 18px; }
+}

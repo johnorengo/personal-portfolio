@@ -23,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 tech-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Split Screen Hero Layout */}
         <div className="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
@@ -33,9 +33,6 @@ export default function Hero() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="hero-copy lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-5"
           >
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--accent-text)]">
-              Full Stack Engineer · Cybersecurity & Cloud Security
-            </p>
             <RotatingHeadline />
 
             {/* Master Supporting Text */}
