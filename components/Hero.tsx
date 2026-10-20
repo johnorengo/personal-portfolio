@@ -1,12 +1,23 @@
 "use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 import RotatingHeadline from "./RotatingHeadline";
 
 export default function Hero() {
+  const portraitOptions = {
+    alt: "John Orengo in a suit with arms crossed",
+    fill: true,
+    sizes: "(max-width: 639px) min(320px, calc(100vw - 32px)), 448px",
+    className: "object-contain",
+    loading: "eager" as const,
+    fetchPriority: "high" as const,
+  };
+  const { props: desktopPortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-desktop.webp" });
+  const { props: tabletPortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-tablet.webp" });
+  const { props: mobilePortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-mobile.webp" });
   const impactMetrics = [
     { value: "20+", label: "Projects Worked On", detail: "Projects worked on" },
     { value: "4+", label: "Years of Experience", detail: "Software engineering & security" },
@@ -127,20 +138,14 @@ export default function Hero() {
               <div className="relative rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.12] shadow-2xl overflow-hidden bg-[rgb(var(--surface-rgb))]/95">
                 <div>
                   <div className="relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
-                    <div className="hero-photo relative h-44 min-[390px]:h-48 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
-                    <Image
-                      src={personalInfo.profileImage}
-                      alt="John Orengo | Software Engineer & Cybersecurity"
-                      fill
-                      sizes="(max-width: 639px) calc(100vw - 32px), (min-width: 1024px) 448px, (min-width: 640px) 448px, 60vw"
-                      className="object-cover object-[center_18%]"
-                      priority
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/95 via-[#080d18]/20 to-transparent" />
+                    <div className="hero-photo relative mx-auto w-full max-w-[320px] sm:max-w-none bg-black">
+                      <picture>
+                        <source media="(min-width: 1024px)" srcSet={desktopPortrait.srcSet} sizes={desktopPortrait.sizes} />
+                        <source media="(min-width: 640px)" srcSet={tabletPortrait.srcSet} sizes={tabletPortrait.sizes} />
+                        <img {...mobilePortrait} alt={portraitOptions.alt} />
+                      </picture>
                     </div>
-
-                    <div className="hero-identity absolute bottom-2 left-3 right-3 p-0 sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
+                    <div className="hero-identity relative p-3 sm:p-5 flex items-center justify-between bg-[#080d18] border-t border-white/10">
                       <div>
                         <span className="font-display font-bold text-white text-xs sm:text-base block drop-shadow-md">
                           {personalInfo.name}

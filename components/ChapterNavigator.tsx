@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { scrollToSection } from "../lib/section-navigation";
 
@@ -14,16 +13,9 @@ const chapters = [
   { id: "contact", number: "06", label: "Connect" },
 ];
 
-const subscribeToBadgeSlot = () => () => {};
-
 export default function ChapterNavigator() {
   const [activeId, setActiveId] = useState("top");
   const reduceMotion = useReducedMotion();
-  const badgeSlot = useSyncExternalStore(
-    subscribeToBadgeSlot,
-    () => document.getElementById("chapter-badge-slot"),
-    () => null,
-  );
   const activeChapter = chapters.find((chapter) => chapter.id === activeId) ?? chapters[0];
 
   useEffect(() => {
@@ -115,7 +107,7 @@ export default function ChapterNavigator() {
         </nav>
       </aside>
 
-      {badgeSlot && createPortal(
+      <div className="chapter-dock min-[1600px]:hidden">
       <div className="chapter-mobile" aria-live="polite">
         <span className="font-mono">{activeChapter.number}</span>
         <span className="chapter-mobile-divider" aria-hidden="true" />
@@ -130,7 +122,8 @@ export default function ChapterNavigator() {
             {activeChapter.label}
           </motion.span>
         </AnimatePresence>
-      </div>, badgeSlot)}
+      </div>
+      </div>
     </>
   );
 }
