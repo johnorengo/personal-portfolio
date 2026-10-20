@@ -662,3 +662,5 @@ main > #top { --hero-edge: clamp(16px, 3dvh, 30px); padding-block: var(--hero-ed
 @media (max-width: 639px) {
   #top .hero-layout { align-content: space-between; row-gap: 18px; }
 }
+/* The portrait stands alone after removing the duplicate identity text. */
+#top .hero-portrait-panel { grid-template-columns: minmax(0, 1fr); }

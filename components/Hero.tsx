@@ -128,11 +128,6 @@ export default function Hero() {
                   className="object-contain object-bottom"
                 />
               </div>
-              <div className="hero-identity">
-                <span className="hero-name">{personalInfo.name}</span>
-                <span className="hero-role">{personalInfo.title}</span>
-                <span className="hero-specialism">{personalInfo.specialism}</span>
-              </div>
             </div>
             <div className="hero-domains">
               {[
