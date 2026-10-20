@@ -24,7 +24,7 @@ export default function Footer() {
                 {personalInfo.name}
               </span>
             </div>
-            <p className="text-[var(--text-muted)] text-xs leading-relaxed">
+            <p className="max-w-sm border-l-2 border-[var(--accent-text)] pl-3 text-sm leading-relaxed text-[var(--text-main)]">
               {personalInfo.tagline}
             </p>
           </div>

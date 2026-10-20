@@ -11,7 +11,7 @@ export const personalInfo = {
   title: "Full Stack Software Engineer",
   specialism: "Cybersecurity · Cloud & Network Security",
   headline: "Building Intelligent Solutions. Securing Digital Futures.",
-  tagline: "A technology professional passionate about engineering secure, intelligent, scalable, and beautifully designed digital solutions.",
+  tagline: "Building secure, scalable, and meaningful technology — one commit at a time.",
   supportingText: "I'm a full stack software engineer and cybersecurity enthusiast transforming complex ideas into secure, intelligent, and impactful digital experiences.",
   bio: "I'm John Orengo, a full stack software engineer based in Nairobi with 4+ years across software development, cybersecurity, and IT infrastructure. I turn complex requirements into intuitive applications, connected business systems, and secure digital experiences.",
   location: "Nairobi, Kenya",
