@@ -1,7 +1,29 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { PhoneCall } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 
 export default function FloatingCallButton() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const shouldDelayForMobile = window.matchMedia("(max-width: 639px)").matches;
+      setIsVisible(!shouldDelayForMobile || window.scrollY > window.innerHeight * 0.82);
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
+    };
+  }, []);
+
+  if (!isVisible) return null;
+
   return (
     <a
       href={`tel:${personalInfo.phone}`}

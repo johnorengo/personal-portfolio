@@ -128,8 +128,8 @@ export default function Hero() {
                       src={personalInfo.profileImage}
                       alt="John Orengo | Software Engineer & Cybersecurity"
                       fill
-                      sizes="(min-width: 1024px) 448px, (min-width: 640px) 448px, 60vw"
-                      className="object-cover object-top"
+                      sizes="(max-width: 639px) calc(100vw - 32px), (min-width: 1024px) 448px, (min-width: 640px) 448px, 60vw"
+                      className="object-cover object-[center_18%]"
                       priority
                       referrerPolicy="no-referrer"
                     />
