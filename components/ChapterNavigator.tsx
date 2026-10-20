@@ -91,8 +91,6 @@ export default function ChapterNavigator() {
       </aside>
 
       <div className="chapter-mobile min-[1600px]:hidden" aria-live="polite">
-        <span className="font-mono">{activeChapter.number}</span>
-        <span className="chapter-mobile-divider" aria-hidden="true" />
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={activeChapter.id}
