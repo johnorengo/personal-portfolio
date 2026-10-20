@@ -45,7 +45,7 @@ export default function ProjectsShowcase() {
         </div>
 
         {/* Interactive Filter Tabs */}
-        <div role="group" aria-label="Filter projects" className="sticky top-20 z-30 grid grid-cols-2 items-stretch gap-1.5 p-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
+        <div role="group" aria-label="Filter projects" className="sticky top-[calc(var(--header-height,80px)+8px)] z-30 grid grid-cols-2 items-stretch gap-1.5 p-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
           {filterOptions.map((opt) => {
             const isSelected = activeFilter === opt.id;
             return (

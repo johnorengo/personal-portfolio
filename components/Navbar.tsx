@@ -181,6 +181,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             </div>
           </div>
         )}
+        <div id="chapter-badge-slot" className="flex min-h-8 items-center justify-end px-4 pt-2 sm:px-6 lg:px-8 min-[1600px]:hidden" />
       </header>
     </>
   );

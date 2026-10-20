@@ -77,7 +77,7 @@ export default function ExperienceCV() {
         </motion.div>
 
         {/* Tab switchers */}
-        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-20 z-30 grid grid-cols-1 items-stretch gap-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 p-1.5 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
+        <div ref={tabsRef} role="group" aria-label="Choose career history or credentials" className="sticky top-[calc(var(--header-height,80px)+8px)] z-30 grid grid-cols-1 items-stretch gap-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 p-1.5 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
           {[
             { id: "experience", label: `Roles & Internships (${experienceData.length})`, icon: Briefcase },
             { id: "certifications", label: `Professional Development & Certifications (${certificationsData.length})`, icon: CheckCircle },

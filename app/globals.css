@@ -30,7 +30,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: calc(var(--header-height, 80px) + 16px);
     color-scheme: dark;
     background-color: rgb(var(--page-rgb));
   }
@@ -416,9 +416,9 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
   backdrop-filter: blur(12px);
 }
 .chapter-mobile {
-  position: fixed;
-  top: calc(var(--header-height, 80px) + 8px);
-  right: 0.85rem;
+  position: relative;
+  top: auto;
+  right: auto;
   z-index: 35;
   display: inline-flex;
   align-items: center;
@@ -443,7 +443,7 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 }
 
 @media (max-width: 639px) {
-  .chapter-mobile { top: calc(var(--header-height, 64px) + 8px); right: 0.55rem; font-size: 0.56rem; padding: 0.3rem 0.5rem; }
+  .chapter-mobile { top: auto; right: auto; font-size: 0.56rem; padding: 0.3rem 0.5rem; }
 }
 
 /* Persistent but restrained: a direct route to a conversation from any chapter. */
@@ -522,4 +522,11 @@ html[data-chapter="contact"] { --ambient-x: 50%; --ambient-y: 88%; }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button { transition: none; }
   .floating-call-pulse { animation: none; }
+}
+
+/* Leave a reading gutter for the chapter rail on wide desktop screens. */
+@media (min-width: 1600px) {
+  main section > .max-w-7xl {
+    max-width: min(80rem, calc(100vw - 28rem));
+  }
 }
