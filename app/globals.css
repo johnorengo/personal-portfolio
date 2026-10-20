@@ -262,6 +262,11 @@ html[data-theme="light"] :is(input, textarea):focus {
 html[data-theme="light"] :is(input, textarea)::placeholder { color: #716983; }
 html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
 
+/* Every phone prioritizes the conversion story over the secondary domain matrix. */
+@media (max-width: 639px) {
+  .hero-domains { display: none; }
+}
+
 /* Short phones need a height-aware composition, not just a narrow breakpoint. */
 @media (max-width: 639px) and (max-height: 740px) {
   header { padding-block: 10px !important; }
