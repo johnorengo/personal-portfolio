@@ -112,7 +112,7 @@ export default function ContactSection({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="h-full min-w-0"
           >
-            <div className="relative h-full overflow-hidden rounded-3xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--card-rgb))] shadow-2xl">
+            <div className="relative h-full overflow-hidden rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF]" />
               <div className="p-6 sm:p-8 space-y-7">
                 <div className="flex items-start justify-between gap-5">
@@ -163,7 +163,7 @@ export default function ContactSection({
             className="h-full min-w-0"
           >
             {/* Direct Profiles List */}
-            <div className="h-full p-6 sm:p-8 rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.1] flex flex-col gap-5 shadow-xl">
+            <div className="h-full p-6 sm:p-8 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col gap-5 shadow-xl">
               <span className="text-xs font-mono font-bold text-[var(--violet-text)] uppercase tracking-wider block">
                 Verified Social Profiles
               </span>

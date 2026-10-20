@@ -73,7 +73,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.08] space-y-6 flex flex-col justify-start"
+            className="lg:col-span-6 p-8 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] space-y-6 flex flex-col justify-start"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -109,7 +109,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 p-8 rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.08] space-y-6 flex flex-col justify-start"
+            className="lg:col-span-6 p-8 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] space-y-6 flex flex-col justify-start"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between">

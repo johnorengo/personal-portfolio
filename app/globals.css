@@ -76,7 +76,7 @@
   }
 }
 
-/* Glassmorphic and subtle elevation cards */
+/* Shared project-card surface system */
 .glass-card {
   background: rgb(var(--surface-rgb) / 0.72);
   backdrop-filter: blur(16px);
@@ -85,7 +85,7 @@
 }
 
 .glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card-hover:hover {
   background: rgb(var(--elevated-rgb) / 0.85);

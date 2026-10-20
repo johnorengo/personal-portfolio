@@ -46,7 +46,7 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="h-full min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))] flex flex-col justify-start gap-4 relative isolate group hover:border-[#35D7FF]/40 hover:shadow-[0_18px_48px_-20px_rgba(53,215,255,0.25)] transition-[border-color,box-shadow]"
+                className="h-full min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col justify-start gap-4 relative isolate group"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-64 sm:h-72 -z-10" aria-hidden="true">
                   <Image
