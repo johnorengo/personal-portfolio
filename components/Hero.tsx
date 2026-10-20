@@ -71,6 +71,7 @@ export default function Hero() {
                   href="https://github.com/johnorengo"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="GitHub profile"
                   className="hero-profile-link inline-flex min-h-8 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Image src="/icons/github.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
@@ -81,6 +82,7 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/johnorengo"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="LinkedIn profile"
                   className="hero-profile-link inline-flex min-h-8 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#8667FF]/50 hover:text-[var(--violet-text)]"
                 >
                   <Image src="/icons/linkedin.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
@@ -91,6 +93,7 @@ export default function Hero() {
                   href="https://www.credly.com/users/john-orengo"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Credly certifications"
                   className="hero-profile-link inline-flex min-h-8 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Image src="/icons/credly.svg" alt="" aria-hidden="true" width={16} height={16} className="shrink-0" />
@@ -99,6 +102,7 @@ export default function Hero() {
 
                 <a
                   href={`mailto:${personalInfo.email}`}
+                  aria-label="Send email to John Orengo"
                   className="hero-profile-link inline-flex min-h-8 items-center gap-2 rounded-lg border border-[rgb(var(--border-rgb))]/[0.15] bg-[rgb(var(--surface-rgb))]/70 px-2.5 text-xs font-semibold text-[var(--slate-200)] transition-colors hover:border-[#35D7FF]/50 hover:text-[var(--accent-text)]"
                 >
                   <Mail className="w-4 h-4 text-[var(--accent-text)]" />
