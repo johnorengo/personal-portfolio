@@ -318,7 +318,7 @@ export const experienceData: ExperienceItem[] = [
     technologies: ["Linux", "Windows Server", "LAN/WAN", "TCP/IP", "Cisco Routers", "Hardware Diagnostics", "Support"],
   },
   {
-    period: "May 2023 to August 2023",
+    period: "2023",
     role: "ICT Attaché",
     organization: "Eldoret International Airport",
     location: "Eldoret, Kenya",
