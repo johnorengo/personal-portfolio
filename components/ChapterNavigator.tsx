@@ -46,7 +46,7 @@ export default function ChapterNavigator() {
     <>
       <div className="ambient-focus-field" aria-hidden="true" />
 
-      <aside className="chapter-navigator hidden xl:block" aria-label="Portfolio chapters">
+      <aside className="chapter-navigator hidden min-[1600px]:block" aria-label="Portfolio chapters">
         <div className="chapter-rail" aria-hidden="true" />
         <nav className="relative flex flex-col items-end gap-3">
           {chapters.map((chapter) => {
@@ -77,7 +77,7 @@ export default function ChapterNavigator() {
         </nav>
       </aside>
 
-      <div className="chapter-mobile xl:hidden" aria-live="polite">
+      <div className="chapter-mobile min-[1600px]:hidden" aria-live="polite">
         <span className="font-mono">{activeChapter.number}</span>
         <span className="chapter-mobile-divider" aria-hidden="true" />
         <AnimatePresence mode="wait" initial={false}>
