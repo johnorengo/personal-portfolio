@@ -115,7 +115,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
           >
-            <div className="relative w-full sm:max-w-md grid grid-cols-[minmax(0,1fr)_minmax(0,0.65fr)] items-stretch gap-2.5 sm:block">
+            <div className="relative w-full sm:max-w-md">
               {/* Luminous aura behind card */}
               <div className="absolute -inset-1.5 bg-gradient-to-r from-[#35D7FF]/25 via-[#8667FF]/20 to-[#35D7FF]/25 rounded-3xl blur-2xl opacity-60" />
 
@@ -123,28 +123,28 @@ export default function Hero() {
               <div className="relative rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.12] shadow-2xl overflow-hidden bg-[rgb(var(--surface-rgb))]/95">
                 <div>
                   <div className="relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
-                    <div className="hero-photo relative h-40 min-[390px]:h-44 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
+                    <div className="hero-photo relative h-44 min-[390px]:h-48 sm:h-96 lg:h-[clamp(16rem,42svh,24rem)]">
                     <Image
                       src={personalInfo.profileImage}
                       alt="John Orengo | Software Engineer & Cybersecurity"
                       fill
                       sizes="(min-width: 1024px) 448px, (min-width: 640px) 448px, 60vw"
-                      className="object-contain sm:object-cover object-top"
+                      className="object-cover object-top"
                       priority
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 hidden sm:block bg-gradient-to-t from-[#121A29] via-transparent to-transparent opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#080d18]/95 via-[#080d18]/20 to-transparent" />
                     </div>
 
-                    <div className="hero-identity relative p-2.5 sm:p-0 sm:absolute sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
+                    <div className="hero-identity absolute bottom-2 left-3 right-3 p-0 sm:bottom-4 sm:left-5 sm:right-5 flex items-center justify-between">
                       <div>
-                        <span className="font-display font-bold text-[var(--text-main)] sm:text-white text-xs sm:text-base block drop-shadow-md">
+                        <span className="font-display font-bold text-white text-xs sm:text-base block drop-shadow-md">
                           {personalInfo.name}
                         </span>
-                        <span className="text-[var(--accent-text)] sm:text-[#35D7FF] text-[10px] sm:text-xs font-medium block">
+                        <span className="text-[#62e8ff] text-[10px] sm:text-xs font-medium block">
                           {personalInfo.title}
                         </span>
-                        <span className="mt-1 text-[9px] sm:text-[11px] leading-relaxed text-[var(--slate-300)] sm:text-[#CBD5E1] block">
+                        <span className="mt-1 text-[9px] sm:text-[11px] leading-relaxed text-[#CBD5E1] block">
                           {personalInfo.specialism}
                         </span>
                       </div>
@@ -174,7 +174,7 @@ export default function Hero() {
 
               {/* Quantitative Proof Strip with Motion */}
               <div className="relative sm:mt-4">
-                <div className="grid h-full grid-cols-1 gap-2 sm:h-auto sm:grid-cols-3">
+                <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
                   {impactMetrics.map((metric, idx) => (
                     <motion.div
                       key={metric.label}
