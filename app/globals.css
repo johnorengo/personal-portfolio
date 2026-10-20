@@ -533,3 +533,57 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
   .hero-metrics .glass-card { padding: 6px; }
   .hero-scroll { display: none; }
 }
+/* An open hero composition replaces the nested photo and identity cards. */
+#top { min-height: 0; padding-block: clamp(18px, 3svh, 32px); }
+.hero-layout { align-items: center; }
+.hero-visual { align-self: center; }
+.hero-portrait-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: 16px;
+  background: transparent;
+  overflow: visible;
+}
+.hero-photo { width: 100%; max-width: none; height: clamp(180px, 34svh, 320px); aspect-ratio: auto; margin: 0; background: transparent; }
+.hero-identity { display: flex; flex-direction: column; gap: 7px; padding: 0; border: 0; background: transparent; }
+.hero-identity .hero-name { font-size: clamp(16px, 1.5vw, 22px); font-weight: 800; color: var(--text-main); line-height: 1.2; }
+.hero-identity .hero-role { font-size: 13px; color: var(--accent-text); font-weight: 600; margin: 0; }
+.hero-identity .hero-specialism { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+.hero-domains { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; border-top: 1px solid rgb(var(--border-rgb) / 0.16); padding: 12px 0; background: transparent; }
+.hero-domains > div { display: grid; justify-items: center; gap: 3px; padding: 0; border: 0; background: transparent; font-size: 11px; }
+.hero-domains .font-mono { font-size: 9px; }
+.hero-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding-top: 12px; border-top: 1px solid rgb(var(--border-rgb) / 0.16); }
+.hero-metric { display: flex; flex-direction: column; gap: 3px; }
+.hero-metric > span:first-child { font-size: 25px; line-height: 1.1; }
+.hero-metric > span:last-child { font-size: 10px; color: var(--text-muted); }
+@media (min-width: 1024px) {
+  #top h1 { font-size: clamp(32px, 3.1vw, 48px); }
+  .hero-copy { gap: 14px; }
+}
+@media (min-width: 640px) and (max-height: 740px) {
+  #top h1 { font-size: clamp(26px, 5.2svh, 38px); }
+  .hero-photo { height: clamp(160px, 32svh, 230px); }
+  .hero-copy { gap: 10px; }
+}
+@media (max-width: 639px) {
+  #top { padding-block: 10px 18px; }
+  .hero-portrait-panel { grid-template-columns: minmax(0, 42%) minmax(0, 58%); gap: 10px; }
+  .hero-photo { height: 156px; }
+  .hero-identity { gap: 4px; padding: 0; border: 0; }
+  .hero-identity .hero-name { font-size: 15px; }
+  .hero-identity .hero-role { font-size: 11px; }
+  .hero-identity .hero-specialism { font-size: 10px; }
+  .hero-domains { display: none; }
+  .hero-metrics { padding-top: 8px; }
+  .hero-metric > span:first-child { font-size: 22px; }
+  .hero-metric > span:last-child { font-size: 9px; }
+}
+@media (max-width: 639px) and (max-height: 740px) { .hero-photo { height: 122px; } }
+@media (max-width: 639px) and (max-height: 620px) { .hero-photo { height: 108px; } }
+/* A continuous canvas avoids a visible colour seam at the hero boundary. */
+html:not([data-theme="light"]) #top,
+html[data-theme="light"] #top { background: rgb(var(--page-rgb)); }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-portrait-panel { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+}

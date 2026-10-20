@@ -21,3 +21,9 @@ Use case: identity-preserve. Edit target attached original square portrait. Crea
 - `public/portraits/john-mobile.webp`: 1122 x 1402, selected below 640px viewport width.
 
 The hero uses Next.js optimized image sources inside a picture element. Matching aspect ratios and object-contain preserve the complete composition. Identity text is below the photo.
+
+## Transparent hero revision
+
+Built-in ImageGen edit prompt: Use case: background-extraction. Edit target: the attached original portrait. Remove ONLY the black background, producing a genuine transparent RGBA cutout of this exact person. Preserve original facial identity, facial structure, expression, skin tone, hairstyle, clothing, white shirt, tie, pocket square, crossed arms and gold watch exactly. No beautification, no restyling, no extra objects. Preserve ALL original visible person from entire hair to bottom torso and both elbows. Clean accurate edge matting, natural texture, minimal transparent margins around silhouette so it fills its canvas, no black rectangle, no shadow, no glow, no text. This is a background removal for a responsive portfolio website.
+
+Active hero asset: `public/portraits/john-cutout.webp`. Earlier device-specific framed images remain available; the hero now uses this transparent cutout with Next.js responsive sizing to remove the black rectangular backdrop.

@@ -1,24 +1,13 @@
 "use client";
 
 
-import Image, { getImageProps } from "next/image";
-import { ArrowRight, Mail, ShieldCheck, Terminal, Server, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Mail, ShieldCheck, Terminal, Server } from "lucide-react";
 import { motion } from "motion/react";
 import { personalInfo } from "../data/portfolio-data";
 import RotatingHeadline from "./RotatingHeadline";
 
 export default function Hero() {
-  const portraitOptions = {
-    alt: "John Orengo in a suit with arms crossed",
-    fill: true,
-    sizes: "(max-width: 639px) min(320px, calc(100vw - 32px)), 448px",
-    className: "object-contain",
-    loading: "eager" as const,
-    fetchPriority: "high" as const,
-  };
-  const { props: desktopPortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-desktop.webp" });
-  const { props: tabletPortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-tablet.webp" });
-  const { props: mobilePortrait } = getImageProps({ ...portraitOptions, src: "/portraits/john-mobile.webp" });
   const impactMetrics = [
     { value: "20+", label: "Projects Worked On", detail: "Projects worked on" },
     { value: "4+", label: "Years of Experience", detail: "Software engineering & security" },
@@ -26,7 +15,7 @@ export default function Hero() {
   ];
 
   return (
-    <section id="top" className="relative min-h-[calc(100svh-5rem)] flex flex-col justify-between pt-4 pb-4 overflow-hidden bg-[rgb(var(--page-rgb))]">
+    <section id="top" className="relative flex flex-col py-6 overflow-hidden bg-[rgb(var(--page-rgb))]">
       {/* Restrained Atmospheric Particle / Glow Field */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[650px] pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[15%] w-[480px] h-[480px] rounded-full bg-[#35D7FF]/[0.08] blur-[140px]" />
@@ -34,7 +23,7 @@ export default function Hero() {
         <div className="absolute inset-0 tech-dot-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_75%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Split Screen Hero Layout */}
         <div className="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
@@ -124,103 +113,56 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Professionally Framed Portrait */}
+          {/* A single open composition: portrait, identity, domains and proof. */}
           <motion.div
             initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="hero-visual lg:col-span-5 flex justify-center lg:justify-end lg:self-start"
+            className="hero-visual lg:col-span-5 w-full"
           >
-            <div className="relative w-full sm:max-w-md">
-              {/* Luminous aura behind card */}
-              <div className="absolute -inset-1.5 bg-gradient-to-r from-[#35D7FF]/25 via-[#8667FF]/20 to-[#35D7FF]/25 rounded-3xl blur-2xl opacity-60" />
-
-              {/* Card Container */}
-              <div className="relative rounded-3xl glass-card border border-[rgb(var(--border-rgb))]/[0.12] shadow-2xl overflow-hidden bg-[rgb(var(--surface-rgb))]/95">
-                <div>
-                  <div className="hero-portrait-panel relative w-full bg-[rgb(var(--page-rgb))] overflow-hidden">
-                    <div className="hero-photo relative mx-auto w-full max-w-[320px] sm:max-w-none bg-black">
-                      <picture>
-                        <source media="(min-width: 1024px)" srcSet={desktopPortrait.srcSet} sizes={desktopPortrait.sizes} />
-                        <source media="(min-width: 640px)" srcSet={tabletPortrait.srcSet} sizes={tabletPortrait.sizes} />
-                        <img {...mobilePortrait} alt={portraitOptions.alt} />
-                      </picture>
-                    </div>
-                    <div className="hero-identity relative p-3 sm:p-5 flex items-center justify-between bg-[#080d18] border-t border-white/10">
-                      <div>
-                        <span className="font-display font-bold text-white text-xs sm:text-base block drop-shadow-md">
-                          {personalInfo.name}
-                        </span>
-                        <span className="text-[#62e8ff] text-[10px] sm:text-xs font-medium block">
-                          {personalInfo.title}
-                        </span>
-                        <span className="mt-1 text-[9px] sm:text-[11px] leading-relaxed text-[#CBD5E1] block">
-                          {personalInfo.specialism}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quick matrix below photo */}
-                  <div className="hero-domains p-2 sm:p-4 bg-[rgb(var(--card-rgb))] border-t border-[rgb(var(--border-rgb))]/[0.08] grid grid-cols-3 gap-1 sm:gap-2">
-                    <div className="p-1 sm:p-2.5 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.02] border border-[rgb(var(--border-rgb))]/[0.06] text-center">
-                      <Terminal className="w-4 h-4 mx-auto text-[var(--accent-text)] mb-1" />
-                      <span className="text-[9px] sm:text-[11px] font-bold text-[var(--text-main)] block">Full Stack</span>
-                      <span className="text-[9px] sm:text-[10px] text-[var(--text-muted)] block font-mono">React · Laravel</span>
-                    </div>
-                    <div className="p-1 sm:p-2.5 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.02] border border-[rgb(var(--border-rgb))]/[0.06] text-center">
-                      <ShieldCheck className="w-4 h-4 mx-auto text-[var(--violet-text)] mb-1" />
-                      <span className="text-[9px] sm:text-[11px] font-bold text-[var(--text-main)] block">Security</span>
-                      <span className="text-[9px] sm:text-[10px] text-[var(--text-muted)] block font-mono">Azure · RBAC</span>
-                    </div>
-                    <div className="p-1 sm:p-2.5 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.02] border border-[rgb(var(--border-rgb))]/[0.06] text-center">
-                      <Server className="w-4 h-4 mx-auto text-[var(--accent-text)] mb-1" />
-                      <span className="text-[9px] sm:text-[11px] font-bold text-[var(--text-main)] block">Systems</span>
-                      <span className="text-[9px] sm:text-[10px] text-[var(--text-muted)] block font-mono">Linux · Cisco</span>
-                    </div>
-                  </div>
-                </div>
+            <div className="hero-portrait-panel">
+              <div className="hero-photo relative">
+                <Image
+                  src="/portraits/john-cutout.webp"
+                  alt="John Orengo in a suit with arms crossed"
+                  fill
+                  priority
+                  sizes="(max-width: 639px) 42vw, (max-width: 1023px) 22vw, 260px"
+                  className="object-contain object-bottom"
+                />
               </div>
-
-              {/* Quantitative Proof Strip with Motion */}
-              <div className="hero-metrics relative sm:mt-4">
-                <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
-                  {impactMetrics.map((metric, idx) => (
-                    <motion.div
-                      key={metric.label}
-                      initial={false}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: idx * 0.08 }}
-                      className="px-2.5 sm:px-3 py-2.5 rounded-xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.07] flex flex-col space-y-1"
-                    >
-                      <span className="text-2xl font-extrabold font-mono tracking-tight tabular-nums bg-gradient-to-r from-[#35D7FF] to-[#8667FF] bg-clip-text text-transparent">
-                        {metric.value}
-                      </span>
-                      <span className="text-[10px] sm:text-xs font-bold text-[var(--text-main)]">
-                        {metric.label}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
+              <div className="hero-identity">
+                <span className="hero-name">{personalInfo.name}</span>
+                <span className="hero-role">{personalInfo.title}</span>
+                <span className="hero-specialism">{personalInfo.specialism}</span>
               </div>
+            </div>
+            <div className="hero-domains">
+              {[
+                { Icon: Terminal, title: "Full Stack", tools: "React · Laravel" },
+                { Icon: ShieldCheck, title: "Security", tools: "Azure · RBAC" },
+                { Icon: Server, title: "Systems", tools: "Linux · Cisco" },
+              ].map(({ Icon, title, tools }) => (
+                <div key={title}>
+                  <Icon className="h-4 w-4 text-[var(--accent-text)]" />
+                  <span className="font-semibold">{title}</span>
+                  <span className="font-mono text-[var(--text-muted)]">{tools}</span>
+                </div>
+              ))}
+            </div>
+            <div className="hero-metrics">
+              {impactMetrics.map((metric) => (
+                <div className="hero-metric" key={metric.label}>
+                  <span className="font-mono font-extrabold text-[var(--accent-text)]">{metric.value}</span>
+                  <span>{metric.label}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>
 
       </div>
 
-      {/* Elegant Scroll Indicator */}
-      <div className="hero-scroll hidden sm:flex justify-center mt-4">
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-1.5 text-xs text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-colors cursor-pointer"
-          aria-label="Scroll to About section"
-        >
-          <span className="font-mono text-[10px] tracking-widest uppercase">Scroll</span>
-          <ChevronDown className="w-4 h-4 animate-bounce text-[var(--accent-text)]" />
-        </a>
-      </div>
     </section>
   );
 }
