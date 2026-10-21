@@ -124,7 +124,7 @@ export default function Hero() {
                   alt="John Orengo in a suit with arms crossed"
                   fill
                   priority
-                  sizes="(max-width: 639px) 42vw, (max-width: 1023px) 22vw, 260px"
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 40vw, 448px"
                   className="object-contain object-bottom"
                 />
               </div>
