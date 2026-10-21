@@ -362,10 +362,7 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button::before { animation: none; }
 }
-/* Each destination owns a complete view below the sticky navigation. */
+/* Sections follow their content height without empty viewport-sized space. */
 main > section[id] {
-  min-height: calc(100vh - var(--header-height, 80px));
-  min-height: calc(100dvh - var(--header-height, 80px));
   isolation: isolate;
 }
-/* Mobile uses intrinsic image flow: no full-height grid rows or empty photo box. */
