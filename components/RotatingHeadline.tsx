@@ -43,12 +43,12 @@ export default function RotatingHeadline() {
     <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <h1 className="text-[clamp(1.75rem,7.5vw,2.25rem)] sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-extrabold tracking-tight text-[var(--text-main)] leading-[1.05] font-display [text-wrap:balance]">
         <span className="sr-only">Building intelligent solutions. Securing digital futures. Secure software, connected business systems, and scalable platforms.</span>
-        {/* All phrases share a grid cell, reserving space for the longest wrap. */}
+        {/* Only the active phrase takes space, keeping supporting copy close to it. */}
         <span className="grid" aria-hidden="true">
           {phrases.map((phrase, index) => (
             <motion.span
               key={phrase.highlight}
-              className="block [grid-area:1/1]"
+              className={active === index ? "block" : "hidden"}
               initial={false}
               animate={{ opacity: active === index ? 1 : 0, y: reduceMotion || active === index ? 0 : 10 }}
               transition={{ duration: reduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
