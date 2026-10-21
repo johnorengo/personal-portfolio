@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
         <div className={styles.visual}>
           <Image
-            src="/portraits/john-cutout.webp"
+            src="/portraits/john-enhanced.webp"
             alt="John Orengo in a suit with arms crossed"
             width={1254}
             height={1254}
