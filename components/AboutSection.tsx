@@ -40,7 +40,7 @@ export default function AboutSection() {
               About
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
-              I&apos;m John. I turn complex challenges into dependable software.
+              I turn complex challenges into dependable software.
             </h2>
           </div>
 
