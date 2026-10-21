@@ -76,8 +76,13 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
               className="group flex items-center gap-2 sm:gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
               <BrandMark className="h-7 sm:h-8 w-auto" />
-              <span className="font-display font-bold text-base min-[375px]:text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
-                {personalInfo.name}
+              <span className="flex flex-col gap-0.5">
+                <span className="font-display font-bold text-base min-[375px]:text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
+                  {personalInfo.name}
+                </span>
+                <span className="max-w-[92px] min-[375px]:max-w-none whitespace-normal min-[375px]:whitespace-nowrap font-mono text-[7px] min-[375px]:text-[8px] sm:text-[10px] leading-tight font-medium tracking-wide text-[var(--accent-text)]">
+                  {personalInfo.title}
+                </span>
               </span>
             </a>
 
