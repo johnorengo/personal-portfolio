@@ -39,7 +39,7 @@ export default function AboutSection() {
             <span className="text-xs font-mono font-bold tracking-widest text-[var(--accent-text)] uppercase">
               About
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
+            <h2 className="hidden md:block text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight font-display [text-wrap:balance]">
               I turn complex challenges into dependable software.
             </h2>
           </div>
