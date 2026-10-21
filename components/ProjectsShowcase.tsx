@@ -12,7 +12,7 @@ type FilterCategory = "all" | "business" | "education" | "fullstack";
 const filterOptions: { id: FilterCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
   { id: "business", label: "Commercial Websites" },
-  { id: "fullstack", label: "Agency Website" },
+  { id: "fullstack", label: "Tech Company Website" },
   { id: "education", label: "Public Sector" },
 ];
 

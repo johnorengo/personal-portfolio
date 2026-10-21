@@ -121,7 +121,7 @@ export const skillsCategories: SkillCategory[] = [
 
 /**
  * ============================================================================
- * FEATURED PROJECTS — Fox Tech Solutions case studies and agency website
+ * FEATURED PROJECTS — Fox Tech Solutions case studies and technology company website
  * ============================================================================
  */
 export const projectsData: Project[] = [
@@ -227,9 +227,9 @@ export const projectsData: Project[] = [
     "id": "fox-tech-solutions",
     "title": "Fox Tech Solutions",
     "category": "fullstack",
-    "categoryLabel": "Agency Website",
-    "summary": "A business website presenting Fox Tech Solutions' software development, design, marketing, and IT support services. It combines service information, delivery process guidance, and interactive case studies to help prospective clients assess the agency's work and start a project enquiry.",
-    "description": "Fox Tech Solutions is the public business website for a Nairobi technology agency. It introduces the agency's work in website development, custom software, interface design, digital marketing and managed IT support, helping prospective clients understand the services available before starting an engagement. The site combines service information with an explanation of the delivery process and interactive case studies covering commercial and government platforms. Visitors can review examples of completed work, follow links to live projects and explore engagement options before sending an enquiry about their business or technology needs.",
+    "categoryLabel": "Tech Company Website",
+    "summary": "A business website presenting Fox Tech Solutions' software development, design, marketing, and IT support services. It combines service information, delivery process guidance, and interactive case studies to help prospective clients assess the company's work and start a project enquiry.",
+    "description": "Fox Tech Solutions is the public business website for a Nairobi technology company. It introduces the company's work in website development, custom software, interface design, digital marketing and managed IT support, helping prospective clients understand the services available before starting an engagement. The site combines service information with an explanation of the delivery process and interactive case studies covering commercial and government platforms. Visitors can review examples of completed work, follow links to live projects and explore engagement options before sending an enquiry about their business or technology needs.",
     "image": "/projects/fox-tech-logo.png",
     "imageFit": "contain",
     "technologies": [
@@ -240,10 +240,10 @@ export const projectsData: Project[] = [
     "metrics": [],
     "keyDeliverables": [
       "Service sections introduce website and software development, design, marketing and ongoing IT support.",
-      "A process section explains the agency's approach to taking a project from planning through delivery and continued support.",
+      "A process section explains the company's approach to taking a project from planning through delivery and continued support.",
       "Interactive case study tabs present the logistics, electrical commerce, learner verification and school emergency platforms.",
       "Project previews, feature explanations and external links help prospective clients review the published work.",
-      "Agency information and engagement options connect the service offering with a route for starting a client enquiry.",
+      "Company information and engagement options connect the service offering with a route for starting a client enquiry.",
       "Responsive navigation and layouts organize the service, process, project and contact sections for different devices."
     ],
     "architectureHighlights": [],
