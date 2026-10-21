@@ -59,15 +59,17 @@ export default function Hero() {
           </div>
         </div>
         <div className={styles.visual}>
+          <div className={styles.portraitFrame}>
           <Image
             src="/portraits/john-enhanced.webp"
             alt="John Orengo in a suit with arms crossed"
             width={1254}
             height={1254}
             priority
-            sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 40vw, 500px"
+            sizes="(max-width: 699px) calc(100vw - 32px), (max-aspect-ratio: 1/1) 80vw, 45vw"
             className={styles.portrait}
           />
+          </div>
           <div className={styles.domains}>
             {domains.map(({ Icon, title, tools }) => (
               <div key={title}>
