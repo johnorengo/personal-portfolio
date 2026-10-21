@@ -3,19 +3,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, LayoutGrid, ShieldCheck, Building2, Landmark } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { projectsData } from "../data/portfolio-data";
 import SecurityProjectPreview from "./SecurityProjectPreview";
+import type { Project } from "../types/portfolio";
 
-type FilterCategory = "all" | "business" | "education" | "fullstack" | "security";
+type FilterCategory = "all" | Project["category"];
 
-const filterOptions: { id: FilterCategory; label: string }[] = [
-  { id: "all", label: "All Projects" },
-  { id: "security", label: "Cybersecurity" },
-  { id: "business", label: "Commercial Websites" },
-  { id: "fullstack", label: "Tech Company Website" },
-  { id: "education", label: "Public Sector" },
+const filterOptions: { id: FilterCategory; label: string; Icon: typeof LayoutGrid }[] = [
+  { id: "all", label: "All Projects", Icon: LayoutGrid },
+  { id: "security", label: "Cybersecurity", Icon: ShieldCheck },
+  { id: "commercial", label: "Commercial", Icon: Building2 },
+  { id: "government", label: "Government", Icon: Landmark },
 ];
 
 export default function ProjectsShowcase() {
@@ -49,8 +49,9 @@ export default function ProjectsShowcase() {
         </div>
 
         {/* Interactive Filter Tabs */}
-        <div role="group" aria-label="Filter projects" className="sticky top-[calc(var(--header-height,80px)+8px)] z-30 grid grid-cols-2 items-stretch gap-1.5 p-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 backdrop-blur-xl shadow-xl sm:flex sm:flex-wrap">
+        <div role="group" aria-label="Filter projects" className="sticky top-[calc(var(--header-height,80px)+8px)] z-30 grid grid-cols-2 items-stretch gap-1.5 p-1.5 rounded-2xl border border-[rgb(var(--border-rgb))]/[0.12] bg-[rgb(var(--card-rgb))]/95 backdrop-blur-xl shadow-xl sm:grid-cols-4">
           {filterOptions.map((opt) => {
+            const Icon = opt.Icon;
             const isSelected = activeFilter === opt.id;
             return (
               <button
@@ -58,7 +59,7 @@ export default function ProjectsShowcase() {
                 type="button"
                 aria-pressed={isSelected}
                 onClick={() => setActiveFilter(opt.id)}
-                className={`relative min-h-11 min-w-0 px-3 py-2 text-xs font-semibold leading-relaxed rounded-xl transition-colors cursor-pointer sm:px-4 ${
+                className={`relative inline-flex min-h-11 min-w-0 items-center justify-center px-3 py-2 text-xs font-semibold leading-relaxed rounded-xl transition-colors cursor-pointer sm:px-4 ${
                   isSelected ? "text-[#080D18] font-bold" : "text-[var(--text-muted)] hover:text-[var(--text-main)]"
                 }`}
               >
@@ -69,8 +70,10 @@ export default function ProjectsShowcase() {
                     transition={{ type: "spring", stiffness: 400, damping: 32 }}
                   />
                 )}
-                <span className="relative z-10">
-                  {opt.label} {opt.id === "all" ? `(${projectsData.length})` : opt.id === "security" ? `(${projectsData.filter((project) => project.category === "security").length})` : ""}
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span>{opt.label}</span>
+                  {opt.id === "all" && <span className="font-mono text-[10px]">({projectsData.length})</span>}
                 </span>
               </button>
             );

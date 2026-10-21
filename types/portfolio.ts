@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  category: "business" | "mobile" | "education" | "security" | "fullstack" | "all";
+  category: "security" | "commercial" | "government";
   categoryLabel: string;
   featured?: boolean;
   year?: string;
