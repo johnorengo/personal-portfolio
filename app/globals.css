@@ -362,7 +362,9 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button::before { animation: none; }
 }
-/* Sections follow their content height without empty viewport-sized space. */
+/* Keep each destination at least one view tall below the sticky header. */
 main > section[id] {
+  min-height: calc(100vh - var(--header-height, 80px));
+  min-height: calc(100dvh - var(--header-height, 80px));
   isolation: isolate;
 }
