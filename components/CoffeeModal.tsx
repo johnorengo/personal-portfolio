@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Heart, Coffee, ExternalLink, CheckCircle } from "lucide-react";
+import { X, Coffee, CheckCircle } from "lucide-react";
+import CoffeeAction from "./CoffeeAction";
 import { motion, AnimatePresence } from "motion/react";
 
 interface CoffeeModalProps {
@@ -147,16 +148,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
               </div>
 
               {/* Buy Me a Coffee Link */}
-              <a
-                href="https://www.buymeacoffee.com/orengo"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.03] hover:bg-[rgb(var(--wash-rgb))]/[0.08] border border-[rgb(var(--border-rgb))]/[0.1] text-[var(--slate-200)] hover:text-[var(--text-main)] transition-all text-xs font-bold"
-              >
-                <Heart className="w-4 h-4 text-rose-400" />
-                <span>Continue via BuyMeACoffee.com/orengo</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[var(--slate-500)]" />
-              </a>
+              <CoffeeAction fullWidth href="https://www.buymeacoffee.com/orengo" label="Continue via BuyMeACoffee.com/orengo" />
             </div>
           </motion.div>
         </div>

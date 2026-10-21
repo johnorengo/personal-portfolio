@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import CoffeeAction from "./CoffeeAction";
 import { Check, Send, ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -228,14 +229,7 @@ export default function ContactSection({
               {/* Buy Me a Coffee Support Modal Trigger */}
               {onOpenCoffeeModal && (
                 <div className="pt-2 border-t border-[rgb(var(--border-rgb))]/[0.08]">
-                  <button
-                    type="button"
-                    onClick={onOpenCoffeeModal}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.03] hover:bg-[rgb(var(--wash-rgb))]/[0.06] border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#35D7FF]/30 text-[var(--text-muted)] hover:text-[var(--accent-text)] transition-all text-xs font-bold cursor-pointer"
-                  >
-                    <span>☕</span>
-                    <span>Fuel My Next Build</span>
-                  </button>
+                  <CoffeeAction fullWidth label="Fuel My Next Build" onClick={onOpenCoffeeModal} />
                 </div>
               )}
             </div>

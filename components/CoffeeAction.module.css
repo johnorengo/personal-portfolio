@@ -1,0 +1,66 @@
+.action {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid rgb(245 174 82 / 0.55);
+  border-radius: 13px;
+  background: linear-gradient(120deg, rgb(245 174 82 / 0.15), rgb(134 103 255 / 0.12)), rgb(var(--surface-rgb));
+  color: var(--text-main);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+.action::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 0 17px rgb(245 174 82 / 0.4), inset 0 0 12px rgb(245 174 82 / 0.12);
+  pointer-events: none;
+  animation: glow 6s ease-in-out infinite;
+}
+.action::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, transparent 20%, rgb(255 221 163 / 0.22) 45%, transparent 70%);
+  background-size: 250% 100%;
+  pointer-events: none;
+  animation: sheen 7s ease-in-out infinite;
+}
+.label { position: relative; z-index: 1; overflow-wrap: anywhere; }
+.cup { position: relative; display: inline-flex; flex: none; color: #e9a33e; transform-origin: 50% 90%; animation: toast 7s ease-in-out infinite; }
+.steam { position: absolute; top: -5px; left: 5px; width: 12px; height: 8px; pointer-events: none; }
+.steam i { position: absolute; bottom: 0; width: 2px; height: 6px; border-radius: 50%; background: #e9a33e; opacity: 0; animation: steam 2.8s ease-out infinite; }
+.steam i:nth-child(2) { left: 4px; animation-delay: 0.7s; }
+.steam i:nth-child(3) { left: 8px; animation-delay: 1.4s; }
+.sparkle { flex: none; color: #e9a33e; animation: twinkle 4s ease-in-out infinite; }
+.compact { width: 44px; padding: 10px; border-radius: 11px; }
+.fullWidth { width: 100%; }
+.action:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+.action:active { transform: scale(0.97); }
+@media (hover: hover) and (pointer: fine) {
+  .action:hover { transform: translateY(-2px); border-color: #e9a33e; }
+  .action:hover .cup { animation: toast 900ms ease-in-out infinite; }
+}
+@keyframes glow { 0%, 100% { opacity: 0.2; } 45%, 60% { opacity: 0.9; } }
+@keyframes sheen { 0%, 65% { background-position: 180% 0; opacity: 0; } 70% { opacity: 1; } 90%, 100% { background-position: -80% 0; opacity: 0; } }
+@keyframes toast { 0%, 6%, 22%, 100% { transform: rotate(0); } 10% { transform: rotate(-12deg) translateY(-1px); } 15% { transform: rotate(9deg); } 19% { transform: rotate(-4deg); } }
+@keyframes steam { 0% { opacity: 0; transform: translate(0, 2px) scaleX(1); } 30% { opacity: 0.7; } 100% { opacity: 0; transform: translate(2px, -7px) scaleX(1.6); } }
+@keyframes twinkle { 0%, 100% { opacity: 0.45; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.1); } }
+@media (prefers-reduced-motion: reduce) {
+  .action, .action::before, .action::after, .action .cup, .action:hover .cup, .steam i, .sparkle { animation: none; transition: none; }
+  .action::before { opacity: 0.35; }
+  .action::after, .steam { display: none; }
+  .action:hover, .action:active { transform: none; }
+}

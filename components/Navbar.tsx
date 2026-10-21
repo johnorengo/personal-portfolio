@@ -5,6 +5,7 @@ import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
 import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
+import CoffeeAction from "./CoffeeAction";
 import { personalInfo } from "../data/portfolio-data";
 
 interface NavbarProps {
@@ -68,11 +69,11 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-3 sm:gap-8">
+          <div className="flex items-center justify-between gap-2 sm:gap-8">
             {/* Wordmark / Monogram */}
             <a
               href="#top"
-              className="group flex items-center gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
+              className="group flex items-center gap-2 sm:gap-2.5 whitespace-nowrap shrink-0 transition-transform active:scale-95"
             >
               <BrandMark className="h-7 sm:h-8 w-auto" />
               <span className="font-display font-bold text-base min-[375px]:text-lg sm:text-xl tracking-tight text-[var(--text-main)] group-hover:text-[var(--accent-text)] transition-colors">
@@ -111,15 +112,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             <div className="hidden min-[1100px]:flex items-center gap-3 shrink-0">
               <ThemeToggle />
               {onOpenCoffeeModal && (
-                <button
-                  type="button"
-                  onClick={onOpenCoffeeModal}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[var(--text-muted)] hover:text-[var(--accent-text)] bg-[rgb(var(--wash-rgb))]/[0.03] hover:bg-[rgb(var(--wash-rgb))]/[0.06] border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#35D7FF]/40 rounded-xl transition-all whitespace-nowrap shrink-0 cursor-pointer"
-                  title="Support with M-Pesa / Buy Me a Coffee"
-                >
-                  <span className="text-sm">☕</span>
-                  <span>Coffee</span>
-                </button>
+                <CoffeeAction onClick={onOpenCoffeeModal} />
               )}
               <a
                 href="#contact"
@@ -134,14 +127,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             <div className="flex min-[1100px]:hidden items-center gap-1">
               <ThemeToggle />
               {onOpenCoffeeModal && (
-                <button
-                  type="button"
-                  onClick={onOpenCoffeeModal}
-                  className="p-2 text-[var(--accent-text)] border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--wash-rgb))]/[0.04] rounded-lg text-sm"
-                  aria-label="Buy me a coffee"
-                >
-                  ☕
-                </button>
+                <CoffeeAction compact onClick={onOpenCoffeeModal} />
               )}
               <button
                 type="button"
