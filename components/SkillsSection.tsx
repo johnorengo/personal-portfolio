@@ -36,7 +36,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* 6 Expertise Domains */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:auto-rows-fr gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-7">
           {skillsCategories.map((category, idx) => {
             const Icon = categoryIcons[idx] || Code2;
             return (
@@ -47,7 +47,7 @@ export default function SkillsSection() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="h-full min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col justify-start gap-4 relative isolate group"
+                className="min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col justify-start gap-4 relative isolate group"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-64 sm:h-72 -z-10" aria-hidden="true">
                   <Image
@@ -62,7 +62,7 @@ export default function SkillsSection() {
                 </div>
                 {/* Header */}
                 <div className="space-y-3">
-                  <div className="flex md:min-h-28 items-start justify-between">
+                  <div className="flex items-start justify-between">
                     <div className="p-3 rounded-2xl bg-[rgb(var(--page-rgb))]/75 backdrop-blur-md border border-[rgb(var(--border-rgb))]/[0.15] text-[var(--accent-text)] group-hover:bg-[#35D7FF]/10 group-hover:border-[#35D7FF]/40 transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>

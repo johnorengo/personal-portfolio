@@ -91,7 +91,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 sm:auto-rows-fr gap-3 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 items-start gap-3 pt-2">
               {specializations.map((spec, i) => (
                 <div
                   key={i}
@@ -127,7 +127,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <div className="grid auto-rows-fr gap-3 pt-2">
+            <div className="grid items-start gap-3 pt-2">
               {approaches.map((app, idx) => (
                 <div
                   key={idx}

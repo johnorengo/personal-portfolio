@@ -199,14 +199,14 @@ export default function ExperienceCV() {
                 <span>Professional Development & Certifications</span>
               </h3>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start gap-6">
                 {certificationsData.map((cert, idx) => (
                   <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="p-6 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#8667FF]/40 transition-all flex flex-col justify-between space-y-5"
+                    className="p-6 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#8667FF]/40 transition-all flex flex-col space-y-5"
                   >
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">

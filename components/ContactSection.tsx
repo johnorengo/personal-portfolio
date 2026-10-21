@@ -104,16 +104,16 @@ export default function ContactSection({
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-fr gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Your Next Idea Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full min-w-0"
+            className="min-w-0"
           >
-            <div className="relative h-full overflow-hidden rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] shadow-2xl">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#35D7FF] via-[#8667FF] to-[#35D7FF]" />
               <div className="p-6 sm:p-8 space-y-7">
                 <div className="flex items-start justify-between gap-5">
@@ -161,15 +161,15 @@ export default function ContactSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="h-full min-w-0"
+            className="min-w-0"
           >
             {/* Direct Profiles List */}
-            <div className="h-full p-6 sm:p-8 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col gap-5 shadow-xl">
+            <div className="p-6 sm:p-8 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col gap-5 shadow-xl">
               <span className="text-xs font-mono font-bold text-[var(--violet-text)] uppercase tracking-wider block">
                 Verified Social Profiles
               </span>
 
-              <div className="grid auto-rows-fr gap-3 flex-1">
+              <div className="grid gap-3">
                 <a
                   href="https://github.com/johnorengo"
                   target="_blank"
