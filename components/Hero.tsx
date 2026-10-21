@@ -25,7 +25,7 @@ export default function Hero() {
 
       <div className="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Split Screen Hero Layout */}
-        <div className="hero-layout grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
+        <div className="hero-layout hero-flow grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-10 items-center">
           {/* Left Column: Typographic Hierarchy & Actions with Motion */}
           <motion.div
             initial={false}
@@ -122,10 +122,11 @@ export default function Hero() {
                 <Image
                   src="/portraits/john-cutout.webp"
                   alt="John Orengo in a suit with arms crossed"
-                  fill
+                  width={1254}
+                  height={1254}
                   priority
                   sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 40vw, 448px"
-                  className="object-contain object-bottom"
+                  className="hero-portrait-image h-full w-full object-contain object-bottom"
                 />
               </div>
             </div>

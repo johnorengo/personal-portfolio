@@ -674,3 +674,44 @@ main > #top { --hero-edge: clamp(16px, 3dvh, 30px); padding-block: var(--hero-ed
   #top .hero-layout { row-gap: 12px; }
   #top .hero-photo { height: clamp(120px, 25dvh, 155px); }
 }
+/* Mobile uses intrinsic image flow: no full-height grid rows or empty photo box. */
+@media (max-width: 639px) {
+  #top .hero-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 0;
+    height: auto;
+    gap: 16px;
+  }
+  #top .hero-flow .hero-copy,
+  #top .hero-flow .hero-visual {
+    flex: none;
+    align-self: stretch;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+  }
+  #top .hero-flow .hero-portrait-panel {
+    display: block;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  #top .hero-flow .hero-photo {
+    width: min(100%, clamp(170px, 34dvh, 280px));
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+    margin: 0 auto;
+  }
+  #top .hero-flow .hero-portrait-image {
+    display: block;
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  #top .hero-flow .hero-metrics { margin-top: 8px; }
+}
