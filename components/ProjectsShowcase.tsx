@@ -13,8 +13,8 @@ type FilterCategory = "all" | Project["category"];
 
 const filterOptions: { id: FilterCategory; label: string; Icon: typeof LayoutGrid }[] = [
   { id: "all", label: "All Projects", Icon: LayoutGrid },
-  { id: "security", label: "Cybersecurity", Icon: ShieldCheck },
   { id: "commercial", label: "Commercial", Icon: Building2 },
+  { id: "security", label: "Cybersecurity", Icon: ShieldCheck },
   { id: "government", label: "Government", Icon: Landmark },
 ];
 
