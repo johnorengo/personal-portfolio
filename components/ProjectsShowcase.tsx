@@ -21,10 +21,9 @@ const filterOptions: { id: FilterCategory; label: string; Icon: typeof LayoutGri
 export default function ProjectsShowcase() {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>("all");
 
-  const filteredProjects = projectsData.filter((project) => {
-    if (activeFilter === "all") return true;
-    return project.category === activeFilter;
-  });
+  const filteredProjects = filterOptions
+    .filter((option) => option.id !== "all" && (activeFilter === "all" || option.id === activeFilter))
+    .flatMap((option) => projectsData.filter((project) => project.category === option.id));
 
   return (
     <section id="projects" className="pt-4 pb-12 lg:pb-16 relative overflow-clip bg-[rgb(var(--page-rgb))]">
