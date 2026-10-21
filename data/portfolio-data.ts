@@ -392,7 +392,8 @@ export const educationData = [
     degree: "Bachelor of Science in Computer Science",
     institution: "The Catholic University of Eastern Africa (CUEA)",
     location: "Nairobi, Kenya",
-    period: "Second Class Upper Division",
+    period: "2020 to 2024",
+    classification: "Second Class Upper Division",
     highlights: [
       "Core coursework: Software Engineering, Data Structures & Algorithms, Computer Networks, Database Systems, Operating Systems, Information Security",
       "Capstone Project: Employee Task Management System, designed to help teams assign tasks, track progress, and manage employee workloads in one place.",

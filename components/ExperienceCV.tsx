@@ -268,6 +268,7 @@ export default function ExperienceCV() {
                         <p className="text-sm font-semibold text-[var(--slate-300)] mt-1">
                           {edu.institution} · {edu.location}
                         </p>
+                        <p className="text-sm text-[var(--text-muted)] mt-1">{edu.classification}</p>
                       </div>
 
                       <span className="font-mono text-sm font-bold text-[var(--accent-text)] bg-[rgb(var(--wash-rgb))]/[0.03] px-3.5 py-1.5 rounded-lg border border-[rgb(var(--border-rgb))]/[0.08] self-start sm:self-auto">
