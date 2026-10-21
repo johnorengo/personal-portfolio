@@ -89,7 +89,8 @@
   .longLabel { display: none; }
   .shortLabel { display: inline; }
   .social { padding-top: 7px; }
-  .socialCaption, .profiles a span { display: none; }
+  .socialCaption { font-size: clamp(7px, 2vw, 9px); line-height: 1.5; letter-spacing: 0.06em; }
+  .profiles a span { display: none; }
   .profiles a { width: 44px; min-height: 44px; padding: 0; justify-content: center; }
   .metrics { gap: 10px; padding-top: 10px; }
   .metrics > div { flex-direction: column; gap: 4px; }
