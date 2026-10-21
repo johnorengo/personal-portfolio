@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUp, Mail, Phone } from "lucide-react";
+import { House, Mail, Phone } from "lucide-react";
 import BrandMark from "./BrandMark";
 import { personalInfo } from "../data/portfolio-data";
 
@@ -107,7 +107,7 @@ export default function Footer() {
               className="min-h-10 min-w-10 justify-self-center md:justify-self-end px-3 py-2 rounded-xl bg-[rgb(var(--wash-rgb))]/[0.04] border border-[rgb(var(--border-rgb))]/[0.08] hover:border-[#35D7FF]/40 text-[var(--text-muted)] hover:text-[var(--text-main)] transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm active:scale-95"
               aria-label="Back to top"
             >
-              <ArrowUp className="w-3.5 h-3.5 text-[var(--accent-text)]" />
+              <House className="w-3.5 h-3.5 text-[var(--accent-text)]" />
               <span className="text-[11px] font-bold">Top</span>
             </button>
         </div>

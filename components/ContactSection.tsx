@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import CoffeeAction from "./CoffeeAction";
-import { Check, Send, ArrowUpRight } from "lucide-react";
+import { Check, Send } from "lucide-react";
 import { motion } from "motion/react";
 
 interface ContactSectionProps {
@@ -185,7 +185,6 @@ export default function ContactSection({
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">@johnorengo · Code & Architecture</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--slate-500)] group-hover:text-[var(--accent-text)] transition-colors" />
                 </a>
 
                 <a
@@ -203,7 +202,6 @@ export default function ContactSection({
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">Professional Network & Endorsements</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--slate-500)] group-hover:text-[var(--violet-text)] transition-colors" />
                 </a>
 
                 <a
@@ -221,7 +219,6 @@ export default function ContactSection({
                       <span className="text-[11px] text-[var(--text-muted)] font-mono">AWS, CNCF & Microsoft Badges</span>
                     </div>
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-[var(--slate-500)] group-hover:text-amber-400 transition-colors" />
                 </a>
 
               </div>

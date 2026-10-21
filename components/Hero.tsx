@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Mail, ShieldCheck, Terminal, Server } from "lucide-react";
+import { PanelsTopLeft, Mail, ShieldCheck, Terminal, Server } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 import RotatingHeadline from "./RotatingHeadline";
 import styles from "./Hero.module.css";
@@ -35,7 +35,7 @@ export default function Hero() {
             <a href="#projects" className={styles.primary}>
               <span className={styles.longLabel}>Explore Selected Work</span>
               <span className={styles.shortLabel}>View work</span>
-              <ArrowRight size={17} aria-hidden="true" />
+              <PanelsTopLeft size={17} aria-hidden="true" />
             </a>
             <a href="#contact" className={styles.secondary}>
               <span className={styles.longLabel}>Discuss an Opportunity</span>

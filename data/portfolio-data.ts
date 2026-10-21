@@ -11,7 +11,7 @@ export const personalInfo = {
   title: "Full Stack Software Engineer",
   specialism: "Cybersecurity · Cloud & Network Security",
   headline: "Building Intelligent Solutions. Securing Digital Futures.",
-  tagline: "Building secure, scalable, and meaningful technology — one commit at a time.",
+  tagline: "Building secure, scalable, and meaningful technology, one commit at a time.",
   supportingText: "I'm a full stack software engineer and cybersecurity enthusiast transforming complex ideas into secure, intelligent, and impactful digital experiences.",
   bio: "I'm John Orengo, a full stack software engineer based in Nairobi with 4+ years across software development, cybersecurity, and IT infrastructure. I turn complex requirements into intuitive applications, connected business systems, and secure digital experiences.",
   location: "Nairobi, Kenya",
@@ -131,8 +131,8 @@ export const projectsData: Project[] = [
   "category": "security",
   "categoryLabel": "DevSecOps · Secret Detection",
   "featured": true,
-  "summary": "A Python CLI that scans source repositories for accidentally exposed credentials. Rule-based detection flags potential API keys, tokens and passwords, with severity-ranked findings and optional JSON reports to support remediation.",
-  "description": "An open-source developer security tool for finding potential credential leaks in local source code. SecretGuard combines configurable regex rules with repository scanning and terminal or JSON reporting. It helps developers review suspicious matches before publishing code; findings still require human review.",
+  "summary": "A Python CLI that scans source repositories for accidentally exposed credentials. Detection rules flag potential API keys, tokens and passwords, with findings ranked by severity and optional JSON reports to support remediation.",
+  "description": "An open source developer security tool for finding potential credential leaks in local source code. SecretGuard combines configurable regex rules with repository scanning and terminal or JSON reporting. It helps developers review suspicious matches before publishing code; findings still require human review.",
   "image": "/icons/github.svg",
   "technologies": [
     "Python",
@@ -158,7 +158,7 @@ export const projectsData: Project[] = [
   "categoryLabel": "Cybersecurity · Password Hygiene",
   "featured": true,
   "summary": "An interactive Python utility that checks password length, mixed case, digits and selected symbols, then returns Weak, Moderate or Strong feedback. Demonstrates regular expressions and security awareness through a focused terminal workflow.",
-  "description": "A small Python learning project that makes common password-composition checks visible. Four rule checks produce a simple strength rating, and the command-line loop allows repeated checks until the user exits. This is a rule-based educational checker, rather than a breach lookup or a guarantee of password security.",
+  "description": "A small Python learning project that makes common password composition checks visible. Four rule checks produce a simple strength rating, and the command line loop allows repeated checks until the user exits. This is an educational checker using simple rules, rather than a breach lookup or a guarantee of password security.",
   "image": "/icons/github.svg",
   "technologies": [
     "Python",
@@ -169,7 +169,7 @@ export const projectsData: Project[] = [
   "keyDeliverables": [
     "Four checks cover length and character composition.",
     "Returns Weak, Moderate or Strong based on the score.",
-    "Interactive loop uses Python and the built-in re module."
+    "Interactive loop uses Python and its standard re module."
   ],
   "architectureHighlights": [
     "A dedicated function evaluates password composition.",

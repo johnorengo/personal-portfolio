@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Download, Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
+import { Download, Menu, X, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
 import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
@@ -168,7 +168,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
                 className="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-bold rounded-xl bg-gradient-to-r from-[#35D7FF] to-[#8667FF] text-[#080D18]"
               >
                 <span>Let&apos;s Talk</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4" aria-hidden="true" />
               </a>
               <a
                 href={personalInfo.cvPath}

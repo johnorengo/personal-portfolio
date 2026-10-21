@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight, Check, LayoutGrid, ShieldCheck, Building2, Landmark } from "lucide-react";
+import { Globe2, Check, LayoutGrid, ShieldCheck, Building2, Landmark } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { projectsData } from "../data/portfolio-data";
 import SecurityProjectPreview from "./SecurityProjectPreview";
@@ -41,7 +41,7 @@ export default function ProjectsShowcase() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
               Architected for operational scale, performance, and security.
             </h2>
-            <p className="text-sm leading-relaxed text-[var(--text-muted)]">Open-source security tools and production platforms, with source code and live work you can explore.</p>
+            <p className="text-sm leading-relaxed text-[var(--text-muted)]">Open source security tools and production platforms, with source code and live work you can explore.</p>
           </div>
 
 
@@ -158,7 +158,7 @@ export default function ProjectsShowcase() {
                       <div className="flex flex-wrap items-center justify-between gap-3">
                         {project.repoUrl && (
                           <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`View source code for ${project.title}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#35D7FF]/30 bg-[#35D7FF]/10 px-4 py-2 text-xs font-bold text-[var(--accent-text)] hover:bg-[#35D7FF]/20 hover:text-[var(--text-main)] transition-colors">
-                            <Image src="/icons/github.svg" alt="" width={16} height={16} /> View Source <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                            <Image src="/icons/github.svg" alt="" width={16} height={16} /> View Source
                           </a>
                         )}
                         {project.liveUrl && (
@@ -170,7 +170,7 @@ export default function ProjectsShowcase() {
                             className="inline-flex items-center gap-2 rounded-xl border border-[#35D7FF]/30 bg-[#35D7FF]/10 px-4 py-2 text-xs font-bold text-[var(--accent-text)] hover:bg-[#35D7FF]/20 hover:text-[var(--text-main)] transition-colors"
                           >
                             Live Preview
-                            <ArrowUpRight className="w-3.5 h-3.5" />
+                            <Globe2 className="w-3.5 h-3.5" aria-hidden="true" />
                           </a>
                         )}
                       </div>
