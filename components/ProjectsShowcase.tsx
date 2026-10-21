@@ -79,7 +79,7 @@ export default function ProjectsShowcase() {
           })}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-fr gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:auto-rows-fr gap-8">
             <AnimatePresence>
               {filteredProjects.map((project, idx) => (
                 <motion.article
@@ -124,7 +124,7 @@ export default function ProjectsShowcase() {
                         <span className="text-[var(--accent-text)]">{project.featured ? `Featured · ${project.categoryLabel}` : project.categoryLabel}</span>
                       </div>
 
-                      <h3 className="min-h-14 text-xl font-bold text-[var(--text-main)] font-display group-hover:text-[var(--accent-text)] transition-colors leading-snug">
+                      <h3 className="md:min-h-14 text-xl font-bold text-[var(--text-main)] font-display group-hover:text-[var(--accent-text)] transition-colors leading-snug">
                         {project.title}
                       </h3>
 

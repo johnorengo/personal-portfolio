@@ -36,7 +36,7 @@ export default function SkillsSection() {
         </motion.div>
 
         {/* 6 Expertise Domains */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:auto-rows-fr gap-7">
           {skillsCategories.map((category, idx) => {
             const Icon = categoryIcons[idx] || Code2;
             return (
@@ -62,7 +62,7 @@ export default function SkillsSection() {
                 </div>
                 {/* Header */}
                 <div className="space-y-3">
-                  <div className="flex min-h-28 items-start justify-between">
+                  <div className="flex md:min-h-28 items-start justify-between">
                     <div className="p-3 rounded-2xl bg-[rgb(var(--page-rgb))]/75 backdrop-blur-md border border-[rgb(var(--border-rgb))]/[0.15] text-[var(--accent-text)] group-hover:bg-[#35D7FF]/10 group-hover:border-[#35D7FF]/40 transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
