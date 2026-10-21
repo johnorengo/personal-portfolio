@@ -362,6 +362,36 @@ html[data-theme="light"] ::selection { background: #ddd0fa; color: #35205a; }
 @media (prefers-reduced-motion: reduce) {
   .floating-call-button::before { animation: none; }
 }
+.floating-actions {
+  position: fixed;
+  right: max(clamp(0.85rem, 2vw, 1.5rem), env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+.floating-actions .floating-call-button { position: relative; right: auto; bottom: auto; }
+.floating-scroll-top {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: calc((3.35rem - 44px) / 2);
+  border: 1px solid rgb(var(--border-rgb) / 0.3);
+  border-radius: 50%;
+  background: rgb(var(--surface-rgb));
+  color: var(--accent-text);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.18);
+  cursor: pointer;
+}
+.floating-scroll-top:hover { border-color: var(--accent-text); }
+.floating-scroll-top:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
+@media (max-width: 639px) {
+  .floating-actions { right: max(0.75rem, env(safe-area-inset-right, 0px)); }
+  .floating-scroll-top { margin-right: calc((3.15rem - 44px) / 2); }
+}
 /* Keep each destination at least one view tall below the sticky header. */
 main > section[id] {
   min-height: calc(100vh - var(--header-height, 80px));

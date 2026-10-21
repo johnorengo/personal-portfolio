@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PhoneCall } from "lucide-react";
+import { ArrowUp, PhoneCall } from "lucide-react";
 import { personalInfo } from "../data/portfolio-data";
 
 export default function FloatingCallButton() {
@@ -25,6 +25,7 @@ export default function FloatingCallButton() {
   if (!isVisible) return null;
 
   return (
+    <div className="floating-actions">
     <a
       href={`tel:${personalInfo.phone}`}
       className="floating-call-button"
@@ -39,5 +40,18 @@ export default function FloatingCallButton() {
         <span>Direct call</span>
       </span>
     </a>
+    <button
+      type="button"
+      className="floating-scroll-top"
+      aria-label="Scroll to top"
+      title="Back to top"
+      onClick={() => window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      })}
+    >
+      <ArrowUp size={20} aria-hidden="true" />
+    </button>
+    </div>
   );
 }
