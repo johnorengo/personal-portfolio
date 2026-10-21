@@ -57,34 +57,35 @@
   .copy { gap: 12px; }
   .copy h1 { font-size: clamp(28px, 5.8dvh, 38px); }
   .summary { font-size: 13px; line-height: 1.45; }
-  .portrait { width: min(100%, 36dvh); }
+  .portrait { width: min(100%, 48dvh); }
   .metrics { padding-top: 12px; }
 }
 @media (max-width: 639px) {
   .hero { padding-block: 14px 18px; }
   .layout { display: flex; flex-direction: column; justify-content: space-between; align-items: stretch; gap: 14px; padding-inline: 16px; }
-  .copy { gap: 9px; }
-  .copy h1 { font-size: clamp(22px, 6vw, 29px); }
-  .summary { font-size: 12px; line-height: 1.4; }
+  .copy { gap: 12px; }
+  .copy h1 { font-size: clamp(26px, 7vw, 34px); }
+  .summary { font-size: 14px; line-height: 1.5; }
   .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .actions a { min-height: 42px; padding: 8px; font-size: 11px; }
+  .actions a { min-height: 44px; padding: 10px 8px; font-size: 12px; }
   .longLabel { display: none; }
   .shortLabel { display: inline; }
   .social { padding-top: 7px; }
   .socialCaption, .profiles a span { display: none; }
-  .profiles a { width: 40px; min-height: 40px; padding: 0; justify-content: center; }
+  .profiles a { width: 44px; min-height: 44px; padding: 0; justify-content: center; }
   .visual { flex: 1; justify-content: center; gap: 0; }
-  .portrait { width: min(100%, clamp(200px, 40dvh, 360px)); }
+  .portrait { width: min(100%, clamp(220px, 46dvh, 440px)); }
   .domains { display: none; }
   .metrics { gap: 10px; padding-top: 10px; }
   .metrics > div { flex-direction: column; gap: 4px; }
   .metrics strong { font-size: 23px; }
-  .metrics span { font-size: 9px; line-height: 1.35; }
+  .metrics span { font-size: 10px; line-height: 1.4; }
 }
 @media (max-width: 639px) and (max-height: 620px) {
   .hero { padding-top: 10px; }
   .copy { gap: 7px; }
   .copy h1 { font-size: 21px; }
+  .summary { font-size: 12px; line-height: 1.4; }
   .portrait { width: min(100%, 25dvh); }
 }
 @media (prefers-reduced-motion: reduce) {

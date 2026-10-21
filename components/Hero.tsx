@@ -65,7 +65,7 @@ export default function Hero() {
             width={1254}
             height={1254}
             priority
-            sizes="(max-width: 639px) 280px, (max-width: 1023px) 40vw, 500px"
+            sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) 40vw, 500px"
             className={styles.portrait}
           />
           <div className={styles.domains}>
