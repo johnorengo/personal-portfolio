@@ -121,10 +121,62 @@ export const skillsCategories: SkillCategory[] = [
 
 /**
  * ============================================================================
- * FEATURED PROJECTS — Fox Tech Solutions case studies and technology company website
+ * FEATURED PROJECTS — Cybersecurity tools and production web platforms
  * ============================================================================
  */
 export const projectsData: Project[] = [
+{
+  "id": "secretguard",
+  "title": "SecretGuard",
+  "category": "security",
+  "categoryLabel": "DevSecOps · Secret Detection",
+  "featured": true,
+  "summary": "A Python CLI that scans source repositories for accidentally exposed credentials. Rule-based detection flags potential API keys, tokens and passwords, with severity-ranked findings and optional JSON reports to support remediation.",
+  "description": "An open-source developer security tool for finding potential credential leaks in local source code. SecretGuard combines configurable regex rules with repository scanning and terminal or JSON reporting. It helps developers review suspicious matches before publishing code; findings still require human review.",
+  "image": "/icons/github.svg",
+  "technologies": [
+    "Python",
+    "Regex detection",
+    "JSON reporting"
+  ],
+  "metrics": [],
+  "keyDeliverables": [
+    "Repository scanning for potential exposed credentials.",
+    "Findings include file, line, severity and remediation guidance.",
+    "Optional JSON report with masked matched values."
+  ],
+  "architectureHighlights": [
+    "Separate CLI, scanner, detector and reporter modules.",
+    "Detection patterns are loaded from JSON rules."
+  ],
+  "repoUrl": "https://github.com/johnorengo/SecretGuard"
+},
+{
+  "id": "python-password-checker",
+  "title": "Password Strength Checker",
+  "category": "security",
+  "categoryLabel": "Cybersecurity · Password Hygiene",
+  "featured": true,
+  "summary": "An interactive Python utility that checks password length, mixed case, digits and selected symbols, then returns Weak, Moderate or Strong feedback. Demonstrates regular expressions and security awareness through a focused terminal workflow.",
+  "description": "A small Python learning project that makes common password-composition checks visible. Four rule checks produce a simple strength rating, and the command-line loop allows repeated checks until the user exits. This is a rule-based educational checker, rather than a breach lookup or a guarantee of password security.",
+  "image": "/icons/github.svg",
+  "technologies": [
+    "Python",
+    "Regular expressions",
+    "Input validation"
+  ],
+  "metrics": [],
+  "keyDeliverables": [
+    "Four checks cover length and character composition.",
+    "Returns Weak, Moderate or Strong based on the score.",
+    "Interactive loop uses Python and the built-in re module."
+  ],
+  "architectureHighlights": [
+    "A dedicated function evaluates password composition.",
+    "A terminal input loop presents feedback and handles exit."
+  ],
+  "repoUrl": "https://github.com/johnorengo/Python_Password_Checker"
+},
   {
     "id": "sebby-logistics",
     "title": "Sebby Logistics Ltd",

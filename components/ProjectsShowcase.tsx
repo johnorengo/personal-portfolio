@@ -3,14 +3,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { projectsData } from "../data/portfolio-data";
+import SecurityProjectPreview from "./SecurityProjectPreview";
 
-type FilterCategory = "all" | "business" | "education" | "fullstack";
+type FilterCategory = "all" | "business" | "education" | "fullstack" | "security";
 
 const filterOptions: { id: FilterCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
+  { id: "security", label: "Cybersecurity" },
   { id: "business", label: "Commercial Websites" },
   { id: "fullstack", label: "Tech Company Website" },
   { id: "education", label: "Public Sector" },
@@ -40,6 +42,7 @@ export default function ProjectsShowcase() {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-[1.08] font-display [text-wrap:balance]">
               Architected for operational scale, performance, and security.
             </h2>
+            <p className="text-sm leading-relaxed text-[var(--text-muted)]">Open-source security tools and production platforms, with source code and live work you can explore.</p>
           </div>
 
 
@@ -67,7 +70,7 @@ export default function ProjectsShowcase() {
                   />
                 )}
                 <span className="relative z-10">
-                  {opt.label} {opt.id === "all" ? `(${projectsData.length})` : ""}
+                  {opt.label} {opt.id === "all" ? `(${projectsData.length})` : opt.id === "security" ? `(${projectsData.filter((project) => project.category === "security").length})` : ""}
                 </span>
               </button>
             );
@@ -85,10 +88,13 @@ export default function ProjectsShowcase() {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className={`group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${idx === 0 && activeFilter === "all" ? "md:col-span-2" : ""}`}
+                  className={`group h-full flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${project.featured ? "ring-1 ring-[#35D7FF]/35" : ""}`}
                 >
                   {/* Media container */}
-                  <div className={`relative w-full ${idx === 0 && activeFilter === "all" ? "h-64 sm:h-80" : "h-56 sm:h-64"} shrink-0 bg-[rgb(var(--page-rgb))] overflow-hidden`}>
+                  <div className={`relative w-full h-56 sm:h-64 shrink-0 bg-[rgb(var(--page-rgb))] overflow-hidden`}>
+                    {project.category === "security" ? (
+                      <SecurityProjectPreview projectId={project.id} />
+                    ) : (<>
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -98,6 +104,7 @@ export default function ProjectsShowcase() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--surface-rgb))] via-[rgb(var(--surface-rgb))]/25 to-transparent" />
+                    </>)}
 
                     {/* Category Stamp */}
                     <div className="absolute top-4 left-4">
@@ -112,7 +119,7 @@ export default function ProjectsShowcase() {
                   <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
                     <div>
                       <div className="flex items-center gap-2 text-xs text-[var(--text-muted)] mb-2 font-mono">
-                        <span className="text-[var(--accent-text)]">{project.categoryLabel}</span>
+                        <span className="text-[var(--accent-text)]">{project.featured ? `Featured · ${project.categoryLabel}` : project.categoryLabel}</span>
                       </div>
 
                       <h3 className="min-h-14 text-xl font-bold text-[var(--text-main)] font-display group-hover:text-[var(--accent-text)] transition-colors leading-snug">
@@ -122,6 +129,13 @@ export default function ProjectsShowcase() {
                       <p className="mt-3 text-sm text-[var(--text-muted)] leading-relaxed">
                         {project.summary}
                       </p>
+                      {project.featured && (
+                        <ul className="mt-4 space-y-2 text-xs leading-relaxed text-[var(--text-muted)]">
+                          {project.keyDeliverables.slice(0, 3).map((item) => (
+                            <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--accent-text)]" aria-hidden="true" /><span>{item}</span></li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
 
                     {/* Technologies & Trigger */}
@@ -140,6 +154,11 @@ export default function ProjectsShowcase() {
                       </div>
 
                       <div className="flex flex-wrap items-center justify-between gap-3">
+                        {project.repoUrl && (
+                          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" aria-label={`View source code for ${project.title}`} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[#35D7FF]/30 bg-[#35D7FF]/10 px-4 py-2 text-xs font-bold text-[var(--accent-text)] hover:bg-[#35D7FF]/20 hover:text-[var(--text-main)] transition-colors">
+                            <Image src="/icons/github.svg" alt="" width={16} height={16} /> View Source <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                          </a>
+                        )}
                         {project.liveUrl && (
                           <a
                             href={project.liveUrl}

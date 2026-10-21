@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   category: "business" | "mobile" | "education" | "security" | "fullstack" | "all";
   categoryLabel: string;
+  featured?: boolean;
   year?: string;
   summary: string;
   description: string;
