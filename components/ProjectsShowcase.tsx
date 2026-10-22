@@ -79,7 +79,7 @@ export default function ProjectsShowcase() {
           })}
         </div>
 
-        <div className="grid grid-cols-1 items-stretch gap-5 md:auto-rows-fr md:grid-cols-2 md:gap-6">
+        <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-6">
             <AnimatePresence>
               {filteredProjects.map((project, idx) => (
                 <motion.article
@@ -90,7 +90,7 @@ export default function ProjectsShowcase() {
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className={`group flex h-full flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${project.featured ? "ring-1 ring-[#35D7FF]/35" : ""}`}
+                  className={`group flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${project.featured ? "ring-1 ring-[#35D7FF]/35" : ""}`}
                 >
                   {/* Media container */}
                   <div className={`relative w-full h-56 sm:h-64 shrink-0 bg-[rgb(var(--page-rgb))] overflow-hidden`}>
@@ -118,7 +118,7 @@ export default function ProjectsShowcase() {
                   </div>
 
                   {/* Card Content Area */}
-                  <div className="p-6 sm:p-7 flex flex-1 flex-col gap-4">
+                  <div className="p-6 sm:p-7 flex flex-col gap-4">
                     <div>
                       <div className="flex items-center gap-2 text-xs text-[var(--text-muted)] mb-2 font-mono">
                         <span className="text-[var(--accent-text)]">{project.featured ? `Featured · ${project.categoryLabel}` : project.categoryLabel}</span>
@@ -141,7 +141,7 @@ export default function ProjectsShowcase() {
                     </div>
 
                     {/* Technologies & Trigger */}
-                    <div className="mt-auto pt-4 border-t border-[rgb(var(--border-rgb))]/[0.06] flex flex-col gap-4">
+                    <div className="pt-4 border-t border-[rgb(var(--border-rgb))]/[0.06] flex flex-col gap-4">
                       <div className="flex flex-wrap items-center gap-1.5 text-xs text-[var(--text-muted)]">
                         {project.technologies.slice(0, 3).map((tech) => (
                           <span key={tech} className="px-2 py-0.5 rounded bg-[rgb(var(--wash-rgb))]/[0.03] border border-[rgb(var(--border-rgb))]/[0.06] font-mono text-[10px]">
