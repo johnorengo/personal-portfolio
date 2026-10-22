@@ -6,11 +6,15 @@ import { personalInfo } from "../data/portfolio-data";
 
 export default function FloatingCallButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [hasLeftHero, setHasLeftHero] = useState(false);
 
   useEffect(() => {
     const updateVisibility = () => {
       const shouldDelayForMobile = window.matchMedia("(max-width: 639px)").matches;
       setIsVisible(!shouldDelayForMobile || window.scrollY > window.innerHeight * 0.82);
+      const hero = document.getElementById("top");
+      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+      setHasLeftHero(Boolean(hero && hero.getBoundingClientRect().bottom <= headerHeight));
     };
 
     updateVisibility();
@@ -22,11 +26,11 @@ export default function FloatingCallButton() {
     };
   }, []);
 
-  if (!isVisible) return null;
+  if (!isVisible && !hasLeftHero) return null;
 
   return (
     <div className="floating-actions">
-    <a
+    {isVisible && <a
       href={`tel:${personalInfo.phone}`}
       className="floating-call-button"
       aria-label={`Call John Orengo at ${personalInfo.phoneDisplay}`}
@@ -39,8 +43,8 @@ export default function FloatingCallButton() {
         <span className="floating-call-eyebrow">Available to talk</span>
         <span>Direct call</span>
       </span>
-    </a>
-    <button
+    </a>}
+    {hasLeftHero && <button
       type="button"
       className="floating-scroll-top"
       aria-label="Scroll to top"
@@ -51,7 +55,7 @@ export default function FloatingCallButton() {
       })}
     >
       <ArrowUp size={20} aria-hidden="true" />
-    </button>
+    </button>}
     </div>
   );
 }
