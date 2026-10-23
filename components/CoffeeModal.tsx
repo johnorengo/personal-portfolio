@@ -10,13 +10,17 @@ interface CoffeeModalProps {
 }
 
 export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
-  const [amount, setAmount] = useState("");
+  const suggestedAmounts = [100, 250, 500, 1000];
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(250);
+  const [customAmount, setCustomAmount] = useState("");
   const [phone, setPhone] = useState("");
   const [checkoutRequestId, setCheckoutRequestId] = useState("");
   const [paymentState, setPaymentState] = useState<"idle" | "sending" | "pending" | "checking" | "complete" | "failed" | "unconfirmed">("idle");
   const [message, setMessage] = useState("");
   const [receipt, setReceipt] = useState("");
   const [statusChecks, setStatusChecks] = useState(0);
+  const amount = selectedAmount ?? (customAmount ? Number(customAmount) : null);
+  const amountLocked = ["sending", "pending", "checking", "complete", "unconfirmed"].includes(paymentState);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -88,7 +92,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
       const response = await fetch("/api/mpesa/stk-push", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: Number(amount), phone }),
+        body: JSON.stringify({ amount, phone }),
       });
       const result = await response.json();
 
@@ -150,11 +154,25 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
               </p>
 
               <form onSubmit={handleMpesa} className="space-y-4">
-                <div>
-                  <label htmlFor="coffee-amount" className="mb-2 block text-xs font-bold text-[var(--slate-300)]">
-                    Your amount (KES)
+                <fieldset disabled={amountLocked}>
+                  <legend className="mb-2 block text-xs font-bold text-[var(--slate-300)]">Choose an amount (KES)</legend>
+                  <div className="grid grid-cols-4 gap-2">
+                    {suggestedAmounts.map((suggestion) => (
+                      <button
+                        key={suggestion}
+                        type="button"
+                        aria-pressed={selectedAmount === suggestion}
+                        onClick={() => { setSelectedAmount(suggestion); setCustomAmount(""); }}
+                        className={`min-h-10 rounded-xl border px-2 text-xs font-semibold transition-colors ${selectedAmount === suggestion ? "border-teal-400 bg-teal-400/15 text-teal-200" : "border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 text-[var(--slate-300)] hover:border-teal-400/60"}`}
+                      >
+                        {suggestion.toLocaleString()}
+                      </button>
+                    ))}
+                  </div>
+                  <label htmlFor="coffee-amount" className="mb-2 mt-3 block text-xs font-semibold text-[var(--slate-400)]">
+                    Or enter a different amount
                   </label>
-                  <div className="flex items-center rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 focus-within:border-teal-400">
+                  <div className={`flex items-center rounded-xl border bg-[rgb(var(--page-rgb))]/80 focus-within:border-teal-400 ${selectedAmount === null ? "border-teal-400" : "border-[rgb(var(--border-rgb))]/[0.1]"}`}>
                     <span className="pl-3.5 text-xs font-mono text-[var(--slate-400)]">KES</span>
                     <input
                       id="coffee-amount"
@@ -163,15 +181,13 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
                       min="1"
                       max="250000"
                       step="1"
-                      required
-                      value={amount}
-                      onChange={(e) => setAmount(e.target.value)}
-                      disabled={["sending", "pending", "checking", "complete", "unconfirmed"].includes(paymentState)}
-                      placeholder="Enter any amount"
+                      value={customAmount}
+                      onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
+                      placeholder="Any amount"
                       className="w-full min-w-0 bg-transparent px-3.5 py-3 text-sm text-[var(--slate-200)] outline-none placeholder:text-[var(--slate-600)]"
                     />
                   </div>
-                </div>
+                </fieldset>
 
                 <div>
                   <label htmlFor="mpesa-number" className="mb-2 block text-xs font-bold text-[var(--slate-300)]">
@@ -201,7 +217,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
                 <button
                   type={paymentState === "unconfirmed" ? "button" : "submit"}
                   onClick={paymentState === "unconfirmed" ? () => { setStatusChecks(0); setMessage("Checking the payment status again…"); setPaymentState("pending"); } : undefined}
-                  disabled={!amount || !phone || ["sending", "pending", "checking", "complete"].includes(paymentState)}
+                  disabled={!amount || !Number.isInteger(amount) || amount < 1 || amount > 250000 || !phone || ["sending", "pending", "checking", "complete"].includes(paymentState)}
                   className="w-full inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-400 via-teal-300 to-emerald-400 px-4 py-3 text-xs font-bold text-slate-950 shadow-md shadow-teal-500/20 transition-all hover:from-teal-300 hover:to-emerald-300 disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
                 >
                   {paymentState === "sending" ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Connecting to M-Pesa…</> : paymentState === "checking" ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Checking payment…</> : paymentState === "pending" ? "Waiting for M-Pesa confirmation…" : paymentState === "complete" ? "Payment confirmed" : paymentState === "unconfirmed" ? "Check payment status again" : "Send M-Pesa STK prompt"}
