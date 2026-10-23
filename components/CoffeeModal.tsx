@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Coffee, CheckCircle } from "lucide-react";
-import CoffeeAction from "./CoffeeAction";
+import { X, Coffee, CheckCircle, LoaderCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface CoffeeModalProps {
@@ -11,9 +10,13 @@ interface CoffeeModalProps {
 }
 
 export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
-  const [amount, setAmount] = useState(250);
+  const [amount, setAmount] = useState("");
   const [phone, setPhone] = useState("");
-  const [sentMpesa, setSentMpesa] = useState(false);
+  const [checkoutRequestId, setCheckoutRequestId] = useState("");
+  const [paymentState, setPaymentState] = useState<"idle" | "sending" | "pending" | "checking" | "complete" | "failed" | "unconfirmed">("idle");
+  const [message, setMessage] = useState("");
+  const [receipt, setReceipt] = useState("");
+  const [statusChecks, setStatusChecks] = useState(0);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -29,14 +32,77 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
     };
   }, [isOpen, onClose]);
 
-  const handleSimulateMpesa = (e: React.FormEvent) => {
+  useEffect(() => {
+    if (!isOpen || paymentState !== "pending" || !checkoutRequestId) return;
+
+    if (statusChecks >= 12) {
+      setMessage("We could not confirm the payment yet. Check your M-Pesa messages before trying again.");
+      setPaymentState("unconfirmed");
+      return;
+    }
+
+    const timer = window.setTimeout(async () => {
+      setPaymentState("checking");
+      try {
+        const response = await fetch("/api/mpesa/status", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ checkoutRequestId }),
+        });
+        const result = await response.json();
+
+        if (!response.ok) {
+          setMessage(result.error || "Could not check the payment yet. Please try again.");
+          setStatusChecks((checks) => checks + 1);
+          setPaymentState("pending");
+        } else if (result.status === "complete") {
+          setReceipt(result.receiptNumber || "");
+          setMessage("Your M-Pesa payment is confirmed. Thank you for the support!");
+          setPaymentState("complete");
+        } else if (result.status === "failed") {
+          setMessage(result.message || "The payment was not completed. You can try again.");
+          setPaymentState("failed");
+        } else {
+          setMessage("Waiting for M-Pesa confirmation. Complete the prompt on your phone.");
+          setStatusChecks((checks) => checks + 1);
+          setPaymentState("pending");
+        }
+      } catch {
+        setMessage("Could not check the payment yet. Please try again.");
+        setStatusChecks((checks) => checks + 1);
+        setPaymentState("pending");
+      }
+    }, 5000);
+
+    return () => window.clearTimeout(timer);
+  }, [checkoutRequestId, isOpen, paymentState, statusChecks]);
+
+  const handleMpesa = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!phone) return;
-    setSentMpesa(true);
-    setTimeout(() => {
-      setSentMpesa(false);
-      onClose();
-    }, 4000);
+    setPaymentState("sending");
+    setStatusChecks(0);
+    setMessage("");
+    setReceipt("");
+
+    try {
+      const response = await fetch("/api/mpesa/stk-push", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: Number(amount), phone }),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Could not start the M-Pesa prompt.");
+      }
+
+      setCheckoutRequestId(result.checkoutRequestId);
+      setMessage(`STK prompt sent to ${result.phone}. Enter your M-Pesa PIN to continue.`);
+      setPaymentState("pending");
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Could not start the M-Pesa prompt.");
+      setPaymentState("failed");
+    }
   };
 
   return (
@@ -80,75 +146,69 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
             {/* Modal content */}
             <div className="p-6 sm:p-7 space-y-6">
               <p className="text-xs sm:text-sm text-[var(--slate-300)] leading-relaxed">
-                Your support directly fuels cloud security research, open source development, and technical community mentorship across Kenya.
+                Choose any amount and approve the secure M-Pesa prompt on your phone.
               </p>
 
-              {/* Amount Presets */}
-              <div>
-                <label className="block text-xs font-bold text-[var(--slate-300)] mb-2">
-                  Select Contribution (KES)
-                </label>
-                <div className="grid grid-cols-4 gap-2">
-                  {[100, 250, 500, 1000].map((val) => (
-                    <button
-                      key={val}
-                      type="button"
-                      onClick={() => setAmount(val)}
-                      className={`py-2.5 px-1 text-xs font-bold rounded-xl border transition-all text-center cursor-pointer ${
-                        amount === val
-                          ? "bg-teal-400 text-slate-950 border-teal-300 shadow-md shadow-teal-500/30"
-                          : "bg-[rgb(var(--wash-rgb))]/[0.03] border-[rgb(var(--border-rgb))]/[0.08] text-[var(--slate-200)] hover:border-teal-400/40"
-                      }`}
-                    >
-                      KES {val.toLocaleString()}
-                    </button>
-                  ))}
+              <form onSubmit={handleMpesa} className="space-y-4">
+                <div>
+                  <label htmlFor="coffee-amount" className="mb-2 block text-xs font-bold text-[var(--slate-300)]">
+                    Your amount (KES)
+                  </label>
+                  <div className="flex items-center rounded-xl border border-[rgb(var(--border-rgb))]/[0.1] bg-[rgb(var(--page-rgb))]/80 focus-within:border-teal-400">
+                    <span className="pl-3.5 text-xs font-mono text-[var(--slate-400)]">KES</span>
+                    <input
+                      id="coffee-amount"
+                      type="number"
+                      inputMode="numeric"
+                      min="1"
+                      max="250000"
+                      step="1"
+                      required
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                      disabled={["sending", "pending", "checking", "complete", "unconfirmed"].includes(paymentState)}
+                      placeholder="Enter any amount"
+                      className="w-full min-w-0 bg-transparent px-3.5 py-3 text-sm text-[var(--slate-200)] outline-none placeholder:text-[var(--slate-600)]"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* M-Pesa Phone Number Form */}
-              <form onSubmit={handleSimulateMpesa} className="space-y-3">
-                <label htmlFor="mpesa-number" className="block text-xs font-bold text-[var(--slate-300)]">
-                  M-Pesa Mobile Number (Safaricom)
-                </label>
+                <div>
+                  <label htmlFor="mpesa-number" className="mb-2 block text-xs font-bold text-[var(--slate-300)]">
+                    M-Pesa phone number
+                  </label>
                 <input
                   id="mpesa-number"
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  required
                   placeholder="e.g. 0712 345 678"
                   value={phone}
+                  disabled={["sending", "pending", "checking", "complete", "unconfirmed"].includes(paymentState)}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[rgb(var(--page-rgb))]/80 border border-[rgb(var(--border-rgb))]/[0.1] text-[var(--slate-200)] text-xs sm:text-sm focus:border-teal-400 focus:outline-none transition-colors placeholder:text-[var(--slate-600)] font-mono"
                 />
-                <p className="text-[11px] text-[var(--slate-400)]">
-                  Enter your M-Pesa phone number to generate an instant STK push authorization prompt.
-                </p>
+                </div>
 
-                {sentMpesa ? (
-                  <div className="p-3.5 rounded-xl bg-teal-950/70 border border-teal-500/50 text-teal-300 text-xs flex items-center gap-2.5">
-                    <CheckCircle className="w-5 h-5 text-teal-400 shrink-0" />
-                    <span>Prompt dispatched to {phone}. Please check your handset to authorize KES {amount}.</span>
+                {message && (
+                  <div role="status" aria-live="polite" className={`flex items-start gap-2.5 rounded-xl border p-3.5 text-xs ${paymentState === "complete" ? "border-teal-500/50 bg-teal-950/70 text-teal-300" : paymentState === "failed" ? "border-rose-500/40 bg-rose-950/30 text-rose-200" : "border-teal-500/30 bg-teal-950/40 text-teal-200"}`}>
+                    {paymentState === "complete" ? <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" /> : paymentState === "sending" || paymentState === "checking" ? <LoaderCircle className="mt-0.5 h-5 w-5 shrink-0 animate-spin" /> : <Coffee className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" />}
+                    <span>{message}{receipt ? ` Receipt: ${receipt}.` : ""}</span>
                   </div>
-                ) : (
-                  <button
-                    type="submit"
-                    disabled={!phone}
-                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-teal-400 via-teal-300 to-emerald-400 hover:from-teal-300 hover:to-emerald-300 disabled:opacity-40 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shadow-teal-500/20 cursor-pointer"
-                  >
-                    Send M-Pesa STK Prompt (KES {amount})
-                  </button>
                 )}
+
+                <button
+                  type={paymentState === "unconfirmed" ? "button" : "submit"}
+                  onClick={paymentState === "unconfirmed" ? () => { setStatusChecks(0); setMessage("Checking the payment status again…"); setPaymentState("pending"); } : undefined}
+                  disabled={!amount || !phone || ["sending", "pending", "checking", "complete"].includes(paymentState)}
+                  className="w-full inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-teal-400 via-teal-300 to-emerald-400 px-4 py-3 text-xs font-bold text-slate-950 shadow-md shadow-teal-500/20 transition-all hover:from-teal-300 hover:to-emerald-300 disabled:cursor-not-allowed disabled:opacity-40 sm:text-sm"
+                >
+                  {paymentState === "sending" ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Connecting to M-Pesa…</> : paymentState === "checking" ? <><LoaderCircle className="h-4 w-4 animate-spin" /> Checking payment…</> : paymentState === "pending" ? "Waiting for M-Pesa confirmation…" : paymentState === "complete" ? "Payment confirmed" : paymentState === "unconfirmed" ? "Check payment status again" : "Send M-Pesa STK prompt"}
+                </button>
+                {paymentState === "pending" && <p className="text-center text-[11px] text-[var(--slate-400)]">We’ll check for your payment confirmation automatically.</p>}
               </form>
-
-              {/* Divider */}
-              <div className="relative flex items-center justify-center">
-                <div className="border-t border-[rgb(var(--border-rgb))]/[0.08] w-full" />
-                <span className="bg-[rgb(var(--card-rgb))] px-3 text-[11px] font-bold text-[var(--slate-400)] uppercase tracking-wider">
-                  Or International Card
-                </span>
-              </div>
-
-              {/* Buy Me a Coffee Link */}
-              <CoffeeAction fullWidth href="https://www.buymeacoffee.com/orengo" label="Continue via BuyMeACoffee.com/orengo" />
+              <p className="text-center text-[10px] leading-relaxed text-[var(--slate-500)]">You’ll approve the payment using your M-Pesa PIN. Your PIN is never entered on this site.</p>
             </div>
           </motion.div>
         </div>
