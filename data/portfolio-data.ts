@@ -53,6 +53,7 @@ export const specializations = [
 export const skillsCategories: SkillCategory[] = [
   {
     title: "Software Engineering",
+    id: "expertise-software-engineering",
     backgroundImage: "/expertise/software-engineering-hd.webp",
     description: "Frontend architecture, backend development, APIs, databases, testing, and scalable applications.",
     skills: [
@@ -64,6 +65,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Cybersecurity & Network Security",
+    id: "expertise-cybersecurity-network",
     backgroundImage: "/expertise/cybersecurity-network-hd.webp",
     description: "Secure application development, identity and access management, vulnerability assessment, threat detection, and security fundamentals.",
     skills: [
@@ -75,6 +77,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "AI & Machine Learning",
+    id: "expertise-ai-machine-learning",
     backgroundImage: "/expertise/ai-machine-learning-hd.webp",
     description: "Machine learning concepts, intelligent automation, data driven solutions, and AI assisted development.",
     skills: [
@@ -86,6 +89,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Mobile Development",
+    id: "expertise-mobile-development",
     backgroundImage: "/expertise/mobile-development-hd.webp",
     description: "Cross platform mobile applications, responsive user experience, touch interactions, and API integration.",
     skills: [
@@ -97,6 +101,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Business Systems",
+    id: "expertise-business-systems",
     backgroundImage: "/expertise/business-systems-hd.webp",
     description: "ERP, POS systems, workflow automation, business process digitization, and system integration.",
     skills: [
@@ -108,6 +113,7 @@ export const skillsCategories: SkillCategory[] = [
   },
   {
     title: "Cloud & DevOps",
+    id: "expertise-cloud-devops",
     backgroundImage: "/expertise/cloud-devops-hd.webp",
     description: "Cloud infrastructure, containers, deployment tools, and version control for building and running applications.",
     skills: [

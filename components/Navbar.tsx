@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Download, Menu, X, MessageSquare } from "lucide-react";
 import { motion } from "motion/react";
+import ExpertiseNav from "./ExpertiseNav";
 import BrandMark from "./BrandMark";
 import ThemeToggle from "./ThemeToggle";
 import CoffeeAction from "./CoffeeAction";
@@ -90,6 +91,7 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
             <nav className="hidden min-[1100px]:flex items-center gap-7 text-sm font-medium">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
+                if (item.href === "#expertise") return <ExpertiseNav key={item.href} active={isActive} />;
                 return (
                   <a
                     key={item.label}
@@ -152,9 +154,11 @@ export default function Navbar({ onOpenCoffeeModal }: NavbarProps) {
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div className="min-[1100px]:hidden border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--page-rgb))]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+          <div className="min-[1100px]:hidden max-h-[70dvh] overflow-y-auto border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--page-rgb))]/98 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
             <nav className="flex flex-col space-y-1 text-base font-medium">
-              {navItems.map((item) => (
+              {navItems.map((item) => item.href === "#expertise" ? (
+                <ExpertiseNav key={item.href} onNavigate={() => setMobileMenuOpen(false)} />
+              ) : (
                 <a
                   key={item.label}
                   href={item.href}

@@ -42,6 +42,7 @@ export interface Certification {
 }
 
 export interface SkillCategory {
+  id: string;
   backgroundImage: string;
   title: string;
   description: string;
