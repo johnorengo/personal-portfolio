@@ -27,7 +27,7 @@ export default function ExpertiseNav({ active, onNavigate }: ExpertiseNavProps) 
         if (!mobile && event.pointerType === "mouse") setOpen(true);
       }}
       onPointerLeave={(event) => {
-        if (!mobile && event.pointerType === "mouse" && !event.currentTarget.contains(document.activeElement)) {
+        if (!mobile && event.pointerType === "mouse") {
           setOpen(false);
         }
       }}
