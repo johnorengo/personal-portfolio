@@ -279,7 +279,7 @@ export const projectsData: Project[] = [
       "Policy downloads, preparedness guidance and response resources complement analytics on school risk and incident progress."
     ],
     "architectureHighlights": [],
-    "liveUrl": "https://kplp.education.go.ke/"
+    "liveUrl": "https://eears.education.go.ke/"
   },
   {
     "id": "fox-tech-solutions",
