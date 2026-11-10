@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-2.5 max-w-md">
             <div className="flex items-center gap-2">
-              <BrandMark className="h-7 w-auto" />
+              <BrandMark className="h-9 w-auto" />
               <span className="font-display font-bold text-base text-[var(--text-main)]">
                 {personalInfo.name}
               </span>

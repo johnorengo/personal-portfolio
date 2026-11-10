@@ -13,7 +13,9 @@ if (!definitions || !markContents) {
   throw new Error("The JO logo is missing its gradient or jo-mark group.");
 }
 
-const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">${definitions}<g transform="translate(6 48)" fill="url(#jo-spectrum)">${markContents}</g></svg>`;
+// Use a tighter, transparent square crop around the JO art so it reads larger
+// in favicon and PWA slots while keeping the same monogram silhouette.
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 160">${definitions}<g fill="url(#jo-spectrum)">${markContents}</g></svg>`;
 
 const iconPath = path.join(root, "app/icon.svg");
 await writeFile(iconPath, `${iconSvg}\n`);
@@ -28,7 +30,7 @@ for (const [file, size] of [
 
 await sharp(Buffer.from(logo)).resize(732, 480, { fit: "contain" }).png().toFile(path.join(root, "public/brand/jo-monogram-preview.png"));
 
-const icoPng = await sharp(Buffer.from(iconSvg)).resize(32, 32, { fit: "contain" }).png().toBuffer();
+const icoPng = await sharp(Buffer.from(iconSvg)).resize(32, 32, { fit: "contain", kernel: "lanczos3" }).png().toBuffer();
 const icoHeader = Buffer.alloc(22);
 icoHeader.writeUInt16LE(0, 0); // reserved
 icoHeader.writeUInt16LE(1, 2); // icon resource

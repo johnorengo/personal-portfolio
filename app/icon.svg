@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 160"><defs>
     <linearGradient id="jo-spectrum" x1="20" y1="16" x2="220" y2="144" gradientUnits="userSpaceOnUse">
       <stop stop-color="#38E4FF"/>
       <stop offset=".52" stop-color="#528BFF"/>
       <stop offset="1" stop-color="#A477FF"/>
     </linearGradient>
-  </defs><g transform="translate(6 48)" fill="url(#jo-spectrum)">
+  </defs><g fill="url(#jo-spectrum)">
     <!-- The J stem shares the O's left edge, creating a compact custom ligature. -->
     <path d="M36 25h115v24H62v42c0 24-13 39-37 39-10 0-18-2-25-7l12-21c4 3 8 4 13 4 8 0 11-5 11-16z" transform="translate(10 0)"/>
     <path fill-rule="evenodd" d="M169 25a63 63 0 1 1 0 126a63 63 0 1 1 0-126Zm0 27a36 36 0 1 0 0 72a36 36 0 1 0 0-72Z"/>
