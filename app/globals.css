@@ -184,6 +184,23 @@ html.lenis.lenis-smooth {
   box-shadow: 0 16px 40px -10px rgba(53, 215, 255, 0.12), 0 0 20px -5px rgba(134, 103, 255, 0.1);
 }
 
+/* Touchscreens have no hover state, so use a restrained in-view glow for cards. */
+@media (hover: none), (pointer: coarse) {
+  .glass-card-hover:active {
+    background: rgb(var(--elevated-rgb) / 0.85);
+    border-color: rgb(53 215 255 / 0.42);
+    box-shadow: 0 12px 32px -12px rgb(53 215 255 / 0.18), 0 0 18px -6px rgb(134 103 255 / 0.12);
+  }
+  .glass-card-hover:focus-within {
+    border-color: rgb(53 215 255 / 0.34);
+    box-shadow: 0 12px 32px -12px rgb(53 215 255 / 0.14);
+  }
+  .glass-card-hover.is-in-view {
+    border-color: rgb(53 215 255 / 0.24);
+    box-shadow: 0 12px 34px -14px rgb(53 215 255 / 0.14), inset 0 1px 0 rgb(207 214 255 / 0.035);
+  }
+}
+
 /* Restrained ambient atmospheric lighting */
 .ambient-glow {
   background: radial-gradient(circle at 20% 15%, rgba(53, 215, 255, 0.10), transparent 50%),

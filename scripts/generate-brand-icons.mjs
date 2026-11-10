@@ -13,7 +13,7 @@ if (!definitions || !markContents) {
   throw new Error("The JO logo is missing its gradient or jo-mark group.");
 }
 
-const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">${definitions}<rect x="5" y="5" width="246" height="246" rx="60" fill="#0C0E22"/><rect x="6" y="6" width="244" height="244" rx="59" fill="none" stroke="url(#jo-spectrum)" stroke-opacity=".28" stroke-width="2"/><g transform="translate(6 48)" fill="url(#jo-spectrum)">${markContents}</g></svg>`;
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">${definitions}<g transform="translate(6 48)" fill="url(#jo-spectrum)">${markContents}</g></svg>`;
 
 const iconPath = path.join(root, "app/icon.svg");
 await writeFile(iconPath, `${iconSvg}\n`);

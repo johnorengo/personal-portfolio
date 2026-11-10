@@ -43,8 +43,8 @@ export default function SkillsSection() {
               <div key={category.id} id={category.id} className="min-w-0">
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
+                  whileInView={{ opacity: 1, y: -3 }}
+                  viewport={{ once: false, amount: 0.28, margin: "0px 0px -8% 0px" }}
                   transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   className="min-w-0 overflow-hidden p-6 sm:p-7 rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] flex flex-col justify-start gap-4 relative isolate group"

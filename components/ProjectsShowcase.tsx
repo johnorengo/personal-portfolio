@@ -89,6 +89,8 @@ export default function ProjectsShowcase() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.96 }}
                   transition={{ duration: 0.45, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                  whileInView={{ y: -3, transition: { duration: 0.45, delay: idx * 0.035, ease: [0.16, 1, 0.3, 1] } }}
+                  viewport={{ once: false, amount: 0.28, margin: "0px 0px -8% 0px" }}
                   whileHover={{ y: -6, transition: { duration: 0.2 } }}
                   data-cursor="view"
                   className={`group flex flex-col rounded-3xl glass-card glass-card-hover border border-[rgb(var(--border-rgb))]/[0.09] overflow-hidden relative ${project.featured ? "ring-1 ring-[#35D7FF]/35" : ""}`}
