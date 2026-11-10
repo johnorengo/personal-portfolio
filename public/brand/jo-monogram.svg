@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 160"><defs><linearGradient id="jo" x1="0" y1="0" x2="244" y2="120" gradientUnits="userSpaceOnUse"><stop stop-color="#35D7FF"/><stop offset=".4" stop-color="#45B9FF"/><stop offset="1" stop-color="#8667FF"/></linearGradient></defs><g fill="url(#jo)"><path fill-rule="evenodd" d="M174 20a68 68 0 1 1 0 136a68 68 0 1 1 0-136Zm0 29a39 39 0 1 0 0 78a39 39 0 1 0 0-78Z"/><path d="M42 20h86v73a63 63 0 0 1-126 0h29a34 34 0 0 0 68 0V49H42Z"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244 160" role="img" aria-label="JO monogram">
+  <defs>
+    <linearGradient id="jo-spectrum" x1="8" y1="24" x2="242" y2="144" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35D7FF"/>
+      <stop offset=".48" stop-color="#4DA8FF"/>
+      <stop offset="1" stop-color="#8667FF"/>
+    </linearGradient>
+  </defs>
+  <g id="jo-mark" fill="url(#jo-spectrum)">
+    <path d="M31 25h91v66c0 38-21 59-59 59-27 0-46-13-57-36l27-13c6 13 16 20 30 20 19 0 29-11 29-30V55H31z"/>
+    <path fill-rule="evenodd" d="M178 22a64 64 0 1 1 0 128a64 64 0 1 1 0-128Zm0 30a34 34 0 1 0 0 68a34 34 0 1 0 0-68Z"/>
+    <circle cx="178" cy="86" r="7" fill="#0C0E22" fill-opacity=".88"/>
+    <circle cx="178" cy="86" r="3.5" fill="#79E7FF"/>
+  </g>
+</svg>
