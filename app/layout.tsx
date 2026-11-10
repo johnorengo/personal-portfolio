@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
 import { siteUrl } from "../lib/site-url";
+import CustomCursor from "../components/CustomCursor";
+import SmoothScroll from "../components/SmoothScroll";
 import "./globals.css";
 
 const spaceGrotesk = localFont({
@@ -117,6 +119,8 @@ export default function RootLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema).replace(/</g, "\\u003c") }}
       />
       <body className="min-h-full flex flex-col bg-[rgb(var(--page-rgb))] text-[var(--text-main)] antialiased selection:bg-[#35D7FF]/30 selection:text-white">
+        <CustomCursor />
+        <SmoothScroll />
         {children}
       </body>
     </html>

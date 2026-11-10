@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @layer base {
   :root {
@@ -46,6 +47,13 @@
     overflow-x: clip;
   }
 
+  @media (min-width: 768px) and (hover: hover) and (pointer: fine) {
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+      cursor: none !important;
+    }
+  }
+
   h1, h2, h3, h4, .font-display {
     font-family: var(--font-space-grotesk), sans-serif;
   }
@@ -74,6 +82,89 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #35D7FF;
   }
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.portfolio-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.portfolio-cursor__ring,
+.portfolio-cursor__core {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.portfolio-cursor__ring {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--accent-text) 64%, transparent);
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-text) 10%, transparent), transparent 72%);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-text) 16%, transparent);
+  transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1), height 260ms cubic-bezier(0.16, 1, 0.3, 1), border-color 260ms ease, background-color 260ms ease, box-shadow 260ms ease, opacity 180ms ease;
+}
+
+.portfolio-cursor__ring[data-variant="link"] {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-color: color-mix(in srgb, var(--violet-text) 88%, transparent);
+  background: color-mix(in srgb, var(--violet-text) 12%, transparent);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--violet-text) 22%, transparent);
+}
+
+.portfolio-cursor__ring[data-variant="view"] {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-color: transparent;
+  background: linear-gradient(130deg, var(--accent-text), var(--violet-text));
+  box-shadow: 0 0 38px color-mix(in srgb, var(--accent-text) 34%, transparent);
+}
+
+.portfolio-cursor__label {
+  color: rgb(var(--page-rgb));
+  font: 700 0.43rem/1 var(--font-jetbrains-mono), monospace;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  text-transform: uppercase;
+  transition: opacity 160ms ease;
+}
+
+.portfolio-cursor__ring[data-variant="view"] .portfolio-cursor__label {
+  opacity: 1;
+}
+
+.portfolio-cursor__core {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-text);
+  box-shadow: 0 0 10px var(--accent-text), 0 0 2px #fff;
+}
+
+@keyframes cursor-pulse {
+  0%, 100% { box-shadow: 0 0 16px color-mix(in srgb, var(--accent-text) 12%, transparent); }
+  50% { box-shadow: 0 0 28px color-mix(in srgb, var(--accent-text) 26%, transparent); }
+}
+
+@media (min-width: 768px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .portfolio-cursor__ring[data-variant="default"] { animation: cursor-pulse 2.4s ease-in-out infinite; }
+}
+
+@media (max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .portfolio-cursor { display: none; }
 }
 
 /* Shared project-card surface system */
