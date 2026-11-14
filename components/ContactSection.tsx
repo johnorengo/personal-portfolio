@@ -223,7 +223,7 @@ export default function ContactSection({
 
               </div>
 
-              {/* Buy Me a Coffee Support Modal Trigger */}
+              {/* Buy Me a Soda Support Modal Trigger */}
               {onOpenCoffeeModal && (
                 <div className="pt-2 border-t border-[rgb(var(--border-rgb))]/[0.08]">
                   <CoffeeAction fullWidth label="Fuel My Next Build" onClick={onOpenCoffeeModal} />

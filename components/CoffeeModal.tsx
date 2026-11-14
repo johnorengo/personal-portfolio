@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Coffee, CheckCircle, LoaderCircle } from "lucide-react";
+import { X, CupSoda, CheckCircle, LoaderCircle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface CoffeeModalProps {
@@ -131,10 +131,10 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
             <div className="flex items-center justify-between px-6 py-4 border-b border-[rgb(var(--border-rgb))]/[0.08] bg-[rgb(var(--footer-rgb))]">
               <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-300">
-                  <Coffee className="w-4 h-4 text-teal-400" />
+                  <CupSoda className="w-4 h-4 text-teal-400" />
                 </div>
                 <h2 id="coffee-title" className="text-sm font-bold text-[var(--text-main)]">
-                  Support John&apos;s Engineering Work
+                  Buy John a Soda
                 </h2>
               </div>
               <button
@@ -209,7 +209,7 @@ export default function CoffeeModal({ isOpen, onClose }: CoffeeModalProps) {
 
                 {message && (
                   <div role="status" aria-live="polite" className={`flex items-start gap-2.5 rounded-xl border p-3.5 text-xs ${paymentState === "complete" ? "border-teal-500/50 bg-teal-950/70 text-teal-300" : paymentState === "failed" ? "border-rose-500/40 bg-rose-950/30 text-rose-200" : "border-teal-500/30 bg-teal-950/40 text-teal-200"}`}>
-                    {paymentState === "complete" ? <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" /> : paymentState === "sending" || paymentState === "checking" ? <LoaderCircle className="mt-0.5 h-5 w-5 shrink-0 animate-spin" /> : <Coffee className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" />}
+                    {paymentState === "complete" ? <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" /> : paymentState === "sending" || paymentState === "checking" ? <LoaderCircle className="mt-0.5 h-5 w-5 shrink-0 animate-spin" /> : <CupSoda className="mt-0.5 h-5 w-5 shrink-0 text-teal-400" />}
                     <span>{message}{receipt ? ` Receipt: ${receipt}.` : ""}</span>
                   </div>
                 )}

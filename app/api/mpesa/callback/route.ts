@@ -1,5 +1,5 @@
 /**
- * Daraja requires a public callback URL. The coffee modal verifies the
+ * Daraja requires a public callback URL. The soda support modal verifies the
  * CheckoutRequestID against Safaricom with STK Push Query, so this endpoint
  * acknowledges callbacks without treating an unverified payload as payment.
  */
