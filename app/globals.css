@@ -163,8 +163,9 @@ html.lenis.lenis-smooth {
   .portfolio-cursor__ring[data-variant="default"] { animation: cursor-pulse 2.4s ease-in-out infinite; }
 }
 
-@media (max-width: 767px), (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .portfolio-cursor { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-cursor__ring,
+  .portfolio-cursor__label { transition: none; }
 }
 
 /* Shared project-card surface system */

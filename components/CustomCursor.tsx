@@ -21,7 +21,6 @@ export default function CustomCursor() {
   useEffect(() => {
     const finePointer = window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!finePointer.matches || reducedMotion.matches) return;
 
     const ring = ringRef.current;
     const core = coreRef.current;
@@ -33,6 +32,7 @@ export default function CustomCursor() {
     let ringY = 0;
     let frame = 0;
     let active = false;
+    let touchTimer = 0;
 
     const animateRing = () => {
       ringX += (targetX - ringX) * 0.2;
@@ -50,7 +50,7 @@ export default function CustomCursor() {
     };
 
     const handlePointerMove = (event: PointerEvent) => {
-      if (event.pointerType !== "mouse") return;
+      if (event.pointerType !== "mouse" || !finePointer.matches || reducedMotion.matches) return;
 
       targetX = event.clientX;
       targetY = event.clientY;
@@ -76,7 +76,20 @@ export default function CustomCursor() {
     };
 
     const handlePointerDown = (event: PointerEvent) => {
-      if (event.pointerType !== "mouse") hideCursor();
+      if (event.pointerType === "mouse") return;
+
+      // Touch devices cannot hover, so briefly show the same focus ring at the
+      // tap point. This preserves the visual cue without leaving a cursor on screen.
+      window.clearTimeout(touchTimer);
+      ring.dataset.variant = getCursorVariant(event.target);
+      ring.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+      core.style.transform = `translate3d(${event.clientX}px, ${event.clientY}px, 0) translate(-50%, -50%)`;
+      ring.style.opacity = "1";
+      core.style.opacity = "1";
+      touchTimer = window.setTimeout(() => {
+        ring.style.opacity = "0";
+        core.style.opacity = "0";
+      }, 650);
     };
 
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
@@ -90,6 +103,7 @@ export default function CustomCursor() {
       window.removeEventListener("blur", hideCursor);
       document.documentElement.removeEventListener("pointerleave", hideCursor);
       document.documentElement.classList.remove("has-custom-cursor");
+      window.clearTimeout(touchTimer);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
