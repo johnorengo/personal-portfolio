@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="lime" x1="126" y1="157" x2="1078" y2="563" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DBFF8C"/>
+      <stop offset="1" stop-color="#A9E64E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(430 0 0 340 1035 60)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6F36A" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#C6F36A" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0v48" stroke="#D7E4C1" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <path fill="#111310" d="M0 0h1200v675H0z"/>
+  <path fill="url(#glow)" d="M0 0h1200v675H0z"/>
+  <path fill="url(#grid)" d="M0 0h1200v675H0z"/>
+  <path d="M0 530c260-93 490-65 746 12s330 69 454 28v105H0V530Z" fill="#C6F36A" fill-opacity=".025"/>
+  <g transform="translate(93 100) scale(.82)" stroke="url(#lime)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7 39h22c11 0 12-29 23-29 6 0 7 5 7 12v29M59 30h24M83 10v34c0 15 13 15 18 1l4-11" stroke-width="11"/>
+    <path d="M107 14V5m8 17 7-7m-7 19h10" stroke-width="4.5"/>
+  </g>
+  <text x="205" y="143" fill="#F3F5EC" font-family="Arial, sans-serif" font-size="29" font-weight="700" letter-spacing="1.5">HILKEN4TECH</text>
+  <text x="95" y="300" fill="#F5F6F1" font-family="Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2">Big ideas.</text>
+  <text x="95" y="371" fill="#F5F6F1" font-family="Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2">Solid engineering.</text>
+  <text x="95" y="442" fill="url(#lime)" font-family="Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-2">Real impact.</text>
+  <text x="98" y="505" fill="#ADB4A1" font-family="Arial, sans-serif" font-size="20" letter-spacing="3">SOFTWARE  ·  CLOUD  ·  AI  ·  SECURITY</text>
+  <g transform="translate(805 210)">
+    <rect width="305" height="280" rx="25" fill="#191D17" stroke="#C6F36A" stroke-opacity=".22"/>
+    <circle cx="28" cy="30" r="5" fill="#C6F36A"/>
+    <circle cx="48" cy="30" r="5" fill="#C6F36A" fill-opacity=".45"/>
+    <circle cx="68" cy="30" r="5" fill="#C6F36A" fill-opacity=".22"/>
+    <path d="M25 62h255" stroke="#D7E4C1" stroke-opacity=".09"/>
+    <rect x="28" y="86" width="112" height="76" rx="13" fill="#C6F36A" fill-opacity=".1" stroke="#C6F36A" stroke-opacity=".32"/>
+    <rect x="164" y="86" width="112" height="76" rx="13" fill="#C6F36A" fill-opacity=".06" stroke="#C6F36A" stroke-opacity=".18"/>
+    <rect x="28" y="184" width="248" height="68" rx="13" fill="#C6F36A" fill-opacity=".055" stroke="#C6F36A" stroke-opacity=".17"/>
+    <path d="M52 139l14-18 14 10 24-29m0 0v14m0-14H99M185 125h70m-70 16h48m-203 74h206m-206 14h152" stroke="url(#lime)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="248" cy="116" r="7" fill="#C6F36A"/>
+  </g>
+  <text x="95" y="612" fill="#838C79" font-family="Arial, sans-serif" font-size="16" letter-spacing="2">ENGINEERING POSSIBILITY</text>
+  <path d="M95 574h1010" stroke="#C6F36A" stroke-opacity=".22"/>
+</svg>

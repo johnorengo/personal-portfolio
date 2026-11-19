@@ -234,6 +234,31 @@ export const projectsData: Project[] = [
     "liveUrl": "https://citymartelectricals.com/"
   },
   {
+    "id": "hilken4tech",
+    "title": "Hilken4Tech",
+    "category": "commercial",
+    "categoryLabel": "Technology Solutions",
+    "summary": "A technology company website presenting Hilken4Tech's software engineering, website development, cloud, AI, cybersecurity and IT services. Its clear service paths help businesses connect a technology challenge with the right team.",
+    "description": "Hilken4Tech introduces a technology partner focused on software engineering, cloud infrastructure, intelligent automation and cybersecurity. The website explains how the company approaches complex business needs, then organizes its services across custom software, website development, AI and machine learning, cloud services, networking, backups, CCTV and IT support. A focused, responsive experience helps prospective clients understand the team's capabilities and start an enquiry.",
+    "image": "/projects/hilken4tech-cover.svg",
+    "imageFit": "cover",
+    "technologies": [
+      "React",
+      "Service showcase",
+      "Client enquiries"
+    ],
+    "metrics": [],
+    "keyDeliverables": [
+      "A clear brand story positions Hilken4Tech around software, cloud systems and intelligent experiences.",
+      "Service areas cover software and website development, cloud, AI, cybersecurity, networking, backup and CCTV.",
+      "Dedicated service details explain practical capabilities and help visitors identify relevant solutions.",
+      "Project case studies connect service claims with published commercial and government platforms.",
+      "Contact and enquiry pathways invite prospective clients to discuss their next project."
+    ],
+    "architectureHighlights": [],
+    "liveUrl": "https://hilken4tech.co.ke/"
+  },
+  {
     "id": "school-data-verification",
     "title": "School Data Verification System",
     "category": "government",
